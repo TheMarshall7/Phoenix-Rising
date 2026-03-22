@@ -89,17 +89,18 @@ export default function App() {
               transition={{ duration: 1.2, delay: 0.3 }}
               className="w-64 md:w-96 object-contain mb-8"
             />
-            <p className="text-sage tracking-[0.4em] uppercase font-bold text-[10px] mb-8">March 23 – April 12</p>
-            <h1 className="text-[12vw] md:text-[8vw] mb-10 leading-[0.85] text-burgundy font-light">
-              21 DAYS <br />
-              <span className="font-serif italic normal-case tracking-tight">of living.</span>
+            <p className="text-sage tracking-[0.4em] uppercase font-bold text-[10px] mb-8">March 23 – April 12 · Live Daily Sessions | Easter Integration Pause Included</p>
+            <h1 className="text-[10vw] md:text-[6vw] mb-10 leading-[0.9] text-burgundy font-light">
+              21 Days of <br />
+              <span className="font-serif italic normal-case tracking-tight">Embodied Living.</span>
             </h1>
             <div className="space-y-8 text-ink mb-16 max-w-md">
               <p className="text-[11px] tracking-[0.2em] uppercase font-bold leading-relaxed opacity-60">
-                A LIVE JOURNEY INTO LIVING WHAT YOU ALREADY KNOW.
+                A live journey into living what you already know.
               </p>
               <p className="text-lg md:text-xl font-light leading-relaxed text-ink/80">
-                You don’t need more information. You need the capacity to live what you already understand.
+                You don’t need more information. You don’t need another breakthrough. You don’t need to become someone new.<br /><br />
+                <span className="font-serif italic text-burgundy">You need the capacity to live what you already understand.</span>
               </p>
             </div>
             <div className="flex flex-col sm:flex-row gap-6">
@@ -130,8 +131,14 @@ export default function App() {
               <p className="text-xl font-serif italic text-burgundy/80 leading-relaxed mb-8">
                 "We are back with a very special edition of Phoenix Rising IV. It’s wild to see how this space has evolved in such a short time."
               </p>
-              <p className="text-ink/60 font-light leading-relaxed">
-                In the past, we gathered for two intense days. This time, we are stretching again into 21 days—creating space not just for inspiration, but for integration. Not just for awakening, but for practice.
+              <p className="text-ink/60 font-light leading-relaxed mb-6">
+                In the past, we gathered for two intense days. This time, we are stretching again into 21 days — creating space not just for inspiration, but for integration. Not just for awakening, but for practice.
+              </p>
+              <p className="text-ink/60 font-light leading-relaxed mb-6">
+                If you’re new here, hi. Welcome. Phoenix Rising began as a way to gather — to connect spiritual and wellness communities across the region, to create a space where wisdom is shared horizontally, not hierarchically.
+              </p>
+              <p className="text-ink/80 font-medium leading-relaxed italic border-l-2 border-sage/40 pl-4">
+                And this particular edition is very different. It is not another healing container. It is a return to living what you already know.
               </p>
             </div>
             
@@ -140,7 +147,10 @@ export default function App() {
                 <div className="absolute -left-8 top-0 w-px h-full bg-ink/5"></div>
                 <div className="pl-12">
                   <h3 className="text-[10px] tracking-[0.4em] uppercase font-bold text-sage mb-12">The Philosophy</h3>
-                  <div className="space-y-12">
+                  <div className="space-y-8">
+                    <p className="text-lg font-light leading-relaxed text-ink/70">
+                      21 Days of Embodied Living is a daily live container devoted to integration. Over three weeks, we move through nervous system regulation, inner authority, cyclical intelligence, pleasure, sustainability, and embodied leadership.
+                    </p>
                     <p className="text-3xl md:text-4xl font-light leading-snug text-ink">
                       You don’t need more information. <br />
                       You don’t need another breakthrough. <br />
@@ -149,6 +159,7 @@ export default function App() {
                     <p className="text-2xl font-serif italic text-burgundy">
                       You need the capacity to live what you already understand.
                     </p>
+                    <p className="text-ink/40 font-light italic tracking-wide uppercase text-[11px]">Not as concepts. As practice.</p>
                   </div>
                 </div>
               </div>
@@ -248,7 +259,8 @@ export default function App() {
             <div className="md:sticky md:top-32">
               <p className="text-sage text-[10px] tracking-[0.5em] uppercase mb-6 font-bold">The Roadmap</p>
               <h2 className="text-6xl md:text-8xl mb-10 font-light text-burgundy">21 DAYS <br /><span className="font-serif italic">of focus.</span></h2>
-              <p className="text-ink/50 font-light italic leading-relaxed">Each day features one live session. One focus. One embodied doorway into your own intelligence.</p>
+              <p className="text-ink/50 font-light italic leading-relaxed mb-4">Each day features one live session. One focus. One embodied doorway.</p>
+              <p className="text-ink/70 font-light leading-relaxed">This is here to help you walk your talk, and embody that which you already know.</p>
             </div>
             
             <div className="md:col-span-2 grid sm:grid-cols-2 gap-x-12 gap-y-20">
@@ -257,8 +269,9 @@ export default function App() {
                 { title: "Cyclical Intelligence", days: "Days 4-6", desc: "Moving from linear striving to the wisdom of seasons and rhythms." },
                 { title: "Inner Authority", days: "Days 7-9", desc: "Strengthening your inner compass and reclaiming your choice." },
                 { title: "Pleasure & Play", days: "Days 10-12", desc: "Reclaiming aliveness and creativity as essential tools for resilience." },
-                { title: "Sustainable Productivity", days: "Days 13-15", desc: "Aligning your work with your life without the cost of burnout." },
-                { title: "Embodied Leadership", days: "Days 16-18", desc: "Leading from a place of unshakeable wholeness and truth." },
+                { title: "Sustainable Productivity", days: "Days 13-14", desc: "Aligning your work with your life without the cost of burnout." },
+                { title: "Work/Life Alignment", days: "Days 15-16", desc: "Using cyclical wisdom to reshape how you work and rest sustainably." },
+                { title: "Embodied Leadership", days: "Days 17-18", desc: "Leading from a place of unshakeable wholeness and truth." },
                 { title: "Ancestral Remembrance", days: "Days 19-20", desc: "Rerooting into the wisdom and stories that carry us." },
                 { title: "Vision & Future Orientation", days: "Day 21", desc: "Embodying the next evolution of your path." }
               ].map((phase, i) => (
@@ -619,13 +632,30 @@ export default function App() {
             </div>
             <div className="p-16 bg-cream group hover:bg-paper transition-colors duration-700">
               <p className="text-sage text-[9px] tracking-[0.3em] uppercase font-bold mb-8 opacity-60">Format</p>
-              <p className="text-3xl font-serif italic text-burgundy mb-4">Daily live sessions</p>
-              <p className="text-xs text-ink/40 font-medium tracking-widest uppercase">Replay access included for life</p>
+              <p className="text-3xl font-serif italic text-burgundy mb-4">1–2 live sessions per day</p>
+              <p className="text-xs text-ink/40 font-medium tracking-widest uppercase">Replay access included</p>
             </div>
             <div className="p-16 bg-cream group hover:bg-paper transition-colors duration-700">
               <p className="text-sage text-[9px] tracking-[0.3em] uppercase font-bold mb-8 opacity-60">Investment</p>
               <p className="text-3xl font-serif italic text-burgundy mb-4">Secure Your Spot</p>
               <p className="text-xs text-ink/40 font-medium tracking-widest uppercase">Payment plans available</p>
+            </div>
+          </div>
+
+          <div className="mt-16 p-12 border border-ink/10 bg-paper">
+            <p className="text-sage text-[9px] tracking-[0.3em] uppercase font-bold mb-6 opacity-60">Session Times (Dubai)</p>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+              {[
+                { day: "Mon – Thu", time: "9:00 PM" },
+                { day: "Fridays", time: "11:00 AM" },
+                { day: "Saturdays", time: "11:00 AM & 12:30 PM" },
+                { day: "Sundays", time: "11:00 AM & 7:30 PM" },
+              ].map((slot, i) => (
+                <div key={i}>
+                  <p className="text-[10px] tracking-[0.2em] uppercase font-bold text-ink/40 mb-2">{slot.day}</p>
+                  <p className="text-xl font-serif italic text-burgundy">{slot.time}</p>
+                </div>
+              ))}
             </div>
           </div>
           
