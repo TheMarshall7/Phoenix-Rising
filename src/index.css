@@ -1,0 +1,66 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Josefin Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "PP Hatton", ui-serif, Georgia, serif;
+  
+  --color-gold: #C5A059;
+  --color-burgundy: #7b1103;
+  --color-cream: #F5F2ED;
+  --color-sage: #A3C4BC;
+  --color-ink: #1A1A1A;
+  --color-paper: #F9F7F4;
+}
+
+@layer base {
+  body {
+    @apply bg-cream text-ink font-sans antialiased selection:bg-sage selection:text-ink;
+    letter-spacing: -0.01em;
+  }
+  
+  h1, h2, h3, h4 {
+    @apply font-serif leading-[0.9] tracking-tight;
+  }
+}
+
+.glass {
+  @apply bg-white/5 backdrop-blur-xl border border-white/10;
+}
+
+.oval-mask {
+  clip-path: ellipse(40% 50% at 50% 50%);
+}
+
+.vertical-text {
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+}
+
+.section-padding {
+  @apply py-32 md:py-48 px-6;
+}
+
+.container-narrow {
+  @apply max-w-6xl mx-auto;
+}
+
+.line-divider {
+  @apply h-px w-full bg-ink/10;
+}
+
+.hover-reveal {
+  @apply transition-all duration-700 ease-out;
+}
+
+.hover-reveal:hover {
+  @apply tracking-[0.1em] opacity-80;
+}
+
+.hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
