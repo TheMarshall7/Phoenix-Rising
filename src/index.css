@@ -1,4 +1,45 @@
-@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap');
+@font-face {
+  font-family: 'PP Hatton';
+  src: url('./assets/fonts/PPHatton-Bold.otf') format('opentype');
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'PP Hatton';
+  src: url('./assets/fonts/PPHatton-Medium.otf') format('opentype');
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'PP Hatton';
+  src: url('./assets/fonts/PPHatton-Ultralight.otf') format('opentype');
+  font-weight: 200;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Josefin Sans';
+  src: url('./assets/fonts/JosefinSans-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Josefin Sans';
+  src: url('./assets/fonts/JosefinSans-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Josefin Sans';
+  src: url('./assets/fonts/JosefinSans-Light.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+}
+
 @import "tailwindcss";
 
 @theme {
