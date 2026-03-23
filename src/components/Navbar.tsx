@@ -25,6 +25,8 @@ export const Navbar: React.FC = () => {
     { name: "Sacred Spaces", path: "/sacred-spaces" },
   ];
 
+  const isDarkPage = location.pathname === "/" || location.pathname === "/sacred-spaces";
+
   return (
     <>
       <nav 
@@ -34,24 +36,32 @@ export const Navbar: React.FC = () => {
       >
         <div className="container mx-auto flex justify-between items-center">
           <Link to="/" className="relative z-50">
-            <img 
-              src="/logo-orange.png" 
-              alt="Maria Amiouni" 
-              className={`h-12 md:h-16 transition-all duration-700 ${scrolled ? "scale-90" : "scale-100"}`}
-            />
+            <span className={`text-2xl md:text-3xl font-serif italic tracking-wide transition-colors duration-700 ${
+              scrolled ? "text-burgundy" : (isDarkPage ? "text-cream" : "text-burgundy")
+            }`}>
+              Maria Amiouni
+            </span>
           </Link>
 
-          <div className="hidden md:flex items-center gap-12 text-[10px] tracking-[0.4em] uppercase font-bold text-ink/70">
+          <div className={`hidden md:flex items-center gap-12 text-[10px] tracking-[0.4em] uppercase font-bold transition-colors duration-700 ${
+            scrolled ? "text-ink/70" : (isDarkPage ? "text-cream/90" : "text-ink/70")
+          }`}>
             {navLinks.map((link) => (
               <Link 
                 key={link.name} 
                 to={link.path} 
-                className={`hover:text-burgundy transition-colors relative group ${
-                  location.pathname === link.path ? "text-burgundy" : ""
+                className={`transition-colors relative group ${
+                  scrolled 
+                    ? (location.pathname === link.path ? "text-burgundy" : "hover:text-burgundy")
+                    : (isDarkPage 
+                        ? (location.pathname === link.path ? "text-sage" : "hover:text-cream")
+                        : (location.pathname === link.path ? "text-burgundy" : "hover:text-burgundy"))
                 }`}
               >
                 {link.name}
-                <span className={`absolute -bottom-2 left-0 w-0 h-px bg-burgundy transition-all duration-500 group-hover:w-full ${
+                <span className={`absolute -bottom-2 left-0 w-0 h-px transition-all duration-500 group-hover:w-full ${
+                  scrolled ? "bg-burgundy" : (isDarkPage ? "bg-cream" : "bg-burgundy")
+                } ${
                   location.pathname === link.path ? "w-full" : ""
                 }`}></span>
               </Link>
@@ -60,7 +70,13 @@ export const Navbar: React.FC = () => {
               href="http://localhost:3000/" 
               target="_blank" 
               rel="noreferrer"
-              className="flex items-center gap-2 px-6 py-3 border border-burgundy/20 hover:bg-burgundy hover:text-white transition-all duration-500"
+              className={`flex items-center gap-2 px-6 py-3 border transition-all duration-500 ${
+                scrolled 
+                  ? "border-burgundy/20 hover:bg-burgundy hover:text-white" 
+                  : (isDarkPage 
+                      ? "border-cream/20 text-cream hover:bg-cream hover:text-burgundy" 
+                      : "border-burgundy/20 hover:bg-burgundy hover:text-white")
+              }`}
             >
               Phoenix Rising Summit
               <ArrowUpRight className="w-3 h-3" />
@@ -68,7 +84,9 @@ export const Navbar: React.FC = () => {
           </div>
 
           <button 
-            className="relative z-50 md:hidden p-2 text-ink"
+            className={`relative z-50 md:hidden p-2 transition-colors duration-700 ${
+              isOpen ? "text-cream" : (scrolled ? "text-ink" : (isDarkPage ? "text-cream" : "text-ink"))
+            }`}
             onClick={() => setIsOpen(!isOpen)}
           >
             {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}

@@ -181,6 +181,69 @@ export const HomePage: React.FC = () => {
           </div>
         </div>
       </section>
+      {/* HUMAN DESIGN SECTION - Dedicated Section */}
+      <section className="bg-ink py-48 relative overflow-hidden">
+        <div className="absolute top-0 right-0 w-1/3 h-full bg-burgundy/5 skew-x-12 translate-x-1/4"></div>
+        <div className="container mx-auto px-8 relative z-10">
+          <div className="grid lg:grid-cols-2 gap-24 items-center">
+            <FadeIn className="space-y-16">
+              <div className="space-y-6">
+                <p className="text-sage tracking-[0.5em] uppercase font-bold text-[10px]">Energetic Architecture</p>
+                <h2 className="text-6xl md:text-8xl font-medium leading-[0.8] text-cream">
+                  YOUR <br /><span className="font-serif italic text-sage lowercase">blueprint.</span>
+                </h2>
+              </div>
+              
+              <div className="space-y-10">
+                <p className="text-2xl md:text-3xl font-serif italic text-cream leading-relaxed border-l-2 border-burgundy pl-8 max-w-xl">
+                  Human Design is the synthesis of ancient wisdom and modern genetics—a roadmap to your unique resonance.
+                </p>
+                <div className="space-y-8 text-xl font-normal leading-relaxed text-cream/80 max-w-lg font-sans">
+                  <p>By understanding your type, strategy, and authority, you begin to decondition from societal expectations and align with your natural frequency. I guide you through the mechanics of your design to unlock clarity, self-trust, and effortless flow.</p>
+                </div>
+              </div>
+
+              <div className="pt-8">
+                <Link to="/human-design-readings">
+                  <Button variant="sage" className="group">
+                    Get your Chart Reading <ArrowRight className="w-4 h-4 ml-4 group-hover:translate-x-2 transition-transform" />
+                  </Button>
+                </Link>
+              </div>
+            </FadeIn>
+
+            <motion.div 
+               initial={{ opacity: 0, scale: 0.9 }}
+               whileInView={{ opacity: 1, scale: 1 }}
+               viewport={{ once: true }}
+               transition={{ duration: 1.5 }}
+               className="relative"
+            >
+              <div className="aspect-square rounded-full border border-cream/10 flex items-center justify-center relative">
+                 <div className="absolute inset-0 animate-pulse border border-sage/20 rounded-full scale-110"></div>
+                 <div className="w-4/5 h-4/5 rounded-full border border-burgundy/20 flex items-center justify-center">
+                    <img 
+                      src="/_273.jpg" 
+                      alt="Human Design" 
+                      className="w-full h-full object-cover rounded-full grayscale opacity-70 hover:grayscale-0 hover:opacity-100 transition-all duration-1000"
+                    />
+                 </div>
+                 {/* Floating Labels / Elements mimicking a chart */}
+                 <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-ink border border-sage/50 px-6 py-2 rounded-full shadow-2xl">
+                    <span className="text-[10px] tracking-widest text-sage uppercase font-bold">Resonance</span>
+                 </div>
+                 <div className="absolute bottom-1/4 -left-8 bg-ink border border-burgundy/50 px-6 py-2 rounded-full shadow-2xl">
+                    <span className="text-[10px] tracking-widest text-burgundy uppercase font-bold">Authority</span>
+                 </div>
+                 <div className="absolute bottom-1/4 -right-8 bg-ink border border-cream/20 px-6 py-2 rounded-full font-serif italic shadow-2xl">
+                    <span className="text-[11px] text-cream">Strategy</span>
+                 </div>
+              </div>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
 
       {/* CORE OFFERINGS - Quick Navigation */}
       <Section className="bg-paper py-48">
@@ -201,23 +264,23 @@ export const HomePage: React.FC = () => {
               <Link 
                 key={offering.name} 
                 to={offering.path}
-                className="group p-20 bg-paper hover:bg-burgundy transition-all duration-1000 relative overflow-hidden"
+                className="group p-16 lg:p-24 bg-paper hover:bg-burgundy transition-all duration-1000 relative overflow-hidden flex flex-col justify-between min-h-[450px]"
               >
-                <div className="absolute top-0 right-0 p-8 opacity-0 group-hover:opacity-20 transition-opacity duration-1000">
+                <div className="absolute top-0 right-0 p-8 opacity-0 group-hover:opacity-10 transition-opacity duration-1000">
                   <span className="text-9xl font-serif italic text-cream">0{i+1}</span>
                 </div>
-                <div className="relative z-10 space-y-8">
-                  <h3 className="text-3xl font-serif italic text-burgundy group-hover:text-cream transition-colors duration-700 whitespace-nowrap">
+                <div className="relative z-10 space-y-12">
+                  <h3 className="text-4xl font-serif italic text-burgundy group-hover:text-cream transition-colors duration-700">
                     {offering.name}
                   </h3>
-                  <p className="text-ink/60 font-light text-sm group-hover:text-cream/70 transition-colors duration-700">
+                  <p className="text-xl font-normal leading-relaxed text-ink/80 group-hover:text-cream transition-colors duration-700 max-w-xs">
                     {offering.desc}
                   </p>
-                  <div className="pt-8">
-                    <span className="text-[9px] tracking-[0.4em] uppercase font-bold text-burgundy group-hover:text-cream transition-colors duration-700 flex items-center gap-4">
-                      Explore <ArrowRight className="w-3 h-3" />
-                    </span>
-                  </div>
+                </div>
+                <div className="relative z-10 pt-12">
+                  <span className="text-[11px] tracking-[0.5em] uppercase font-bold text-burgundy group-hover:text-cream transition-colors duration-700 flex items-center gap-4">
+                    Explore <div className="w-12 h-px bg-burgundy/20 group-hover:bg-cream/40 transition-colors"></div> <ArrowRight className="w-4 h-4" />
+                  </span>
                 </div>
               </Link>
             ))}
