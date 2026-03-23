@@ -8,7 +8,7 @@ export const HomePage: React.FC = () => {
   return (
     <main className="bg-cream overflow-hidden">
       {/* HERO SECTION - Inspired by Screenshot 19-21-40 */}
-      <section className="relative min-h-[110vh] flex items-center bg-burgundy overflow-hidden pt-32">
+      <section className="relative min-h-[110vh] flex items-center bg-forest overflow-hidden pt-32">
         <div className="absolute inset-0 z-0 flex flex-col md:flex-row">
           <div className="w-full md:w-1/2 relative h-full">
             <motion.img 
@@ -19,12 +19,12 @@ export const HomePage: React.FC = () => {
               alt="Maria Amiouni" 
               className="w-full h-full object-cover opacity-70"
             />
-            <div className="absolute inset-0 bg-burgundy/30"></div>
+            <div className="absolute inset-0 bg-forest/30"></div>
             {/* Soft gradient fade mimicking the inspiration */}
-            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-burgundy/40 to-burgundy hidden md:block"></div>
-            <div className="absolute inset-0 bg-gradient-to-t from-burgundy via-burgundy/40 to-transparent md:hidden"></div>
+            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-forest/40 to-forest hidden md:block"></div>
+            <div className="absolute inset-0 bg-gradient-to-t from-forest via-forest/40 to-transparent md:hidden"></div>
           </div>
-          <div className="w-full md:w-1/2 bg-burgundy h-full hidden md:block relative z-0"></div>
+          <div className="w-full md:w-1/2 bg-forest h-full hidden md:block relative z-0"></div>
         </div>
         
         <div className="relative z-10 container mx-auto px-8 w-full h-full flex flex-col items-center md:items-end justify-center pt-24">
@@ -71,7 +71,7 @@ export const HomePage: React.FC = () => {
               className="relative order-2 lg:order-1"
             >
               {/* OVAL MASK INSPIRATION */}
-              <div className="aspect-[4/5] md:aspect-square mx-auto oval-mask overflow-hidden border border-burgundy/10 bg-cream group shadow-[0_0_100px_rgba(123,17,3,0.1)] transition-all duration-1000">
+              <div className="aspect-[4/5] md:aspect-square mx-auto oval-mask overflow-hidden border border-forest/10 bg-cream group shadow-[0_0_100px_rgba(123,17,3,0.1)] transition-all duration-1000">
                 <img 
                   src="/_280.jpg" 
                   alt="About Maria" 
@@ -91,8 +91,8 @@ export const HomePage: React.FC = () => {
 
             <FadeIn className="order-1 lg:order-2 space-y-16">
               <div className="space-y-6">
-                <p className="text-burgundy tracking-[0.5em] uppercase font-bold text-[10px]">The Lineage</p>
-                <h2 className="text-6xl md:text-8xl font-medium leading-none text-ink">HI, I'M <br /><span className="font-serif italic text-burgundy">Maria</span></h2>
+                <p className="text-forest tracking-[0.5em] uppercase font-bold text-[10px]">The Lineage</p>
+                <h2 className="text-6xl md:text-8xl font-medium leading-none text-ink">HI, I'M <br /><span className="font-serif italic text-forest">Maria</span></h2>
               </div>
               
               <div className="space-y-10">
@@ -106,7 +106,7 @@ export const HomePage: React.FC = () => {
                 </div>
 
                 <div className="flex flex-wrap gap-4 pt-6 border-t border-ink/5">
-                  <span className="text-[9px] tracking-[0.3em] uppercase font-bold border border-ink/10 px-6 py-2 rounded-full text-burgundy">Human Design Guide</span>
+                  <span className="text-[9px] tracking-[0.3em] uppercase font-bold border border-ink/10 px-6 py-2 rounded-full text-forest">Human Design Guide</span>
                   <span className="text-[9px] tracking-[0.3em] uppercase font-bold border border-sage/40 px-6 py-2 rounded-full text-sage">Somatic Mentor</span>
                   <span className="text-[9px] tracking-[0.3em] uppercase font-bold border border-ink/10 px-6 py-2 rounded-full text-ink/60">Space Holder</span>
                 </div>
@@ -139,9 +139,9 @@ export const HomePage: React.FC = () => {
             <FadeIn className="space-y-16">
               <div className="space-y-4">
                 <h2 className="text-5xl md:text-7xl font-medium text-ink uppercase tracking-tight">
-                  THE STORYTELLERS <br /><span className="font-serif italic lowercase text-burgundy tracking-normal">podcast</span>
+                  THE STORYTELLERS <br /><span className="font-serif italic lowercase text-forest tracking-normal">podcast</span>
                 </h2>
-                <div className="w-24 h-px bg-burgundy/30 my-10"></div>
+                <div className="w-24 h-px bg-forest/30 my-10"></div>
                 <p className="text-[10px] tracking-[0.4em] uppercase font-bold text-ink/40 mb-12">Featured Episodes:</p>
               </div>
 
@@ -161,11 +161,11 @@ export const HomePage: React.FC = () => {
                   >
                     <div className="flex items-center gap-12">
                       <span className="text-[10px] font-bold text-ink/30 font-sans tracking-widest">{i + 1}</span>
-                      <h3 className="text-lg md:text-xl font-medium text-ink/80 group-hover:text-burgundy transition-colors tracking-wide uppercase">
+                      <h3 className="text-lg md:text-xl font-medium text-ink/80 group-hover:text-forest transition-colors tracking-wide uppercase">
                         {ep}
                       </h3>
                     </div>
-                    <div className="w-12 h-12 rounded-full border border-ink/10 flex items-center justify-center group-hover:bg-burgundy group-hover:border-burgundy transition-all duration-700">
+                    <div className="w-12 h-12 rounded-full border border-ink/10 flex items-center justify-center group-hover:bg-forest group-hover:border-forest transition-all duration-700">
                       <Play className="w-4 h-4 text-ink group-hover:text-cream ml-1" />
                     </div>
                   </motion.div>
@@ -173,7 +173,7 @@ export const HomePage: React.FC = () => {
               </div>
 
               <div className="pt-16">
-                <a href="#" className="text-[10px] tracking-[0.4em] uppercase font-bold text-burgundy flex items-center gap-4 hover:gap-6 transition-all">
+                <a href="#" className="text-[10px] tracking-[0.4em] uppercase font-bold text-forest flex items-center gap-4 hover:gap-6 transition-all">
                   Listen to all episodes <ArrowRight className="w-4 h-4" />
                 </a>
               </div>
@@ -183,7 +183,7 @@ export const HomePage: React.FC = () => {
       </section>
       {/* HUMAN DESIGN SECTION - Dedicated Section */}
       <section className="bg-ink py-48 relative overflow-hidden">
-        <div className="absolute top-0 right-0 w-1/3 h-full bg-burgundy/5 skew-x-12 translate-x-1/4"></div>
+        <div className="absolute top-0 right-0 w-1/3 h-full bg-forest/5 skew-x-12 translate-x-1/4"></div>
         <div className="container mx-auto px-8 relative z-10">
           <div className="grid lg:grid-cols-2 gap-24 items-center">
             <FadeIn className="space-y-16">
@@ -195,7 +195,7 @@ export const HomePage: React.FC = () => {
               </div>
               
               <div className="space-y-10">
-                <p className="text-2xl md:text-3xl font-serif italic text-cream leading-relaxed border-l-2 border-burgundy pl-8 max-w-xl">
+                <p className="text-2xl md:text-3xl font-serif italic text-cream leading-relaxed border-l-2 border-forest pl-8 max-w-xl">
                   Human Design is the synthesis of ancient wisdom and modern genetics—a roadmap to your unique resonance.
                 </p>
                 <div className="space-y-8 text-xl font-normal leading-relaxed text-cream/80 max-w-lg font-sans">
@@ -221,7 +221,7 @@ export const HomePage: React.FC = () => {
             >
               <div className="aspect-square rounded-full border border-cream/10 flex items-center justify-center relative">
                  <div className="absolute inset-0 animate-pulse border border-sage/20 rounded-full scale-110"></div>
-                 <div className="w-4/5 h-4/5 rounded-full border border-burgundy/20 flex items-center justify-center">
+                 <div className="w-4/5 h-4/5 rounded-full border border-forest/20 flex items-center justify-center">
                     <img 
                       src="/_273.jpg" 
                       alt="Human Design" 
@@ -232,8 +232,8 @@ export const HomePage: React.FC = () => {
                  <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-ink border border-sage/50 px-6 py-2 rounded-full shadow-2xl">
                     <span className="text-[10px] tracking-widest text-sage uppercase font-bold">Resonance</span>
                  </div>
-                 <div className="absolute bottom-1/4 -left-8 bg-ink border border-burgundy/50 px-6 py-2 rounded-full shadow-2xl">
-                    <span className="text-[10px] tracking-widest text-burgundy uppercase font-bold">Authority</span>
+                 <div className="absolute bottom-1/4 -left-8 bg-ink border border-forest/50 px-6 py-2 rounded-full shadow-2xl">
+                    <span className="text-[10px] tracking-widest text-forest uppercase font-bold">Authority</span>
                  </div>
                  <div className="absolute bottom-1/4 -right-8 bg-ink border border-cream/20 px-6 py-2 rounded-full font-serif italic shadow-2xl">
                     <span className="text-[11px] text-cream">Strategy</span>
@@ -249,7 +249,7 @@ export const HomePage: React.FC = () => {
       <Section className="bg-paper py-48">
         <div className="container mx-auto px-8">
           <div className="text-center mb-32">
-            <h2 className="text-5xl md:text-7xl font-medium text-ink mb-12">LIVING THE <span className="font-serif italic text-burgundy">work.</span></h2>
+            <h2 className="text-5xl md:text-7xl font-medium text-ink mb-12">LIVING THE <span className="font-serif italic text-forest">work.</span></h2>
             <p className="text-lg font-light text-ink/50 max-w-2xl mx-auto italic tracking-wide">
               Detailed paths designed to bring you home to your sovereignty.
             </p>
@@ -264,13 +264,13 @@ export const HomePage: React.FC = () => {
               <Link 
                 key={offering.name} 
                 to={offering.path}
-                className="group p-16 lg:p-24 bg-paper hover:bg-burgundy transition-all duration-1000 relative overflow-hidden flex flex-col justify-between min-h-[450px]"
+                className="group p-16 lg:p-24 bg-paper hover:bg-forest transition-all duration-1000 relative overflow-hidden flex flex-col justify-between min-h-[450px]"
               >
                 <div className="absolute top-0 right-0 p-8 opacity-0 group-hover:opacity-10 transition-opacity duration-1000">
                   <span className="text-9xl font-serif italic text-cream">0{i+1}</span>
                 </div>
                 <div className="relative z-10 space-y-12">
-                  <h3 className="text-4xl font-serif italic text-burgundy group-hover:text-cream transition-colors duration-700">
+                  <h3 className="text-4xl font-serif italic text-forest group-hover:text-cream transition-colors duration-700">
                     {offering.name}
                   </h3>
                   <p className="text-xl font-normal leading-relaxed text-ink/80 group-hover:text-cream transition-colors duration-700 max-w-xs">
@@ -278,8 +278,8 @@ export const HomePage: React.FC = () => {
                   </p>
                 </div>
                 <div className="relative z-10 pt-12">
-                  <span className="text-[11px] tracking-[0.5em] uppercase font-bold text-burgundy group-hover:text-cream transition-colors duration-700 flex items-center gap-4">
-                    Explore <div className="w-12 h-px bg-burgundy/20 group-hover:bg-cream/40 transition-colors"></div> <ArrowRight className="w-4 h-4" />
+                  <span className="text-[11px] tracking-[0.5em] uppercase font-bold text-forest group-hover:text-cream transition-colors duration-700 flex items-center gap-4">
+                    Explore <div className="w-12 h-px bg-forest/20 group-hover:bg-cream/40 transition-colors"></div> <ArrowRight className="w-4 h-4" />
                   </span>
                 </div>
               </Link>

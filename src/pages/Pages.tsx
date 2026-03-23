@@ -9,27 +9,27 @@ export const PilgrimagePage: React.FC = () => (
     <section className="pt-48 pb-32 px-8">
       <div className="container mx-auto">
         <FadeIn className="text-center mb-32 space-y-8">
-          <p className="text-burgundy tracking-[0.4em] uppercase font-bold text-[10px]">Immersive Sacred Travel</p>
+          <p className="text-forest tracking-[0.4em] uppercase font-bold text-[10px]">Immersive Sacred Travel</p>
           <h1 className="text-7xl md:text-[8rem] lg:text-[10rem] font-medium text-ink leading-[0.8]">
-            THE <br /><span className="font-serif italic text-burgundy lowercase">pilgrimages</span>
+            THE <br /><span className="font-serif italic text-forest lowercase">pilgrimages</span>
           </h1>
-          <div className="w-24 h-px bg-burgundy/20 mx-auto my-12"></div>
+          <div className="w-24 h-px bg-forest/20 mx-auto my-12"></div>
         </FadeIn>
 
         <div className="grid lg:grid-cols-12 gap-24 items-start">
           <div className="lg:col-span-5 sticky top-32">
             <div className="relative group">
               <img src="/_310.jpg" className="w-full aspect-[4/5] object-cover rounded-sm grayscale-[20%] mb-12 shadow-2xl transition-all duration-1000 group-hover:grayscale-0" alt="Pilgrimage" />
-              <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-burgundy/5 rounded-full blur-3xl group-hover:bg-burgundy/10 transition-colors"></div>
+              <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-forest/5 rounded-full blur-3xl group-hover:bg-forest/10 transition-colors"></div>
             </div>
-            <p className="text-2xl font-serif italic text-burgundy leading-relaxed">
+            <p className="text-2xl font-serif italic text-forest leading-relaxed">
               "Walking the rhythms of the earth, we uncover the ancient Mother Line that beats within our own hearts."
             </p>
           </div>
           
           <div className="lg:col-span-7 space-y-24">
             <div className="space-y-8">
-               <h2 className="text-5xl font-serif italic text-ink">The Longing for <br /><span className="text-burgundy">Direct Experience.</span></h2>
+               <h2 className="text-5xl font-serif italic text-ink">The Longing for <br /><span className="text-forest">Direct Experience.</span></h2>
                <div className="space-y-6 text-xl font-light text-ink/70 leading-relaxed italic">
                   <p>"Reading about Her in books was not enough. I longed to experience the lands She walked on, to feel Her presence, not just through the words of others, but through my own direct experience. Who was She? Why was I so drawn to Her?"</p>
                   <p>My personal journey toward reconnecting with the Divine Mother began after I underwent surgery on my womb. It was then that I found myself asking new, unexpected questions: Who is the Divine Mother? What is making women in our society so ill? How can She rise again?</p>
@@ -56,16 +56,16 @@ export const PilgrimagePage: React.FC = () => (
                       <span className="text-[9px] border border-ink/10 px-4 py-1.5 uppercase font-bold text-ink/40 tracking-widest">{course.level}</span>
                     </div>
                   </div>
-                  <h3 className="text-4xl md:text-5xl font-serif italic text-burgundy mb-8 group-hover:translate-x-4 transition-transform duration-700">{course.title}</h3>
+                  <h3 className="text-4xl md:text-5xl font-serif italic text-forest mb-8 group-hover:translate-x-4 transition-transform duration-700">{course.title}</h3>
                   <p className="text-lg md:text-xl font-light text-ink/60 leading-relaxed max-w-2xl mb-12">{course.desc}</p>
                   {course.title === "Walking the Mother Line" ? (
                     <a href="/Walking_the_Mother_Line.pdf" target="_blank" rel="noreferrer">
-                      <Button variant="primary" className="group-hover:bg-burgundy group-hover:text-cream group-hover:border-burgundy">
+                      <Button variant="primary" className="group-hover:bg-forest group-hover:text-cream group-hover:border-forest">
                         Read the Guide Details <ArrowRight className="ml-4 w-4 h-4" />
                       </Button>
                     </a>
                   ) : (
-                    <Button variant="outline" className="group-hover:bg-burgundy group-hover:text-cream group-hover:border-burgundy">
+                    <Button variant="outline" className="group-hover:bg-forest group-hover:text-cream group-hover:border-forest">
                       View Itinerary <ArrowRight className="ml-4 w-4 h-4" />
                     </Button>
                   )}
@@ -78,7 +78,7 @@ export const PilgrimagePage: React.FC = () => (
     </section>
 
     {/* QUOTE SECTION (RED BREAKUP) */}
-    <section className="bg-burgundy py-48 relative overflow-hidden">
+    <section className="bg-forest py-48 relative overflow-hidden">
       <div className="absolute top-0 left-0 w-full h-full opacity-10 pointer-events-none">
         <div className="absolute top-1/2 left-1/4 w-[800px] h-[800px] bg-cream rounded-full blur-[160px] -translate-y-1/2"></div>
       </div>
@@ -101,8 +101,8 @@ export const PilgrimagePage: React.FC = () => (
     <section className="bg-cream py-48 px-8">
       <div className="container mx-auto">
         <div className="text-center mb-32">
-           <p className="text-burgundy tracking-[0.4em] uppercase font-bold text-[10px] mb-8">The Wisdom Carriers</p>
-           <h2 className="text-6xl md:text-7xl font-serif italic text-ink">Your <span className="text-burgundy">Guides.</span></h2>
+           <p className="text-forest tracking-[0.4em] uppercase font-bold text-[10px] mb-8">The Wisdom Carriers</p>
+           <h2 className="text-6xl md:text-7xl font-serif italic text-ink">Your <span className="text-forest">Guides.</span></h2>
         </div>
         <div className="grid lg:grid-cols-2 gap-32">
           {/* AUDE BARRAS */}
@@ -110,7 +110,7 @@ export const PilgrimagePage: React.FC = () => (
              <div className="flex flex-col md:flex-row gap-12 items-center md:items-start text-center md:text-left">
                 <img src="/_310.jpg" className="w-48 h-48 rounded-full object-cover grayscale" alt="Aude Barras" />
                 <div className="space-y-4">
-                   <h3 className="text-4xl font-serif italic text-burgundy">Aude Barras</h3>
+                   <h3 className="text-4xl font-serif italic text-forest">Aude Barras</h3>
                    <span className="text-[10px] tracking-[0.3em] uppercase font-bold text-ink/40">Pilgrimage Guide</span>
                 </div>
              </div>
@@ -125,7 +125,7 @@ export const PilgrimagePage: React.FC = () => (
              <div className="flex flex-col md:flex-row gap-12 items-center md:items-start text-center md:text-left">
                 <img src="/_114.jpg" className="w-48 h-48 rounded-full object-cover grayscale" alt="Maria Amiouni" />
                 <div className="space-y-4">
-                   <h3 className="text-4xl font-serif italic text-burgundy">Maria Amiouni</h3>
+                   <h3 className="text-4xl font-serif italic text-forest">Maria Amiouni</h3>
                    <span className="text-[10px] tracking-[0.3em] uppercase font-bold text-ink/40">Spiritual Mentor & Mystery Lover</span>
                 </div>
              </div>
@@ -142,8 +142,8 @@ export const PilgrimagePage: React.FC = () => (
     <section className="bg-paper py-48 px-8 border-y border-ink/5">
        <div className="container mx-auto overflow-hidden">
           <div className="text-center mb-32">
-             <p className="text-burgundy tracking-[0.4em] uppercase font-bold text-[10px] mb-8">Investment & Sanctuary</p>
-             <h2 className="text-6xl md:text-7xl font-serif italic text-ink uppercase">Room <span className="text-burgundy">Types.</span></h2>
+             <p className="text-forest tracking-[0.4em] uppercase font-bold text-[10px] mb-8">Investment & Sanctuary</p>
+             <h2 className="text-6xl md:text-7xl font-serif italic text-ink uppercase">Room <span className="text-forest">Types.</span></h2>
           </div>
           
           <div className="overflow-x-auto">
@@ -156,7 +156,7 @@ export const PilgrimagePage: React.FC = () => (
                   </tr>
                </thead>
                <tbody className="text-lg font-serif italic text-ink">
-                  <tr className="border-b border-ink/5 hover:bg-burgundy/5 transition-colors">
+                  <tr className="border-b border-ink/5 hover:bg-forest/5 transition-colors">
                      <td className="py-16 px-6">
                         <span className="block text-2xl mb-2">Deluxe</span>
                         <span className="text-[10px] font-sans uppercase tracking-[0.2em] font-bold opacity-40">Single Room + Private Bath</span>
@@ -170,7 +170,7 @@ export const PilgrimagePage: React.FC = () => (
                         <span className="text-[10px] font-sans uppercase tracking-[0.2em] font-bold opacity-40">$1,400 / month</span>
                      </td>
                   </tr>
-                  <tr className="border-b border-ink/5 hover:bg-burgundy/5 transition-colors">
+                  <tr className="border-b border-ink/5 hover:bg-forest/5 transition-colors">
                      <td className="py-16 px-6">
                         <span className="block text-2xl mb-2">Single Occupancy</span>
                         <span className="text-[10px] font-sans uppercase tracking-[0.2em] font-bold opacity-40">Single Room / Shared Bath</span>
@@ -184,7 +184,7 @@ export const PilgrimagePage: React.FC = () => (
                         <span className="text-[10px] font-sans uppercase tracking-[0.2em] font-bold opacity-40">$1,333 / month</span>
                      </td>
                   </tr>
-                  <tr className="border-b border-ink/5 hover:bg-burgundy/5 transition-colors">
+                  <tr className="border-b border-ink/5 hover:bg-forest/5 transition-colors">
                      <td className="py-16 px-6">
                         <span className="block text-2xl mb-2">Double Occupancy</span>
                         <span className="text-[10px] font-sans uppercase tracking-[0.2em] font-bold opacity-40">Shared Room + Bathroom</span>
@@ -204,7 +204,7 @@ export const PilgrimagePage: React.FC = () => (
 
           <div className="grid md:grid-cols-2 gap-24 mt-48">
              <FadeIn className="space-y-12">
-                <h3 className="text-4xl font-serif italic text-burgundy">3 Month Payment Schedule</h3>
+                <h3 className="text-4xl font-serif italic text-forest">3 Month Payment Schedule</h3>
                 <div className="space-y-8">
                    {[
                      { date: "Nov 15 - Jan 31", label: "1st Payment (Sacred Deposit)" },
@@ -223,7 +223,7 @@ export const PilgrimagePage: React.FC = () => (
              </FadeIn>
 
              <FadeIn className="space-y-12">
-                <h3 className="text-4xl font-serif italic text-burgundy">Important Dates</h3>
+                <h3 className="text-4xl font-serif italic text-forest">Important Dates</h3>
                 <div className="space-y-8">
                    {[
                      { date: "Jan 18, 2025", label: "Early-Bird Opens" },
@@ -247,8 +247,8 @@ export const PilgrimagePage: React.FC = () => (
        <div className="container mx-auto">
           <div className="grid lg:grid-cols-12 gap-12 items-end mb-24">
              <div className="lg:col-span-8 space-y-8">
-                <p className="text-burgundy tracking-[0.4em] uppercase font-bold text-[10px]">The Sacred Villa</p>
-                <h2 className="text-6xl md:text-8xl font-serif italic text-ink leading-[0.8]">The <span className="text-burgundy">Sanctuary.</span></h2>
+                <p className="text-forest tracking-[0.4em] uppercase font-bold text-[10px]">The Sacred Villa</p>
+                <h2 className="text-6xl md:text-8xl font-serif italic text-ink leading-[0.8]">The <span className="text-forest">Sanctuary.</span></h2>
              </div>
              <div className="lg:col-span-4 pb-4">
                 <p className="text-lg font-light text-ink/60 italic leading-relaxed">
@@ -319,8 +319,8 @@ export const PilgrimagePage: React.FC = () => (
     <section className="bg-paper py-48 px-8">
        <div className="container mx-auto">
           <div className="text-center mb-32">
-             <p className="text-burgundy tracking-[0.4em] uppercase font-bold text-[10px] mb-8">Reflections from the path</p>
-             <h2 className="text-6xl md:text-7xl font-serif italic text-ink">Pilgrim <span className="text-burgundy">Stories.</span></h2>
+             <p className="text-forest tracking-[0.4em] uppercase font-bold text-[10px] mb-8">Reflections from the path</p>
+             <h2 className="text-6xl md:text-7xl font-serif italic text-ink">Pilgrim <span className="text-forest">Stories.</span></h2>
           </div>
 
           <div className="grid md:grid-cols-2 gap-16">
@@ -343,11 +343,11 @@ export const PilgrimagePage: React.FC = () => (
              ].map((test, i) => (
                 <FadeIn key={i} className="bg-white p-16 border border-ink/5 flex flex-col justify-between">
                    <div className="space-y-8">
-                      <Star className="w-8 h-8 text-burgundy opacity-20" />
+                      <Star className="w-8 h-8 text-forest opacity-20" />
                       <p className="text-2xl font-serif italic text-ink/80 leading-relaxed italic">"{test.quote}"</p>
                    </div>
                    <div className="pt-16 border-t border-ink/5 mt-16">
-                      <h4 className="text-lg font-serif italic text-burgundy">{test.name}</h4>
+                      <h4 className="text-lg font-serif italic text-forest">{test.name}</h4>
                       <p className="text-[9px] uppercase tracking-widest font-bold text-ink/40 mt-2">{test.role}</p>
                    </div>
                 </FadeIn>
@@ -393,19 +393,19 @@ export const MentorshipPage: React.FC = () => (
   <main className="bg-cream pt-48 pb-60 px-8">
      <div className="container mx-auto">
       <FadeIn className="text-center mb-32 space-y-8">
-        <p className="text-burgundy tracking-[0.4em] uppercase font-bold text-[10px]">1-on-1 Sanctuary</p>
-        <h1 className="text-7xl md:text-9xl font-medium text-ink">PRIVATE <br /><span className="font-serif italic text-burgundy">mentorship</span></h1>
-        <div className="w-24 h-px bg-burgundy/20 mx-auto my-12"></div>
+        <p className="text-forest tracking-[0.4em] uppercase font-bold text-[10px]">1-on-1 Sanctuary</p>
+        <h1 className="text-7xl md:text-9xl font-medium text-ink">PRIVATE <br /><span className="font-serif italic text-forest">mentorship</span></h1>
+        <div className="w-24 h-px bg-forest/20 mx-auto my-12"></div>
       </FadeIn>
 
       <div className="grid lg:grid-cols-2 gap-24 items-center">
         <div className="aspect-square relative flex items-center justify-center">
            <img src="/_31.jpg" className="w-full h-full object-cover rounded-full grayscale-[10%]" alt="Coaching" />
-           <div className="absolute inset-0 border-[2px] border-burgundy/20 rounded-full scale-110"></div>
+           <div className="absolute inset-0 border-[2px] border-forest/20 rounded-full scale-110"></div>
         </div>
         
         <FadeIn className="space-y-12">
-          <p className="text-3xl font-serif italic text-burgundy leading-snug">
+          <p className="text-3xl font-serif italic text-forest leading-snug">
             A bespoke journey into the heart of your sovereign truth, blending psychotherapy with spirit-led guidance.
           </p>
           <div className="space-y-8 text-lg font-light text-ink/70 leading-relaxed">
@@ -427,7 +427,7 @@ export const MentorshipPage: React.FC = () => (
 
       <FadeIn className="mt-48">
         <div className="text-center mb-24">
-          <p className="text-burgundy tracking-[0.3em] uppercase font-bold text-[10px] mb-8">Client Reflections</p>
+          <p className="text-forest tracking-[0.3em] uppercase font-bold text-[10px] mb-8">Client Reflections</p>
           <h2 className="text-5xl md:text-6xl font-serif italic text-ink mb-12">Witnessed Shifts.</h2>
           <p className="text-ink/60 font-light max-w-xl mx-auto tracking-wide">
             Glimpses into the inner movement and profound breakthroughs experienced within the 1-on-1 Sanctuary.
@@ -463,10 +463,10 @@ export const MentorshipPage: React.FC = () => (
                whileInView={{ opacity: 1, y: 0 }}
                viewport={{ once: true }}
                transition={{ delay: i * 0.1 }}
-               className="relative overflow-hidden group bg-paper p-12 md:p-16 border border-burgundy/5 rounded-sm hover:shadow-2xl hover:shadow-burgundy/5 transition-all duration-700 h-full flex flex-col justify-between"
+               className="relative overflow-hidden group bg-paper p-12 md:p-16 border border-forest/5 rounded-sm hover:shadow-2xl hover:shadow-forest/5 transition-all duration-700 h-full flex flex-col justify-between"
              >
                <div className="absolute top-0 right-0 p-8 opacity-5 group-hover:opacity-10 transition-opacity">
-                 <Star className="w-12 h-12 text-burgundy" />
+                 <Star className="w-12 h-12 text-forest" />
                </div>
                
                <div className="space-y-8 relative z-10">
@@ -478,8 +478,8 @@ export const MentorshipPage: React.FC = () => (
 
                <div className="pt-12 border-t border-ink/5 mt-auto">
                  <div className="flex items-center gap-4">
-                    <div className="w-8 h-px bg-burgundy/30"></div>
-                    <span className="text-[10px] tracking-[0.4em] uppercase font-bold text-burgundy">{testimonial.author}</span>
+                    <div className="w-8 h-px bg-forest/30"></div>
+                    <span className="text-[10px] tracking-[0.4em] uppercase font-bold text-forest">{testimonial.author}</span>
                  </div>
                </div>
              </motion.div>
@@ -492,7 +492,7 @@ export const MentorshipPage: React.FC = () => (
 
 export const SacredSpacesPage: React.FC = () => (
   <main className="bg-ink text-cream pt-48 pb-60 px-8 relative overflow-hidden">
-    <div className="absolute top-0 right-0 w-1/3 h-full bg-burgundy/10 -skew-x-12 translate-x-1/2"></div>
+    <div className="absolute top-0 right-0 w-1/3 h-full bg-forest/10 -skew-x-12 translate-x-1/2"></div>
     <div className="container mx-auto relative z-10">
       <FadeIn className="text-center mb-32 space-y-8">
         <p className="text-sage tracking-[0.4em] uppercase font-bold text-[10px]">Community & Connection</p>
@@ -502,7 +502,7 @@ export const SacredSpacesPage: React.FC = () => (
 
       <div className="grid lg:grid-cols-12 gap-24 items-start">
         <div className="lg:col-span-4 shrink-0">
-           <div className="relative p-12 bg-burgundy/20 border border-sage/10 rounded-sm">
+           <div className="relative p-12 bg-forest/20 border border-sage/10 rounded-sm">
              <h3 className="text-2xl font-serif italic text-sage mb-8">Gathering locally and globally.</h3>
              <p className="text-cream/60 font-light leading-relaxed mb-8 italic">In-person and virtual containers devoted to somatic practice, horizontal sharing, and collective liberation.</p>
              <div className="space-y-4 pt-8">

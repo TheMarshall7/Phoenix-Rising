@@ -27,10 +27,10 @@ export const Button: React.FC<ButtonProps> = ({
   const baseStyles = "inline-flex items-center justify-center px-10 py-5 text-[10px] tracking-[0.4em] uppercase font-bold transition-all duration-500 rounded-sm disabled:opacity-50 disabled:cursor-not-allowed";
   
   const variants = {
-    primary: "bg-burgundy text-cream hover:bg-ink hover:text-white shadow-lg translate-y-0 hover:-translate-y-1",
-    outline: "border border-ink/20 text-ink hover:border-burgundy hover:text-burgundy hover:bg-burgundy/5",
-    ghost: "text-ink/60 hover:text-burgundy tracking-widest px-0 py-0",
-    sage: "bg-sage text-ink hover:bg-burgundy hover:text-cream px-12"
+    primary: "bg-forest text-cream hover:bg-ink hover:text-white shadow-lg translate-y-0 hover:-translate-y-1",
+    outline: "border border-ink/20 text-ink hover:border-forest hover:text-forest hover:bg-forest/5",
+    ghost: "text-ink/60 hover:text-forest tracking-widest px-0 py-0",
+    sage: "bg-sage text-ink hover:bg-forest hover:text-cream px-12"
   };
 
   return (

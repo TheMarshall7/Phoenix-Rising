@@ -47,7 +47,7 @@
   --font-serif: "PP Hatton", ui-serif, Georgia, serif;
   
   --color-gold: #C5A059;
-  --color-burgundy: #7b1103;
+  --color-forest: #02453B;
   --color-cream: #F5F2ED;
   --color-sage: #A3C4BC;
   --color-ink: #1A1A1A;
@@ -110,7 +110,7 @@
 }
 
 .glow-card {
-  @apply relative overflow-hidden bg-burgundy/5 border border-burgundy/10 rounded-sm;
+  @apply relative overflow-hidden bg-forest/5 border border-forest/10 rounded-sm;
 }
 
 .glow-card::before {

@@ -37,7 +37,7 @@ export const Navbar: React.FC = () => {
         <div className="container mx-auto flex justify-between items-center">
           <Link to="/" className="relative z-50">
             <span className={`text-2xl md:text-3xl font-serif italic tracking-wide transition-colors duration-700 ${
-              scrolled ? "text-burgundy" : (isDarkPage ? "text-cream" : "text-burgundy")
+              scrolled ? "text-forest" : (isDarkPage ? "text-cream" : "text-forest")
             }`}>
               Maria Amiouni
             </span>
@@ -52,15 +52,15 @@ export const Navbar: React.FC = () => {
                 to={link.path} 
                 className={`transition-colors relative group ${
                   scrolled 
-                    ? (location.pathname === link.path ? "text-burgundy" : "hover:text-burgundy")
+                    ? (location.pathname === link.path ? "text-forest" : "hover:text-forest")
                     : (isDarkPage 
                         ? (location.pathname === link.path ? "text-sage" : "hover:text-cream")
-                        : (location.pathname === link.path ? "text-burgundy" : "hover:text-burgundy"))
+                        : (location.pathname === link.path ? "text-forest" : "hover:text-forest"))
                 }`}
               >
                 {link.name}
                 <span className={`absolute -bottom-2 left-0 w-0 h-px transition-all duration-500 group-hover:w-full ${
-                  scrolled ? "bg-burgundy" : (isDarkPage ? "bg-cream" : "bg-burgundy")
+                  scrolled ? "bg-forest" : (isDarkPage ? "bg-cream" : "bg-forest")
                 } ${
                   location.pathname === link.path ? "w-full" : ""
                 }`}></span>
@@ -72,10 +72,10 @@ export const Navbar: React.FC = () => {
               rel="noreferrer"
               className={`flex items-center gap-2 px-6 py-3 border transition-all duration-500 ${
                 scrolled 
-                  ? "border-burgundy/20 hover:bg-burgundy hover:text-white" 
+                  ? "border-forest/20 hover:bg-forest hover:text-white" 
                   : (isDarkPage 
-                      ? "border-cream/20 text-cream hover:bg-cream hover:text-burgundy" 
-                      : "border-burgundy/20 hover:bg-burgundy hover:text-white")
+                      ? "border-cream/20 text-cream hover:bg-cream hover:text-forest" 
+                      : "border-forest/20 hover:bg-forest hover:text-white")
               }`}
             >
               Phoenix Rising Summit
@@ -101,7 +101,7 @@ export const Navbar: React.FC = () => {
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: "100%" }}
             transition={{ type: "spring", damping: 25, stiffness: 200 }}
-            className="fixed inset-0 z-40 bg-burgundy text-cream flex flex-col items-center justify-center gap-12 pt-20"
+            className="fixed inset-0 z-40 bg-forest text-cream flex flex-col items-center justify-center gap-12 pt-20"
           >
             {navLinks.map((link) => (
               <motion.div
@@ -123,7 +123,7 @@ export const Navbar: React.FC = () => {
               >
                 <a 
                   href="http://localhost:3000/" 
-                  className="px-10 py-5 border border-cream/20 text-[10px] tracking-widest uppercase font-bold hover:bg-cream hover:text-burgundy transition-all"
+                  className="px-10 py-5 border border-cream/20 text-[10px] tracking-widest uppercase font-bold hover:bg-cream hover:text-forest transition-all"
                 >
                   Phoenix Rising Summit
                 </a>
