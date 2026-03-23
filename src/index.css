@@ -1,0 +1,123 @@
+@font-face {
+  font-family: 'PP Hatton';
+  src: url('./assets/fonts/PPHatton-Bold.otf') format('opentype');
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'PP Hatton';
+  src: url('./assets/fonts/PPHatton-Medium.otf') format('opentype');
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'PP Hatton';
+  src: url('./assets/fonts/PPHatton-Ultralight.otf') format('opentype');
+  font-weight: 200;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Josefin Sans';
+  src: url('./assets/fonts/JosefinSans-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Josefin Sans';
+  src: url('./assets/fonts/JosefinSans-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Josefin Sans';
+  src: url('./assets/fonts/JosefinSans-Light.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+}
+
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Josefin Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "PP Hatton", ui-serif, Georgia, serif;
+  
+  --color-gold: #C5A059;
+  --color-burgundy: #7b1103;
+  --color-cream: #F5F2ED;
+  --color-sage: #A3C4BC;
+  --color-ink: #1A1A1A;
+  --color-paper: #F9F7F4;
+  --color-sunset: #DCAA78;
+}
+
+@layer base {
+  body {
+    @apply bg-cream text-ink font-sans antialiased selection:bg-sage selection:text-ink;
+    letter-spacing: -0.01em;
+  }
+  
+  h1, h2, h3, h4 {
+    @apply font-serif leading-[0.9] tracking-tight;
+  }
+  
+  h1 span, h2 span, h3 span, h4 span {
+    @apply font-serif italic font-light;
+  }
+}
+
+@layer utilities {
+  .oval-mask {
+    clip-path: ellipse(40% 50% at 50% 50%);
+  }
+
+  .vertical-text {
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+  }
+
+  .hide-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .hide-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  .mask-fade-right {
+    mask-image: linear-gradient(to right, black, transparent);
+  }
+
+  .mask-fade-left {
+    mask-image: linear-gradient(to left, black, transparent);
+  }
+
+  .star-mask {
+    clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+  }
+}
+
+.container-narrow {
+  @apply max-w-6xl mx-auto;
+}
+
+.section-padding {
+  @apply py-32 md:py-48 px-8;
+}
+
+.glow-card {
+  @apply relative overflow-hidden bg-burgundy/5 border border-burgundy/10 rounded-sm;
+}
+
+.glow-card::before {
+  content: '';
+  @apply absolute top-0 right-0 w-64 h-64 bg-sage/20 rounded-full -translate-y-1/2 translate-x-1/2 blur-3xl opacity-0 transition-opacity duration-700;
+}
+
+.glow-card:hover::before {
+  @apply opacity-100;
+}
