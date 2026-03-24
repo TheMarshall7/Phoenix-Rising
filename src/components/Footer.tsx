@@ -44,7 +44,7 @@ export const Footer: React.FC = () => {
             <h3 className="text-[10px] tracking-[0.4em] uppercase font-bold text-sage mb-10">Connect</h3>
              <div className="flex flex-col gap-6 text-sm font-light text-cream/50 tracking-widest uppercase">
               <a href="https://www.instagram.com/maria.amiouni" target="_blank" rel="noreferrer" className="hover:text-cream transition-colors">Instagram</a>
-              <a href="mailto:hello@mariaamiouni.com" className="hover:text-cream transition-colors">Contact</a>
+              <a href="mailto:mariaamiouni@gmail.com" className="hover:text-cream transition-colors">Contact</a>
             </div>
           </div>
         </div>

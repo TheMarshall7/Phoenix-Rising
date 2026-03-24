@@ -36,71 +36,86 @@ export const PilgrimagePage: React.FC = () => (
                </div>
             </div>
 
-            <div className="pt-16 space-y-32">
-              {[
-                { title: "Walking the Mother Line", duration: "May 2026", level: "Open", desc: "A deep dive into the physiological and energetic foundations of the divine feminine. Join a circle of hearts traversing ancient lands to honor the goddess within and without." },
-                { title: "Circle of the Rose", duration: "Late 2026", level: "Waitlist", desc: "An initiation into the mysteries of the rose lineage. Reclaiming sovereignty, subtle body healing, and collective ceremony in sacred locations." }
-              ].map((course, i) => (
-                <motion.div 
-                   key={course.title} 
-                   initial={{ opacity: 0, x: 20 }}
-                   whileInView={{ opacity: 1, x: 0 }}
-                   viewport={{ once: true }}
-                   transition={{ duration: 1.2, delay: i * 0.2 }}
-                   className="group border-b border-cream/10 pb-20 last:border-0"
-                >
-                  <div className="flex justify-between items-start mb-12">
-                     <span className="text-[10px] tracking-widest uppercase font-bold text-cream/30">0{i+1}</span>
-                     <div className="flex gap-4">
-                       <span className="text-[9px] border border-cream/10 px-4 py-1.5 uppercase font-bold text-cream/40 tracking-widest">{course.duration}</span>
-                       <span className="text-[9px] border border-cream/10 px-4 py-1.5 uppercase font-bold text-cream/40 tracking-widest">{course.level}</span>
-                     </div>
-                  </div>
-                  <h3 className="text-4xl md:text-5xl font-serif italic text-sage mb-8 group-hover:translate-x-4 transition-transform duration-700 uppercase leading-[0.9]">{course.title}</h3>
-                  <p className="text-lg md:text-xl font-light text-cream/60 leading-relaxed max-w-2xl mb-12">{course.desc}</p>
-                  {course.title === "Walking the Mother Line" ? (
-                    <a href="/Walking_the_Mother_Line.pdf" target="_blank" rel="noreferrer" className="contents">
-                      <Button variant="sage" className="group-hover:scale-105">
-                        Read the Guide Details <ArrowRight className="ml-4 w-4 h-4" />
-                      </Button>
-                    </a>
-                  ) : (
-                    <div className="space-y-12 mt-4">
-                      {/* Inline video */}
-                      <div className="w-full aspect-video border border-cream/10 bg-white/5 overflow-hidden shadow-2xl">
-                        <video
-                          src="/Circle of the Rose - May 2026.mp4"
-                          controls
-                          className="w-full h-full object-cover grayscale-[20%] hover:grayscale-0 transition-all duration-1000"
-                          title="Circle of the Rose Pilgrimage Video"
-                        />
-                      </div>
-                      <p className="text-xl font-light text-cream/60 leading-relaxed italic border-l border-sage/30 pl-8">
-                        May this pilgrimage of the essence of Mary Magdalene invite you back into intimacy with your own devotional heart.
-                      </p>
-                      <Button variant="sage">Secure your Deposit</Button>
-                    </div>
-                  )}
-                </motion.div>
-              ))}
+            <div className="pt-16">
+              <motion.div 
+                 initial={{ opacity: 0, x: 20 }}
+                 whileInView={{ opacity: 1, x: 0 }}
+                 viewport={{ once: true }}
+                 transition={{ duration: 1.2 }}
+                 className="group border-b border-cream/10 pb-20"
+              >
+                <div className="flex justify-between items-start mb-12">
+                   <span className="text-[10px] tracking-widest uppercase font-bold text-cream/30">01</span>
+                   <div className="flex gap-4">
+                     <span className="text-[9px] border border-cream/10 px-4 py-1.5 uppercase font-bold text-cream/40 tracking-widest">May 2026</span>
+                     <span className="text-[9px] border border-cream/10 px-4 py-1.5 uppercase font-bold text-cream/40 tracking-widest">Open</span>
+                   </div>
+                </div>
+                <h3 className="text-4xl md:text-5xl font-serif italic text-sage mb-8 group-hover:translate-x-4 transition-transform duration-700 uppercase leading-[0.9]">Walking the Mother Line</h3>
+                <p className="text-lg md:text-xl font-light text-cream/60 leading-relaxed max-w-2xl mb-12">A deep dive into the physiological and energetic foundations of the divine feminine. Join a circle of hearts traversing ancient lands to honor the goddess within and without.</p>
+                <a href="/Walking_the_Mother_Line.pdf" target="_blank" rel="noreferrer" className="contents">
+                  <Button variant="sage" className="group-hover:scale-105">
+                    Read the Guide Details <ArrowRight className="ml-4 w-4 h-4" />
+                  </Button>
+                </a>
+              </motion.div>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    {/* QUOTE SECTION - WHITE */}
-    <section className="bg-paper py-48 relative overflow-hidden">
+    {/* CIRCLE OF THE ROSE - OWN SECTION - WHITE */}
+    <section className="bg-paper py-32 px-8 text-ink border-b border-ink/5">
+      <div className="container mx-auto">
+        <FadeIn className="text-center mb-20">
+          <span className="text-[10px] tracking-widest uppercase font-bold text-ink/30">02</span>
+          <div className="flex justify-center gap-4 mt-6 mb-10">
+            <span className="text-[9px] border border-ink/10 px-4 py-1.5 uppercase font-bold text-ink/30 tracking-widest">Late 2026</span>
+            <span className="text-[9px] border border-ink/10 px-4 py-1.5 uppercase font-bold text-ink/30 tracking-widest">Waitlist</span>
+          </div>
+          <h2 className="text-6xl md:text-8xl font-serif italic text-ink uppercase leading-[0.85] mb-8">
+            Circle of <span className="text-forest lowercase font-light">the Rose</span>
+          </h2>
+          <p className="text-xl font-light text-ink/60 leading-relaxed max-w-2xl mx-auto italic mb-16">
+            An initiation into the mysteries of the rose lineage. Reclaiming sovereignty, subtle body healing, and collective ceremony in sacred locations.
+          </p>
+        </FadeIn>
+
+        {/* Full-width video */}
+        <div className="max-w-4xl mx-auto space-y-12">
+          <div className="w-full aspect-video border border-ink/10 bg-ink/5 overflow-hidden shadow-2xl">
+            <video
+              src="/Circle of the Rose - May 2026.mp4"
+              controls
+              className="w-full h-full object-cover"
+              title="Circle of the Rose Pilgrimage Video"
+            />
+          </div>
+
+          <div className="text-center space-y-8">
+            <p className="text-xl font-serif italic text-ink/60 leading-relaxed border-l-2 border-forest/30 pl-8 text-left max-w-2xl mx-auto">
+              May this pilgrimage of the essence of Mary Magdalene invite you back into intimacy with your own devotional heart.
+            </p>
+            <Button variant="primary">Secure your Deposit</Button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    {/* QUOTE SECTION - INK (matches footer) */}
+    <section className="bg-ink py-48 relative overflow-hidden">
       <div className="container mx-auto px-8 relative z-10 text-center">
         <FadeIn className="space-y-12 max-w-4xl mx-auto">
-          <Star className="w-10 h-10 text-forest/40 mx-auto" />
-          <h2 className="text-4xl md:text-6xl font-serif italic text-ink leading-tight uppercase">
-            "A call to return to the sacred, to witness the <span className="text-forest">unedited self</span>, and to walk the lands that remember our names."
+          <Star className="w-10 h-10 text-sage/40 mx-auto" />
+          <h2 className="text-4xl md:text-6xl font-serif italic text-cream leading-tight uppercase">
+            "A call to return to the sacred, to witness the <span className="text-sage">unedited self</span>, and to walk the lands that remember our names."
           </h2>
-          <div className="flex justify-center items-center gap-6 text-[10px] tracking-[0.4em] uppercase font-bold text-forest">
-            <div className="w-12 h-px bg-forest/30"></div>
+          <div className="flex justify-center items-center gap-6 text-[10px] tracking-[0.4em] uppercase font-bold text-cream/30">
+            <div className="w-12 h-px bg-cream/20"></div>
             The Lineage Path
-            <div className="w-12 h-px bg-forest/30"></div>
+            <div className="w-12 h-px bg-cream/20"></div>
           </div>
         </FadeIn>
       </div>
@@ -148,107 +163,100 @@ export const PilgrimagePage: React.FC = () => (
     </section>
 
     {/* PRICING & ROOMS SECTION - GREEN */}
-    <section className="bg-forest py-48 px-8 text-cream">
-       <div className="container mx-auto overflow-hidden">
-          <div className="text-center mb-32">
-             <p className="text-sage tracking-[0.4em] uppercase font-bold text-[10px] mb-8">Investment & Sanctuary</p>
-             <h2 className="text-6xl md:text-7xl font-serif italic text-cream uppercase">Room <span className="text-sage lowercase font-light">Types.</span></h2>
-          </div>
-          
-          <div className="overflow-x-auto">
-            <table className="w-full text-left border-collapse">
-               <thead>
-                  <tr className="border-b border-cream/10 text-[10px] uppercase tracking-[0.3em] font-bold text-cream/40">
-                     <th className="py-12 px-6">Room Type</th>
-                     <th className="py-12 px-6">Early Bird (USD)</th>
-                     <th className="py-12 px-6">Full Price (USD)</th>
-                  </tr>
-               </thead>
-               <tbody className="text-lg font-serif italic text-cream">
-                  <tr className="border-b border-cream/5 hover:bg-white/5 transition-colors">
-                     <td className="py-16 px-6">
-                        <span className="block text-2xl mb-2">Deluxe</span>
-                        <span className="text-[10px] font-sans uppercase tracking-[0.2em] font-bold opacity-40">Single Room + Private Bath</span>
-                     </td>
-                     <td className="py-16 px-6">
-                        <span className="block">$3,500</span>
-                        <span className="text-[10px] font-sans uppercase tracking-[0.2em] font-bold opacity-40">$1,167 / month</span>
-                     </td>
-                     <td className="py-16 px-6">
-                        <span className="block">$4,200</span>
-                        <span className="text-[10px] font-sans uppercase tracking-[0.2em] font-bold opacity-40">$1,400 / month</span>
-                     </td>
-                  </tr>
-                  <tr className="border-b border-cream/5 hover:bg-white/5 transition-colors">
-                     <td className="py-16 px-6">
-                        <span className="block text-2xl mb-2">Single Occupancy</span>
-                        <span className="text-[10px) font-sans uppercase tracking-[0.2em] font-bold opacity-40">Single Room / Shared Bath</span>
-                     </td>
-                     <td className="py-16 px-6">
-                        <span className="block">$3,200</span>
-                        <span className="text-[10px] font-sans uppercase tracking-[0.2em] font-bold opacity-40">$1,067 / month</span>
-                     </td>
-                     <td className="py-16 px-6">
-                        <span className="block">$4,000</span>
-                        <span className="text-[10px] font-sans uppercase tracking-[0.2em] font-bold opacity-40">$1,333 / month</span>
-                     </td>
-                  </tr>
-                  <tr className="border-b border-cream/5 hover:bg-white/5 transition-colors">
-                     <td className="py-16 px-6">
-                        <span className="block text-2xl mb-2">Double Occupancy</span>
-                        <span className="text-[10px] font-sans uppercase tracking-[0.2em] font-bold opacity-40">Shared Room + Bathroom</span>
-                     </td>
-                     <td className="py-16 px-6">
-                        <span className="block">$2,900</span>
-                        <span className="text-[10px] font-sans uppercase tracking-[0.2em] font-bold opacity-40">$966 / month</span>
-                     </td>
-                     <td className="py-16 px-6">
-                        <span className="block">$3,300</span>
-                        <span className="text-[10px] font-sans uppercase tracking-[0.2em] font-bold opacity-40">$1,100 / month</span>
-                     </td>
-                  </tr>
-               </tbody>
-            </table>
-          </div>
+    <section className="bg-forest py-48 px-8 text-cream relative overflow-hidden">
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute top-0 right-0 w-1/2 h-full bg-sage/[0.02]"></div>
+        <div className="absolute bottom-0 left-0 w-96 h-96 bg-sage/5 rounded-full blur-[160px]"></div>
+      </div>
+      <div className="container mx-auto relative z-10">
+        <FadeIn className="text-center mb-24">
+          <p className="text-sage tracking-[0.4em] uppercase font-bold text-[10px] mb-8">Investment & Sanctuary</p>
+          <h2 className="text-6xl md:text-8xl font-serif italic text-cream uppercase leading-[0.85]">Room <span className="text-sage lowercase font-light">Types.</span></h2>
+          <div className="w-24 h-px bg-sage/20 mx-auto mt-12"></div>
+        </FadeIn>
 
-          <div className="grid md:grid-cols-2 gap-24 mt-48">
-             <FadeIn className="space-y-12">
-                <h3 className="text-4xl font-serif italic text-sage">3 Month Payment Schedule</h3>
-                <div className="space-y-8">
-                   {[
-                     { date: "Nov 15 - Jan 31", label: "1st Payment (Sacred Deposit)" },
-                     { date: "Following Month", label: "2nd Payment" },
-                     { date: "May 15, 2026", label: "Last Payment Due" }
-                   ].map((item, i) => (
-                      <div key={i} className="flex justify-between items-center border-b border-cream/10 pb-6">
-                         <span className="text-xl font-serif italic text-cream">{item.date}</span>
-                         <span className="text-[11px] uppercase tracking-widest font-bold text-cream/40">{item.label}</span>
-                      </div>
-                   ))}
-                </div>
-                <p className="text-sm font-light text-cream/50 italic leading-relaxed">
-                   * The first payment serves as a sacred deposit, confirming your place. This deposit is non-refundable.
-                </p>
-             </FadeIn>
+        {/* Premium pricing cards */}
+        <div className="space-y-4 mb-24">
+          {[
+            { name: "Deluxe", sub: "Single Room + Private Bath", earlyBird: "$3,500", earlyMonth: "$1,167 / mo", full: "$4,200", fullMonth: "$1,400 / mo", featured: false },
+            { name: "Single Occupancy", sub: "Single Room / Shared Bath", earlyBird: "$3,200", earlyMonth: "$1,067 / mo", full: "$4,000", fullMonth: "$1,333 / mo", featured: false },
+            { name: "Double Occupancy", sub: "Shared Room + Bathroom", earlyBird: "$2,900", earlyMonth: "$966 / mo", full: "$3,300", fullMonth: "$1,100 / mo", featured: true },
+          ].map((room, i) => (
+            <motion.div
+              key={i}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, delay: i * 0.1 }}
+              className={`group grid md:grid-cols-12 items-center gap-0 border transition-all duration-700 ${
+                room.featured
+                  ? "border-sage/30 bg-white/5"
+                  : "border-cream/10 hover:border-cream/20 hover:bg-white/[0.03]"
+              }`}
+            >
+              {/* Room name */}
+              <div className="md:col-span-4 p-10 md:p-12 border-b md:border-b-0 md:border-r border-cream/10">
+                <p className="text-[9px] tracking-[0.4em] uppercase font-bold text-cream/30 mb-3">0{i+1}</p>
+                <h3 className="text-3xl md:text-4xl font-serif italic text-cream mb-2">{room.name}</h3>
+                <p className="text-[10px] tracking-[0.25em] uppercase font-bold text-cream/30">{room.sub}</p>
+              </div>
 
-             <FadeIn className="space-y-12">
-                <h3 className="text-4xl font-serif italic text-sage">Important Dates</h3>
-                <div className="space-y-8">
-                   {[
-                     { date: "Jan 18, 2025", label: "Early-Bird Opens" },
-                     { date: "Jan 31, 2026", label: "Early-Bird Closes" },
-                     { date: "Mar 31, 2026", label: "Regular Enrolment Closes" },
-                     { date: "May 7, 2026", label: "Pilgrimage Begins" }
-                   ].map((item, i) => (
-                      <div key={i} className="flex justify-between items-center border-b border-cream/10 pb-6">
-                         <span className="text-xl font-serif italic text-cream">{item.date}</span>
-                         <span className="text-[11px] uppercase tracking-widest font-bold text-cream/40">{item.label}</span>
-                      </div>
-                   ))}
+              {/* Early Bird */}
+              <div className="md:col-span-4 p-10 md:p-12 border-b md:border-b-0 md:border-r border-cream/10 bg-sage/5">
+                <p className="text-[9px] tracking-[0.4em] uppercase font-bold text-sage mb-4">Early Bird</p>
+                <p className="text-4xl md:text-5xl font-serif italic text-cream">{room.earlyBird}</p>
+                <p className="text-[10px] tracking-widest font-bold text-cream/30 mt-2">{room.earlyMonth}</p>
+              </div>
+
+              {/* Full Price */}
+              <div className="md:col-span-4 p-10 md:p-12">
+                <p className="text-[9px] tracking-[0.4em] uppercase font-bold text-cream/30 mb-4">Full Price</p>
+                <p className="text-4xl md:text-5xl font-serif italic text-cream/60">{room.full}</p>
+                <p className="text-[10px] tracking-widest font-bold text-cream/20 mt-2">{room.fullMonth}</p>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+
+        {/* Payment Schedule + Important Dates */}
+        <div className="grid md:grid-cols-2 gap-8">
+          <FadeIn className="border border-cream/10 p-12 space-y-10 bg-white/[0.03]">
+            <h3 className="text-3xl font-serif italic text-sage">3 Month Payment Schedule</h3>
+            <div className="space-y-0">
+              {[
+                { date: "Nov 15 – Jan 31", label: "1st Payment (Sacred Deposit)" },
+                { date: "Following Month", label: "2nd Payment" },
+                { date: "May 15, 2026", label: "Last Payment Due" }
+              ].map((item, i) => (
+                <div key={i} className="flex justify-between items-center py-6 border-b border-cream/10 last:border-0">
+                  <span className="text-xl font-serif italic text-cream">{item.date}</span>
+                  <span className="text-[10px] uppercase tracking-widest font-bold text-sage/70">{item.label}</span>
                 </div>
-             </FadeIn>
-          </div>
-       </div>
+              ))}
+            </div>
+            <p className="text-xs font-light text-cream/40 italic leading-relaxed border-t border-cream/10 pt-8">
+              * The first payment serves as a sacred deposit, confirming your place. This deposit is non-refundable.
+            </p>
+          </FadeIn>
+
+          <FadeIn className="border border-cream/10 p-12 space-y-10 bg-white/[0.03]">
+            <h3 className="text-3xl font-serif italic text-sage">Important Dates</h3>
+            <div className="space-y-0">
+              {[
+                { date: "Jan 18, 2025", label: "Early-Bird Opens" },
+                { date: "Jan 31, 2026", label: "Early-Bird Closes" },
+                { date: "Mar 31, 2026", label: "Regular Enrolment Closes" },
+                { date: "May 7, 2026", label: "Pilgrimage Begins" }
+              ].map((item, i) => (
+                <div key={i} className="flex justify-between items-center py-6 border-b border-cream/10 last:border-0">
+                  <span className="text-xl font-serif italic text-cream">{item.date}</span>
+                  <span className="text-[10px] uppercase tracking-widest font-bold text-sage/70">{item.label}</span>
+                </div>
+              ))}
+            </div>
+          </FadeIn>
+        </div>
+      </div>
     </section>
 
     {/* SANCTUARY GALLERY - WHITE */}
@@ -295,8 +303,8 @@ export const PilgrimagePage: React.FC = () => (
        </div>
     </section>
 
-    {/* WHAT TO PACK SECTION - GREEN */}
-    <section className="bg-forest py-48 px-8 text-cream">
+    {/* WHAT TO PACK SECTION - INK (matches footer) */}
+    <section className="bg-ink py-48 px-8 text-cream">
        <div className="container mx-auto">
           <div className="grid lg:grid-cols-3 gap-24">
              <div className="lg:col-span-1 space-y-12">
@@ -313,7 +321,7 @@ export const PilgrimagePage: React.FC = () => (
                 ].map((cat, i) => (
                    <div key={i} className="space-y-6 group">
                       <div className="flex items-center gap-6">
-                         <div className="w-8 h-px bg-sage/30 group-hover:w-16 transition-all"></div>
+                         <div className="w-8 h-px bg-sage/40 group-hover:w-16 transition-all"></div>
                          <h4 className="text-xl font-serif italic text-sage uppercase">{cat.category}</h4>
                       </div>
                       <p className="text-cream/60 font-light leading-relaxed">{cat.items}</p>

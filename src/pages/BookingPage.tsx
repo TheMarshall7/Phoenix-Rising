@@ -126,8 +126,8 @@ export const BookingPage: React.FC = () => {
           <FadeIn className="text-center mt-16">
             <p className="text-ink/40 font-light italic text-sm">
               Can't find a suitable time? Reach out directly at{" "}
-              <a href="mailto:hello@mariaamiouni.com" className="text-forest hover:underline">
-                hello@mariaamiouni.com
+              <a href="mailto:mariaamiouni@gmail.com" className="text-forest hover:underline">
+                mariaamiouni@gmail.com
               </a>
             </p>
           </FadeIn>

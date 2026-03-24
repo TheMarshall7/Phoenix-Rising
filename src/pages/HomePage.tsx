@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { ArrowRight, Play, Sparkles } from "lucide-react";
+import { ArrowRight, Sparkles } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Section, Button, FadeIn } from "../components/Common";
 
@@ -118,66 +118,6 @@ export const HomePage: React.FC = () => {
         </div>
       </Section>
 
-      {/* PODCAST SECTION - DOMINANT GREEN */}
-      <section className="bg-forest border-y border-white/5 text-cream relative overflow-hidden">
-        <div className="absolute top-0 left-0 w-full h-full opacity-5 pointer-events-none">
-           <div className="absolute -top-1/4 -left-1/4 w-[800px] h-[800px] bg-sage rounded-full blur-[160px]"></div>
-        </div>
-        <div className="grid lg:grid-cols-2 relative z-10">
-          {/* Left Column: Image with gradient fade overlay */}
-          <div className="relative h-96 lg:h-auto min-h-[600px] overflow-hidden">
-            <img src="/_316.jpg" className="w-full h-full object-cover grayscale-[20%]" alt="Podcast" />
-            <div className="absolute inset-0 bg-forest/40 mix-blend-multiply"></div>
-            <div className="absolute inset-0 bg-gradient-to-t md:bg-gradient-to-r from-transparent to-forest via-transparent"></div>
-          </div>
-
-          {/* Right Column: List of content */}
-          <div className="py-24 md:py-32 px-12 md:px-24 flex flex-col justify-center bg-forest">
-            <FadeIn className="space-y-16">
-              <div className="space-y-4">
-                <h2 className="text-5xl md:text-7xl font-medium text-cream uppercase tracking-tight">
-                  THE STORYTELLERS <br /><span className="font-serif italic lowercase text-sage tracking-normal">podcast</span>
-                </h2>
-                <div className="w-24 h-px bg-sage/30 my-10"></div>
-                <p className="text-[10px] tracking-[0.4em] uppercase font-bold text-cream/40 mb-12">Featured Episodes:</p>
-              </div>
-
-              <div className="space-y-0 text-cream">
-                {[
-                  "How to heal your abandonment & rejection wounds",
-                  "Using Toltec wisdom to reclaim your power",
-                  "How to awaken your magic and your worth",
-                  "How to honor plant medicine with a folk herbalist",
-                  "Understanding synchronicity and soul truth"
-                ].map((ep, i) => (
-                  <motion.div 
-                    key={i}
-                    whileHover={{ x: 10 }}
-                    transition={{ duration: 0.5 }}
-                    className="group py-10 border-b border-white/10 flex justify-between items-center cursor-pointer"
-                  >
-                    <div className="flex items-center gap-12">
-                      <span className="text-[10px] font-bold text-cream/30 font-sans tracking-widest">{i + 1}</span>
-                      <h3 className="text-lg md:text-xl font-medium text-cream/80 group-hover:text-sage transition-colors tracking-wide uppercase">
-                        {ep}
-                      </h3>
-                    </div>
-                    <div className="w-12 h-12 rounded-full border border-white/10 flex items-center justify-center group-hover:bg-sage group-hover:border-sage transition-all duration-700">
-                      <Play className="w-4 h-4 text-cream group-hover:text-forest ml-1" />
-                    </div>
-                  </motion.div>
-                ))}
-              </div>
-
-              <div className="pt-16">
-                <a href="#" className="text-[10px] tracking-[0.4em] uppercase font-bold text-sage flex items-center gap-4 hover:gap-6 transition-all">
-                  Listen to all episodes <ArrowRight className="w-4 h-4" />
-                </a>
-              </div>
-            </FadeIn>
-          </div>
-        </div>
-      </section>
       {/* HUMAN DESIGN SECTION - WHITE */}
       <section className="bg-cream py-48 relative overflow-hidden">
         <div className="absolute top-0 right-0 w-1/3 h-full bg-forest/5 skew-x-12 translate-x-1/4"></div>
