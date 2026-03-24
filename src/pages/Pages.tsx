@@ -1,6 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { ArrowRight, Star } from "lucide-react";
+import { Link } from "react-router-dom";
 import { Button, FadeIn } from "../components/Common";
 
 export const PilgrimagePage: React.FC = () => (
@@ -97,7 +98,9 @@ export const PilgrimagePage: React.FC = () => (
             <p className="text-xl font-serif italic text-ink/60 leading-relaxed border-l-2 border-forest/30 pl-8 text-left max-w-2xl mx-auto">
               May this pilgrimage of the essence of Mary Magdalene invite you back into intimacy with your own devotional heart.
             </p>
-            <Button variant="primary">Secure your Deposit</Button>
+            <Link to="/booking" className="contents">
+              <Button variant="primary">Secure your Deposit</Button>
+            </Link>
           </div>
         </div>
       </div>
@@ -409,7 +412,9 @@ export const MentorshipPage: React.FC = () => (
               </ul>
             </div>
             <div className="pt-12">
-              <Button variant="sage" className="px-16">Apply for Mentorship</Button>
+              <Link to="/booking" className="contents">
+                <Button variant="sage" className="px-16">Apply for Mentorship</Button>
+              </Link>
             </div>
           </FadeIn>
         </div>
@@ -535,7 +540,9 @@ export const SacredSpacesPage: React.FC = () => (
                View our upcoming gatherings, retreats, and virtual sanctuary spaces.
             </p>
             <div className="pt-12">
-               <Button variant="primary">View Calendar of Spaces</Button>
+               <Link to="/booking" className="contents">
+                 <Button variant="primary">View Calendar of Spaces</Button>
+               </Link>
             </div>
          </FadeIn>
       </div>

@@ -601,6 +601,108 @@ export default function LandingPage() {
         </div>
       </Section>
 
+      {/* TESTIMONIALS SECTION */}
+      <Section className="bg-ink text-cream py-48 relative overflow-hidden">
+        {/* Decorative background elements */}
+        <div className="absolute top-0 right-0 w-1/3 h-full bg-sage/5 -skew-x-12 translate-x-1/2"></div>
+        <div className="absolute bottom-0 left-0 w-1/4 h-1/2 bg-burgundy/10 skew-x-12 -translate-x-1/2"></div>
+        
+        <div className="container mx-auto px-8 relative z-10">
+          <div className="text-center mb-32">
+            <p className="text-sage text-[10px] tracking-[0.5em] uppercase mb-6 font-bold">Shared Wisdom</p>
+            <h2 className="text-7xl md:text-9xl mb-10 font-medium leading-none">ECHOES FROM <br /><span className="font-serif italic text-sage">the journey</span></h2>
+            <p className="text-cream/40 max-w-2xl mx-auto font-light italic text-lg leading-relaxed mt-12">Voices from those who have walked the path of Phoenix Rising.</p>
+          </div>
+
+          <div className="columns-1 md:columns-2 lg:columns-3 gap-8 space-y-8">
+            {[
+              { 
+                name: "Yasmine", 
+                text: "Thank you for this incredible summit you put together. You have incredible talent at creating community for any purpose or reason you see viable and resonating with people. This incredible caliber of healers, coaches & teachers you were able to put together is a testament to your capabilities to give incredible value to others & a reflection of your powerful spirit & mind." 
+              },
+              { 
+                name: "Dayane", 
+                text: "Thank you so much for giving us the chance to rewatch the sessions & putting in this beautiful effort. A lot of the sessions came through & were eye openers... we're connected to this land and we hurt as it hurts, and things made so much more sense. I felt that deep within." 
+              },
+              { 
+                name: "Alessandra", 
+                text: "The Summit has been amazing. Although I could not watch it during the weekend and because of time difference, it's really well done. I'm not from the Middle East but I have lived in the region (Jordan & Iraq) & I have many friends in Lebanon. Knowing the culture fairly well, this is amazing work for the collective." 
+              },
+              { 
+                name: "Lea", 
+                text: "Thank you Maria for your honesty and authenticity as usual. Thank you for reminding me that even in the darkest times I should not give up and I should challenge myself, now more than ever, to stay connected to the divine, because this is the only way to make change in this world." 
+              },
+              { 
+                name: "Michael", 
+                text: "I didn't have the chance to attend the sessions live but I watched 3 in the replay last night & did the prayer this morning while on my way to work. I absolutely loved the prayer. I had goosebumps through it all. These are such high quality sessions. Thank you for holding & offering that space." 
+              },
+              { 
+                name: "Carla", 
+                text: "I just went through Maria's opening ceremony video in the recordings and I felt my feelings accurately articulated for the first time since this dreadful week started. I cried and let out so many repressed emotions. Thank you so much for sharing your magic with us." 
+              },
+              { 
+                name: "Mayssa", 
+                text: "After having some time to slowly integrate, I can feel the leaps and changes that have been taking place, and I'm so grateful. The collective spirit was magical and feeling so grateful that we built such a strong sense of community and closeness. Thank you always for sharing your wisdom." 
+              },
+              { 
+                name: "Nadine", 
+                text: "Keeping connected to Source and regulating daily my Nervous System keeps me calm within in all the chaos around me in Lebanon. This is beautiful: Rising Phoenix. Thank you Maria. Love & Light" 
+              },
+              { 
+                name: "Carine", 
+                text: "An amazing opening session Maria. Thank you very much for this great community. I have missed the live sessions but I am indeed listening to the recordings & connecting deeply. So much love to you." 
+              },
+              { 
+                name: "Zein", 
+                text: "This really resonated with me on so many levels. Thank you Hanan - you have a very powerful and grounded energy. I enjoyed this so much and it validated a lot for me." 
+              },
+              { 
+                name: "Nicole", 
+                text: "Every moment of this session was insightful. Sara is a brilliant coach who truly knows how to connect with her audience, tap into their potential, and leave a lasting impact. I only wish the session was longer - it flew by in an instant!" 
+              },
+              { 
+                name: "Lina", 
+                text: "Thank you Mariam for your talk. Your way of presenting your talk is done with wisdom & serenity. Gratitude is one of my very important values Wishing you a very good continuation." 
+              },
+              { 
+                name: "Jessica", 
+                text: "Beautiful opening ceremony thank you Maria 🙏 May we all unite in love and may you be well and safe" 
+              },
+              { 
+                name: "Hind", 
+                text: "It was an incredible first day! Just wanted to send lots of love and say ya3tiki il3afyeh! Thank you" 
+              },
+              { 
+                name: "Basheer", 
+                text: "I am getting tired writing you messages saying how awesome it was and how amazing you are!!! Wow, an incredible gift, this was a blessing! Thank you from the bottom of my heart!" 
+              },
+              { 
+                name: "Sareya", 
+                text: "This session helped me with releasing a past trauma, it was so emotional for me. Thank you Hanan." 
+              }
+            ].map((testimonial, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.05 }}
+                className="break-inside-avoid mb-8"
+              >
+                <div className="bg-white/5 backdrop-blur-sm border border-cream/10 p-10 relative group hover:border-sage/30 transition-all duration-700">
+                  <Quote className="absolute top-8 right-8 w-8 h-8 text-sage/20 group-hover:text-sage/40 transition-colors" />
+                  <p className="text-lg font-light leading-relaxed text-cream/70 mb-10 italic">"{testimonial.text}"</p>
+                  <div className="flex items-center gap-4 mt-auto">
+                    <div className="w-8 h-px bg-sage/40"></div>
+                    <p className="font-serif italic text-sage text-xl">{testimonial.name}</p>
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </Section>
+
       {/* SECTION 6 - PRACTICAL DETAILS */}
       <Section className="bg-cream text-ink py-48 border-b border-ink/5">
         <div className="container-narrow">
