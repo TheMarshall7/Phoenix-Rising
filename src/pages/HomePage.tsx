@@ -51,8 +51,8 @@ export const HomePage: React.FC = () => {
             </div>
             
             <div className="flex flex-col sm:flex-row gap-6 mt-12 justify-center md:justify-start">
-              <Link to="/courses" className="contents">
-                <Button variant="sage" className="scale-110">Join a Training <ArrowRight className="w-4 h-4 ml-4" /></Button>
+              <Link to="/booking" className="contents">
+                <Button variant="sage" className="scale-110">Book a Session <ArrowRight className="w-4 h-4 ml-4" /></Button>
               </Link>
             </div>
           </motion.div>
@@ -112,40 +112,37 @@ export const HomePage: React.FC = () => {
                 </div>
               </div>
 
-              <div className="pt-8">
-                <Link to="/about">
-                  <Button variant="outline" className="group">
-                    Learn more about me <ArrowRight className="w-4 h-4 ml-4 group-hover:translate-x-2 transition-transform" />
-                  </Button>
-                </Link>
-              </div>
+
             </FadeIn>
           </div>
         </div>
       </Section>
 
-      {/* PODCAST SECTION - Inspired by Screenshot 19-23-09 */}
-      <section className="bg-cream border-y border-ink/5">
-        <div className="grid lg:grid-cols-2">
+      {/* PODCAST SECTION - DOMINANT GREEN */}
+      <section className="bg-forest border-y border-white/5 text-cream relative overflow-hidden">
+        <div className="absolute top-0 left-0 w-full h-full opacity-5 pointer-events-none">
+           <div className="absolute -top-1/4 -left-1/4 w-[800px] h-[800px] bg-sage rounded-full blur-[160px]"></div>
+        </div>
+        <div className="grid lg:grid-cols-2 relative z-10">
           {/* Left Column: Image with gradient fade overlay */}
           <div className="relative h-96 lg:h-auto min-h-[600px] overflow-hidden">
             <img src="/_316.jpg" className="w-full h-full object-cover grayscale-[20%]" alt="Podcast" />
-            <div className="absolute inset-0 bg-ink/20 mix-blend-multiply"></div>
-            <div className="absolute inset-0 bg-gradient-to-t md:bg-gradient-to-r from-transparent to-cream via-transparent"></div>
+            <div className="absolute inset-0 bg-forest/40 mix-blend-multiply"></div>
+            <div className="absolute inset-0 bg-gradient-to-t md:bg-gradient-to-r from-transparent to-forest via-transparent"></div>
           </div>
 
           {/* Right Column: List of content */}
-          <div className="py-24 md:py-32 px-12 md:px-24 flex flex-col justify-center bg-cream">
+          <div className="py-24 md:py-32 px-12 md:px-24 flex flex-col justify-center bg-forest">
             <FadeIn className="space-y-16">
               <div className="space-y-4">
-                <h2 className="text-5xl md:text-7xl font-medium text-ink uppercase tracking-tight">
-                  THE STORYTELLERS <br /><span className="font-serif italic lowercase text-forest tracking-normal">podcast</span>
+                <h2 className="text-5xl md:text-7xl font-medium text-cream uppercase tracking-tight">
+                  THE STORYTELLERS <br /><span className="font-serif italic lowercase text-sage tracking-normal">podcast</span>
                 </h2>
-                <div className="w-24 h-px bg-forest/30 my-10"></div>
-                <p className="text-[10px] tracking-[0.4em] uppercase font-bold text-ink/40 mb-12">Featured Episodes:</p>
+                <div className="w-24 h-px bg-sage/30 my-10"></div>
+                <p className="text-[10px] tracking-[0.4em] uppercase font-bold text-cream/40 mb-12">Featured Episodes:</p>
               </div>
 
-              <div className="space-y-0">
+              <div className="space-y-0 text-cream">
                 {[
                   "How to heal your abandonment & rejection wounds",
                   "Using Toltec wisdom to reclaim your power",
@@ -157,23 +154,23 @@ export const HomePage: React.FC = () => {
                     key={i}
                     whileHover={{ x: 10 }}
                     transition={{ duration: 0.5 }}
-                    className="group py-10 border-b border-ink/5 flex justify-between items-center cursor-pointer"
+                    className="group py-10 border-b border-white/10 flex justify-between items-center cursor-pointer"
                   >
                     <div className="flex items-center gap-12">
-                      <span className="text-[10px] font-bold text-ink/30 font-sans tracking-widest">{i + 1}</span>
-                      <h3 className="text-lg md:text-xl font-medium text-ink/80 group-hover:text-forest transition-colors tracking-wide uppercase">
+                      <span className="text-[10px] font-bold text-cream/30 font-sans tracking-widest">{i + 1}</span>
+                      <h3 className="text-lg md:text-xl font-medium text-cream/80 group-hover:text-sage transition-colors tracking-wide uppercase">
                         {ep}
                       </h3>
                     </div>
-                    <div className="w-12 h-12 rounded-full border border-ink/10 flex items-center justify-center group-hover:bg-forest group-hover:border-forest transition-all duration-700">
-                      <Play className="w-4 h-4 text-ink group-hover:text-cream ml-1" />
+                    <div className="w-12 h-12 rounded-full border border-white/10 flex items-center justify-center group-hover:bg-sage group-hover:border-sage transition-all duration-700">
+                      <Play className="w-4 h-4 text-cream group-hover:text-forest ml-1" />
                     </div>
                   </motion.div>
                 ))}
               </div>
 
               <div className="pt-16">
-                <a href="#" className="text-[10px] tracking-[0.4em] uppercase font-bold text-forest flex items-center gap-4 hover:gap-6 transition-all">
+                <a href="#" className="text-[10px] tracking-[0.4em] uppercase font-bold text-sage flex items-center gap-4 hover:gap-6 transition-all">
                   Listen to all episodes <ArrowRight className="w-4 h-4" />
                 </a>
               </div>
@@ -181,31 +178,31 @@ export const HomePage: React.FC = () => {
           </div>
         </div>
       </section>
-      {/* HUMAN DESIGN SECTION - Dedicated Section */}
-      <section className="bg-ink py-48 relative overflow-hidden">
+      {/* HUMAN DESIGN SECTION - WHITE */}
+      <section className="bg-cream py-48 relative overflow-hidden">
         <div className="absolute top-0 right-0 w-1/3 h-full bg-forest/5 skew-x-12 translate-x-1/4"></div>
-        <div className="container mx-auto px-8 relative z-10">
+        <div className="container mx-auto px-8 relative z-10 text-ink">
           <div className="grid lg:grid-cols-2 gap-24 items-center">
             <FadeIn className="space-y-16">
               <div className="space-y-6">
-                <p className="text-sage tracking-[0.5em] uppercase font-bold text-[10px]">Energetic Architecture</p>
-                <h2 className="text-6xl md:text-8xl font-medium leading-[0.8] text-cream">
-                  YOUR <br /><span className="font-serif italic text-sage lowercase">blueprint.</span>
+                <p className="text-forest tracking-[0.5em] uppercase font-bold text-[10px]">Energetic Architecture</p>
+                <h2 className="text-6xl md:text-8xl font-medium leading-[0.8] text-ink uppercase">
+                  YOUR <br /><span className="font-serif italic text-forest lowercase tracking-normal">blueprint.</span>
                 </h2>
               </div>
               
               <div className="space-y-10">
-                <p className="text-2xl md:text-3xl font-serif italic text-cream leading-relaxed border-l-2 border-forest pl-8 max-w-xl">
+                <p className="text-2xl md:text-3xl font-serif italic text-ink leading-relaxed border-l-2 border-sage pl-8 max-w-xl">
                   Human Design is the synthesis of ancient wisdom and modern genetics—a roadmap to your unique resonance.
                 </p>
-                <div className="space-y-8 text-xl font-normal leading-relaxed text-cream/80 max-w-lg font-sans">
+                <div className="space-y-8 text-xl font-light leading-relaxed text-ink/70 max-w-lg font-sans italic">
                   <p>By understanding your type, strategy, and authority, you begin to decondition from societal expectations and align with your natural frequency. I guide you through the mechanics of your design to unlock clarity, self-trust, and effortless flow.</p>
                 </div>
               </div>
 
-              <div className="pt-8">
-                <Link to="/human-design-readings">
-                  <Button variant="sage" className="group">
+              <div className="pt-12">
+                <Link to="/human-design-readings" className="contents">
+                  <Button variant="outline" className="group">
                     Get your Chart Reading <ArrowRight className="w-4 h-4 ml-4 group-hover:translate-x-2 transition-transform" />
                   </Button>
                 </Link>
@@ -219,24 +216,24 @@ export const HomePage: React.FC = () => {
                transition={{ duration: 1.5 }}
                className="relative"
             >
-              <div className="aspect-square rounded-full border border-cream/10 flex items-center justify-center relative">
-                 <div className="absolute inset-0 animate-pulse border border-sage/20 rounded-full scale-110"></div>
-                 <div className="w-4/5 h-4/5 rounded-full border border-forest/20 flex items-center justify-center">
+              <div className="aspect-square rounded-full border border-forest/10 flex items-center justify-center relative">
+                 <div className="absolute inset-0 animate-pulse border border-forest/20 rounded-full scale-110"></div>
+                 <div className="w-4/5 h-4/5 rounded-full border border-forest/10 flex items-center justify-center overflow-hidden">
                     <img 
                       src="/_273.jpg" 
                       alt="Human Design" 
-                      className="w-full h-full object-cover rounded-full grayscale opacity-70 hover:grayscale-0 hover:opacity-100 transition-all duration-1000"
+                      className="w-full h-full object-cover object-top grayscale opacity-70 hover:grayscale-0 hover:opacity-100 transition-all duration-1000"
                     />
                  </div>
-                 {/* Floating Labels / Elements mimicking a chart */}
-                 <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-ink border border-sage/50 px-6 py-2 rounded-full shadow-2xl">
-                    <span className="text-[10px] tracking-widest text-sage uppercase font-bold">Resonance</span>
+                 {/* Floating Labels */}
+                 <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-white border border-forest/20 px-6 py-2 rounded-full shadow-xl">
+                    <span className="text-[10px] tracking-widest text-forest uppercase font-bold">Resonance</span>
                  </div>
-                 <div className="absolute bottom-1/4 -left-8 bg-ink border border-forest/50 px-6 py-2 rounded-full shadow-2xl">
+                 <div className="absolute bottom-1/4 -left-8 bg-white border border-forest/20 px-6 py-2 rounded-full shadow-xl">
                     <span className="text-[10px] tracking-widest text-forest uppercase font-bold">Authority</span>
                  </div>
-                 <div className="absolute bottom-1/4 -right-8 bg-ink border border-cream/20 px-6 py-2 rounded-full font-serif italic shadow-2xl">
-                    <span className="text-[11px] text-cream">Strategy</span>
+                 <div className="absolute bottom-1/4 -right-8 bg-white border border-forest/20 px-6 py-2 rounded-full font-serif italic shadow-xl">
+                    <span className="text-[11px] text-ink">Strategy</span>
                  </div>
               </div>
             </motion.div>
@@ -245,17 +242,17 @@ export const HomePage: React.FC = () => {
       </section>
 
 
-      {/* CORE OFFERINGS - Quick Navigation */}
-      <Section className="bg-paper py-48">
-        <div className="container mx-auto px-8">
-          <div className="text-center mb-32">
-            <h2 className="text-5xl md:text-7xl font-medium text-ink mb-12">LIVING THE <span className="font-serif italic text-forest">work.</span></h2>
-            <p className="text-lg font-light text-ink/50 max-w-2xl mx-auto italic tracking-wide">
+      {/* CORE OFFERINGS - DOMINANT GREEN */}
+      <section className="bg-forest py-48 text-cream">
+        <div className="container mx-auto px-8 text-center">
+          <div className="mb-32">
+            <h2 className="text-5xl md:text-7xl font-medium text-cream mb-12 uppercase tracking-tight">LIVING THE <span className="font-serif italic text-sage tracking-normal lowercase">work.</span></h2>
+            <p className="text-lg font-light text-cream/50 max-w-2xl mx-auto italic tracking-wide">
               Detailed paths designed to bring you home to your sovereignty.
             </p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-px bg-ink/5 border border-ink/5">
+          <div className="grid md:grid-cols-3 gap-px bg-white/5 border border-white/5">
             {[
               { name: "Mentorship", desc: "In-depth 1-on-1 somatic and psychospiritual work.", path: "/mentorship" },
               { name: "Pilgrimage", desc: "Walking the Mother Line - immersive sacred travel.", path: "/pilgrimage" },
@@ -264,29 +261,29 @@ export const HomePage: React.FC = () => {
               <Link 
                 key={offering.name} 
                 to={offering.path}
-                className="group p-16 lg:p-24 bg-paper hover:bg-forest transition-all duration-1000 relative overflow-hidden flex flex-col justify-between min-h-[450px]"
+                className="group p-16 lg:p-24 bg-forest hover:bg-white/5 transition-all duration-1000 relative overflow-hidden flex flex-col justify-between min-h-[450px]"
               >
                 <div className="absolute top-0 right-0 p-8 opacity-0 group-hover:opacity-10 transition-opacity duration-1000">
                   <span className="text-9xl font-serif italic text-cream">0{i+1}</span>
                 </div>
-                <div className="relative z-10 space-y-12">
-                  <h3 className="text-4xl font-serif italic text-forest group-hover:text-cream transition-colors duration-700">
+                <div className="relative z-10 space-y-12 text-left">
+                  <h3 className="text-4xl font-serif italic text-sage group-hover:text-cream transition-colors duration-700 uppercase">
                     {offering.name}
                   </h3>
-                  <p className="text-xl font-normal leading-relaxed text-ink/80 group-hover:text-cream transition-colors duration-700 max-w-xs">
+                  <p className="text-xl font-light leading-relaxed text-cream/70 group-hover:text-cream transition-colors duration-700 max-w-xs italic">
                     {offering.desc}
                   </p>
                 </div>
-                <div className="relative z-10 pt-12">
-                  <span className="text-[11px] tracking-[0.5em] uppercase font-bold text-forest group-hover:text-cream transition-colors duration-700 flex items-center gap-4">
-                    Explore <div className="w-12 h-px bg-forest/20 group-hover:bg-cream/40 transition-colors"></div> <ArrowRight className="w-4 h-4" />
+                <div className="relative z-10 pt-12 text-left">
+                  <span className="text-[11px] tracking-[0.5em] uppercase font-bold text-sage group-hover:text-cream transition-colors duration-700 flex items-center gap-4">
+                    Explore <div className="w-12 h-px bg-sage/20 group-hover:bg-cream/40 transition-colors"></div> <ArrowRight className="w-4 h-4" />
                   </span>
                 </div>
               </Link>
             ))}
           </div>
         </div>
-      </Section>
+      </section>
     </main>
   );
 };

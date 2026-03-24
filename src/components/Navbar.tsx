@@ -25,7 +25,8 @@ export const Navbar: React.FC = () => {
     { name: "Sacred Spaces", path: "/sacred-spaces" },
   ];
 
-  const isDarkPage = location.pathname === "/" || location.pathname === "/sacred-spaces";
+  // All pages start with a dark green hero, so always use light text when not scrolled
+  const isDarkPage = true;
 
   return (
     <>
@@ -67,7 +68,7 @@ export const Navbar: React.FC = () => {
               </Link>
             ))}
             <a 
-              href="http://localhost:3000/" 
+              href="https://mariaamiouni.com/phoenixrising2" 
               target="_blank" 
               rel="noreferrer"
               className={`flex items-center gap-2 px-6 py-3 border transition-all duration-500 ${
@@ -122,7 +123,7 @@ export const Navbar: React.FC = () => {
                 animate={{ opacity: 1, y: 0 }}
               >
                 <a 
-                  href="http://localhost:3000/" 
+                  href="https://mariaamiouni.com/phoenixrising2" 
                   className="px-10 py-5 border border-cream/20 text-[10px] tracking-widest uppercase font-bold hover:bg-cream hover:text-forest transition-all"
                 >
                   Phoenix Rising Summit

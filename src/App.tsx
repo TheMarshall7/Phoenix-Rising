@@ -4,6 +4,7 @@ import { Navbar } from "./components/Navbar";
 import { Footer } from "./components/Footer";
 import { HomePage } from "./pages/HomePage";
 import { PilgrimagePage, MentorshipPage, SacredSpacesPage } from "./pages/Pages";
+import { BookingPage } from "./pages/BookingPage";
 
 const ScrollToTop = () => {
   const { pathname } = useLocation();
@@ -25,6 +26,7 @@ function App() {
             <Route path="/pilgrimage" element={<PilgrimagePage />} />
             <Route path="/mentorship" element={<MentorshipPage />} />
             <Route path="/sacred-spaces" element={<SacredSpacesPage />} />
+            <Route path="/booking" element={<BookingPage />} />
           </Routes>
         </main>
         <Footer />
