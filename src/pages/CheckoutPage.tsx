@@ -76,7 +76,7 @@ export default function CheckoutPage() {
 
               <div className="pt-8">
                 <Button type="submit" className="w-full md:w-auto scale-110 !px-16" variant="primary">
-                  {isSubmitting ? "Processing..." : "Secure My Spot — $444"}
+                  {isSubmitting ? "Processing..." : "Secure My Spot — 444 AED"}
                 </Button>
                 <p className="mt-8 flex items-center justify-center md:justify-start gap-3 text-[10px] tracking-widest uppercase font-bold text-ink/80">
                   <Shield className="w-4 h-4 text-sage" />
@@ -96,10 +96,10 @@ export default function CheckoutPage() {
               <div className="space-y-10 relative z-10">
                 <div className="flex justify-between items-start border-b border-cream/10 pb-8">
                   <div>
-                    <h3 className="text-3xl font-serif italic text-cream mb-2">Phoenix <br/> Rising Summit</h3>
-                    <p className="text-[10px] text-cream/50 uppercase tracking-[0.2em] font-bold mt-4">21-Day Live Journey</p>
+                    <h3 className="text-3xl font-serif italic text-cream mb-2">21 Days of <br/> Embodied Living</h3>
+                    <p className="text-[10px] text-cream/50 uppercase tracking-[0.2em] font-bold mt-4">Phoenix Rising IV Edition</p>
                   </div>
-                  <span className="text-2xl font-medium text-sage">$444</span>
+                  <span className="text-2xl font-medium text-sage">444 AED</span>
                 </div>
 
                 <ul className="space-y-6 pt-2">
@@ -119,7 +119,7 @@ export default function CheckoutPage() {
 
                 <div className="pt-10 border-t border-cream/10 flex justify-between items-end">
                   <span className="text-[10px] tracking-[0.4em] uppercase font-bold text-cream/50">Total Due Today</span>
-                  <span className="text-4xl font-medium text-cream">$444</span>
+                  <span className="text-4xl font-medium text-cream">444 AED</span>
                 </div>
               </div>
             </div>
