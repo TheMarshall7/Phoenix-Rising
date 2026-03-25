@@ -103,20 +103,25 @@ export const BookingPage: React.FC = () => {
             </h2>
           </FadeIn>
 
-          {/* Premium calendar wrapper */}
+          {/* Calendar — iframe only, light premium frame (no white panel) */}
           <div className="relative">
-            {/* Decorative corner accents */}
-            <div className="absolute -top-3 -left-3 w-12 h-12 border-t-2 border-l-2 border-forest/20"></div>
-            <div className="absolute -top-3 -right-3 w-12 h-12 border-t-2 border-r-2 border-forest/20"></div>
-            <div className="absolute -bottom-3 -left-3 w-12 h-12 border-b-2 border-l-2 border-forest/20"></div>
-            <div className="absolute -bottom-3 -right-3 w-12 h-12 border-b-2 border-r-2 border-forest/20"></div>
-
-            <div className="bg-white shadow-[0_32px_80px_rgba(2,69,59,0.08)] border border-forest/5 p-8 md:p-12">
+            {/* Soft lift + sage bloom behind */}
+            <div
+              className="pointer-events-none absolute -inset-4 rounded-2xl bg-gradient-to-b from-sage/[0.07] via-transparent to-forest/[0.04] blur-xl md:-inset-8"
+              aria-hidden
+            />
+            <div className="relative overflow-hidden rounded-lg border border-forest/10 shadow-[0_28px_72px_rgba(2,69,59,0.11)] ring-1 ring-forest/[0.06]">
+              {/* Gold hairline (sits above widget chrome, non-interactive) */}
+              <div
+                className="pointer-events-none absolute inset-x-0 top-0 z-10 h-px bg-gradient-to-r from-transparent via-gold/45 to-transparent"
+                aria-hidden
+              />
               <iframe
                 src="https://api.leadconnectorhq.com/widget/booking/Vtc7MSs85zh2MjJsX2g3"
                 id="Vtc7MSs85zh2MjJsX2g3_1774315097817"
                 title="Book a Session with Maria Amiouni"
-                style={{ width: "100%", border: "none", overflow: "hidden", minHeight: "680px" }}
+                className="block w-full bg-transparent"
+                style={{ border: "none", overflow: "hidden", minHeight: "680px" }}
                 scrolling="no"
               />
             </div>
