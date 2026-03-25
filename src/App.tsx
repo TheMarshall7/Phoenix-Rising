@@ -8,6 +8,8 @@ import { BookingPage } from "./pages/BookingPage";
 import LandingPage from "./pages/funnel/LandingPage";
 import CheckoutPage from "./pages/funnel/CheckoutPage";
 import ThankYouPage from "./pages/funnel/ThankYouPage";
+import PrivacyPage from "./pages/PrivacyPage";
+import TermsPage from "./pages/TermsPage";
 
 const ScrollToTop = () => {
   const { pathname } = useLocation();
@@ -47,6 +49,8 @@ function App() {
           <Route path="/mentorship" element={<MentorshipPage />} />
           <Route path="/sacred-spaces" element={<SacredSpacesPage />} />
           <Route path="/booking" element={<BookingPage />} />
+          <Route path="/privacy" element={<PrivacyPage />} />
+          <Route path="/terms" element={<TermsPage />} />
         </Route>
       </Routes>
     </Router>

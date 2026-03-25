@@ -51,9 +51,16 @@ export const Footer: React.FC = () => {
 
         <div className="pt-12 border-t border-cream/5 flex flex-col md:flex-row justify-between items-center gap-8 text-[9px] tracking-[0.3em] uppercase font-bold text-cream/20">
           <p>© 2026 MARIA AMIOUNI. ALL RIGHTS RESERVED.</p>
-          <div className="flex items-center gap-4">
+          <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2">
+            <Link to="/privacy" className="hover:text-cream/50 transition-colors">
+              Privacy
+            </Link>
+            <Link to="/terms" className="hover:text-cream/50 transition-colors">
+              Terms
+            </Link>
+            <span className="hidden sm:inline w-1 h-1 bg-cream/20 rounded-full" aria-hidden />
             <span>Dubai, UAE</span>
-            <span className="w-1 h-1 bg-cream/20 rounded-full"></span>
+            <span className="w-1 h-1 bg-cream/20 rounded-full" aria-hidden />
             <span>Global Mentorship</span>
           </div>
         </div>

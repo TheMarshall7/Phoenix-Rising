@@ -160,7 +160,7 @@ export default function LandingPage() {
       </section>
 
       {/* SECTION 1 - THE CORE SHIFT */}
-      <Section id="roadmap" className="bg-paper py-48 relative overflow-hidden">
+      <Section id="core-shift" className="bg-paper py-48 relative overflow-hidden">
         <div className="absolute top-0 right-0 w-1/3 h-full bg-burgundy/5 -skew-x-12 translate-x-1/2"></div>
         <div className="container-narrow relative z-10">
           <div className="grid md:grid-cols-12 gap-16 items-start">
@@ -915,10 +915,23 @@ export default function LandingPage() {
               </div>
               
               <div className="flex flex-wrap gap-x-12 gap-y-6 text-[10px] tracking-[0.4em] uppercase font-bold opacity-50 pt-8">
-                <a href="#" className="hover:text-cream hover:opacity-100 transition-all duration-500">Instagram</a>
-                <a href="#" className="hover:text-cream hover:opacity-100 transition-all duration-500">Contact</a>
-                <a href="#" className="hover:text-cream hover:opacity-100 transition-all duration-500">Privacy Policy</a>
-                <a href="#" className="hover:text-cream hover:opacity-100 transition-all duration-500">Terms of Service</a>
+                <a
+                  href="https://www.instagram.com/maria.amiouni"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="hover:text-cream hover:opacity-100 transition-all duration-500"
+                >
+                  Instagram
+                </a>
+                <a href="mailto:mariaamiouni@gmail.com" className="hover:text-cream hover:opacity-100 transition-all duration-500">
+                  Contact
+                </a>
+                <Link to="/privacy" className="hover:text-cream hover:opacity-100 transition-all duration-500">
+                  Privacy Policy
+                </Link>
+                <Link to="/terms" className="hover:text-cream hover:opacity-100 transition-all duration-500">
+                  Terms of Service
+                </Link>
               </div>
             </div>
             
