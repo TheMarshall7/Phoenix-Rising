@@ -34,9 +34,9 @@ export const Footer: React.FC = () => {
               <Link to="/sacred-spaces" className="hover:text-cream transition-colors flex items-center gap-2 group">
                 Sacred Spaces <ArrowUpRight className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-opacity" />
               </Link>
-              <a href="https://mariaamiouni.com/phoenixrising2" target="_blank" rel="noreferrer" className="hover:text-cream transition-colors flex items-center gap-2 group">
+              <Link to="/phoenix-rising" className="hover:text-cream transition-colors flex items-center gap-2 group">
                 Phoenix Rising <ArrowUpRight className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-opacity" />
-              </a>
+              </Link>
             </div>
           </div>
 
