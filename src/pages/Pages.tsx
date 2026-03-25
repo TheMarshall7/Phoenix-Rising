@@ -87,7 +87,7 @@ export const PilgrimagePage: React.FC = () => (
         <div className="max-w-4xl mx-auto space-y-12">
           <div className="w-full aspect-video border border-ink/10 bg-ink/5 overflow-hidden shadow-2xl">
             <video
-              src="/Circle of the Rose - May 2026.mp4"
+              src="https://assets.cdn.filesafe.space/qPFyxcfcKb9ufSnJGOBl/media/69c33ec8fe4d0d7489dbe47d.mp4"
               controls
               className="w-full h-full object-cover"
               title="Circle of the Rose Pilgrimage Video"

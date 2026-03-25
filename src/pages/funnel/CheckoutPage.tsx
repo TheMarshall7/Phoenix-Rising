@@ -1,20 +1,19 @@
-import { Shield, Lock, CreditCard, ChevronLeft, CheckCircle2 } from "lucide-react";
-import { Link, useNavigate } from "react-router-dom";
-import { Button } from "../../components/Common";
-import React, { useState } from "react";
+import { CheckCircle2, ChevronLeft } from "lucide-react";
+import { Link } from "react-router-dom";
+import { useEffect } from "react";
+
+const GHL_FORM_EMBED_SCRIPT = "https://link.msgsndr.com/js/form_embed.js";
+const GHL_FORM_EMBED_SCRIPT_ID = "ghl-form-embed-msgsndr";
 
 export default function CheckoutPage() {
-  const navigate = useNavigate();
-  const [isSubmitting, setIsSubmitting] = useState(false);
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-    // Simulate payment processing
-    setTimeout(() => {
-      navigate("/phoenix-rising/thank-you");
-    }, 2000);
-  };
+  useEffect(() => {
+    if (document.getElementById(GHL_FORM_EMBED_SCRIPT_ID)) return;
+    const script = document.createElement("script");
+    script.id = GHL_FORM_EMBED_SCRIPT_ID;
+    script.src = GHL_FORM_EMBED_SCRIPT;
+    script.async = true;
+    document.body.appendChild(script);
+  }, []);
 
   return (
     <div className="min-h-screen bg-cream text-ink selection:bg-sage selection:text-ink font-sans flex flex-col">
@@ -31,7 +30,7 @@ export default function CheckoutPage() {
       <main className="container mx-auto px-8 py-20 flex-grow">
         <div className="grid lg:grid-cols-12 gap-16 xl:gap-24 items-start">
           
-          {/* LEFT COLUMN: FORM */}
+          {/* LEFT COLUMN: GHL CHECKOUT FORM */}
           <div className="lg:col-span-7 space-y-16">
             <header>
               <p className="text-burgundy/80 text-[10px] tracking-[0.5em] uppercase mb-4 font-bold">Secure Your Spot</p>
@@ -39,50 +38,25 @@ export default function CheckoutPage() {
               <p className="text-ink/80 font-normal text-lg">You are moments away from joining a 21-day container devoted to your integration and embodiment.</p>
             </header>
 
-            <form onSubmit={handleSubmit} className="space-y-12">
-              <div className="grid md:grid-cols-2 gap-8">
-                <div className="space-y-4">
-                  <label className="text-[10px] tracking-[0.2em] uppercase font-bold text-ink/80">First Name</label>
-                  <input required type="text" className="w-full bg-transparent border-b border-ink/40 py-4 focus:border-sage outline-none transition-colors text-lg font-medium text-ink placeholder:text-ink/40" placeholder="Maria" />
-                </div>
-                <div className="space-y-4">
-                  <label className="text-[10px] tracking-[0.2em] uppercase font-bold text-ink/80">Last Name</label>
-                  <input required type="text" className="w-full bg-transparent border-b border-ink/40 py-4 focus:border-sage outline-none transition-colors text-lg font-medium text-ink placeholder:text-ink/40" placeholder="Amiouni" />
-                </div>
-              </div>
-
-              <div className="space-y-4">
-                <label className="text-[10px] tracking-[0.2em] uppercase font-bold text-ink/80">Email Address</label>
-                <input required type="email" className="w-full bg-transparent border-b border-ink/40 py-4 focus:border-sage outline-none transition-colors text-lg font-medium text-ink placeholder:text-ink/40" placeholder="maria@example.com" />
-              </div>
-
-              <div className="p-8 border border-ink/10 bg-white space-y-8 shadow-sm">
-                <div className="flex justify-between items-center">
-                  <h3 className="text-[10px] tracking-[0.3em] uppercase font-bold text-burgundy">Payment Method</h3>
-                  <div className="flex gap-4 text-ink/50">
-                    <CreditCard className="w-5 h-5" />
-                    <Lock className="w-5 h-5" />
-                  </div>
-                </div>
-                
-                <div className="space-y-8">
-                  <div className="space-y-4">
-                    <label className="text-[9px] tracking-[0.2em] uppercase font-bold text-ink/80">Card Details</label>
-                    <input disabled type="text" className="w-full bg-transparent border-b border-ink/40 py-4 outline-none text-lg font-medium opacity-70 cursor-not-allowed text-ink placeholder:text-ink/60" placeholder="Secure payment via Stripe" />
-                  </div>
-                </div>
-              </div>
-
-              <div className="pt-8">
-                <Button type="submit" className="w-full md:w-auto scale-110 !px-16" variant="primary">
-                  {isSubmitting ? "Processing..." : "Secure My Spot — 444 AED"}
-                </Button>
-                <p className="mt-8 flex items-center justify-center md:justify-start gap-3 text-[10px] tracking-widest uppercase font-bold text-ink/80">
-                  <Shield className="w-4 h-4 text-sage" />
-                  100% Secure Checkout & Instant Access
-                </p>
-              </div>
-            </form>
+            <div className="w-full min-h-[1236px] rounded-[3px] overflow-hidden bg-white border border-ink/10 shadow-sm">
+              <iframe
+                src="https://api.leadconnectorhq.com/widget/form/yo8WVUvk1Z8w66hXIdOS"
+                style={{ width: "100%", height: "100%", minHeight: 1236, border: "none", borderRadius: 3 }}
+                id="inline-yo8WVUvk1Z8w66hXIdOS"
+                data-layout="{'id':'INLINE'}"
+                data-trigger-type="alwaysShow"
+                data-trigger-value=""
+                data-activation-type="alwaysActivated"
+                data-activation-value=""
+                data-deactivation-type="neverDeactivate"
+                data-deactivation-value=""
+                data-form-name="Early Bird Phoenix Rising"
+                data-height="1236"
+                data-layout-iframe-id="inline-yo8WVUvk1Z8w66hXIdOS"
+                data-form-id="yo8WVUvk1Z8w66hXIdOS"
+                title="Early Bird Phoenix Rising"
+              />
+            </div>
           </div>
 
           {/* RIGHT COLUMN: SUMMARY */}

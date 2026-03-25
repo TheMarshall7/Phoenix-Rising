@@ -14,7 +14,7 @@ export const Section: React.FC<SectionProps> = ({ children, className = "", id }
 );
 
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-  variant?: 'primary' | 'outline' | 'ghost' | 'sage';
+  variant?: 'primary' | 'outline' | 'ghost' | 'sage' | 'cream';
   className?: string;
 }
 
@@ -30,7 +30,8 @@ export const Button: React.FC<ButtonProps> = ({
     primary: "bg-forest text-cream hover:bg-ink hover:text-white shadow-lg translate-y-0 hover:-translate-y-1",
     outline: "border border-ink/20 text-ink hover:border-forest hover:text-forest hover:bg-forest/5",
     ghost: "text-ink/60 hover:text-forest tracking-widest px-0 py-0",
-    sage: "bg-sage text-ink hover:bg-forest hover:text-cream px-12"
+    sage: "bg-sage text-ink hover:bg-forest hover:text-cream px-12",
+    cream: "bg-cream text-burgundy shadow-lg translate-y-0 hover:-translate-y-1 hover:bg-white hover:text-burgundy hover:scale-105",
   };
 
   return (

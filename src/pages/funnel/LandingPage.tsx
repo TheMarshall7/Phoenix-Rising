@@ -145,7 +145,7 @@ export default function LandingPage() {
             
             <div className="flex flex-col sm:flex-row gap-6 items-start sm:items-center mt-auto lg:mt-0">
               <Link to="/phoenix-rising/checkout" className="contents">
-                <Button variant="primary" className="bg-cream text-burgundy hover:scale-105">Join the Journey</Button>
+                <Button variant="cream">Join the Journey</Button>
               </Link>
               <div className="flex items-center gap-4 text-[9px] tracking-widest uppercase font-bold text-cream/40 px-4 sm:px-0">
                 <span className="w-8 h-px bg-cream/20 hidden sm:block"></span>
