@@ -1,8 +1,190 @@
-import React from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import { motion } from "framer-motion";
 import { ArrowRight, Star } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button, FadeIn } from "../components/Common";
+
+type SanctuaryMedia =
+  | { kind: "image"; src: string; alt: string }
+  | { kind: "video"; src: string; alt: string };
+
+const SanctuaryGallery: React.FC = () => {
+  const [active, setActive] = useState<SanctuaryMedia | null>(null);
+
+  useEffect(() => {
+    if (!active) return;
+    const prev = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.body.style.overflow = prev;
+    };
+  }, [active]);
+
+  useEffect(() => {
+    if (!active) return;
+    const onKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setActive(null);
+    };
+    window.addEventListener("keydown", onKeyDown);
+    return () => window.removeEventListener("keydown", onKeyDown);
+  }, [active]);
+
+  const videoSrc =
+    "https://assets.cdn.filesafe.space/qPFyxcfcKb9ufSnJGOBl/media/69c3fb95e249817419eae703.mp4";
+
+  const tiles = useMemo(
+    () => ({
+      left: [
+        { wrapper: "aspect-[4/5]", media: { kind: "image", src: "/images/pilgrimage/pool.png", alt: "Sanctuary Pool" } },
+        { wrapper: "aspect-square", media: { kind: "image", src: "/images/pilgrimage/sauna.png", alt: "Sanctuary Sauna" } },
+        { wrapper: "aspect-[4/5]", media: { kind: "image", src: "/sanctuary/IMG_1864.jpg", alt: "Sanctuary Photo" } },
+        { wrapper: "aspect-square", media: { kind: "image", src: "/sanctuary/IMG_1922.jpg", alt: "Sanctuary Photo" } },
+        { wrapper: "aspect-[4/5]", media: { kind: "image", src: "/sanctuary/IMG_1926.jpg", alt: "Sanctuary Photo" } },
+        { wrapper: "aspect-square", media: { kind: "image", src: "/sanctuary/IMG_1937.jpg", alt: "Sanctuary Photo" } },
+      ],
+      middle: [
+        { wrapper: "aspect-video", media: { kind: "image", src: "/images/pilgrimage/dining_outdoor.png", alt: "Outdoor Dining" } },
+        { wrapper: "aspect-[4/5]", media: { kind: "image", src: "/images/pilgrimage/villa_exterior.png", alt: "Villa Exterior" } },
+        { wrapper: "aspect-video", media: { kind: "image", src: "/sanctuary/IMG_1948.jpg", alt: "Sanctuary Photo" } },
+        { wrapper: "aspect-[4/5]", media: { kind: "image", src: "/sanctuary/IMG_1998.jpg", alt: "Sanctuary Photo" } },
+        { wrapper: "aspect-[4/5]", media: { kind: "image", src: "/sanctuary/IMG_2001.jpg", alt: "Sanctuary Photo" } },
+        { wrapper: "aspect-video", media: { kind: "video", src: videoSrc, alt: "Sanctuary Building" } },
+      ],
+      right: [
+        { wrapper: "aspect-square", media: { kind: "image", src: "/images/pilgrimage/bedroom.png", alt: "Sanctuary Bedroom" } },
+        { wrapper: "aspect-[3/4]", media: { kind: "image", src: "/images/pilgrimage/dining_indoor.png", alt: "Indoor Dining" } },
+        { wrapper: "aspect-square", media: { kind: "image", src: "/sanctuary/IMG_2024.jpg", alt: "Sanctuary Photo" } },
+        { wrapper: "aspect-[3/4]", media: { kind: "image", src: "/sanctuary/IMG_2040.jpg", alt: "Sanctuary Photo" } },
+        { wrapper: "aspect-square", media: { kind: "image", src: "/sanctuary/IMG_2052.jpg", alt: "Sanctuary Photo" } },
+      ],
+    }),
+    [videoSrc]
+  );
+
+  const TileButton: React.FC<{
+    wrapperClass: string;
+    media: SanctuaryMedia;
+  }> = ({ wrapperClass, media }) => {
+    return (
+      <button
+        type="button"
+        onClick={() => setActive(media)}
+        className={`${wrapperClass} w-full overflow-hidden group border border-ink/5 text-left focus:outline-none focus:ring-2 focus:ring-forest/20 rounded-sm`}
+        aria-label={`Open ${media.alt}`}
+      >
+        {media.kind === "image" ? (
+          <img
+            src={media.src}
+            alt={media.alt}
+            className="w-full h-full object-cover grayscale-[20%] group-hover:grayscale-0 group-hover:scale-105 transition-all duration-1000"
+            loading="lazy"
+            decoding="async"
+          />
+        ) : (
+          <video
+            src={media.src}
+            autoPlay
+            muted
+            loop
+            playsInline
+            preload="metadata"
+            className="w-full h-full object-cover grayscale-[20%] group-hover:grayscale-0 group-hover:scale-105 transition-all duration-1000"
+          />
+        )}
+      </button>
+    );
+  };
+
+  return (
+    <>
+      {/* SANCTUARY GALLERY - WHITE */}
+      <section className="bg-paper py-48 px-8 overflow-hidden text-ink">
+        <div className="container mx-auto">
+          <div className="grid lg:grid-cols-12 gap-12 items-end mb-24">
+            <div className="lg:col-span-8 space-y-8">
+              <p className="text-forest tracking-[0.4em] uppercase font-bold text-[10px]">
+                The Sacred Villa
+              </p>
+              <h2 className="text-6xl md:text-8xl font-serif italic text-ink leading-[0.8] uppercase">
+                The{" "}
+                <span className="text-forest lowercase font-light tracking-normal italic">
+                  sanctuary.
+                </span>
+              </h2>
+            </div>
+            <div className="lg:col-span-4 pb-4">
+              <p className="text-lg font-light text-ink/60 italic leading-relaxed">
+                A private 17th-century estate nestled in the heart of the Provence countryside,
+                where time slows and the soul remembers.
+              </p>
+            </div>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="space-y-8">
+              {tiles.left.map((t, idx) => (
+                <TileButton key={idx} wrapperClass={t.wrapper} media={t.media} />
+              ))}
+            </div>
+
+            <div className="space-y-8 lg:pt-24">
+              {tiles.middle.map((t, idx) => (
+                <TileButton key={idx} wrapperClass={t.wrapper} media={t.media} />
+              ))}
+            </div>
+
+            <div className="space-y-8 md:col-span-2 lg:col-span-1">
+              {tiles.right.map((t, idx) => (
+                <TileButton key={idx} wrapperClass={t.wrapper} media={t.media} />
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {active && (
+        <div
+          className="fixed inset-0 z-[60] bg-ink/85 backdrop-blur-sm flex items-center justify-center p-4"
+          role="dialog"
+          aria-modal="true"
+          aria-label="Media viewer"
+          onMouseDown={() => setActive(null)}
+        >
+          <div
+            className="relative max-w-[96vw] max-h-[92vh] w-auto"
+            onMouseDown={(e) => e.stopPropagation()}
+          >
+            <button
+              type="button"
+              onClick={() => setActive(null)}
+              className="absolute -top-3 -right-3 w-10 h-10 rounded-full bg-paper text-ink border border-ink/10 shadow-lg flex items-center justify-center"
+              aria-label="Close"
+            >
+              <span className="text-2xl leading-none">&times;</span>
+            </button>
+
+            {active.kind === "image" ? (
+              <img
+                src={active.src}
+                alt={active.alt}
+                className="max-h-[92vh] w-auto mx-auto object-contain"
+              />
+            ) : (
+              <video
+                src={active.src}
+                controls
+                autoPlay
+                loop
+                playsInline
+                className="max-h-[92vh] w-auto mx-auto object-contain"
+              />
+            )}
+          </div>
+        </div>
+      )}
+    </>
+  );
+};
 
 export const PilgrimagePage: React.FC = () => (
   <main className="bg-paper overflow-hidden">
@@ -263,48 +445,7 @@ export const PilgrimagePage: React.FC = () => (
     </section>
 
     {/* SANCTUARY GALLERY - WHITE */}
-    <section className="bg-paper py-48 px-8 overflow-hidden text-ink">
-       <div className="container mx-auto">
-          <div className="grid lg:grid-cols-12 gap-12 items-end mb-24">
-             <div className="lg:col-span-8 space-y-8">
-                <p className="text-forest tracking-[0.4em] uppercase font-bold text-[10px]">The Sacred Villa</p>
-                <h2 className="text-6xl md:text-8xl font-serif italic text-ink leading-[0.8] uppercase">The <span className="text-forest lowercase font-light tracking-normal italic">sanctuary.</span></h2>
-             </div>
-             <div className="lg:col-span-4 pb-4">
-                <p className="text-lg font-light text-ink/60 italic leading-relaxed">
-                   A private 17th-century estate nestled in the heart of the Provence countryside, where time slows and the soul remembers.
-                </p>
-             </div>
-          </div>
-          
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-             <div className="space-y-8">
-                <div className="aspect-[4/5] overflow-hidden group border border-ink/5">
-                   <img src="/images/pilgrimage/pool.png" alt="Sanctuary Pool" className="w-full h-full object-cover grayscale-[20%] group-hover:grayscale-0 group-hover:scale-105 transition-all duration-1000" />
-                </div>
-                <div className="aspect-square overflow-hidden group border border-ink/5">
-                   <img src="/images/pilgrimage/sauna.png" alt="Sanctuary Sauna" className="w-full h-full object-cover grayscale-[20%] group-hover:grayscale-0 group-hover:scale-105 transition-all duration-1000" />
-                </div>
-             </div>
-             <div className="space-y-8 lg:pt-24">
-                <div className="aspect-video overflow-hidden group border border-ink/5">
-                   <img src="/images/pilgrimage/dining_outdoor.png" alt="Outdoor Dining" className="w-full h-full object-cover grayscale-[20%] group-hover:grayscale-0 group-hover:scale-105 transition-all duration-1000" />
-                </div>
-                <div className="aspect-[4/5] overflow-hidden group border border-ink/5">
-                   <img src="/images/pilgrimage/villa_exterior.png" alt="Villa Exterior" className="w-full h-full object-cover grayscale-[20%] group-hover:grayscale-0 group-hover:scale-105 transition-all duration-1000" />
-                </div>
-             </div>
-             <div className="space-y-8 md:col-span-2 lg:col-span-1">
-                <div className="aspect-square overflow-hidden group border border-ink/5">
-                   <img src="/images/pilgrimage/bedroom.png" alt="Sanctuary Bedroom" className="w-full h-full object-cover grayscale-[20%] group-hover:grayscale-0 group-hover:scale-105 transition-all duration-1000" />
-                </div>
-                <div className="aspect-[3/4] overflow-hidden group border border-ink/5">
-                   <img src="/images/pilgrimage/dining_indoor.png" alt="Indoor Dining" className="w-full h-full object-cover grayscale-[20%] group-hover:grayscale-0 group-hover:scale-105 transition-all duration-1000" />
-                </div>
-             </div>
-          </div>
-       </div>
-    </section>
+    <SanctuaryGallery />
 
     {/* WHAT TO PACK SECTION - INK (matches footer) */}
     <section className="bg-ink py-48 px-8 text-cream">
