@@ -68,7 +68,12 @@ export default function LandingPage() {
       {/* NAVIGATION */}
       <nav className="fixed top-0 left-0 w-full z-50 px-8 py-6 flex justify-between items-center mix-blend-difference text-cream">
         <div className="flex items-center">
-          <img src="/logo-white.png" alt="Phoenix Rising" className="h-16 md:h-20 object-contain" fetchPriority="high" />
+          <img
+            src="/White notext.png"
+            alt="Phoenix Rising"
+            className="h-16 md:h-20 object-contain"
+            fetchPriority="high"
+          />
         </div>
         <div className="hidden md:flex gap-12 text-[9px] tracking-[0.4em] uppercase font-bold">
           <a href="#roadmap" className="hover:text-sage transition-colors">Roadmap</a>
@@ -637,43 +642,6 @@ export default function LandingPage() {
         </div>
       </Section>
 
-      {/* PHOTO GALLERY */}
-      <Section className="bg-paper text-ink py-48 overflow-hidden">
-        <div className="container-narrow text-center mb-32">
-          <p className="text-sage text-[10px] tracking-[0.5em] uppercase mb-6 font-bold">The Experience</p>
-          <h2 className="text-6xl md:text-8xl mb-10 font-medium text-burgundy">GLIMPSES OF <br /><span className="font-serif italic text-burgundy">the journey</span></h2>
-        </div>
-        
-        <div className="flex gap-4 overflow-x-auto pb-12 hide-scrollbar snap-x snap-mandatory px-8 md:px-0 mx-auto max-w-[100vw] lg:max-w-[80vw]">
-          {[
-            "/_304.jpg",
-            "/_31.jpg",
-            "/_310.jpg",
-            "/_316.jpg",
-            "/_401.jpg",
-            "/_418.jpg",
-            "/_423.jpg",
-            "/_47.jpg"
-          ].map((src, i) => (
-            <motion.div
-              key={i}
-              className="shrink-0 w-[85vw] md:w-[600px] aspect-[4/3] snap-center rounded-sm overflow-hidden border border-ink/5"
-              initial={{ opacity: 0, scale: 0.95 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-            >
-              <img 
-                src={src} 
-                alt="Retreat moment" 
-                className="w-full h-full object-cover hover:scale-105 transition-transform duration-1000" 
-                loading="lazy"
-                decoding="async"
-              />
-            </motion.div>
-          ))}
-        </div>
-      </Section>
-
       {/* SECTION 5.5 - TESTIMONIALS */}
       <Section className="bg-ink text-cream py-48 relative overflow-hidden">
         <div className="absolute top-0 left-0 w-full h-full opacity-5 pointer-events-none">
@@ -681,8 +649,10 @@ export default function LandingPage() {
         </div>
         <div className="container-narrow relative z-10">
           <div className="text-center mb-32">
-            <p className="text-sage text-[10px] tracking-[0.5em] uppercase mb-6 font-bold">The Resonance</p>
-            <h2 className="text-6xl md:text-8xl mb-10 font-medium text-cream">HEARD IN THE <br /><span className="font-serif italic text-sage">field</span></h2>
+            <h2 className="text-6xl md:text-8xl mb-10 font-medium text-cream">
+              Client <br />
+              <span className="font-serif italic text-sage">Reflections</span>
+            </h2>
           </div>
           <div className="relative group/carousel">
             <div 
@@ -775,7 +745,6 @@ export default function LandingPage() {
               {/* THE CONTAINER (Moved to Left Side) */}
               <div className="space-y-8">
                 <div>
-                  <p className="text-sage text-[9px] tracking-[0.4em] uppercase font-bold mb-6">The Container</p>
                   <p className="text-2xl md:text-3xl font-serif italic text-burgundy mb-4 leading-tight">Doors close shortly after we start.</p>
                   <p className="text-ink/50 text-sm leading-relaxed italic max-w-sm">We walk this together from the beginning. Join the optional WhatsApp group for community support.</p>
                 </div>
@@ -890,7 +859,7 @@ export default function LandingPage() {
       </Section>
 
       {/* FOOTER */}
-      <footer className="bg-burgundy text-cream pt-48 pb-16 relative overflow-hidden">
+      <footer className="bg-burgundy text-cream pt-48 pb-32 relative overflow-hidden">
         {/* Massive Watermark */}
         <div className="absolute top-[20%] left-0 w-full flex justify-center pointer-events-none opacity-[0.03]">
           <h2 className="text-[30vw] font-serif italic whitespace-nowrap">Phoenix</h2>
@@ -936,7 +905,7 @@ export default function LandingPage() {
             </div>
             
             <div className="lg:col-span-4 lg:text-right flex flex-col justify-end lg:pt-32 h-full">
-              <div className="p-8 md:p-12 border border-cream/10 bg-cream/[0.02] backdrop-blur-sm rounded-sm">
+              <div className="py-16 px-8 md:py-24 md:px-12 border border-cream/10 bg-cream/[0.02] backdrop-blur-sm rounded-sm min-h-[320px] md:min-h-[420px]">
                 <p className="text-sage font-serif italic text-3xl mb-6">Come as you are. <br/>Stay with yourself.</p>
                 <p className="text-cream/60 text-[10px] tracking-[0.3em] uppercase font-bold mb-10">Walk this with us. We begin April 11.</p>
                 

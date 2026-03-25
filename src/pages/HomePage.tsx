@@ -167,13 +167,15 @@ export const HomePage: React.FC = () => {
                  </div>
                  {/* Floating Labels */}
                  <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-white border border-forest/20 px-6 py-2 rounded-full shadow-xl">
-                    <span className="text-[10px] tracking-widest text-forest uppercase font-bold">Resonance</span>
+                    <span className="text-[10px] tracking-widest text-forest uppercase font-bold font-serif italic">Resonance</span>
                  </div>
                  <div className="absolute bottom-1/4 -left-8 bg-white border border-forest/20 px-6 py-2 rounded-full shadow-xl">
-                    <span className="text-[10px] tracking-widest text-forest uppercase font-bold">Authority</span>
+                    <span className="text-[10px] tracking-widest text-forest uppercase font-bold font-serif italic">Authority</span>
                  </div>
-                 <div className="absolute bottom-1/4 -right-8 bg-white border border-forest/20 px-6 py-2 rounded-full font-serif italic shadow-xl">
-                    <span className="text-[11px] text-ink">Strategy</span>
+                  <div className="absolute bottom-1/4 -right-8 bg-white border border-forest/20 px-6 py-2 rounded-full font-serif italic shadow-xl">
+                    <span className="text-[10px] tracking-widest text-ink uppercase font-bold font-serif italic">
+                      Strategy
+                    </span>
                  </div>
               </div>
             </motion.div>

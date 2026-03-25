@@ -135,7 +135,7 @@ export const PilgrimagePage: React.FC = () => (
           {/* AUDE BARRAS */}
           <FadeIn className="space-y-12 bg-forest/5 p-16 border border-forest/5">
              <div className="flex flex-col md:flex-row gap-12 items-center md:items-start text-center md:text-left">
-                <img src="/_310.jpg" className="w-48 h-48 rounded-full object-cover grayscale opacity-80" alt="Aude Barras" />
+                <img src="/Aude%20Barras.jpg" className="w-48 h-48 rounded-full object-cover grayscale opacity-80" alt="Aude Barras" />
                 <div className="space-y-4">
                    <h3 className="text-4xl font-serif italic text-forest uppercase">Aude Barras</h3>
                    <span className="text-[10px] tracking-[0.3em] uppercase font-bold text-forest/40">Pilgrimage Guide</span>
@@ -153,7 +153,7 @@ export const PilgrimagePage: React.FC = () => (
                 <img src="/_114.jpg" className="w-48 h-48 rounded-full object-cover grayscale opacity-80" alt="Maria Amiouni" />
                 <div className="space-y-4">
                    <h3 className="text-4xl font-serif italic text-forest uppercase">Maria Amiouni</h3>
-                   <span className="text-[10px] tracking-[0.3em] uppercase font-bold text-forest/40">Spiritual Mentor & Mystery Lover</span>
+                   <span className="text-[10px] tracking-[0.3em] uppercase font-bold text-forest/40">Spiritual Mentor</span>
                 </div>
              </div>
              <div className="text-lg font-light text-ink/70 leading-relaxed space-y-6">
@@ -343,7 +343,7 @@ export const PilgrimagePage: React.FC = () => (
              <h2 className="text-6xl md:text-7xl font-serif italic text-ink uppercase">Pilgrim <span className="text-forest lowercase font-light">stories.</span></h2>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-16">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-16">
              {[
                { 
                  name: "Alexandra Roxo", 
@@ -422,7 +422,7 @@ export const MentorshipPage: React.FC = () => (
     </section>
 
     {/* WITNESSED SHIFTS SECTION - WHITE */}
-    <section className="bg-cream py-48 pb-60 px-8">
+    <section className="bg-cream py-48 px-8">
       <div className="container mx-auto">
         <FadeIn>
           <div className="text-center mb-24">
@@ -469,8 +469,10 @@ export const MentorshipPage: React.FC = () => (
                  </div>
                  
                  <div className="space-y-8 relative z-10">
-                   <span className="text-[9px] tracking-[0.3em] uppercase font-bold text-sage opacity-80">{testimonial.tag}</span>
-                   <p className="text-xl md:text-2xl font-serif italic text-ink/80 leading-relaxed font-light">
+                  <span className="text-[9px] tracking-[0.3em] uppercase font-bold text-forest">
+                    {testimonial.tag}
+                  </span>
+                  <p className="text-xl md:text-2xl font-serif italic text-ink leading-relaxed">
                      "{testimonial.text}"
                    </p>
                  </div>
@@ -485,6 +487,55 @@ export const MentorshipPage: React.FC = () => (
             ))}
           </div>
         </FadeIn>
+      </div>
+    </section>
+
+    {/* LET'S BE FRIENDS GALLERY */}
+    <section className="bg-[#012e27] text-cream py-48 relative overflow-hidden">
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-sage/10 rounded-full blur-[160px]"></div>
+      </div>
+
+      <div className="container mx-auto px-8 relative z-10">
+        <div className="text-center mb-20">
+          <h2 className="text-6xl md:text-8xl font-medium text-cream uppercase leading-[0.85] mb-6">
+            LET'S BE <span className="font-serif italic text-sage lowercase font-light">Friends</span>
+          </h2>
+          <a
+            href="https://www.instagram.com/maria.amiouni"
+            target="_blank"
+            rel="noreferrer"
+            className="text-[11px] tracking-[0.5em] uppercase font-bold text-cream/40 hover:text-sage transition-colors duration-500"
+          >
+            @maria.amiouni
+          </a>
+        </div>
+
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4">
+          {[
+            "/_304.jpg",
+            "/_31.jpg",
+            "/_310.jpg",
+            "/_401.jpg"
+          ].map((src, i) => (
+            <motion.div
+              key={i}
+              className="aspect-square overflow-hidden group"
+              initial={{ opacity: 0, scale: 0.95 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ delay: i * 0.05, duration: 0.8 }}
+            >
+              <img
+                src={src}
+                alt="Retreat moment"
+                className="w-full h-full object-cover grayscale-[20%] group-hover:grayscale-0 group-hover:scale-105 transition-all duration-1000"
+                loading="lazy"
+                decoding="async"
+              />
+            </motion.div>
+          ))}
+        </div>
       </div>
     </section>
   </main>
