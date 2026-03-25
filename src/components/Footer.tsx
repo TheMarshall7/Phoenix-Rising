@@ -13,7 +13,7 @@ export const Footer: React.FC = () => {
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-16 md:gap-24 mb-32 items-end">
           <div className="lg:col-span-2">
             <img 
-              src="/logo-white.png" 
+              src="https://assets.cdn.filesafe.space/qPFyxcfcKb9ufSnJGOBl/media/69b9808d6ac97e1ffd45d371.png"
               alt="Maria Amiouni" 
               className="h-24 md:h-32 mb-12 opacity-80" 
             />
@@ -44,7 +44,9 @@ export const Footer: React.FC = () => {
             <h3 className="text-[10px] tracking-[0.4em] uppercase font-bold text-sage mb-10">Connect</h3>
              <div className="flex flex-col gap-6 text-sm font-light text-cream/50 tracking-widest uppercase">
               <a href="https://www.instagram.com/maria.amiouni" target="_blank" rel="noreferrer" className="hover:text-cream transition-colors">Instagram</a>
-              <a href="mailto:mariaamiouni@gmail.com" className="hover:text-cream transition-colors">Contact</a>
+              <Link to="/contact" className="hover:text-cream transition-colors">
+                Contact
+              </Link>
             </div>
           </div>
         </div>

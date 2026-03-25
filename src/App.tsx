@@ -5,6 +5,7 @@ import { Footer } from "./components/Footer";
 import { HomePage } from "./pages/HomePage";
 import { PilgrimagePage, MentorshipPage, SacredSpacesPage } from "./pages/Pages";
 import { BookingPage } from "./pages/BookingPage";
+import { ContactPage } from "./pages/ContactPage";
 import LandingPage from "./pages/funnel/LandingPage";
 import CheckoutPage from "./pages/funnel/CheckoutPage";
 import ThankYouPage from "./pages/funnel/ThankYouPage";
@@ -49,6 +50,7 @@ function App() {
           <Route path="/mentorship" element={<MentorshipPage />} />
           <Route path="/sacred-spaces" element={<SacredSpacesPage />} />
           <Route path="/booking" element={<BookingPage />} />
+          <Route path="/contact" element={<ContactPage />} />
           <Route path="/privacy" element={<PrivacyPage />} />
           <Route path="/terms" element={<TermsPage />} />
         </Route>
