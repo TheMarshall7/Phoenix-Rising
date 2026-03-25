@@ -34,18 +34,17 @@ export const Footer: React.FC = () => {
               <Link to="/sacred-spaces" className="hover:text-cream transition-colors flex items-center gap-2 group">
                 Sacred Spaces <ArrowUpRight className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-opacity" />
               </Link>
-              <a href="http://localhost:3000/" target="_blank" rel="noreferrer" className="hover:text-cream transition-colors flex items-center gap-2 group">
+              <Link to="/phoenix-rising" className="hover:text-cream transition-colors flex items-center gap-2 group">
                 Phoenix Rising <ArrowUpRight className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-opacity" />
-              </a>
+              </Link>
             </div>
           </div>
 
           <div className="space-y-6">
             <h3 className="text-[10px] tracking-[0.4em] uppercase font-bold text-sage mb-10">Connect</h3>
              <div className="flex flex-col gap-6 text-sm font-light text-cream/50 tracking-widest uppercase">
-              <a href="#" className="hover:text-cream transition-colors">Instagram</a>
-              <a href="#" className="hover:text-cream transition-colors">Contact</a>
-              <a href="#" className="hover:text-cream transition-colors">Newsletter</a>
+              <a href="https://www.instagram.com/maria.amiouni" target="_blank" rel="noreferrer" className="hover:text-cream transition-colors">Instagram</a>
+              <a href="mailto:mariaamiouni@gmail.com" className="hover:text-cream transition-colors">Contact</a>
             </div>
           </div>
         </div>

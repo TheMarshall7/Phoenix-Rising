@@ -25,7 +25,8 @@ export const Navbar: React.FC = () => {
     { name: "Sacred Spaces", path: "/sacred-spaces" },
   ];
 
-  const isDarkPage = location.pathname === "/" || location.pathname === "/sacred-spaces";
+  // All pages start with a dark green hero, so always use light text when not scrolled
+  const isDarkPage = true;
 
   return (
     <>
@@ -66,10 +67,8 @@ export const Navbar: React.FC = () => {
                 }`}></span>
               </Link>
             ))}
-            <a 
-              href="http://localhost:3000/" 
-              target="_blank" 
-              rel="noreferrer"
+            <Link 
+              to="/phoenix-rising" 
               className={`flex items-center gap-2 px-6 py-3 border transition-all duration-500 ${
                 scrolled 
                   ? "border-forest/20 hover:bg-forest hover:text-white" 
@@ -80,7 +79,7 @@ export const Navbar: React.FC = () => {
             >
               Phoenix Rising Summit
               <ArrowUpRight className="w-3 h-3" />
-            </a>
+            </Link>
           </div>
 
           <button 
@@ -121,12 +120,12 @@ export const Navbar: React.FC = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
               >
-                <a 
-                  href="http://localhost:3000/" 
+                <Link 
+                  to="/phoenix-rising" 
                   className="px-10 py-5 border border-cream/20 text-[10px] tracking-widest uppercase font-bold hover:bg-cream hover:text-forest transition-all"
                 >
                   Phoenix Rising Summit
-                </a>
+                </Link>
               </motion.div>
           </motion.div>
         )}

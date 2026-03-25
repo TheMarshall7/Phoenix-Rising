@@ -2,7 +2,7 @@ import { useRef, useState } from "react";
 import { motion } from "framer-motion";
 import { Check, ChevronDown, Quote, Sparkles, ChevronLeft, ChevronRight } from "lucide-react";
 import { Link } from "react-router-dom";
-import { Section, Button } from "../components/Common";
+import { Section, Button } from "../../components/Common";
 
 export default function LandingPage() {
   const testimonials = [
@@ -144,8 +144,8 @@ export default function LandingPage() {
             </div>
             
             <div className="flex flex-col sm:flex-row gap-6 items-start sm:items-center mt-auto lg:mt-0">
-              <Link to="/checkout" className="contents">
-                <Button variant="primary" className="bg-cream text-burgundy hover:scale-105">Join the Journey</Button>
+              <Link to="/phoenix-rising/checkout" className="contents">
+                <Button variant="cream">Join the Journey</Button>
               </Link>
               <div className="flex items-center gap-4 text-[9px] tracking-widest uppercase font-bold text-cream/40 px-4 sm:px-0">
                 <span className="w-8 h-px bg-cream/20 hidden sm:block"></span>
@@ -832,7 +832,7 @@ export default function LandingPage() {
                   
                   {/* CTA inside the card at the bottom */}
                   <div className="pt-8 text-center">
-                    <Link to="/checkout" className="inline-block w-full md:w-auto">
+                    <Link to="/phoenix-rising/checkout" className="inline-block w-full md:w-auto">
                       <button className="bg-cream text-burgundy px-12 py-5 rounded-full text-[10px] tracking-[0.3em] uppercase font-bold hover:bg-sage hover:text-burgundy transition-all duration-700 w-full md:w-auto shadow-2xl">
                         Secure Your Spot Now
                       </button>
@@ -927,7 +927,7 @@ export default function LandingPage() {
                 <p className="text-sage font-serif italic text-3xl mb-6">Come as you are. <br/>Stay with yourself.</p>
                 <p className="text-cream/60 text-[10px] tracking-[0.3em] uppercase font-bold mb-10">Walk this with us. We begin April 11.</p>
                 
-                <Link to="/checkout" className="contents">
+                <Link to="/phoenix-rising/checkout" className="contents">
                   <button className="px-10 py-5 rounded-full border border-cream/20 bg-cream/5 text-[10px] tracking-[0.3em] uppercase font-bold hover:bg-cream hover:text-burgundy transition-all duration-700 w-full hover:shadow-[0_0_30px_rgba(245,242,237,0.2)]">
                     Secure Your Spot
                   </button>

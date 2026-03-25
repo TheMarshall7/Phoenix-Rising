@@ -1,9 +1,13 @@
-import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, useLocation, Outlet } from "react-router-dom";
 import { useEffect } from "react";
 import { Navbar } from "./components/Navbar";
 import { Footer } from "./components/Footer";
 import { HomePage } from "./pages/HomePage";
 import { PilgrimagePage, MentorshipPage, SacredSpacesPage } from "./pages/Pages";
+import { BookingPage } from "./pages/BookingPage";
+import LandingPage from "./pages/funnel/LandingPage";
+import CheckoutPage from "./pages/funnel/CheckoutPage";
+import ThankYouPage from "./pages/funnel/ThankYouPage";
 
 const ScrollToTop = () => {
   const { pathname } = useLocation();
@@ -13,22 +17,38 @@ const ScrollToTop = () => {
   return null;
 };
 
+// Layout for the main website that includes the Navbar and Footer
+function MainLayout() {
+  return (
+    <div className="flex flex-col min-h-screen">
+      <Navbar />
+      <main className="flex-grow">
+        <Outlet />
+      </main>
+      <Footer />
+    </div>
+  );
+}
+
 function App() {
   return (
     <Router>
       <ScrollToTop />
-      <div className="flex flex-col min-h-screen">
-        <Navbar />
-        <main className="flex-grow">
-          <Routes>
-            <Route path="/" element={<HomePage />} />
-            <Route path="/pilgrimage" element={<PilgrimagePage />} />
-            <Route path="/mentorship" element={<MentorshipPage />} />
-            <Route path="/sacred-spaces" element={<SacredSpacesPage />} />
-          </Routes>
-        </main>
-        <Footer />
-      </div>
+      <Routes>
+        {/* FUNNEL ROUTES - No Global Navbar/Footer */}
+        <Route path="/phoenix-rising" element={<LandingPage />} />
+        <Route path="/phoenix-rising/checkout" element={<CheckoutPage />} />
+        <Route path="/phoenix-rising/thank-you" element={<ThankYouPage />} />
+        
+        {/* CORE WEBSITE ROUTES - Includes Navbar/Footer */}
+        <Route element={<MainLayout />}>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/pilgrimage" element={<PilgrimagePage />} />
+          <Route path="/mentorship" element={<MentorshipPage />} />
+          <Route path="/sacred-spaces" element={<SacredSpacesPage />} />
+          <Route path="/booking" element={<BookingPage />} />
+        </Route>
+      </Routes>
     </Router>
   );
 }
