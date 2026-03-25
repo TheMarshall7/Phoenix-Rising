@@ -1,7 +1,7 @@
-import { motion } from "motion/react";
-import { Sparkles, ArrowRight, Heart, Calendar, Mail, Globe } from "lucide-react";
+import { motion } from "framer-motion";
+import { Sparkles, Calendar, Mail, Globe } from "lucide-react";
 import { Link } from "react-router-dom";
-import { Section, Button } from "../components/Common";
+import { Button } from "../components/Common";
 
 export default function ThankYouPage() {
   return (

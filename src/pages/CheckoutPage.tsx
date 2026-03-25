@@ -1,7 +1,6 @@
-import { motion } from "motion/react";
 import { Shield, Lock, CreditCard, ChevronLeft, CheckCircle2 } from "lucide-react";
 import { Link, useNavigate } from "react-router-dom";
-import { Section, Button } from "../components/Common";
+import { Button } from "../components/Common";
 import React, { useState } from "react";
 
 export default function CheckoutPage() {

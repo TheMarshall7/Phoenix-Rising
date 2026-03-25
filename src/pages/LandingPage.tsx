@@ -1,6 +1,6 @@
-import { useRef, useState, useEffect } from "react";
-import { motion } from "motion/react";
-import { ArrowRight, Check, ChevronDown, Quote, Sparkles, Zap, Moon, Sun, Compass, Shield, Play, X, ChevronLeft, ChevronRight } from "lucide-react";
+import { useRef, useState } from "react";
+import { motion } from "framer-motion";
+import { Check, ChevronDown, Quote, Sparkles, ChevronLeft, ChevronRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Section, Button } from "../components/Common";
 
