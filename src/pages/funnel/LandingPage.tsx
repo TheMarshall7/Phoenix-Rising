@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { Fragment, useRef, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { Check, ChevronDown, Sparkles, ChevronLeft, ChevronRight, X, ZoomIn } from "lucide-react";
 import { Link } from "react-router-dom";
@@ -38,6 +38,20 @@ const PHOENIX_PRACTITIONERS: PractitionerEntry[] = [
   { name: "Maya Abou Chedid", title: "Shamanic Practitioner", photo: "/practitioners/maya-abou-chedid.jpg" },
   { name: "Mariam Alshatti", title: "Authentic Alignment", photo: "/practitioners/mariam-alshatti.jpg" },
 ];
+
+const ROADMAP_DOORWAYS = [
+  { title: "Nervous System Regulation", desc: "Building the physiological capacity to meet intensity with stability." },
+  { title: "Human Design & Gene Keys", desc: "Understanding your unique mechanics and building radical self-trust." },
+  { title: "Astrology & Timing", desc: "Aligning with the intelligence of celestial rhythms and personal cycles." },
+  { title: "Cyclical Living", desc: "Working with your energy instead of against it for sustainable output." },
+  { title: "Voice & Truth", desc: "Liberating your authentic expression and speaking from the core." },
+  { title: "Relational Polarity", desc: "Navigating the dynamics of connection, boundaries, and attraction." },
+  { title: "Purpose & Dharma", desc: "Finding direction and following the threads of your soul's work." },
+  { title: "Creativity & Pleasure", desc: "Nourishing your aliveness as an act of resistance and resilience." },
+  { title: "Embodied Leadership", desc: "Leading a life of integrity from the inside out." },
+  { title: "Ancestral Memory", desc: "Connecting to the collective healing and wisdom of those before us." },
+  { title: "Visioning the Future", desc: "Stepping into who you are becoming within the shifting world." },
+] as const;
 
 export default function LandingPage() {
   /** Curated testimonials only — full phone screenshots (chat/SMS) removed to protect privacy. */
@@ -89,34 +103,6 @@ export default function LandingPage() {
     const next = activeIndex + (direction === "right" ? 1 : -1);
     const clamped = Math.max(0, Math.min(testimonialImages.length - 1, next));
     scrollToTestimonialIndex(clamped);
-  };
-
-  const [activePortalIdx, setActivePortalIdx] = useState(0);
-
-  useEffect(() => {
-    const nodes = document.querySelectorAll<HTMLElement>("[data-portal-detail]");
-    if (!nodes.length) return;
-    const obs = new IntersectionObserver(
-      (entries) => {
-        const visible = entries
-          .filter((e) => e.isIntersecting)
-          .sort((a, b) => b.intersectionRatio - a.intersectionRatio);
-        const top = visible[0];
-        if (top?.target instanceof HTMLElement) {
-          const idx = Number(top.target.dataset.portalIndex);
-          if (!Number.isNaN(idx)) setActivePortalIdx(idx);
-        }
-      },
-      { root: null, rootMargin: "-10% 0px -40% 0px", threshold: [0, 0.15, 0.35, 0.55, 1] }
-    );
-    nodes.forEach((n) => obs.observe(n));
-    return () => obs.disconnect();
-  }, []);
-
-  const scrollToPortal = (index: number) => {
-    document
-      .querySelector(`[data-portal-detail][data-portal-index="${index}"]`)
-      ?.scrollIntoView({ behavior: "smooth", block: "start" });
   };
 
   return (
@@ -421,46 +407,203 @@ export default function LandingPage() {
         </div>
       </Section>
 
-      {/* SECTION 4 - THE 21-DAY ROADMAP */}
-      <Section id="roadmap" className="bg-burgundy text-cream py-48 border-y border-cream/5">
-        <div className="container-narrow">
-          <div className="grid md:grid-cols-3 gap-16 items-start">
-            <div className="md:sticky md:top-32">
-              <p className="text-cream/80 text-[10px] tracking-[0.5em] uppercase mb-6 font-semibold">The Roadmap</p>
-              <h2 className="text-6xl md:text-8xl mb-10 font-semibold text-cream">21 DAYS <br /><span className="font-serif italic text-cream">of focus.</span></h2>
-              <p className="text-cream/80 font-light italic leading-relaxed mb-4 text-base md:text-lg">Each day features one live session. One focus. One embodied doorway.</p>
-              <p className="text-cream font-light leading-relaxed text-base md:text-lg">This is here to help you walk your talk, and embody that which you already know.</p>
-            </div>
-            
-            <div className="md:col-span-2 grid sm:grid-cols-2 gap-x-12 gap-y-20">
-              {[
-                { title: "Nervous System Regulation", desc: "Building the physiological capacity to meet intensity with stability." },
-                { title: "Human Design & Gene Keys", desc: "Understanding your unique mechanics and building radical self-trust." },
-                { title: "Astrology & Timing", desc: "Aligning with the intelligence of celestial rhythms and personal cycles." },
-                { title: "Cyclical Living", desc: "Working with your energy instead of against it for sustainable output." },
-                { title: "Voice & Truth", desc: "Liberating your authentic expression and speaking from the core." },
-                { title: "Relational Polarity", desc: "Navigating the dynamics of connection, boundaries, and attraction." },
-                { title: "Purpose & Dharma", desc: "Finding direction and following the threads of your soul's work." },
-                { title: "Creativity & Pleasure", desc: "Nourishing your aliveness as an act of resistance and resilience." },
-                { title: "Embodied Leadership", desc: "Leading a life of integrity from the inside out." },
-                { title: "Ancestral Memory", desc: "Connecting to the collective healing and wisdom of those before us." },
-                { title: "Visioning the Future", desc: "Stepping into who you are becoming within the shifting world." }
-              ].map((phase, i) => (
-                <motion.div
-                  key={i}
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: i * 0.05 }}
-                  className="group relative"
+      {/* SECTION 4 - THE 21-DAY ROADMAP (serpentine path + mobile timeline) */}
+      <Section
+        id="roadmap"
+        className="relative overflow-hidden border-y border-cream/10 bg-burgundy py-48 text-cream"
+      >
+        {/* Subtle map-like depth so pathways read */}
+        <div
+          className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_85%_55%_at_50%_35%,rgba(255,250,240,0.06),transparent_55%)]"
+          aria-hidden
+        />
+        <div
+          className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,rgba(0,0,0,0.12)_0%,transparent_28%,transparent_72%,rgba(0,0,0,0.1)_100%)]"
+          aria-hidden
+        />
+        <div className="container-narrow relative z-10">
+          <div className="mx-auto mb-20 max-w-3xl text-center md:mb-24">
+            <p className="mb-6 text-[10px] font-semibold uppercase tracking-[0.5em] text-cream/90">The Roadmap</p>
+            <h2 className="mb-10 text-6xl font-semibold text-cream md:text-8xl">
+              21 DAYS <br />
+              <span className="font-serif italic text-cream">of focus.</span>
+            </h2>
+            <p className="mb-4 text-base font-light italic leading-relaxed text-cream/85 md:text-lg">
+              Each day features one live session. One focus. One embodied doorway.
+            </p>
+            <p className="text-base font-light leading-relaxed text-cream md:text-lg">
+              This is here to help you walk your talk, and embody that which you already know.
+            </p>
+          </div>
+
+          {/* Mobile: vertical timeline — visible spine */}
+          <div className="relative mx-auto max-w-lg lg:hidden">
+            <div
+              className="absolute left-[27px] top-4 bottom-4 w-[3px] rounded-full bg-gradient-to-b from-cream/25 via-cream/70 to-cream/25 shadow-[0_0_24px_rgba(255,250,240,0.35)]"
+              aria-hidden
+            />
+            {ROADMAP_DOORWAYS.map((phase, i) => (
+              <motion.div
+                key={phase.title}
+                initial={{ opacity: 0, y: 24 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.04 }}
+                className="relative flex gap-6 pb-14 last:pb-0"
+              >
+                <div
+                  className="relative z-10 flex h-14 w-14 shrink-0 items-center justify-center rounded-full border-2 border-cream/45 bg-gradient-to-br from-burgundy to-[#4a0a02] shadow-[0_0_28px_rgba(255,250,240,0.2),0_0_20px_rgba(123,17,3,0.45)] ring-2 ring-cream/15"
+                  aria-hidden
                 >
-                  <div className="absolute -left-6 top-0 h-full w-px bg-cream/25 group-hover:bg-cream/50 transition-colors duration-700"></div>
-                  <span className="text-cream/90 text-[10px] tracking-[0.3em] uppercase font-semibold mb-4 block">Doorway 0{i+1}</span>
-                  <h3 className="text-2xl font-serif italic text-cream mb-6 group-hover:translate-x-2 transition-transform duration-700">{phase.title}</h3>
-                  <p className="text-cream/90 font-light text-base leading-relaxed">{phase.desc}</p>
-                </motion.div>
-              ))}
-            </div>
+                  <span className="font-serif text-lg italic text-cream">{i + 1}</span>
+                </div>
+                <div className="min-w-0 pt-0.5">
+                  <span className="text-cream/90 text-[10px] tracking-[0.3em] uppercase font-semibold mb-2 block">
+                    Doorway {String(i + 1).padStart(2, "0")}
+                  </span>
+                  <h3 className="text-xl font-serif italic text-cream mb-3 leading-snug">{phase.title}</h3>
+                  <p className="text-cream/75 font-light text-sm leading-relaxed">{phase.desc}</p>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+
+          {/* Desktop: serpentine path */}
+          <div className="hidden lg:block">
+            {(() => {
+              type RoadmapPhase = (typeof ROADMAP_DOORWAYS)[number];
+              const chunks: RoadmapPhase[][] = [];
+              for (let s = 0; s < ROADMAP_DOORWAYS.length; s += 3) {
+                chunks.push(ROADMAP_DOORWAYS.slice(s, s + 3) as RoadmapPhase[]);
+              }
+              return chunks.map((chunk, rowIdx) => {
+                /** Always chronological left → right (4→5→6, 10→11) so the path from 3 lands on 4, not 6. */
+                const start = rowIdx * 3;
+                const phasesToShow = [...chunk];
+                const globalIndices = phasesToShow.map((_, idx) => start + idx);
+                const isShortRow = chunk.length < 3;
+
+                const pathLineClass =
+                  "h-[3px] w-full rounded-full bg-gradient-to-r from-cream/30 via-cream/90 to-cream/30 shadow-[0_0_18px_rgba(255,250,240,0.45),0_0_6px_rgba(255,250,240,0.25)]";
+
+                return (
+                  <div key={rowIdx} className="mb-0">
+                    {/* 1) Circle + horizontal path only (so the S-curve can sit flush between rows) */}
+                    <div
+                      className={`mx-auto flex w-full max-w-6xl items-start px-1 ${
+                        isShortRow ? "max-w-4xl justify-center" : ""
+                      }`}
+                    >
+                      {phasesToShow.map((_, j) => {
+                        const globalIdx = globalIndices[j];
+                        const doorwayNum = globalIdx + 1;
+                        const nodeWidth = isShortRow
+                          ? "w-[min(42vw,300px)] xl:w-[320px]"
+                          : "w-[min(28vw,240px)] xl:w-[260px]";
+                        return (
+                          <Fragment key={globalIdx}>
+                            {j > 0 && (
+                              <div
+                                className="flex min-h-[3px] min-w-[12px] flex-1 items-start pt-7"
+                                aria-hidden
+                              >
+                                <div className={`${pathLineClass} w-full`} />
+                              </div>
+                            )}
+                            <motion.div
+                              initial={{ opacity: 0, y: 28 }}
+                              whileInView={{ opacity: 1, y: 0 }}
+                              viewport={{ once: true }}
+                              transition={{ delay: globalIdx * 0.04 }}
+                              className={`flex shrink-0 flex-col items-center px-2 text-center ${nodeWidth}`}
+                            >
+                              <div
+                                className="relative flex h-[3.75rem] w-[3.75rem] shrink-0 items-center justify-center rounded-full border-2 border-cream/50 bg-gradient-to-br from-burgundy to-[#4a0a02] shadow-[0_0_32px_rgba(255,250,240,0.18),0_0_24px_rgba(123,17,3,0.5)] ring-2 ring-cream/20"
+                                aria-hidden
+                              >
+                                <span className="font-serif text-xl italic text-cream">{doorwayNum}</span>
+                              </div>
+                              <span className="mt-4 block text-[10px] font-semibold uppercase tracking-[0.3em] text-cream/95">
+                                Doorway {String(doorwayNum).padStart(2, "0")}
+                              </span>
+                            </motion.div>
+                          </Fragment>
+                        );
+                      })}
+                    </div>
+
+                    {/* 2) Titles + copy aligned to the same columns */}
+                    <div
+                      className={`mx-auto mt-8 grid max-w-6xl gap-x-6 gap-y-10 px-3 ${
+                        isShortRow
+                          ? "max-w-4xl grid-cols-1 sm:grid-cols-2 sm:justify-items-center"
+                          : "grid-cols-3"
+                      }`}
+                    >
+                      {phasesToShow.map((phase, j) => {
+                        const globalIdx = globalIndices[j];
+                        return (
+                          <motion.div
+                            key={`text-${globalIdx}`}
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ delay: globalIdx * 0.04 + 0.05 }}
+                            className={`min-w-0 text-center ${isShortRow ? "max-w-md" : ""}`}
+                          >
+                            <h3 className="mb-3 text-xl font-serif italic leading-snug text-cream xl:text-[1.35rem]">
+                              {phase.title}
+                            </h3>
+                            <p className="text-sm font-light leading-relaxed text-cream/80">{phase.desc}</p>
+                          </motion.div>
+                        );
+                      })}
+                    </div>
+
+                    {/* 3) Continuous SVG bridge: last node (right) → first node of next row (left), or mirrored for alternating serpentine */}
+                    {rowIdx < chunks.length - 1 && (
+                      <div
+                        className="pointer-events-none relative mx-auto w-full max-w-6xl px-2"
+                        aria-hidden
+                      >
+                        <div className="h-24 w-full md:h-32 lg:h-36">
+                          <svg
+                            viewBox="0 0 100 100"
+                            preserveAspectRatio="none"
+                            className="h-full w-full overflow-visible"
+                          >
+                            <defs>
+                              <linearGradient
+                                id={`roadmap-bridge-stroke-${rowIdx}`}
+                                gradientUnits="userSpaceOnUse"
+                                x1="0"
+                                y1="0"
+                                x2="100"
+                                y2="0"
+                              >
+                                <stop offset="0%" stopColor="rgba(255,250,240,0.35)" />
+                                <stop offset="50%" stopColor="rgba(255,250,240,0.95)" />
+                                <stop offset="100%" stopColor="rgba(255,250,240,0.35)" />
+                              </linearGradient>
+                            </defs>
+                            {/* Last node of each row is on the right; next row begins on the left — one continuous S */}
+                            <path
+                              d="M 93 10 C 93 52, 7 48, 7 90"
+                              fill="none"
+                              stroke={`url(#roadmap-bridge-stroke-${rowIdx})`}
+                              strokeWidth="2.2"
+                              strokeLinecap="round"
+                              vectorEffect="non-scaling-stroke"
+                              className="drop-shadow-[0_0_10px_rgba(255,250,240,0.35)]"
+                            />
+                          </svg>
+                        </div>
+                      </div>
+                    )}
+                  </div>
+                );
+              });
+            })()}
           </div>
         </div>
       </Section>
@@ -478,42 +621,11 @@ export default function LandingPage() {
             <p className="text-ink/40 max-w-2xl mx-auto font-light italic text-lg">Detailed explorations led by our expert practitioners.</p>
           </div>
           
-          <div className="max-w-6xl mx-auto flex flex-col gap-10 lg:grid lg:grid-cols-[minmax(0,300px)_1fr] lg:gap-14 lg:items-start">
-            <aside className="lg:sticky lg:top-28 lg:max-h-[calc(100vh-7rem)] lg:overflow-y-auto rounded-xl border border-ink/10 bg-cream/95 backdrop-blur-sm p-3 shadow-sm">
-              <p className="text-burgundy text-[9px] tracking-[0.35em] uppercase font-bold px-2 pt-1 pb-3 border-b border-ink/10 mb-2">
-                All portals
-              </p>
-              <nav className="flex flex-row gap-2 overflow-x-auto pb-1 lg:flex-col lg:gap-0 lg:overflow-visible lg:pb-0" aria-label="Portal sessions">
-                {PHOENIX_PORTAL_SESSIONS.map((session, i) => (
-                  <button
-                    key={session.portal}
-                    type="button"
-                    onClick={() => scrollToPortal(i)}
-                    className={`shrink-0 text-left rounded-lg px-3 py-3 transition-colors lg:w-full ${
-                      activePortalIdx === i
-                        ? "bg-burgundy/10 border border-burgundy/25 shadow-sm"
-                        : "border border-transparent hover:bg-ink/[0.04]"
-                    }`}
-                  >
-                    <span className="text-burgundy text-[9px] tracking-[0.25em] uppercase font-bold block mb-1">
-                      Portal {session.portal}
-                    </span>
-                    <span className="text-ink font-serif italic text-sm leading-snug block mb-1 line-clamp-2">
-                      {session.title}
-                    </span>
-                    <span className="text-ink/55 text-[10px] leading-tight block mb-1">{session.name}</span>
-                    <span className="text-ink/35 text-[9px] tracking-wide">{session.date}</span>
-                  </button>
-                ))}
-              </nav>
-            </aside>
-
-            <div className="space-y-16 md:space-y-24 min-w-0">
-              {PHOENIX_PORTAL_SESSIONS.map((session, i) => (
+          <div className="max-w-6xl mx-auto flex flex-col min-w-0">
+            <div className="space-y-16 md:space-y-24">
+              {PHOENIX_PORTAL_SESSIONS.map((session) => (
                 <motion.div
                   key={session.portal}
-                  data-portal-detail
-                  data-portal-index={i}
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, margin: "-40px" }}
@@ -831,90 +943,116 @@ export default function LandingPage() {
         </div>
       </Section>
 
-      {/* SECTION 5.5 - TESTIMONIALS */}
+      {/* SECTION 5.5 - TESTIMONIALS (gallery-style carousel) */}
       <Section className="bg-ink text-cream py-48 relative overflow-hidden">
-        <div className="absolute top-0 left-0 w-full h-full opacity-5 pointer-events-none">
-          <div className="absolute top-1/4 -right-10 text-[20vw] font-serif italic vertical-text text-cream/10">Voices</div>
-        </div>
-        <div className="container-narrow relative z-10">
-          <div className="text-center mb-32">
-            <h2 className="text-6xl md:text-8xl mb-10 font-medium text-cream">
-              Client <br />
-              <span className="font-serif italic text-cream">Reflections</span>
-            </h2>
+        <div className="pointer-events-none absolute inset-0 opacity-[0.07]">
+          <div className="absolute -right-8 top-1/4 text-[18vw] font-serif italic leading-none text-cream select-none md:text-[14vw]">
+            Voices
           </div>
-          <div className="relative group/carousel">
-            <div 
+        </div>
+        <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-cream/15 to-transparent" aria-hidden />
+        <div className="container-narrow relative z-10 max-w-6xl">
+          <div className="mb-16 text-center md:mb-20">
+            <p className="text-burgundy mb-6 text-[10px] font-semibold uppercase tracking-[0.45em]">From the community</p>
+            <h2 className="mb-6 text-5xl font-medium text-cream md:text-7xl lg:text-8xl">
+              Client <span className="font-serif italic text-cream">reflections</span>
+            </h2>
+            <p className="mx-auto max-w-lg text-sm font-light leading-relaxed text-cream/45 md:text-base">
+              Real words from people who have moved through the Phoenix Rising container — tap any card to view full size.
+            </p>
+          </div>
+
+          <div className="relative">
+            {/* Edge fades so the rail feels like a gallery */}
+            <div
+              className="pointer-events-none absolute inset-y-0 left-0 z-[1] w-10 bg-gradient-to-r from-ink to-transparent md:w-16"
+              aria-hidden
+            />
+            <div
+              className="pointer-events-none absolute inset-y-0 right-0 z-[1] w-10 bg-gradient-to-l from-ink to-transparent md:w-16"
+              aria-hidden
+            />
+
+            <div
               ref={testimonialRef}
               onScroll={handleScroll}
-              className="flex gap-6 md:gap-8 overflow-x-auto pb-16 pt-4 hide-scrollbar snap-x snap-mandatory -mx-8 px-8 md:mx-0 md:px-0"
+              className="hide-scrollbar -mx-4 flex snap-x snap-mandatory gap-5 overflow-x-auto scroll-px-4 px-4 pb-6 pt-2 md:gap-8 md:scroll-px-6 md:px-6"
             >
               {testimonialImages.map((t, i) => (
                 <motion.div
-                  key={i}
-                  initial={{ opacity: 0, scale: 0.95 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
+                  key={t.src}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
-                  transition={{ delay: (i % 3) * 0.1 }}
-                  className="shrink-0 w-[85vw] md:w-[450px] snap-center bg-cream/[0.02] border border-cream/10 group hover:border-burgundy/35 transition-all duration-700 rounded-sm relative overflow-hidden"
+                  transition={{ delay: (i % 4) * 0.06 }}
+                  className="group/card w-[min(82vw,380px)] shrink-0 snap-center md:w-[min(42vw,420px)] lg:w-[400px]"
                 >
-                  <button
-                    type="button"
-                    onClick={() => setLightbox({ kind: "testimonial", src: t.src })}
-                    className="w-full h-full text-left cursor-zoom-in"
-                    aria-label="Open testimonial image"
-                  >
-                    <div className="absolute inset-0 bg-gradient-to-b from-burgundy/0 via-burgundy/0 to-burgundy/10 opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
-                    <div className="absolute top-6 right-6 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                      <div className="inline-flex items-center gap-2 px-3 py-2 rounded-full bg-ink/60 text-cream text-[10px] tracking-[0.25em] uppercase">
-                        <ZoomIn className="w-3.5 h-3.5" aria-hidden />
-                        Enlarge
-                      </div>
+                  <div className="rounded-2xl border border-cream/[0.09] bg-gradient-to-b from-cream/[0.06] via-cream/[0.02] to-transparent p-[2px] shadow-[0_28px_80px_-24px_rgba(0,0,0,0.65)] ring-1 ring-cream/[0.04] transition-all duration-500 group-hover/card:border-burgundy/25 group-hover/card:ring-burgundy/15 group-hover/card:shadow-[0_36px_90px_-20px_rgba(123,17,3,0.25)]">
+                    <div className="overflow-hidden rounded-[14px] bg-ink/80">
+                      <button
+                        type="button"
+                        onClick={() => setLightbox({ kind: "testimonial", src: t.src })}
+                        className="relative block w-full cursor-zoom-in text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-burgundy/50 focus-visible:ring-offset-2 focus-visible:ring-offset-ink"
+                        aria-label={`Open testimonial ${i + 1} of ${testimonialImages.length} in full screen`}
+                      >
+                        <div className="absolute inset-0 z-[1] bg-gradient-to-t from-ink/50 via-transparent to-ink/10 opacity-0 transition-opacity duration-500 group-hover/card:opacity-100" />
+                        <div className="absolute bottom-4 right-4 z-[2] flex h-10 w-10 items-center justify-center rounded-full border border-cream/20 bg-ink/70 text-cream opacity-0 shadow-lg backdrop-blur-sm transition-all duration-500 group-hover/card:opacity-100 group-hover/card:border-cream/35">
+                          <ZoomIn className="h-4 w-4" aria-hidden />
+                        </div>
+                        <img
+                          src={t.src}
+                          alt={t.alt}
+                          loading="lazy"
+                          decoding="async"
+                          className="aspect-[3/4] w-full object-cover object-top transition-[filter,transform] duration-700 group-hover/card:scale-[1.02] group-hover/card:brightness-[1.03] md:aspect-[4/5] md:max-h-[min(520px,70vh)]"
+                        />
+                      </button>
                     </div>
-
-                    <img
-                      src={t.src}
-                      alt={t.alt}
-                      loading="lazy"
-                      className="w-full h-[420px] object-cover object-center grayscale contrast-[1.05] brightness-[0.95] group-hover:grayscale-0 group-hover:brightness-100 transition-all duration-700"
-                    />
-                  </button>
+                  </div>
+                  <p className="mt-4 text-center text-[9px] font-medium uppercase tracking-[0.35em] text-cream/25">
+                    Reflection {String(i + 1).padStart(2, "0")} · Phoenix Rising
+                  </p>
                 </motion.div>
               ))}
             </div>
 
-            {/* Navigation Arrows */}
-            <div className="flex justify-center gap-4 mt-8">
-              <button 
-                type="button"
-                onClick={() => scrollCarousel('left')}
-                className="w-12 h-12 rounded-full border border-cream/10 flex items-center justify-center hover:bg-cream hover:text-burgundy transition-all duration-500 group/btn"
-              >
-                <ChevronLeft className="w-5 h-5 opacity-50 group-hover/btn:opacity-100" />
-              </button>
-              <button 
-                type="button"
-                onClick={() => scrollCarousel('right')}
-                className="w-12 h-12 rounded-full border border-cream/10 flex items-center justify-center hover:bg-cream hover:text-burgundy transition-all duration-500 group/btn"
-              >
-                <ChevronRight className="w-5 h-5 opacity-50 group-hover/btn:opacity-100" />
-              </button>
-            </div>
-
-            {/* Progress Dots */}
-            <div className="flex justify-center gap-3 mt-12 flex-wrap max-w-full px-2">
-              {testimonialImages.map((_, i) => (
+            <div className="mt-10 flex flex-col items-center gap-8 sm:flex-row sm:justify-center sm:gap-12">
+              <div className="flex items-center gap-3">
                 <button
-                  key={i}
                   type="button"
-                  aria-label={`Go to testimonial ${i + 1}`}
-                  aria-current={activeIndex === i ? "true" : undefined}
-                  onClick={() => scrollToTestimonialIndex(i)}
-                  className={`h-1 transition-all duration-500 rounded-full shrink-0 ${
-                    activeIndex === i ? 'w-8 bg-burgundy' : 'w-2 bg-cream/10 hover:bg-cream/30'
-                  }`}
-                />
-              ))}
+                  onClick={() => scrollCarousel("left")}
+                  className="flex h-12 w-12 items-center justify-center rounded-full border border-cream/15 bg-cream/[0.03] text-cream transition-all duration-300 hover:border-cream/30 hover:bg-cream hover:text-burgundy"
+                  aria-label="Previous reflection"
+                >
+                  <ChevronLeft className="h-5 w-5" />
+                </button>
+                <span className="min-w-[5.5rem] text-center font-mono text-[11px] tabular-nums tracking-widest text-cream/50">
+                  {String(activeIndex + 1).padStart(2, "0")} / {String(testimonialImages.length).padStart(2, "0")}
+                </span>
+                <button
+                  type="button"
+                  onClick={() => scrollCarousel("right")}
+                  className="flex h-12 w-12 items-center justify-center rounded-full border border-cream/15 bg-cream/[0.03] text-cream transition-all duration-300 hover:border-cream/30 hover:bg-cream hover:text-burgundy"
+                  aria-label="Next reflection"
+                >
+                  <ChevronRight className="h-5 w-5" />
+                </button>
+              </div>
+
+              <div className="flex max-w-md flex-wrap justify-center gap-2">
+                {testimonialImages.map((_, i) => (
+                  <button
+                    key={i}
+                    type="button"
+                    aria-label={`Go to reflection ${i + 1}`}
+                    aria-current={activeIndex === i ? "true" : undefined}
+                    onClick={() => scrollToTestimonialIndex(i)}
+                    className={`h-1 rounded-full transition-all duration-500 ${
+                      activeIndex === i ? "w-10 bg-burgundy" : "w-1.5 bg-cream/15 hover:bg-cream/35"
+                    }`}
+                  />
+                ))}
+              </div>
             </div>
           </div>
         </div>
