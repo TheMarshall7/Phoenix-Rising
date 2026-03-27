@@ -100,12 +100,14 @@ export const HomePage: React.FC = () => {
               
               <div className="space-y-10">
                 <p className="text-2xl md:text-3xl font-serif italic text-ink/80 leading-relaxed border-l-2 border-sage pl-8">
-                  Your guide to breaking cycles, reading your energetic blueprint, and accelerating spiritual evolution.
+                  Spiritual mentor, writer, and teacher devoted to remembrance.
                 </p>
                 
                 <div className="space-y-8 text-lg font-light leading-relaxed text-ink/70">
-                   <p>I’m a lineage-based mentor, Human Design guide, and retreat facilitator with over 8 years of experience helping women heal deeply, break patterns, and lead with confidence.</p>
-                   <p>Rooted in ancestral wisdom and psychotherapy, I blend somatic practices and specific Human Design mechanics to honor your unique spirit. My mission is to help you cultivate self-trust, understand your design, and embody your true power.</p>
+                   <p>Maria Amiouni is a spiritual mentor, writer, and teacher devoted to helping others remember their innate wisdom and return to the rhythm of the Earth and the soul.</p>
+                   <p>Through her work—blending Human Design, Gene Keys, Astrology, and Rituals—she creates spaces for transformation, reflection, and renewal.</p>
+                   <p>As the founder of The Phoenix Rising Summit and Sacred Spaces, Maria weaves together ancient teachings with modern awareness to guide others through the cycles of life, death, and rebirth.</p>
+                   <p>Her approach is rooted in devotion, beauty, and truth, helping you reconnect with your body, align with your purpose, and live from your authentic frequency.</p>
                 </div>
 
                 <div className="flex flex-wrap gap-4 pt-6 border-t border-ink/5">

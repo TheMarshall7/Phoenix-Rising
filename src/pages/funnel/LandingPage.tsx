@@ -225,17 +225,20 @@ export default function LandingPage() {
                   <p className="text-[10px] tracking-[0.2em] uppercase font-bold text-ink/40">Days of Devotion</p>
                 </div>
                 <div className="p-10 bg-white border border-ink/5 group hover:border-burgundy/25 transition-colors duration-700">
-                  <p className="text-5xl font-serif italic text-burgundy mb-4 group-hover:text-burgundy/80 transition-colors">17</p>
-                  <p className="text-[10px] tracking-[0.2em] uppercase font-bold text-ink/40">Core Practitioners</p>
+                  <p className="text-5xl font-serif italic text-burgundy mb-4 group-hover:text-burgundy/80 transition-colors">18</p>
+                  <p className="text-[10px] tracking-[0.2em] uppercase font-bold text-ink/40">Practitioners</p>
                 </div>
               </div>
 
-              <div className="aspect-[16/9] overflow-hidden border border-ink/5">
-                <img 
-                  src="/_273.jpg" 
-                  alt="Atmospheric landscape" 
-                  className="w-full h-full object-cover object-top opacity-80 hover:scale-105 transition-transform duration-[3s]"
-                />
+              <div className="relative overflow-hidden border border-ink/5 bg-white rounded-sm shadow-sm group hover:border-burgundy/25 transition-colors duration-700">
+                <div className="aspect-[4/3] md:aspect-[16/9] overflow-hidden">
+                  <img
+                    src="/_273.jpg"
+                    alt="Atmospheric landscape"
+                    className="w-full h-full object-cover object-top opacity-85 group-hover:opacity-95 group-hover:scale-105 transition-all duration-[3s]"
+                  />
+                </div>
+                <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-ink/10 via-transparent to-transparent opacity-80" />
               </div>
             </div>
           </div>
@@ -759,7 +762,7 @@ export default function LandingPage() {
                 <div className="w-12 h-12 rounded-full bg-burgundy/20 flex items-center justify-center shrink-0">
                   <Sparkles className="w-5 h-5 text-cream" />
                 </div>
-                <p className="text-cream/90 text-sm font-normal italic">Bringing together 17 teachers, the fourth edition creates a space to connect and support one another on our paths of awakening.</p>
+                <p className="text-cream/90 text-sm font-normal italic">Bringing together 18 practitioners and 19 sessions, the fourth edition creates a space to connect and support one another on our paths of awakening.</p>
               </div>
             </div>
           </div>
@@ -767,72 +770,69 @@ export default function LandingPage() {
       </Section>
 
       {/* FOOTER */}
-      <footer className="bg-burgundy text-cream pt-48 pb-32 relative overflow-hidden">
-        {/* Massive Watermark */}
-        <div className="absolute top-[20%] left-0 w-full flex justify-center pointer-events-none opacity-[0.03]">
-          <h2 className="text-[30vw] font-serif italic whitespace-nowrap">Phoenix</h2>
+      <footer className="bg-burgundy text-cream pt-40 pb-28 relative overflow-hidden">
+        <div className="absolute inset-0 pointer-events-none">
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_50%_at_50%_0%,rgba(245,242,237,0.12),transparent_60%)]" />
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_50%_60%_at_50%_110%,rgba(0,0,0,0.18),transparent_55%)]" />
         </div>
-        
+
         <div className="container-narrow relative z-10 px-8">
-          <div className="grid lg:grid-cols-12 gap-16 lg:gap-24 items-start mb-32">
-            <div className="lg:col-span-8 border-l border-cream/10 pl-8 md:pl-16 relative">
-              <div className="absolute -left-1 top-0 w-2 h-2 rounded-full bg-burgundy"></div>
-              
-              <img src="/logo-white.png" alt="Phoenix Rising Logo" className="w-24 md:w-32 object-contain opacity-80 mb-16" loading="lazy" decoding="async" />
-              
-              <div className="mb-16">
-                <h2 className="text-7xl md:text-8xl lg:text-[8rem] font-medium leading-[0.85] tracking-tight">
-                  21 DAYS <br />
-                  <span className="font-serif italic text-cream block mt-4">of Embodied Living.</span>
-                </h2>
-                <div className="flex items-center gap-6 mt-12">
-                  <div className="w-12 h-px bg-cream/40"></div>
-                  <p className="text-cream/90 text-[11px] tracking-[0.5em] uppercase font-semibold">April 11 – May 2nd</p>
-                </div>
-              </div>
-              
-              <div className="flex flex-wrap gap-x-12 gap-y-6 text-[10px] tracking-[0.4em] uppercase font-bold opacity-50 pt-8">
-                <a
-                  href="https://www.instagram.com/maria.amiouni"
-                  target="_blank"
-                  rel="noreferrer"
-                  className="hover:text-cream hover:opacity-100 transition-all duration-500"
-                >
-                  Instagram
-                </a>
-                <a href="mailto:mariaamiouni@gmail.com" className="hover:text-cream hover:opacity-100 transition-all duration-500">
-                  Contact
-                </a>
-                <Link to="/privacy" className="hover:text-cream hover:opacity-100 transition-all duration-500">
-                  Privacy Policy
-                </Link>
-                <Link to="/terms" className="hover:text-cream hover:opacity-100 transition-all duration-500">
-                  Terms of Service
-                </Link>
-              </div>
+          <div className="max-w-3xl mx-auto text-center">
+            <img
+              src="/White notext.png"
+              alt="Phoenix Rising"
+              className="h-16 md:h-20 mx-auto object-contain opacity-95"
+              loading="lazy"
+              decoding="async"
+            />
+            <p className="mt-6 text-[12px] tracking-[0.35em] uppercase font-semibold text-cream/80">
+              Phoenix Rising
+            </p>
+
+            <h2 className="mt-12 text-4xl md:text-6xl font-semibold tracking-tight">
+              21 Days of <span className="font-serif italic font-normal">Embodied Living</span>
+            </h2>
+            <p className="mt-4 text-base md:text-lg font-light text-cream/80">
+              A live journey into living what you already know.
+            </p>
+            <p className="mt-6 text-[11px] tracking-[0.45em] uppercase font-semibold text-cream/85">
+              April 11 to May 2nd
+            </p>
+
+            <div className="mt-14">
+              <Link to="/phoenix-rising/checkout" className="contents">
+                <button className="px-12 py-5 rounded-full border border-cream/25 bg-cream/10 text-[10px] tracking-[0.35em] uppercase font-bold hover:bg-cream hover:text-burgundy transition-all duration-700 hover:shadow-[0_0_40px_rgba(245,242,237,0.22)]">
+                  Secure Your Spot
+                </button>
+              </Link>
             </div>
-            
-            <div className="lg:col-span-4 lg:text-right flex flex-col justify-end lg:pt-32 h-full">
-              <div className="py-16 px-8 md:py-24 md:px-12 border border-cream/10 bg-cream/[0.02] backdrop-blur-sm rounded-sm min-h-[320px] md:min-h-[420px]">
-                <p className="text-cream font-serif italic text-3xl mb-6">Come as you are. <br/>Stay with yourself.</p>
-                <p className="text-cream/60 text-[10px] tracking-[0.3em] uppercase font-bold mb-10">Walk this with us. We begin April 11.</p>
-                
-                <Link to="/phoenix-rising/checkout" className="contents">
-                  <button className="px-10 py-5 rounded-full border border-cream/20 bg-cream/5 text-[10px] tracking-[0.3em] uppercase font-bold hover:bg-cream hover:text-burgundy transition-all duration-700 w-full hover:shadow-[0_0_30px_rgba(245,242,237,0.2)]">
-                    Secure Your Spot
-                  </button>
-                </Link>
-              </div>
+
+            <div className="mt-14 flex flex-wrap justify-center gap-x-10 gap-y-5 text-[10px] tracking-[0.4em] uppercase font-bold text-cream/60">
+              <a
+                href="https://www.instagram.com/maria.amiouni"
+                target="_blank"
+                rel="noreferrer"
+                className="hover:text-cream transition-colors duration-500"
+              >
+                Instagram
+              </a>
+              <a
+                href="mailto:mariaamiouni@gmail.com"
+                className="hover:text-cream transition-colors duration-500"
+              >
+                Contact
+              </a>
+              <Link to="/privacy" className="hover:text-cream transition-colors duration-500">
+                Privacy Policy
+              </Link>
+              <Link to="/terms" className="hover:text-cream transition-colors duration-500">
+                Terms of Service
+              </Link>
             </div>
           </div>
-          
-          <div className="pt-12 border-t border-cream/10 flex flex-col md:flex-row justify-between items-center gap-8 text-[9px] tracking-[0.4em] uppercase font-bold text-cream/30">
-            <p>© 2026 PHOENIX RISING. ALL RIGHTS RESERVED.</p>
-            <div className="flex items-center gap-6">
-              <span>Dubai, UAE</span>
-              <span className="w-1 h-1 bg-cream/40 rounded-full"></span>
-              <span>Global Journey</span>
-            </div>
+
+          <div className="mt-16 pt-10 border-t border-cream/10 text-center text-[9px] tracking-[0.4em] uppercase font-bold text-cream/35">
+            © 2026 Phoenix Rising. All rights reserved.
           </div>
         </div>
       </footer>

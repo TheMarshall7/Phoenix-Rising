@@ -341,8 +341,10 @@ export const PilgrimagePage: React.FC = () => (
                 </div>
              </div>
              <div className="text-lg font-light text-ink/70 leading-relaxed space-y-6">
-                <p>After years of seeking—truth, answers, unconditional Love—I finally felt at home in my body & in this world. Rooted in ancestral wisdom and psychotherapy, I blend somatic practices and specific Human Design mechanics to honor your unique spirit.</p>
-                <p>I guide you to break cycles, master your energy, and heal deeply—helping you lead with clarity, confidence, and self-trust.</p>
+                <p>Maria Amiouni is a spiritual mentor, writer, and teacher devoted to helping others remember their innate wisdom and return to the rhythm of the Earth and the soul.</p>
+                <p>Through her work—blending Human Design, Gene Keys, Astrology, and Rituals—she creates spaces for transformation, reflection, and renewal.</p>
+                <p>As the founder of The Phoenix Rising Summit and Sacred Spaces, Maria weaves together ancient teachings with modern awareness to guide others through the cycles of life, death, and rebirth.</p>
+                <p>Her approach is rooted in devotion, beauty, and truth, helping you reconnect with your body, align with your purpose, and live from your authentic frequency.</p>
              </div>
           </FadeIn>
         </div>
