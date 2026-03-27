@@ -1,57 +1,79 @@
 import { useRef, useState } from "react";
-import { motion } from "framer-motion";
-import { Check, ChevronDown, Quote, Sparkles, ChevronLeft, ChevronRight } from "lucide-react";
+import { AnimatePresence, motion } from "framer-motion";
+import { Check, ChevronDown, Sparkles, ChevronLeft, ChevronRight, X, ZoomIn } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Section, Button } from "../../components/Common";
 import { PHOENIX_PORTAL_SESSIONS } from "../../data/phoenixPortalSessions";
 
 export default function LandingPage() {
-  const testimonials = [
-    {
-      text: "The experience of PR overall was so beyond my expectations. I felt held, supported, deeply seen without even showing myself, and deeply nourished in my heart & soul throughout every single session... I know I'll be revisiting these exact same recordings depending on where I'm at.",
-      author: "Anonymous"
-    },
-    {
-      text: "Thank you Maria for your honesty and authenticity as usual. Thank you for reminding me that even in the darkest times (where I honestly lost faith in humanity) I should not give up and I should challenge myself, now more than ever, to stay connected to the divine, because this is the only way to make change in this world.",
-      author: "Lea"
-    },
-    {
-      text: "I didn't have the chance to attend the sessions live but I watched 3 in the replay last night & did the prayer this morning while on my way to work. I absolutely loved the prayer. I had goosebumps through it all... Thank you for holding & offering that space. God knows I needed this prayer. It's what the world needs.",
-      author: "Michael"
-    },
-    {
-      text: "I loved Maria's opening. It was touching & insightful. I loved the part where she said that our region is the throat chakra of the world... I also relate that the darkness we are experiencing could be a part of a shedding process. Maria was eloquent, soft & divine.",
-      author: "Lea"
-    },
-    {
-      text: "I just went through Maria's opening ceremony video in the recordings and I felt my feelings accurately articulated for the first time since this dreadful week started. I cried and let out so many repressed emotions. Thank you so much for sharing your magic with us.",
-      author: "Carla"
-    },
-    {
-      text: "Thank you Elie for a great session! I'll be definitely listening to it again when finding inner peace to absorb what you said fully. Feeling centered after today's sessions, and I actually let myself grieve deeply to Maria's.",
-      author: "Sandra"
-    },
-    {
-      text: "The sessions have been immensely impactful! The first session struck an exact chord. This feeling, that someone so deeply understands, without me saying a word. Such an essential offering to this specific time in the region, grounding.",
-      author: "Nour"
-    },
-    {
-      text: "Every moment of this session was insightful. Sara is a brilliant coach who truly knows how to connect with her audience, tap into their potential, and leave a lasting impact. I only wish the session was longer - it flew by in an instant!",
-      author: "Nicole"
-    },
-    {
-      text: "This session brought so much validation to so many scattered feelings inside me, helping me to bring power from within in all the chaos around me in Lebanon. This is beautiful: Rising Phoenix. Thank you Maria. Love & Light.",
-      author: "Nadine"
-    }
+  const testimonialImages: { src: string; alt: string }[] = [
+    { src: "/Testimonials/PR-1/6.png", alt: "Phoenix Rising testimonial" },
+    { src: "/Testimonials/PR-1/14.png", alt: "Phoenix Rising testimonial" },
+    { src: "/Testimonials/PR-1/15.png", alt: "Phoenix Rising testimonial" },
+    { src: "/Testimonials/PR-1/16.png", alt: "Phoenix Rising testimonial" },
+    { src: "/Testimonials/PR-1/Testimonial.png", alt: "Phoenix Rising testimonial" },
+    { src: "/Testimonials/PR-1/IMG_9498.PNG", alt: "Phoenix Rising testimonial" },
+    { src: "/Testimonials/PR-1/IMG_9499.PNG", alt: "Phoenix Rising testimonial" },
+    { src: "/Testimonials/PR-1/IMG_9500.PNG", alt: "Phoenix Rising testimonial" },
+    { src: "/Testimonials/PR-1/IMG_9501.PNG", alt: "Phoenix Rising testimonial" },
+    { src: "/Testimonials/PR-1/IMG_9502.PNG", alt: "Phoenix Rising testimonial" },
+    { src: "/Testimonials/PR-1/IMG_9503.PNG", alt: "Phoenix Rising testimonial" },
+    { src: "/Testimonials/PR-1/IMG_9504.PNG", alt: "Phoenix Rising testimonial" },
+    { src: "/Testimonials/PR-1/IMG_9505.PNG", alt: "Phoenix Rising testimonial" },
+    { src: "/Testimonials/PR-1/IMG_9506.PNG", alt: "Phoenix Rising testimonial" },
+    { src: "/Testimonials/PR-1/IMG_9507.PNG", alt: "Phoenix Rising testimonial" },
+    { src: "/Testimonials/PR-1/IMG_9508.PNG", alt: "Phoenix Rising testimonial" },
+    { src: "/Testimonials/PR-1/IMG_9509.PNG", alt: "Phoenix Rising testimonial" },
+    { src: "/Testimonials/PR-1/IMG_9510.PNG", alt: "Phoenix Rising testimonial" },
+    { src: "/Testimonials/PR-1/IMG_9511.PNG", alt: "Phoenix Rising testimonial" },
+    { src: "/Testimonials/PR-3/7.png", alt: "Phoenix Rising testimonial" },
+    { src: "/Testimonials/PR-3/8.png", alt: "Phoenix Rising testimonial" },
+    { src: "/Testimonials/PR-3/9.png", alt: "Phoenix Rising testimonial" },
+    { src: "/Testimonials/PR-3/10.png", alt: "Phoenix Rising testimonial" },
+    { src: "/Testimonials/PR-3/79a2a830-4c88-442d-a61c-4082f9fcbeb0.JPG", alt: "Phoenix Rising testimonial" },
+    { src: "/Testimonials/PR-3/IMG_1482.jpg", alt: "Phoenix Rising testimonial" },
+    { src: "/Testimonials/PR-3/IMG_1483%202%281%29.jpg", alt: "Phoenix Rising testimonial" },
+    { src: "/Testimonials/PR-3/IMG_1483%202.jpg", alt: "Phoenix Rising testimonial" },
+    { src: "/Testimonials/PR-3/IMG_1484%203%281%29.jpg", alt: "Phoenix Rising testimonial" },
+    { src: "/Testimonials/PR-3/IMG_1484%203.jpg", alt: "Phoenix Rising testimonial" },
+    { src: "/Testimonials/PR-3/IMG_1486%202%281%29.jpg", alt: "Phoenix Rising testimonial" },
+    { src: "/Testimonials/PR-3/IMG_1486%202.jpg", alt: "Phoenix Rising testimonial" },
+    { src: "/Testimonials/PR-3/IMG_4408.jpg", alt: "Phoenix Rising testimonial" },
+    { src: "/Testimonials/PR-3/IMG_4471.jpg", alt: "Phoenix Rising testimonial" },
+    { src: "/Testimonials/PR-3/IMG_4477%20%281%29.jpg", alt: "Phoenix Rising testimonial" },
+    { src: "/Testimonials/PR-3/IMG_4478.jpg", alt: "Phoenix Rising testimonial" },
+    { src: "/Testimonials/PR-3/IMG_4479.jpg", alt: "Phoenix Rising testimonial" },
+    { src: "/Testimonials/PR-3/IMG_4489.jpg", alt: "Phoenix Rising testimonial" },
+    { src: "/Testimonials/PR-3/IMG_4505.jpg", alt: "Phoenix Rising testimonial" },
+    { src: "/Testimonials/PR-3/IMG_4516.jpg", alt: "Phoenix Rising testimonial" },
+    { src: "/Testimonials/PR-3/IMG_4535.jpg", alt: "Phoenix Rising testimonial" },
+    { src: "/Testimonials/PR-3/IMG_4542.jpg", alt: "Phoenix Rising testimonial" },
+    { src: "/Testimonials/PR-3/IMG_4567.jpg", alt: "Phoenix Rising testimonial" },
+    { src: "/Testimonials/PR-3/IMG_4568.jpg", alt: "Phoenix Rising testimonial" },
+    { src: "/Testimonials/PR-3/IMG_4569.jpg", alt: "Phoenix Rising testimonial" },
+    { src: "/Testimonials/PR-3/IMG_4570.jpg", alt: "Phoenix Rising testimonial" },
+    { src: "/Testimonials/PR-3/IMG_4571.jpg", alt: "Phoenix Rising testimonial" },
+    { src: "/Testimonials/PR-3/IMG_4572.jpg", alt: "Phoenix Rising testimonial" },
+    { src: "/Testimonials/PR-3/IMG_4573.jpg", alt: "Phoenix Rising testimonial" },
+    { src: "/Testimonials/PR-3/IMG_4860.HEIC", alt: "Phoenix Rising testimonial" },
+    { src: "/Testimonials/PR-3/IMG_4870.jpg", alt: "Phoenix Rising testimonial" },
+    { src: "/Testimonials/PR-3/IMG_4872.jpg", alt: "Phoenix Rising testimonial" },
+    { src: "/Testimonials/PR-3/IMG_5076.jpg", alt: "Phoenix Rising testimonial" },
+    { src: "/Testimonials/PR-3/IMG_5082.HEIC", alt: "Phoenix Rising testimonial" },
   ];
 
   const testimonialRef = useRef<HTMLDivElement>(null);
   const [activeIndex, setActiveIndex] = useState(0);
+  const [activeImageSrc, setActiveImageSrc] = useState<string | null>(null);
 
   const handleScroll = () => {
     if (testimonialRef.current) {
-      const { scrollLeft, offsetWidth } = testimonialRef.current;
-      const index = Math.round(scrollLeft / offsetWidth);
+      const firstCard = testimonialRef.current.children[0] as HTMLElement | undefined;
+      if (!firstCard) return;
+      const styles = window.getComputedStyle(testimonialRef.current);
+      const gap = parseFloat(styles.columnGap || styles.gap || "0");
+      const step = firstCard.offsetWidth + gap;
+      const index = Math.round(testimonialRef.current.scrollLeft / step);
       setActiveIndex(index);
     }
   };
@@ -66,6 +88,47 @@ export default function LandingPage() {
 
   return (
     <div className="min-h-screen selection:bg-burgundy/15 bg-cream">
+      <AnimatePresence>
+        {activeImageSrc && (
+          <motion.div
+            className="fixed inset-0 z-[100] bg-ink/80 backdrop-blur-sm flex items-center justify-center p-6"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            onClick={() => setActiveImageSrc(null)}
+            role="dialog"
+            aria-modal="true"
+          >
+            <motion.button
+              type="button"
+              className="absolute top-6 right-6 w-12 h-12 rounded-full bg-cream/10 hover:bg-cream/20 text-cream flex items-center justify-center transition-colors"
+              onClick={() => setActiveImageSrc(null)}
+              aria-label="Close"
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.9 }}
+            >
+              <X className="w-5 h-5" />
+            </motion.button>
+
+            <motion.div
+              className="w-full max-w-4xl"
+              initial={{ opacity: 0, scale: 0.98, y: 12 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.98, y: 12 }}
+              transition={{ duration: 0.25 }}
+              onClick={(e) => e.stopPropagation()}
+            >
+              <img
+                src={activeImageSrc}
+                alt="Phoenix Rising testimonial"
+                className="w-full h-auto rounded-md border border-cream/15 shadow-2xl bg-cream"
+              />
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
       {/* NAVIGATION */}
       <nav className="fixed top-0 left-0 w-full z-50 px-6 md:px-8 py-6 flex justify-between items-center gap-4 mix-blend-difference text-cream">
         <div className="flex items-center gap-4 md:gap-8 min-w-0 shrink">
@@ -203,10 +266,10 @@ export default function LandingPage() {
                 <div className="pl-12">
                   <h3 className="text-[10px] tracking-[0.4em] uppercase font-semibold text-burgundy mb-12">The Philosophy</h3>
                   <div className="space-y-8">
-                    <p className="text-lg font-light leading-relaxed text-ink/70">
+                    <p className="text-lg font-normal leading-relaxed text-ink/70">
                       21 Days of Embodied Living is a daily live container devoted to integration. Over three weeks, we enter the practice of being with ourselves, fully. With our bodies. With our hearts. With what is actually alive and present.
                     </p>
-                    <p className="text-3xl md:text-4xl font-semibold leading-snug text-ink">
+                    <p className="text-3xl md:text-4xl font-medium leading-snug text-ink">
                       We learn to stay with what feels overwhelming. <br />
                       To listen to our intuition. <br />
                       To move with life instead of against it.
@@ -578,28 +641,36 @@ export default function LandingPage() {
               onScroll={handleScroll}
               className="flex gap-6 md:gap-8 overflow-x-auto pb-16 pt-4 hide-scrollbar snap-x snap-mandatory -mx-8 px-8 md:mx-0 md:px-0"
             >
-              {testimonials.map((testimonial, i) => (
+              {testimonialImages.map((t, i) => (
                 <motion.div
                   key={i}
                   initial={{ opacity: 0, scale: 0.95 }}
                   whileInView={{ opacity: 1, scale: 1 }}
                   viewport={{ once: true }}
                   transition={{ delay: (i % 3) * 0.1 }}
-                  className="shrink-0 w-[85vw] md:w-[450px] snap-center bg-cream/[0.03] border border-cream/10 p-10 flex flex-col justify-between h-auto min-h-[400px] group hover:border-burgundy/35 hover:bg-cream/[0.04] transition-all duration-700 rounded-sm cursor-grab active:cursor-grabbing relative overflow-hidden"
+                  className="shrink-0 w-[85vw] md:w-[450px] snap-center bg-cream/[0.02] border border-cream/10 group hover:border-burgundy/35 transition-all duration-700 rounded-sm relative overflow-hidden"
                 >
-                  <div className="absolute top-0 right-0 w-32 h-32 bg-burgundy/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 group-hover:bg-burgundy/15 transition-colors"></div>
-                  <div>
-                    <Quote className="w-8 h-8 text-burgundy/60 mb-8 opacity-20 group-hover:opacity-60 group-hover:scale-110 transition-all duration-700" />
-                    <p className="text-cream/90 font-light leading-relaxed text-base md:text-lg italic mb-10 relative z-10">"{testimonial.text}"</p>
-                  </div>
-                  <div className="flex items-center gap-5 border-t border-cream/10 pt-8 mt-auto relative z-10">
-                    <div className="w-10 h-10 rounded-full bg-burgundy/20 flex items-center justify-center shrink-0 border border-cream/20 group-hover:border-cream/40 transition-colors">
-                      <span className="text-cream font-serif italic text-base">{testimonial.author.charAt(0)}</span>
+                  <button
+                    type="button"
+                    onClick={() => setActiveImageSrc(t.src)}
+                    className="w-full h-full text-left cursor-zoom-in"
+                    aria-label="Open testimonial image"
+                  >
+                    <div className="absolute inset-0 bg-gradient-to-b from-burgundy/0 via-burgundy/0 to-burgundy/10 opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+                    <div className="absolute top-6 right-6 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                      <div className="inline-flex items-center gap-2 px-3 py-2 rounded-full bg-ink/60 text-cream text-[10px] tracking-[0.25em] uppercase">
+                        <ZoomIn className="w-3.5 h-3.5" aria-hidden />
+                        Enlarge
+                      </div>
                     </div>
-                    <div>
-                      <p className="text-[11px] tracking-[0.2em] uppercase font-semibold text-cream group-hover:text-white transition-colors">{testimonial.author}</p>
-                    </div>
-                  </div>
+
+                    <img
+                      src={t.src}
+                      alt={t.alt}
+                      loading="lazy"
+                      className="w-full h-[420px] object-cover object-center grayscale contrast-[1.05] brightness-[0.95] group-hover:grayscale-0 group-hover:brightness-100 transition-all duration-700"
+                    />
+                  </button>
                 </motion.div>
               ))}
             </div>
@@ -622,14 +693,18 @@ export default function LandingPage() {
 
             {/* Progress Dots */}
             <div className="flex justify-center gap-3 mt-12">
-              {testimonials.map((_, i) => (
+              {testimonialImages.map((_, i) => (
                 <button
                   key={i}
                   onClick={() => {
                     const container = testimonialRef.current;
                     if (container) {
-                      const scrollAmount = i * (container.offsetWidth * 0.85); // Approximate for mobile
-                      container.scrollTo({ left: scrollAmount, behavior: 'smooth' });
+                      const firstCard = container.children[0] as HTMLElement | undefined;
+                      if (!firstCard) return;
+                      const styles = window.getComputedStyle(container);
+                      const gap = parseFloat(styles.columnGap || styles.gap || "0");
+                      const step = firstCard.offsetWidth + gap;
+                      container.scrollTo({ left: i * step, behavior: "smooth" });
                     }
                   }}
                   className={`h-1 transition-all duration-500 rounded-full ${
