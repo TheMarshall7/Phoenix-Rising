@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { ArrowRight, Star } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button, FadeIn } from "../components/Common";
+import { INSTAGRAM_FEED_EMBED_URL } from "../constants/ghl";
 
 type SanctuaryMedia =
   | { kind: "image"; src: string; alt: string }
@@ -32,8 +33,9 @@ const SanctuaryGallery: React.FC = () => {
   const videoSrc =
     "https://assets.cdn.filesafe.space/qPFyxcfcKb9ufSnJGOBl/media/69c3fb95e249817419eae703.mp4";
 
-  const tiles = useMemo(
-    () => ({
+  type TileCol = { wrapper: string; media: SanctuaryMedia };
+
+  const tiles = useMemo((): { left: TileCol[]; middle: TileCol[]; right: TileCol[] } => ({
       left: [
         { wrapper: "aspect-[4/5]", media: { kind: "image", src: "/images/pilgrimage/pool.png", alt: "Sanctuary Pool" } },
         { wrapper: "aspect-square", media: { kind: "image", src: "/images/pilgrimage/sauna.png", alt: "Sanctuary Sauna" } },
@@ -192,27 +194,27 @@ export const PilgrimagePage: React.FC = () => (
     <section className="bg-forest pt-48 pb-32 px-8 text-cream">
       <div className="container mx-auto">
         <FadeIn className="text-center mb-32 space-y-8">
-          <p className="text-sage tracking-[0.4em] uppercase font-bold text-[10px]">Immersive Sacred Travel</p>
-          <h1 className="text-7xl md:text-[8rem] lg:text-[10rem] font-medium text-cream leading-[0.8]">
-            THE <br /><span className="font-serif italic text-sage lowercase font-light">pilgrimages</span>
+          <p className="text-cream/70 tracking-[0.4em] uppercase font-semibold text-[10px]">Immersive Sacred Travel</p>
+          <h1 className="text-7xl md:text-[8rem] lg:text-[10rem] font-semibold text-cream leading-[0.8]">
+            THE <br /><span className="font-serif italic text-cream lowercase font-light">pilgrimages</span>
           </h1>
-          <div className="w-24 h-px bg-sage/20 mx-auto my-12"></div>
+          <div className="w-24 h-px bg-cream/25 mx-auto my-12"></div>
         </FadeIn>
 
         <div className="grid lg:grid-cols-12 gap-24 items-start">
           <div className="lg:col-span-5 sticky top-32">
             <div className="relative group">
               <img src="/_310.jpg" className="w-full aspect-[4/5] object-cover rounded-sm grayscale-[20%] mb-12 shadow-2xl transition-all duration-1000 group-hover:grayscale-0" alt="Pilgrimage" />
-              <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-sage/5 rounded-full blur-3xl group-hover:bg-sage/10 transition-colors"></div>
+              <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-cream/5 rounded-full blur-3xl group-hover:bg-cream/10 transition-colors"></div>
             </div>
-            <p className="text-2xl font-serif italic text-sage leading-relaxed">
+            <p className="text-2xl font-serif italic text-cream/90 leading-relaxed">
               "Walking the rhythms of the earth, we uncover the ancient Mother Line that beats within our own hearts."
             </p>
           </div>
           
           <div className="lg:col-span-7 space-y-24">
             <div className="space-y-8">
-               <h2 className="text-5xl font-serif italic text-cream">The Longing for <br /><span className="text-sage font-light">Direct Experience.</span></h2>
+               <h2 className="text-5xl font-serif italic text-cream">The Longing for <br /><span className="text-cream/90 font-light">Direct Experience.</span></h2>
                <div className="space-y-6 text-xl font-light text-cream/70 leading-relaxed italic">
                   <p>"Reading about Her in books was not enough. I longed to experience the lands She walked on, to feel Her presence, not just through the words of others, but through my own direct experience. Who was She? Why was I so drawn to Her?"</p>
                   <p>My personal journey toward reconnecting with the Divine Mother began after I underwent surgery on my womb. It was then that I found myself asking new, unexpected questions: Who is the Divine Mother? What is making women in our society so ill? How can She rise again?</p>
@@ -234,7 +236,7 @@ export const PilgrimagePage: React.FC = () => (
                      <span className="text-[9px] border border-cream/10 px-4 py-1.5 uppercase font-bold text-cream/40 tracking-widest">Open</span>
                    </div>
                 </div>
-                <h3 className="text-4xl md:text-5xl font-serif italic text-sage mb-8 group-hover:translate-x-4 transition-transform duration-700 uppercase leading-[0.9]">Walking the Mother Line</h3>
+                <h3 className="text-4xl md:text-5xl font-serif italic text-cream mb-8 group-hover:translate-x-4 transition-transform duration-700 uppercase leading-[0.9]">Walking the Mother Line</h3>
                 <p className="text-lg md:text-xl font-light text-cream/60 leading-relaxed max-w-2xl mb-12">A deep dive into the physiological and energetic foundations of the divine feminine. Join a circle of hearts traversing ancient lands to honor the goddess within and without.</p>
                 <a href="/Walking_the_Mother_Line.pdf" target="_blank" rel="noreferrer" className="contents">
                   <Button variant="sage" className="group-hover:scale-105">
@@ -355,17 +357,17 @@ export const PilgrimagePage: React.FC = () => (
       </div>
       <div className="container mx-auto relative z-10">
         <FadeIn className="text-center mb-24">
-          <p className="text-sage tracking-[0.4em] uppercase font-bold text-[10px] mb-8">Investment & Sanctuary</p>
+          <p className="text-sage tracking-[0.4em] uppercase font-semibold text-[10px] mb-8">Investment & Sanctuary</p>
           <h2 className="text-6xl md:text-8xl font-serif italic text-cream uppercase leading-[0.85]">Room <span className="text-sage lowercase font-light">Types.</span></h2>
-          <div className="w-24 h-px bg-sage/20 mx-auto mt-12"></div>
+          <div className="w-24 h-px bg-cream/20 mx-auto mt-12"></div>
         </FadeIn>
 
         {/* Premium pricing cards */}
         <div className="space-y-4 mb-24">
           {[
-            { name: "Deluxe", sub: "Single Room + Private Bath", earlyBird: "$3,500", earlyMonth: "$1,167 / mo", full: "$4,200", fullMonth: "$1,400 / mo", featured: false },
-            { name: "Single Occupancy", sub: "Single Room / Shared Bath", earlyBird: "$3,200", earlyMonth: "$1,067 / mo", full: "$4,000", fullMonth: "$1,333 / mo", featured: false },
-            { name: "Double Occupancy", sub: "Shared Room + Bathroom", earlyBird: "$2,900", earlyMonth: "$966 / mo", full: "$3,300", fullMonth: "$1,100 / mo", featured: true },
+            { name: "Deluxe", sub: "Single Room + Private Bath", full: "$4,200", fullMonth: "$1,400 / mo", featured: false },
+            { name: "Single Occupancy", sub: "Single Room / Shared Bath", full: "$4,000", fullMonth: "$1,333 / mo", featured: false },
+            { name: "Double Occupancy", sub: "Shared Room + Bathroom", full: "$3,300", fullMonth: "$1,100 / mo", featured: true },
           ].map((room, i) => (
             <motion.div
               key={i}
@@ -379,25 +381,16 @@ export const PilgrimagePage: React.FC = () => (
                   : "border-cream/10 hover:border-cream/20 hover:bg-white/[0.03]"
               }`}
             >
-              {/* Room name */}
-              <div className="md:col-span-4 p-10 md:p-12 border-b md:border-b-0 md:border-r border-cream/10">
-                <p className="text-[9px] tracking-[0.4em] uppercase font-bold text-cream/30 mb-3">0{i+1}</p>
+              <div className="md:col-span-5 p-10 md:p-12 border-b md:border-b-0 md:border-r border-cream/10">
+                <p className="text-[9px] tracking-[0.4em] uppercase font-semibold text-cream/30 mb-3">0{i+1}</p>
                 <h3 className="text-3xl md:text-4xl font-serif italic text-cream mb-2">{room.name}</h3>
-                <p className="text-[10px] tracking-[0.25em] uppercase font-bold text-cream/30">{room.sub}</p>
+                <p className="text-[10px] tracking-[0.25em] uppercase font-semibold text-cream/30">{room.sub}</p>
               </div>
 
-              {/* Early Bird */}
-              <div className="md:col-span-4 p-10 md:p-12 border-b md:border-b-0 md:border-r border-cream/10 bg-sage/5">
-                <p className="text-[9px] tracking-[0.4em] uppercase font-bold text-sage mb-4">Early Bird</p>
-                <p className="text-4xl md:text-5xl font-serif italic text-cream">{room.earlyBird}</p>
-                <p className="text-[10px] tracking-widest font-bold text-cream/30 mt-2">{room.earlyMonth}</p>
-              </div>
-
-              {/* Full Price */}
-              <div className="md:col-span-4 p-10 md:p-12">
-                <p className="text-[9px] tracking-[0.4em] uppercase font-bold text-cream/30 mb-4">Full Price</p>
-                <p className="text-4xl md:text-5xl font-serif italic text-cream/60">{room.full}</p>
-                <p className="text-[10px] tracking-widest font-bold text-cream/20 mt-2">{room.fullMonth}</p>
+              <div className="md:col-span-7 p-10 md:p-12">
+                <p className="text-[9px] tracking-[0.4em] uppercase font-semibold text-cream/40 mb-4">Current investment</p>
+                <p className="text-4xl md:text-5xl font-serif italic text-cream">{room.full}</p>
+                <p className="text-[10px] tracking-widest font-semibold text-cream/35 mt-2">{room.fullMonth}</p>
               </div>
             </motion.div>
           ))}
@@ -415,7 +408,7 @@ export const PilgrimagePage: React.FC = () => (
               ].map((item, i) => (
                 <div key={i} className="flex justify-between items-center py-6 border-b border-cream/10 last:border-0">
                   <span className="text-xl font-serif italic text-cream">{item.date}</span>
-                  <span className="text-[10px] uppercase tracking-widest font-bold text-sage/70">{item.label}</span>
+                  <span className="text-[10px] uppercase tracking-widest font-semibold text-sage/70">{item.label}</span>
                 </div>
               ))}
             </div>
@@ -428,14 +421,12 @@ export const PilgrimagePage: React.FC = () => (
             <h3 className="text-3xl font-serif italic text-sage">Important Dates</h3>
             <div className="space-y-0">
               {[
-                { date: "Jan 18, 2025", label: "Early-Bird Opens" },
-                { date: "Jan 31, 2026", label: "Early-Bird Closes" },
-                { date: "Mar 31, 2026", label: "Regular Enrolment Closes" },
+                { date: "Mar 31, 2026", label: "Enrolment Closes" },
                 { date: "May 7, 2026", label: "Pilgrimage Begins" }
               ].map((item, i) => (
                 <div key={i} className="flex justify-between items-center py-6 border-b border-cream/10 last:border-0">
                   <span className="text-xl font-serif italic text-cream">{item.date}</span>
-                  <span className="text-[10px] uppercase tracking-widest font-bold text-sage/70">{item.label}</span>
+                  <span className="text-[10px] uppercase tracking-widest font-semibold text-sage/70">{item.label}</span>
                 </div>
               ))}
             </div>
@@ -452,7 +443,7 @@ export const PilgrimagePage: React.FC = () => (
        <div className="container mx-auto">
           <div className="grid lg:grid-cols-3 gap-24">
              <div className="lg:col-span-1 space-y-12">
-                <p className="text-sage tracking-[0.4em] uppercase font-bold text-[10px]">Preparation</p>
+                <p className="text-sage tracking-[0.4em] uppercase font-semibold text-[10px]">Preparation</p>
                 <h2 className="text-6xl md:text-7xl font-serif italic uppercase text-cream leading-tight">What to <br /><span className="text-sage lowercase tracking-normal font-light">pack.</span></h2>
              </div>
              
@@ -526,19 +517,19 @@ export const MentorshipPage: React.FC = () => (
     <section className="bg-forest pt-48 pb-32 px-8 text-cream">
        <div className="container mx-auto">
         <FadeIn className="text-center mb-32 space-y-8">
-          <p className="text-sage tracking-[0.4em] uppercase font-bold text-[10px]">1-on-1 Sanctuary</p>
-          <h1 className="text-7xl md:text-9xl font-medium text-cream uppercase">PRIVATE <br /><span className="font-serif italic text-sage lowercase tracking-normal font-light">mentorship</span></h1>
-          <div className="w-24 h-px bg-sage/20 mx-auto my-12"></div>
+          <p className="text-cream/70 tracking-[0.4em] uppercase font-semibold text-[10px]">1-on-1 Sanctuary</p>
+          <h1 className="text-7xl md:text-9xl font-semibold text-cream uppercase">PRIVATE <br /><span className="font-serif italic text-cream lowercase tracking-normal font-light">mentorship</span></h1>
+          <div className="w-24 h-px bg-cream/25 mx-auto my-12"></div>
         </FadeIn>
 
         <div className="grid lg:grid-cols-2 gap-24 items-center">
           <div className="aspect-square relative flex items-center justify-center">
              <img src="/_31.jpg" className="w-full h-full object-cover rounded-full grayscale-[10%]" alt="Coaching" />
-             <div className="absolute inset-0 border-[2px] border-sage/20 rounded-full scale-110"></div>
+             <div className="absolute inset-0 border-[2px] border-cream/25 rounded-full scale-110"></div>
           </div>
           
           <FadeIn className="space-y-12">
-            <p className="text-3xl font-serif italic text-sage leading-snug">
+            <p className="text-3xl font-serif italic text-cream/95 leading-snug">
               A bespoke journey into the heart of your sovereign truth, blending psychotherapy with spirit-led guidance.
             </p>
             <div className="space-y-8 text-lg font-light text-cream/70 leading-relaxed">
@@ -546,7 +537,7 @@ export const MentorshipPage: React.FC = () => (
               <ul className="space-y-6 pt-8">
                 {["Customized 3 and 6 month containers", "Bi-weekly 90-minute immersion sessions", "WhatsApp support for ongoing integration", "Bespoke somatic practices and ritual guides"].map((item, i) => (
                   <li key={i} className="flex items-center gap-6 text-cream/80 border-b border-cream/5 pb-6">
-                    <Star className="w-4 h-4 text-sage" />
+                    <Star className="w-4 h-4 text-cream/80" />
                     <span className="text-sm uppercase tracking-widest font-medium">{item}</span>
                   </li>
                 ))}
@@ -578,22 +569,22 @@ export const MentorshipPage: React.FC = () => (
             {[
               {
                 text: "I feel like I didn't really know it but I always kind of had 1 foot in and foot out of spirituality and never really opened myself enough to let it in... I had such a different experience this time doing the reiki, I genuinely feel like I've expanded, my heart feels fuller and I believe in myself a whole lot more.",
-                author: "Client Reflection",
+                author: "Anonymous",
                 tag: "Energy Work"
               },
               {
                 text: "Thank you for all the human design reading and your classes. I love myself more everyday and I believe more everyday! You’re wonderful and I’m blessed to know you and have the opportunity to say this all again to your divine being.",
-                author: "Client Reflection",
+                author: "Anonymous",
                 tag: "Human Design"
               },
               {
                 text: "Thanks for giving me the space to explore and to make realizations. Huge impact since our first session.",
-                author: "Client Reflection",
+                author: "Anonymous",
                 tag: "1-on-1 Sanctuary"
               },
               {
                 text: "It was a pleasure meeting with you and listening to you validated a lot of things that I thought were normal in me as a person. Connecting the dots helps me adjust even more and seeing things clearly now. The future is bright.",
-                author: "Client Reflection",
+                author: "Anonymous",
                 tag: "Somatic Inquiry"
               }
             ].map((testimonial, i) => (
@@ -621,7 +612,9 @@ export const MentorshipPage: React.FC = () => (
                  <div className="pt-12 border-t border-ink/5 mt-auto">
                     <div className="flex items-center gap-4">
                        <div className="w-8 h-px bg-forest/30"></div>
-                       <span className="text-[10px] tracking-[0.4em] uppercase font-bold text-forest">{testimonial.author}</span>
+                       <div>
+                         <span className="text-[10px] tracking-[0.4em] uppercase font-semibold text-forest block">{testimonial.author}</span>
+                       </div>
                     </div>
                  </div>
                </motion.div>
@@ -638,44 +631,54 @@ export const MentorshipPage: React.FC = () => (
       </div>
 
       <div className="container mx-auto px-8 relative z-10">
-        <div className="text-center mb-20">
-          <h2 className="text-6xl md:text-8xl font-medium text-cream uppercase leading-[0.85] mb-6">
-            LET'S BE <span className="font-serif italic text-sage lowercase font-light">Friends</span>
+        <div className="text-center mb-12">
+          <h2 className="text-6xl md:text-8xl font-semibold text-cream uppercase leading-[0.85] mb-6">
+            LET'S BE <span className="font-serif italic text-cream lowercase font-light">Friends</span>
           </h2>
           <a
             href="https://www.instagram.com/maria.amiouni"
             target="_blank"
             rel="noreferrer"
-            className="text-[11px] tracking-[0.5em] uppercase font-bold text-cream/40 hover:text-sage transition-colors duration-500"
+            className="text-[11px] tracking-[0.5em] uppercase font-semibold text-cream/40 hover:text-cream transition-colors duration-500 inline-block"
           >
-            @maria.amiouni
+            @maria.amiouni — open on Instagram
           </a>
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4">
-          {[
-            "/_304.jpg",
-            "/_31.jpg",
-            "/_310.jpg",
-            "/_401.jpg"
-          ].map((src, i) => (
-            <motion.div
-              key={i}
-              className="aspect-square overflow-hidden group"
-              initial={{ opacity: 0, scale: 0.95 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.05, duration: 0.8 }}
-            >
-              <img
-                src={src}
-                alt="Retreat moment"
-                className="w-full h-full object-cover grayscale-[20%] group-hover:grayscale-0 group-hover:scale-105 transition-all duration-1000"
-                loading="lazy"
-                decoding="async"
-              />
-            </motion.div>
-          ))}
+        {/* Paste a SnapWidget / Elfsight iframe URL in INSTAGRAM_FEED_EMBED_URL (src/constants/ghl.ts) for a live grid */}
+        <div className="max-w-4xl mx-auto rounded-sm overflow-hidden border border-cream/10 bg-ink/40 min-h-[320px]">
+          {INSTAGRAM_FEED_EMBED_URL ? (
+            <iframe
+              src={INSTAGRAM_FEED_EMBED_URL}
+              title="Instagram feed"
+              className="w-full min-h-[480px] border-0 bg-transparent"
+              loading="lazy"
+            />
+          ) : (
+            <div className="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-4 p-4">
+              {["/_304.jpg", "/_31.jpg", "/_310.jpg", "/_401.jpg", "/_418.jpg", "/_423.jpg"].map((src, i) => (
+                <motion.a
+                  key={src}
+                  href="https://www.instagram.com/maria.amiouni"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="aspect-square overflow-hidden group block"
+                  initial={{ opacity: 0, scale: 0.95 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: i * 0.05, duration: 0.8 }}
+                >
+                  <img
+                    src={src}
+                    alt=""
+                    className="w-full h-full object-cover grayscale-[20%] group-hover:grayscale-0 group-hover:scale-105 transition-all duration-1000"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </motion.a>
+              ))}
+            </div>
+          )}
         </div>
       </div>
     </section>
@@ -689,18 +692,18 @@ export const SacredSpacesPage: React.FC = () => (
       <div className="absolute top-0 right-0 w-1/3 h-full bg-cream/5 -skew-x-12 translate-x-1/2"></div>
       <div className="container mx-auto relative z-10">
         <FadeIn className="text-center mb-32 space-y-8">
-          <p className="text-sage tracking-[0.4em] uppercase font-bold text-[10px]">Community & Connection</p>
-          <h1 className="text-7xl md:text-9xl font-medium text-cream uppercase">SACRED <br /><span className="font-serif italic text-sage lowercase tracking-normal font-light">spaces</span></h1>
-          <div className="w-24 h-px bg-sage/20 mx-auto my-12"></div>
+          <p className="text-cream/70 tracking-[0.4em] uppercase font-semibold text-[10px]">Community & Connection</p>
+          <h1 className="text-7xl md:text-9xl font-semibold text-cream uppercase">SACRED <br /><span className="font-serif italic text-cream lowercase tracking-normal font-light">spaces</span></h1>
+          <div className="w-24 h-px bg-cream/25 mx-auto my-12"></div>
         </FadeIn>
 
         <div className="grid lg:grid-cols-12 gap-24 items-start">
           <div className="lg:col-span-4 shrink-0">
-             <div className="relative p-12 bg-white/5 border border-sage/10 rounded-sm">
-               <h3 className="text-2xl font-serif italic text-sage mb-8 uppercase">Gathering locally and globally.</h3>
+             <div className="relative p-12 bg-white/5 border border-cream/15 rounded-sm">
+               <h3 className="text-2xl font-serif italic text-cream mb-8 uppercase">Gathering locally and globally.</h3>
                <p className="text-cream/60 font-light leading-relaxed mb-8 italic">In-person and virtual containers devoted to somatic practice, horizontal sharing, and collective liberation.</p>
                <div className="space-y-4 pt-8 border-t border-cream/10">
-                  <p className="text-[10px] tracking-widest uppercase font-bold text-sage">Next Circle</p>
+                  <p className="text-[10px] tracking-widest uppercase font-semibold text-cream/80">Next Circle</p>
                   <p className="text-xl font-serif italic text-cream">Sunday, April 12th · 11:00 AM</p>
                </div>
              </div>
@@ -714,7 +717,7 @@ export const SacredSpacesPage: React.FC = () => (
                { title: "Retreat Day-Immersions", desc: "Strengthening the community of seekers right here in the region through full-day somatic immersions." }
              ].map((feature, i) => (
                <div key={i} className="p-16 bg-forest group hover:bg-white/5 transition-colors duration-700">
-                 <h4 className="text-2xl font-serif italic text-cream mb-6 group-hover:text-sage transition-colors uppercase">{feature.title}</h4>
+                 <h4 className="text-2xl font-serif italic text-cream mb-6 group-hover:text-cream transition-colors uppercase">{feature.title}</h4>
                  <p className="text-cream/80 font-light text-sm leading-relaxed">{feature.desc}</p>
                </div>
              ))}

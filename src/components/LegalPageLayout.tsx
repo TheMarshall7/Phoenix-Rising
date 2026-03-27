@@ -11,7 +11,7 @@ type LegalPageLayoutProps = {
 
 export function LegalPageLayout({ eyebrow, title, updated, children }: LegalPageLayoutProps) {
   return (
-    <main className="relative min-h-screen bg-forest text-cream selection:bg-sage selection:text-ink overflow-hidden">
+    <main className="relative min-h-screen bg-forest text-cream selection:bg-sage/30 selection:text-ink overflow-hidden">
       {/* Atmosphere */}
       <div className="pointer-events-none absolute inset-0" aria-hidden>
         <div className="absolute -top-32 -right-24 h-[420px] w-[420px] rounded-full bg-sage/[0.07] blur-[100px]" />

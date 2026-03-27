@@ -1,22 +1,12 @@
 import { CheckCircle2, ChevronLeft } from "lucide-react";
 import { Link } from "react-router-dom";
-import { useEffect } from "react";
-
-const GHL_FORM_EMBED_SCRIPT = "https://link.msgsndr.com/js/form_embed.js";
-const GHL_FORM_EMBED_SCRIPT_ID = "ghl-form-embed-msgsndr";
+import { useGhlFormEmbed } from "../../hooks/useGhlFormEmbed";
 
 export default function CheckoutPage() {
-  useEffect(() => {
-    if (document.getElementById(GHL_FORM_EMBED_SCRIPT_ID)) return;
-    const script = document.createElement("script");
-    script.id = GHL_FORM_EMBED_SCRIPT_ID;
-    script.src = GHL_FORM_EMBED_SCRIPT;
-    script.async = true;
-    document.body.appendChild(script);
-  }, []);
+  useGhlFormEmbed();
 
   return (
-    <div className="min-h-screen bg-cream text-ink selection:bg-sage selection:text-ink font-sans flex flex-col">
+    <div className="min-h-screen bg-cream text-ink selection:bg-burgundy/15 selection:text-ink font-sans flex flex-col">
       {/* HEADER */}
       <nav className="p-8 flex justify-between items-center bg-paper border-b border-ink/5">
         <Link to="/" className="flex items-center gap-2 group text-[10px] tracking-[0.3em] uppercase font-bold text-ink/80 hover:text-ink transition-colors">
@@ -34,7 +24,7 @@ export default function CheckoutPage() {
           <div className="lg:col-span-7 space-y-16">
             <header>
               <p className="text-burgundy/80 text-[10px] tracking-[0.5em] uppercase mb-4 font-bold">Secure Your Spot</p>
-              <h1 className="text-5xl md:text-7xl font-medium mb-6 text-burgundy">THE <span className="font-serif italic text-sage">enrollment</span></h1>
+              <h1 className="text-5xl md:text-7xl font-semibold mb-6 text-burgundy">THE <span className="font-serif italic text-burgundy">enrollment</span></h1>
               <p className="text-ink/80 font-normal text-lg">You are moments away from joining a 21-day container devoted to your integration and embodiment.</p>
             </header>
 
@@ -50,11 +40,11 @@ export default function CheckoutPage() {
                 data-activation-value=""
                 data-deactivation-type="neverDeactivate"
                 data-deactivation-value=""
-                data-form-name="Early Bird Phoenix Rising"
+                data-form-name="Phoenix Rising Enrollment"
                 data-height="1236"
                 data-layout-iframe-id="inline-yo8WVUvk1Z8w66hXIdOS"
                 data-form-id="yo8WVUvk1Z8w66hXIdOS"
-                title="Early Bird Phoenix Rising"
+                title="Phoenix Rising Enrollment"
               />
             </div>
           </div>
@@ -62,9 +52,9 @@ export default function CheckoutPage() {
           {/* RIGHT COLUMN: SUMMARY */}
           <aside className="lg:col-span-5 space-y-12 lg:sticky lg:top-16">
             <div className="p-10 md:p-12 border border-burgundy bg-burgundy text-cream relative overflow-hidden group shadow-2xl">
-              <div className="absolute top-0 right-0 w-64 h-64 bg-sage/15 rounded-full -translate-y-1/2 translate-x-1/2 blur-2xl group-hover:bg-sage/25 transition-all duration-1000"></div>
+              <div className="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full -translate-y-1/2 translate-x-1/2 blur-2xl group-hover:bg-white/15 transition-all duration-1000"></div>
               
-              <h2 className="text-[10px] tracking-[0.4em] uppercase font-bold text-sage mb-12">Program Summary</h2>
+              <h2 className="text-[10px] tracking-[0.4em] uppercase font-bold text-cream/90 mb-12">Program Summary</h2>
               
               <div className="space-y-10 relative z-10">
                 <div className="flex justify-between items-start border-b border-cream/10 pb-8">
@@ -72,19 +62,18 @@ export default function CheckoutPage() {
                     <h3 className="text-3xl font-serif italic text-cream mb-2">21 Days of <br/> Embodied Living</h3>
                     <p className="text-[10px] text-cream/50 uppercase tracking-[0.2em] font-bold mt-4">Phoenix Rising IV Edition</p>
                   </div>
-                  <span className="text-2xl font-medium text-sage">444 AED</span>
+                  <span className="text-2xl font-semibold text-cream">444 AED</span>
                 </div>
 
                 <ul className="space-y-6 pt-2">
                   {[
                     "Daily Live Interactive Sessions",
-                    "Full Access to All 17 Practitioners",
                     "Lifetime Access to Replays",
                     "Integration Workbook & Resources",
                     "Private Community Container"
                   ].map((item, i) => (
-                    <li key={i} className="flex items-center gap-4 text-sm font-light text-cream/80">
-                      <CheckCircle2 className="w-4 h-4 text-sage shrink-0" />
+                    <li key={i} className="flex items-center gap-4 text-sm font-normal text-cream/80">
+                      <CheckCircle2 className="w-4 h-4 text-cream shrink-0" />
                       {item}
                     </li>
                   ))}

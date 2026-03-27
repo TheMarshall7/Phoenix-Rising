@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { ArrowRight, Sparkles } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Section, Button, FadeIn } from "../components/Common";
+import { MailingListSection } from "../components/MailingListSection";
 
 export const HomePage: React.FC = () => {
   return (
@@ -34,9 +35,11 @@ export const HomePage: React.FC = () => {
             transition={{ duration: 1.8, ease: [0.22, 1, 0.36, 1] }}
             className="md:pl-12 text-center md:text-left max-w-2xl"
           >
-            <p className="text-sage tracking-[0.4em] uppercase font-bold text-[10px] mb-8">Mentorship for the modern woman</p>
+            <p className="text-sage tracking-[0.4em] uppercase font-semibold text-[10px] mb-8">
+              For those ready to return to themselves
+            </p>
             
-            <h1 className="text-7xl lg:text-[7.5rem] xl:text-9xl mb-12 leading-[0.85] text-cream font-medium tracking-tight">
+            <h1 className="text-7xl lg:text-[7.5rem] xl:text-9xl mb-12 leading-[0.85] text-cream font-semibold tracking-tight">
               BREAK CYCLES. <br />
               <span className="font-serif italic text-cream font-light lowercase">lead with heart.</span>
             </h1>
@@ -71,7 +74,7 @@ export const HomePage: React.FC = () => {
               className="relative order-2 lg:order-1"
             >
               {/* OVAL MASK INSPIRATION */}
-              <div className="aspect-[4/5] md:aspect-square mx-auto oval-mask overflow-hidden border border-forest/10 bg-cream group shadow-[0_0_100px_rgba(123,17,3,0.1)] transition-all duration-1000">
+              <div className="aspect-[4/5] md:aspect-square mx-auto oval-mask overflow-hidden border border-forest/10 bg-cream group shadow-[0_0_100px_rgba(2,69,59,0.12)] transition-all duration-1000">
                 <img 
                   src="/_280.jpg" 
                   alt="About Maria" 
@@ -91,8 +94,8 @@ export const HomePage: React.FC = () => {
 
             <FadeIn className="order-1 lg:order-2 space-y-16">
               <div className="space-y-6">
-                <p className="text-forest tracking-[0.5em] uppercase font-bold text-[10px]">The Lineage</p>
-                <h2 className="text-6xl md:text-8xl font-medium leading-none text-ink">HI, I'M <br /><span className="font-serif italic text-forest">Maria</span></h2>
+                <p className="text-forest tracking-[0.5em] uppercase font-semibold text-[10px]">The Lineage</p>
+                <h2 className="text-6xl md:text-8xl font-semibold leading-none text-ink">HI, I'M <br /><span className="font-serif italic text-forest">Maria</span></h2>
               </div>
               
               <div className="space-y-10">
@@ -107,7 +110,7 @@ export const HomePage: React.FC = () => {
 
                 <div className="flex flex-wrap gap-4 pt-6 border-t border-ink/5">
                   <span className="text-[9px] tracking-[0.3em] uppercase font-bold border border-ink/10 px-6 py-2 rounded-full text-forest">Human Design Guide</span>
-                  <span className="text-[9px] tracking-[0.3em] uppercase font-bold border border-sage/40 px-6 py-2 rounded-full text-sage">Somatic Mentor</span>
+                  <span className="text-[9px] tracking-[0.3em] uppercase font-semibold border border-sage/40 px-6 py-2 rounded-full text-sage">Somatic Mentor</span>
                   <span className="text-[9px] tracking-[0.3em] uppercase font-bold border border-ink/10 px-6 py-2 rounded-full text-ink/60">Space Holder</span>
                 </div>
               </div>
@@ -125,8 +128,8 @@ export const HomePage: React.FC = () => {
           <div className="grid lg:grid-cols-2 gap-24 items-center">
             <FadeIn className="space-y-16">
               <div className="space-y-6">
-                <p className="text-forest tracking-[0.5em] uppercase font-bold text-[10px]">Energetic Architecture</p>
-                <h2 className="text-6xl md:text-8xl font-medium leading-[0.8] text-ink uppercase">
+                <p className="text-forest tracking-[0.5em] uppercase font-semibold text-[10px]">Energetic Architecture</p>
+                <h2 className="text-6xl md:text-8xl font-semibold leading-[0.8] text-ink uppercase">
                   YOUR <br /><span className="font-serif italic text-forest lowercase tracking-normal">blueprint.</span>
                 </h2>
               </div>
@@ -188,7 +191,7 @@ export const HomePage: React.FC = () => {
       <section className="bg-forest py-48 text-cream">
         <div className="container mx-auto px-8 text-center">
           <div className="mb-32">
-            <h2 className="text-5xl md:text-7xl font-medium text-cream mb-12 uppercase tracking-tight">LIVING THE <span className="font-serif italic text-sage tracking-normal lowercase">work.</span></h2>
+            <h2 className="text-5xl md:text-7xl font-semibold text-cream mb-12 uppercase tracking-tight">LIVING THE <span className="font-serif italic text-sage tracking-normal lowercase">work.</span></h2>
             <p className="text-lg font-light text-cream/50 max-w-2xl mx-auto italic tracking-wide">
               Detailed paths designed to bring you home to your sovereignty.
             </p>
@@ -198,7 +201,7 @@ export const HomePage: React.FC = () => {
             {[
               { name: "Mentorship", desc: "In-depth 1-on-1 somatic and psychospiritual work.", path: "/mentorship" },
               { name: "Pilgrimage", desc: "Walking the Mother Line - immersive sacred travel.", path: "/pilgrimage" },
-              { name: "Sacred Spaces", desc: "Women's Circles, retreats, and ceremonial gatherings.", path: "/sacred-spaces" }
+              { name: "Phoenix Rising", desc: "The summit — Middle Eastern grounding, portals, and a 21-day integration container.", path: "/phoenix-rising" }
             ].map((offering, i) => (
               <Link 
                 key={offering.name} 
@@ -217,7 +220,7 @@ export const HomePage: React.FC = () => {
                   </p>
                 </div>
                 <div className="relative z-10 pt-12 text-left">
-                  <span className="text-[11px] tracking-[0.5em] uppercase font-bold text-sage group-hover:text-cream transition-colors duration-700 flex items-center gap-4">
+                  <span className="text-[11px] tracking-[0.5em] uppercase font-semibold text-sage group-hover:text-cream transition-colors duration-700 flex items-center gap-4">
                     Explore <div className="w-12 h-px bg-sage/20 group-hover:bg-cream/40 transition-colors"></div> <ArrowRight className="w-4 h-4" />
                   </span>
                 </div>
@@ -226,6 +229,8 @@ export const HomePage: React.FC = () => {
           </div>
         </div>
       </section>
+
+      <MailingListSection />
     </main>
   );
 };

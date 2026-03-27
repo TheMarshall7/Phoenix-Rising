@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { Check, ChevronDown, Quote, Sparkles, ChevronLeft, ChevronRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Section, Button } from "../../components/Common";
+import { PHOENIX_PORTAL_SESSIONS } from "../../data/phoenixPortalSessions";
 
 export default function LandingPage() {
   const testimonials = [
@@ -64,23 +65,31 @@ export default function LandingPage() {
   };
 
   return (
-    <div className="min-h-screen selection:bg-sage/30 bg-cream">
+    <div className="min-h-screen selection:bg-burgundy/15 bg-cream">
       {/* NAVIGATION */}
-      <nav className="fixed top-0 left-0 w-full z-50 px-8 py-6 flex justify-between items-center mix-blend-difference text-cream">
-        <div className="flex items-center">
+      <nav className="fixed top-0 left-0 w-full z-50 px-6 md:px-8 py-6 flex justify-between items-center gap-4 mix-blend-difference text-cream">
+        <div className="flex items-center gap-4 md:gap-8 min-w-0 shrink">
+          <Link
+            to="/"
+            className="flex items-center gap-2 text-[9px] md:text-[10px] tracking-[0.25em] md:tracking-[0.35em] uppercase font-bold text-cream/90 hover:text-burgundy transition-colors shrink-0"
+          >
+            <ChevronLeft className="w-3.5 h-3.5 md:w-4 md:h-4 shrink-0" aria-hidden />
+            <span className="hidden sm:inline">Main site</span>
+            <span className="sm:hidden">Home</span>
+          </Link>
           <img
             src="/White notext.png"
             alt="Phoenix Rising"
-            className="h-16 md:h-20 object-contain"
+            className="h-12 md:h-20 object-contain object-left max-w-[min(45vw,200px)]"
             fetchPriority="high"
           />
         </div>
         <div className="hidden md:flex gap-12 text-[9px] tracking-[0.4em] uppercase font-bold">
-          <a href="#roadmap" className="hover:text-sage transition-colors">Roadmap</a>
-          <a href="#workshops" className="hover:text-sage transition-colors">Workshops</a>
-          <a href="#faculty" className="hover:text-sage transition-colors">Faculty</a>
+          <a href="#roadmap" className="hover:text-burgundy transition-colors">Roadmap</a>
+          <a href="#portals" className="hover:text-burgundy transition-colors">Portals</a>
+          <a href="#practitioners" className="hover:text-burgundy transition-colors">Practitioners</a>
         </div>
-        <div className="w-6 h-px bg-cream"></div>
+        <div className="hidden sm:block w-6 h-px bg-cream shrink-0" aria-hidden />
       </nav>
 
       {/* HERO */}
@@ -131,7 +140,7 @@ export default function LandingPage() {
               April 11 – May 2nd <span className="mx-2 opacity-50">|</span> Live Daily Sessions <span className="mx-2 opacity-50">|</span> Integration Focused
             </p>
             
-            <h1 className="text-6xl lg:text-[5.5rem] xl:text-8xl mb-12 leading-[0.9] text-cream font-medium tracking-tight">
+            <h1 className="text-6xl lg:text-[5.5rem] xl:text-8xl mb-12 leading-[0.9] text-cream font-semibold tracking-tight">
               21 Days of <br />
               <span className="font-serif italic text-cream">Embodied Living.</span>
             </h1>
@@ -170,14 +179,9 @@ export default function LandingPage() {
         <div className="container-narrow relative z-10">
           <div className="grid md:grid-cols-12 gap-16 items-start">
             <div className="md:col-span-12 lg:col-span-5 md:sticky md:top-32">
-              <img src="/logo-orange.png" alt="Phoenix Rising Summit" className="w-full max-w-xs md:max-w-sm object-contain mb-10" loading="lazy" decoding="async" />
-              <p className="text-sage text-[10px] tracking-[0.5em] uppercase mb-8 font-bold">The Core Shift</p>
-              <h2 className="text-6xl md:text-8xl font-medium leading-tight mb-12 text-burgundy">THE CORE <br /><span className="font-serif italic text-burgundy">shift</span></h2>
+              <h2 className="text-6xl md:text-8xl font-semibold leading-tight mb-12 text-burgundy">THE CORE <br /><span className="font-serif italic text-burgundy">shift</span></h2>
               <div className="w-24 h-px bg-burgundy/20 mb-12"></div>
-              <div className="space-y-6 text-ink/60 font-light leading-relaxed mb-6">
-                <p className="text-xl font-serif italic text-burgundy/80 leading-relaxed">
-                  "We are back with a very special edition of Phoenix Rising IV. And this time… it meets us in a very different moment."
-                </p>
+              <div className="space-y-6 text-ink/60 font-normal leading-relaxed mb-6">
                 <p>
                   Many of us are witnessing, experiencing and holding, grief, uncertainty, and intensity in ways we haven’t before. And yet, here we are.
                 </p>
@@ -187,7 +191,7 @@ export default function LandingPage() {
                 <p>
                   If you’re new here, hi, welcome. Phoenix Rising began as a space to gather. To connect spiritual and wellness communities across the region. To create a space where wisdom is shared horizontally, not hierarchically.
                 </p>
-                <p className="text-ink/80 font-medium italic border-l-2 border-sage/40 pl-4">
+                <p className="text-ink/80 font-normal italic border-l-2 border-burgundy/35 pl-4">
                   This edition carries an even deeper intention. To remain connected to what is sacred, even in dark times. This is not another healing container. It is a return to living what you already know, even when life feels uncertain.
                 </p>
               </div>
@@ -197,12 +201,12 @@ export default function LandingPage() {
               <div className="relative">
                 <div className="absolute -left-8 top-0 w-px h-full bg-ink/5"></div>
                 <div className="pl-12">
-                  <h3 className="text-[10px] tracking-[0.4em] uppercase font-bold text-sage mb-12">The Philosophy</h3>
+                  <h3 className="text-[10px] tracking-[0.4em] uppercase font-semibold text-burgundy mb-12">The Philosophy</h3>
                   <div className="space-y-8">
                     <p className="text-lg font-light leading-relaxed text-ink/70">
                       21 Days of Embodied Living is a daily live container devoted to integration. Over three weeks, we enter the practice of being with ourselves, fully. With our bodies. With our hearts. With what is actually alive and present.
                     </p>
-                    <p className="text-3xl md:text-4xl font-medium leading-snug text-ink">
+                    <p className="text-3xl md:text-4xl font-semibold leading-snug text-ink">
                       We learn to stay with what feels overwhelming. <br />
                       To listen to our intuition. <br />
                       To move with life instead of against it.
@@ -216,12 +220,12 @@ export default function LandingPage() {
               </div>
 
               <div className="grid grid-cols-2 gap-12">
-                <div className="p-10 bg-white border border-ink/5 group hover:border-sage/30 transition-colors duration-700">
-                  <p className="text-5xl font-serif italic text-burgundy mb-4 group-hover:text-sage transition-colors">21</p>
+                <div className="p-10 bg-white border border-ink/5 group hover:border-burgundy/25 transition-colors duration-700">
+                  <p className="text-5xl font-serif italic text-burgundy mb-4 group-hover:text-burgundy/80 transition-colors">21</p>
                   <p className="text-[10px] tracking-[0.2em] uppercase font-bold text-ink/40">Days of Devotion</p>
                 </div>
-                <div className="p-10 bg-white border border-ink/5 group hover:border-sage/30 transition-colors duration-700">
-                  <p className="text-5xl font-serif italic text-burgundy mb-4 group-hover:text-sage transition-colors">17</p>
+                <div className="p-10 bg-white border border-ink/5 group hover:border-burgundy/25 transition-colors duration-700">
+                  <p className="text-5xl font-serif italic text-burgundy mb-4 group-hover:text-burgundy/80 transition-colors">17</p>
                   <p className="text-[10px] tracking-[0.2em] uppercase font-bold text-ink/40">Core Practitioners</p>
                 </div>
               </div>
@@ -251,11 +255,11 @@ export default function LandingPage() {
             viewport={{ once: true }}
             className="max-w-3xl mx-auto"
           >
-            <p className="text-sage text-[10px] tracking-[0.4em] uppercase mb-8 font-bold">The Core Positioning</p>
-            <h2 className="text-3xl md:text-5xl mb-12 font-medium leading-tight text-cream">
+            <p className="text-cream/80 text-[10px] tracking-[0.4em] uppercase mb-8 font-semibold">The Core Positioning</p>
+            <h2 className="text-3xl md:text-5xl mb-12 font-semibold leading-tight text-cream">
               In a time of nervous system overload, of collapsing structures, of constant external noise… this space is about one thing:
             </h2>
-            <p className="text-5xl md:text-7xl font-serif italic mb-12 text-sage">Embodiment.</p>
+            <p className="text-5xl md:text-7xl font-serif italic mb-12 text-cream">Embodiment.</p>
             <div className="space-y-8 text-lg md:text-xl font-light leading-relaxed text-cream/80">
               <p>Not learning more. Not fixing more. Not escaping what is here.</p>
               <p className="text-cream font-medium">But strengthening your inner compass and building the capacity to stay with yourself in the midst of it all.</p>
@@ -293,9 +297,17 @@ export default function LandingPage() {
               <h2 className="text-4xl md:text-6xl mb-8 font-medium text-burgundy">
                 MIDDLE EASTERN <span className="font-serif italic text-burgundy">grounding</span>
               </h2>
-              <div className="space-y-6 text-base md:text-lg font-light leading-relaxed text-ink/80">
-                <p>With guidance from practitioners, many rooted in the Middle East, this journey brings together teachers, mystics, healers, and visionaries who carry not only the medicine of their craft, but the lived reality of this region. This is not wisdom removed from context. This is wisdom lived in real time.</p>
-                <p>For too long, we sought answers outside of our lands. This container is a reminder: the wisdom has always lived among us. And in times like these, it is our connection to each other that becomes the medicine.</p>
+              <div className="space-y-6 text-base md:text-lg font-normal leading-relaxed text-ink/80">
+                <p>
+                  With guidance from practitioners, many rooted in the Middle East, this journey brings together teachers, mystics, healers, and visionaries who carry not only the{" "}
+                  <strong className="font-semibold text-burgundy">medicine of their craft</strong>, but the{" "}
+                  <strong className="font-semibold text-burgundy">lived reality of this region</strong>. This is not wisdom removed from context. This is{" "}
+                  <strong className="font-semibold text-burgundy">wisdom lived in real time</strong>.
+                </p>
+                <p>
+                  For too long, we sought answers outside of our lands. This container is a reminder: the wisdom has always lived among us. And in times like these, it is our{" "}
+                  <strong className="font-semibold text-burgundy">connection to each other</strong> that becomes the medicine.
+                </p>
                 <p className="text-xl font-serif italic text-burgundy pt-4">A return home to ourselves, to each other, to the intelligence that has always been ours.</p>
               </div>
             </motion.div>
@@ -308,8 +320,8 @@ export default function LandingPage() {
         <div className="container-narrow">
           <div className="grid md:grid-cols-3 gap-16 items-start">
             <div className="md:sticky md:top-32">
-              <p className="text-sage text-[10px] tracking-[0.5em] uppercase mb-6 font-bold">The Roadmap</p>
-              <h2 className="text-6xl md:text-8xl mb-10 font-medium text-cream">21 DAYS <br /><span className="font-serif italic text-sage">of focus.</span></h2>
+              <p className="text-cream/80 text-[10px] tracking-[0.5em] uppercase mb-6 font-semibold">The Roadmap</p>
+              <h2 className="text-6xl md:text-8xl mb-10 font-semibold text-cream">21 DAYS <br /><span className="font-serif italic text-cream">of focus.</span></h2>
               <p className="text-cream/80 font-light italic leading-relaxed mb-4 text-base md:text-lg">Each day features one live session. One focus. One embodied doorway.</p>
               <p className="text-cream font-light leading-relaxed text-base md:text-lg">This is here to help you walk your talk, and embody that which you already know.</p>
             </div>
@@ -336,8 +348,8 @@ export default function LandingPage() {
                   transition={{ delay: i * 0.05 }}
                   className="group relative"
                 >
-                  <div className="absolute -left-6 top-0 h-full w-px bg-sage/30 group-hover:bg-sage transition-colors duration-700"></div>
-                  <span className="text-sage/90 text-[10px] tracking-[0.3em] uppercase font-bold mb-4 block">Doorway 0{i+1}</span>
+                  <div className="absolute -left-6 top-0 h-full w-px bg-cream/25 group-hover:bg-cream/50 transition-colors duration-700"></div>
+                  <span className="text-cream/90 text-[10px] tracking-[0.3em] uppercase font-semibold mb-4 block">Doorway 0{i+1}</span>
                   <h3 className="text-2xl font-serif italic text-cream mb-6 group-hover:translate-x-2 transition-transform duration-700">{phase.title}</h3>
                   <p className="text-cream/90 font-light text-base leading-relaxed">{phase.desc}</p>
                 </motion.div>
@@ -347,120 +359,23 @@ export default function LandingPage() {
         </div>
       </Section>
 
-      {/* SECTION 4.5 - THE DEEP DIVES (WORKSHOPS) */}
-      <Section id="workshops" className="bg-cream text-ink py-48 relative overflow-hidden">
+      {/* SECTION 4.5 - THE DEEP DIVES (PORTALS) */}
+      <Section id="portals" className="bg-cream text-ink py-48 relative overflow-hidden">
         <div className="absolute top-0 right-0 w-full md:w-1/2 h-full opacity-10 pointer-events-none mix-blend-multiply">
           <img src="/_31.jpg" className="w-full h-full object-cover mask-fade-left" alt="" loading="lazy" decoding="async" />
           <div className="absolute inset-0 bg-gradient-to-r from-cream to-transparent"></div>
         </div>
         <div className="container-narrow">
           <div className="text-center mb-32">
-            <p className="text-sage text-[10px] tracking-[0.5em] uppercase mb-6 font-bold">The Deep Dives</p>
-            <h2 className="text-7xl md:text-9xl mb-10 font-medium text-burgundy">THE <span className="font-serif italic text-burgundy">workshops</span></h2>
+            <p className="text-burgundy text-[10px] tracking-[0.5em] uppercase mb-6 font-semibold">The Deep Dives</p>
+            <h2 className="text-7xl md:text-9xl mb-10 font-semibold text-burgundy">THE <span className="font-serif italic text-burgundy">portals</span></h2>
             <p className="text-ink/40 max-w-2xl mx-auto font-light italic text-lg">Detailed explorations led by our expert practitioners.</p>
           </div>
           
           <div className="space-y-12">
-            {[
-              { 
-                name: "Amira ElBeialy", 
-                title: "Magnetize & Manifest", 
-                desc: "A guided session designed to help you clarify your true intention and uncover what may be unconsciously blocking its fulfillment. Together, we’ll identify and release limiting beliefs and internal resistance, and recalibrate your nervous system to feel safe receiving what you desire.",
-                duration: "75 mins"
-              },
-              { 
-                name: "Bahaa Abou Dargham", 
-                title: "2027 and Beyond: The End of the Planning Era", 
-                desc: "According to Human Design, a new cycle begins in 2027 — the Sleeping Phoenix. This transition marks a fundamental shift in how we survive, relate, and make decisions. This session offers a grounded yet expansive perspective on this invitation into a new way of being.",
-                duration: "75 mins"
-              },
-              { 
-                name: "Julia Stadler & Maya Abou Chedid", 
-                title: "The Living Bridge", 
-                desc: "Where Psychotherapy Meets Shamanic Practice & Expanded States. Exploring the meeting point of Spirit and Psyche, nervous system capacity, and integrating the plausible while holding the mystical.",
-                duration: "75 mins"
-              },
-              { 
-                name: "Yāna Nancy Sebaali", 
-                title: "From Healing to Living: Cyclical Intelligence", 
-                desc: "Exploring cyclical intelligence as a way of living — an embodied understanding that growth unfolds through seasons of expansion and contraction, clarity and tenderness, sovereignty and rest.",
-                duration: "60 mins"
-              },
-              { 
-                name: "Sara Abiqwa", 
-                title: "Living As Your Higher Self", 
-                desc: "An invitation to remember the deeper awareness within you, the part that sees clearly and chooses consciously. Step into personal agency, responsibility, and embodied leadership.",
-                duration: "75 mins"
-              },
-              { 
-                name: "Imad Naassi", 
-                title: "Somatic Breathwork", 
-                desc: "A journey to release exhaustion, suppressed emotions, and reclaim wholeness through breath and somatic guidance.",
-                duration: "75 mins"
-              },
-              { 
-                name: "Rasha AlShaar", 
-                title: "Play as Practice", 
-                desc: "A somatic conscious movement experience to explore play, pleasure, and aliveness as essential elements of regulation and resilience.",
-                duration: "45 mins"
-              },
-              { 
-                name: "Raghdan", 
-                title: "Future Self Embodiment", 
-                desc: "Cultivating energetic clarity as you step into new chapters, aligning your inner frequency with the life you desire so you can begin living it now.",
-                duration: "60 mins"
-              },
-              { 
-                name: "Soraya Aouad (Sunchef)", 
-                title: "From Intimidation to Empowerment", 
-                desc: "Falling in love with cooking as a grounded practice of self-care, self-leadership, and embodied discipline — not perfection.",
-                duration: "45 mins"
-              },
-              { 
-                name: "Alyah Al Jasser", 
-                title: "Reclaiming Work/Life Balance", 
-                desc: "Using the wisdom of the menstrual cycle to transform the way women work and live, reducing burnout and cultivating a more sustainable approach.",
-                duration: "75 mins"
-              },
-              { 
-                name: "HayaYasmeen", 
-                title: "Dharma Marga: Discover Your Life Path", 
-                desc: "Using Life Path numbers as a practical tool for clarity and direction, including a questionnaire and fearless embodiment exercise.",
-                duration: "75 mins"
-              },
-              { 
-                name: "Mira Tabbara", 
-                title: "Level Up Your Business", 
-                desc: "Mindset and business tools to help solopreneurs structure offers, attract aligned clients, and build a sustainable, profitable business.",
-                duration: "60 mins"
-              },
-              { 
-                name: "Attia", 
-                title: "Astrocartography for Conscious Travel", 
-                desc: "How to use Astrocartography and Human Design to make more intentional travel and relocation decisions that truly support your energy.",
-                duration: "75 mins"
-              },
-              { 
-                name: "Sarah Berjaoui", 
-                title: "Understanding Relationships & Polarity", 
-                desc: "Exploring emotional patterns, masculine presence, and feminine polarity through Human Design, attachment theory, and Family Constellations.",
-                duration: "75 mins"
-              },
-              { 
-                name: "Rawan Roshni", 
-                title: "Voice Liberation & Re-Rooting", 
-                desc: "Working with the voice as an instrument of transformation, re-rooting into ancestry, authenticity, and collective liberation.",
-                duration: "75 mins"
-              },
-              { 
-                name: "Mariam Alshatti", 
-                title: "Authentic Alignment", 
-                desc: "A class weaving teachings, writing, and meditation to witness what is within and walk in integrity with a straight spine.",
-                duration: "45 mins"
-              }
-            ].map((session, i) => (
+            {PHOENIX_PORTAL_SESSIONS.map((session) => (
               <motion.div
-                key={i}
+                key={`${session.name}-${session.title}`}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -468,13 +383,13 @@ export default function LandingPage() {
               >
                 <div className="flex flex-col md:flex-row md:items-start justify-between gap-6">
                   <div className="max-w-2xl">
-                    <p className="text-sage text-[10px] tracking-[0.2em] uppercase font-bold mb-4">{session.name}</p>
+                    <p className="text-burgundy text-[10px] tracking-[0.2em] uppercase font-semibold mb-4">{session.name}</p>
                     <h3 className="text-2xl md:text-3xl font-serif italic text-burgundy mb-4">{session.title}</h3>
                     <p className="text-ink/70 font-light leading-relaxed text-sm md:text-base">{session.desc}</p>
                   </div>
                   <div className="shrink-0">
                     <span className="inline-block px-4 py-2 border border-ink/10 text-[10px] tracking-widest uppercase font-bold text-ink/40">
-                      {session.duration}
+                      {session.date}
                     </span>
                   </div>
                 </div>
@@ -484,12 +399,12 @@ export default function LandingPage() {
         </div>
       </Section>
 
-      {/* THE FACULTY SECTION */}
-      <Section id="faculty" className="bg-ink text-cream py-48">
+      {/* THE PRACTITIONERS SECTION */}
+      <Section id="practitioners" className="bg-ink text-cream py-48">
         <div className="container-narrow">
           <div className="text-center mb-32">
-            <p className="text-sage text-[10px] tracking-[0.5em] uppercase mb-6 font-bold">The Faculty</p>
-            <h2 className="text-7xl md:text-9xl mb-10 font-medium">OUR <span className="font-serif italic text-sage text-sage">practitioners</span></h2>
+            <p className="text-burgundy text-[10px] tracking-[0.5em] uppercase mb-6 font-semibold">The Practitioners</p>
+            <h2 className="text-7xl md:text-9xl mb-10 font-semibold">OUR <span className="font-serif italic text-cream">practitioners</span></h2>
             <p className="text-cream/40 max-w-2xl mx-auto font-light italic text-lg">A collective of teachers, mystics, healers, and visionaries rooted in shared wisdom.</p>
           </div>
           
@@ -523,17 +438,17 @@ export default function LandingPage() {
               >
                 <div className="relative mb-10 w-fit mx-auto">
                   {/* Subtle outer animated rings */}
-                  <div className="absolute -inset-4 border border-sage/20 rounded-full scale-90 opacity-0 group-hover:scale-100 group-hover:opacity-100 transition-all duration-1000"></div>
+                  <div className="absolute -inset-4 border border-burgundy/30 rounded-full scale-90 opacity-0 group-hover:scale-100 group-hover:opacity-100 transition-all duration-1000"></div>
                   <div className="absolute -inset-2 border border-cream/10 rounded-full scale-100 group-hover:scale-95 transition-transform duration-1000 delay-100"></div>
                   
                   {/* The red circle */}
                   <div className="w-28 h-28 md:w-36 md:h-36 mx-auto rounded-full bg-gradient-to-br from-burgundy to-[#4a0a02] flex items-center justify-center border border-burgundy/40 shadow-[0_0_30px_rgba(123,17,3,0.15)] group-hover:shadow-[0_0_50px_rgba(123,17,3,0.3)] transition-all duration-700 relative z-10">
-                     <span className="text-sage font-serif italic text-4xl md:text-5xl opacity-80 group-hover:opacity-100 group-hover:scale-110 transition-all duration-700">{practitioner.name.charAt(0)}</span>
+                     <span className="text-cream font-serif italic text-4xl md:text-5xl opacity-90 group-hover:opacity-100 group-hover:scale-110 transition-all duration-700">{practitioner.name.charAt(0)}</span>
                   </div>
                 </div>
                 
                 <div className="relative flex flex-col items-center">
-                  <div className="w-px h-6 bg-cream/10 mb-6 group-hover:h-10 group-hover:bg-sage/40 transition-all duration-700"></div>
+                  <div className="w-px h-6 bg-cream/10 mb-6 group-hover:h-10 group-hover:bg-cream/40 transition-all duration-700"></div>
                   <p className="text-[10px] md:text-[11px] tracking-[0.3em] uppercase font-bold text-cream mb-3">{practitioner.name}</p>
                   <p className="text-[9px] tracking-[0.2em] uppercase text-cream/40 font-light">{practitioner.title}</p>
                 </div>
@@ -546,14 +461,14 @@ export default function LandingPage() {
       {/* SECTION 5 - WHAT MAKES THIS DIFFERENT */}
       <Section className="bg-burgundy text-cream py-48 relative overflow-hidden">
         <div className="absolute top-0 left-0 w-full h-full opacity-5 pointer-events-none">
-          <div className="absolute top-1/4 -left-20 text-[20vw] font-serif italic vertical-text text-sage">Practice</div>
-          <div className="absolute bottom-1/4 -right-20 text-[20vw] font-serif italic vertical-text text-sage">Integration</div>
+          <div className="absolute top-1/4 -left-20 text-[20vw] font-serif italic vertical-text text-cream/10">Practice</div>
+          <div className="absolute bottom-1/4 -right-20 text-[20vw] font-serif italic vertical-text text-cream/10">Integration</div>
         </div>
 
         <div className="container-narrow relative z-10">
           <div className="text-center mb-32">
-            <p className="text-sage text-[10px] tracking-[0.5em] uppercase mb-6 font-bold">The Distinction</p>
-            <h2 className="text-7xl md:text-9xl mb-10 font-medium text-cream">WHAT MAKES THIS <br /><span className="font-serif italic text-sage">different</span></h2>
+            <p className="text-cream/80 text-[10px] tracking-[0.5em] uppercase mb-6 font-semibold">The Distinction</p>
+            <h2 className="text-7xl md:text-9xl mb-10 font-semibold text-cream">WHAT MAKES THIS <br /><span className="font-serif italic text-cream">different</span></h2>
             <p className="text-cream/40 max-w-xl mx-auto font-light italic text-lg leading-relaxed">This is not another healing container. It is a return to living what you already know.</p>
           </div>
           
@@ -564,8 +479,8 @@ export default function LandingPage() {
               viewport={{ once: true }}
               className="relative p-12 border border-cream/20 bg-cream/[0.04] shadow-2xl rounded-sm backdrop-blur-sm"
             >
-              <h3 className="text-[10px] tracking-[0.4em] uppercase font-bold text-sage mb-12 flex items-center gap-4">
-                <span className="w-8 h-px bg-sage/30"></span>
+              <h3 className="text-[10px] tracking-[0.4em] uppercase font-semibold text-cream/90 mb-12 flex items-center gap-4">
+                <span className="w-8 h-px bg-cream/30"></span>
                 This is not
               </h3>
               <ul className="space-y-6">
@@ -578,8 +493,8 @@ export default function LandingPage() {
                   "A processing loop",
                   "A manifestation challenge"
                 ].map((item, i) => (
-                  <li key={i} className="flex items-center gap-6 text-cream/70 font-medium group text-xl">
-                    <div className="w-1.5 h-1.5 bg-sage group-hover:bg-cream transition-colors"></div>
+                  <li key={i} className="flex items-center gap-6 text-cream/70 font-normal group text-xl">
+                    <div className="w-1.5 h-1.5 bg-cream/50 group-hover:bg-cream transition-colors"></div>
                     <span className="font-serif italic group-hover:text-cream transition-colors">{item}</span>
                   </li>
                 ))}
@@ -590,10 +505,10 @@ export default function LandingPage() {
               initial={{ opacity: 0, x: 30 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              className="relative p-12 border border-sage/30 bg-sage/[0.08] shadow-[0_0_50px_rgba(163,196,188,0.1)] rounded-sm backdrop-blur-sm"
+              className="relative p-12 border border-cream/25 bg-white/[0.06] shadow-[0_0_50px_rgba(0,0,0,0.12)] rounded-sm backdrop-blur-sm"
             >
-              <h3 className="text-[10px] tracking-[0.4em] uppercase font-bold text-sage mb-12 flex items-center gap-4">
-                <span className="w-8 h-px bg-sage/30"></span>
+              <h3 className="text-[10px] tracking-[0.4em] uppercase font-semibold text-cream/90 mb-12 flex items-center gap-4">
+                <span className="w-8 h-px bg-cream/30"></span>
                 This is
               </h3>
               <ul className="space-y-6">
@@ -606,8 +521,8 @@ export default function LandingPage() {
                   "Nervous system grounded work",
                   "Living the teachings imperfectly and humanly"
                 ].map((item, i) => (
-                  <li key={i} className="flex items-center gap-6 text-cream font-medium group text-xl">
-                    <Check className="w-5 h-5 text-sage group-hover:text-cream transition-colors" />
+                  <li key={i} className="flex items-center gap-6 text-cream font-normal group text-xl">
+                    <Check className="w-5 h-5 text-cream group-hover:text-white transition-colors" />
                     <span className="font-serif italic">{item}</span>
                   </li>
                 ))}
@@ -621,7 +536,7 @@ export default function LandingPage() {
             viewport={{ once: true }}
             className="bg-cream text-ink p-16 md:p-24 text-center relative overflow-hidden"
           >
-            <div className="absolute top-0 left-0 w-2 h-full bg-sage"></div>
+            <div className="absolute top-0 left-0 w-2 h-full bg-burgundy"></div>
             <h3 className="text-4xl md:text-5xl font-serif italic text-burgundy mb-12">This is for you if:</h3>
             <div className="grid md:grid-cols-2 gap-x-16 gap-y-8 max-w-4xl mx-auto text-left">
               {[
@@ -632,8 +547,8 @@ export default function LandingPage() {
                 "You want growth without burnout",
                 "You seek integration over inspiration"
               ].map((item, i) => (
-                <li key={i} className="flex items-start gap-4 text-ink font-medium text-xl list-none">
-                  <span className="text-sage font-serif italic text-2xl leading-none">0{i+1}</span>
+                <li key={i} className="flex items-start gap-4 text-ink font-normal text-xl list-none">
+                  <span className="text-burgundy font-serif italic text-2xl leading-none">0{i+1}</span>
                   <span>{item}</span>
                 </li>
               ))}
@@ -645,13 +560,13 @@ export default function LandingPage() {
       {/* SECTION 5.5 - TESTIMONIALS */}
       <Section className="bg-ink text-cream py-48 relative overflow-hidden">
         <div className="absolute top-0 left-0 w-full h-full opacity-5 pointer-events-none">
-          <div className="absolute top-1/4 -right-10 text-[20vw] font-serif italic vertical-text text-sage">Voices</div>
+          <div className="absolute top-1/4 -right-10 text-[20vw] font-serif italic vertical-text text-cream/10">Voices</div>
         </div>
         <div className="container-narrow relative z-10">
           <div className="text-center mb-32">
             <h2 className="text-6xl md:text-8xl mb-10 font-medium text-cream">
               Client <br />
-              <span className="font-serif italic text-sage">Reflections</span>
+              <span className="font-serif italic text-cream">Reflections</span>
             </h2>
           </div>
           <div className="relative group/carousel">
@@ -667,20 +582,19 @@ export default function LandingPage() {
                   whileInView={{ opacity: 1, scale: 1 }}
                   viewport={{ once: true }}
                   transition={{ delay: (i % 3) * 0.1 }}
-                  className="shrink-0 w-[85vw] md:w-[450px] snap-center bg-cream/[0.03] border border-cream/10 p-10 flex flex-col justify-between h-auto min-h-[400px] group hover:border-sage/40 hover:bg-cream/[0.04] transition-all duration-700 rounded-sm cursor-grab active:cursor-grabbing relative overflow-hidden"
+                  className="shrink-0 w-[85vw] md:w-[450px] snap-center bg-cream/[0.03] border border-cream/10 p-10 flex flex-col justify-between h-auto min-h-[400px] group hover:border-burgundy/35 hover:bg-cream/[0.04] transition-all duration-700 rounded-sm cursor-grab active:cursor-grabbing relative overflow-hidden"
                 >
-                  <div className="absolute top-0 right-0 w-32 h-32 bg-sage/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 group-hover:bg-sage/10 transition-colors"></div>
+                  <div className="absolute top-0 right-0 w-32 h-32 bg-burgundy/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 group-hover:bg-burgundy/15 transition-colors"></div>
                   <div>
-                    <Quote className="w-8 h-8 text-sage mb-8 opacity-20 group-hover:opacity-60 group-hover:scale-110 transition-all duration-700" />
+                    <Quote className="w-8 h-8 text-burgundy/60 mb-8 opacity-20 group-hover:opacity-60 group-hover:scale-110 transition-all duration-700" />
                     <p className="text-cream/90 font-light leading-relaxed text-base md:text-lg italic mb-10 relative z-10">"{testimonial.text}"</p>
                   </div>
                   <div className="flex items-center gap-5 border-t border-cream/10 pt-8 mt-auto relative z-10">
-                    <div className="w-10 h-10 rounded-full bg-sage/10 flex items-center justify-center shrink-0 border border-sage/20 group-hover:border-sage/40 transition-colors">
-                      <span className="text-sage font-serif italic text-base">{testimonial.author.charAt(0)}</span>
+                    <div className="w-10 h-10 rounded-full bg-burgundy/20 flex items-center justify-center shrink-0 border border-cream/20 group-hover:border-cream/40 transition-colors">
+                      <span className="text-cream font-serif italic text-base">{testimonial.author.charAt(0)}</span>
                     </div>
                     <div>
-                      <p className="text-[11px] tracking-[0.2em] uppercase font-bold text-cream group-hover:text-sage transition-colors">{testimonial.author}</p>
-                      <p className="text-[9px] tracking-[0.1em] uppercase text-cream/30 font-light mt-1">Graduate</p>
+                      <p className="text-[11px] tracking-[0.2em] uppercase font-semibold text-cream group-hover:text-white transition-colors">{testimonial.author}</p>
                     </div>
                   </div>
                 </motion.div>
@@ -716,7 +630,7 @@ export default function LandingPage() {
                     }
                   }}
                   className={`h-1 transition-all duration-500 rounded-full ${
-                    activeIndex === i ? 'w-8 bg-sage' : 'w-2 bg-cream/10 hover:bg-cream/30'
+                    activeIndex === i ? 'w-8 bg-burgundy' : 'w-2 bg-cream/10 hover:bg-cream/30'
                   }`}
                 />
               ))}
@@ -727,13 +641,13 @@ export default function LandingPage() {
 
       {/* SECTION 6 - PRACTICAL DETAILS */}
       <Section className="bg-white text-ink py-48 relative overflow-hidden">
-        <div className="absolute top-0 right-0 w-1/3 h-full bg-sage/5 -skew-x-12 translate-x-1/2"></div>
+        <div className="absolute top-0 right-0 w-1/3 h-full bg-burgundy/5 -skew-x-12 translate-x-1/2"></div>
         <div className="container-narrow relative z-10">
           <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 xl:gap-24 items-start">
             <div className="lg:col-span-5 lg:sticky lg:top-32 space-y-16">
               <div>
-                <p className="text-sage text-[10px] tracking-[0.5em] uppercase mb-8 font-bold">The Logistics</p>
-                <h2 className="text-5xl md:text-6xl lg:text-7xl mb-12 font-medium text-burgundy leading-[0.9]">
+                <p className="text-burgundy text-[10px] tracking-[0.5em] uppercase mb-8 font-semibold">The Logistics</p>
+                <h2 className="text-5xl md:text-6xl lg:text-7xl mb-12 font-semibold text-burgundy leading-[0.9]">
                   PRACTICAL <br /><span className="font-serif italic text-burgundy">details</span>
                 </h2>
                 <p className="text-ink/60 font-light text-base lg:text-lg leading-relaxed mb-8">
@@ -757,7 +671,7 @@ export default function LandingPage() {
                     "A community walking this with you"
                   ].map((item, i) => (
                     <li key={i} className="flex items-start gap-3 text-ink/70 font-light text-sm">
-                      <div className="w-1.5 h-1.5 mt-1.5 bg-sage/30 rounded-full shrink-0 border border-sage/50"></div>
+                      <div className="w-1.5 h-1.5 mt-1.5 bg-burgundy/40 rounded-full shrink-0 border border-burgundy/50"></div>
                       <span>{item}</span>
                     </li>
                   ))}
@@ -773,7 +687,7 @@ export default function LandingPage() {
                 <div className="relative z-10 space-y-16">
                   {/* Row 1: Dates */}
                   <div className="pb-12 border-b border-cream/10">
-                    <p className="text-sage text-[9px] tracking-[0.4em] uppercase font-bold mb-6">Dates & Flow</p>
+                    <p className="text-cream/90 text-[9px] tracking-[0.4em] uppercase font-semibold mb-6">Dates & Flow</p>
                     <div className="grid md:grid-cols-2 gap-8 items-start">
                       <p className="text-4xl font-serif italic text-cream leading-tight">April 11 – May 2</p>
                       <div className="space-y-3 text-cream/70 font-light text-sm leading-relaxed">
@@ -786,23 +700,17 @@ export default function LandingPage() {
 
                   {/* Row 2: Investment */}
                   <div className="pb-12 border-b border-cream/10">
-                    <p className="text-sage text-[9px] tracking-[0.4em] uppercase font-bold mb-6">The Investment</p>
-                    <div className="grid md:grid-cols-2 gap-8 items-start">
-                      <div>
-                        <p className="text-5xl font-serif italic text-cream mb-2">333 AED</p>
-                        <p className="text-[9px] tracking-[0.2em] uppercase font-bold text-sage">Early Bird until April 4</p>
-                      </div>
-                      <div className="space-y-3 text-cream/70 font-light text-sm leading-relaxed">
-                        <p className="flex justify-between">Full Investment: <span className="text-cream font-medium">444 AED</span></p>
-                        <p className="flex justify-between">Payment Plan: <span className="text-cream font-medium">222 AED × 2</span></p>
-                      </div>
+                    <p className="text-cream/90 text-[9px] tracking-[0.4em] uppercase font-semibold mb-6">The Investment</p>
+                    <div className="space-y-4 text-cream/90 font-light text-sm leading-relaxed">
+                      <p className="text-5xl font-serif italic text-cream">444 AED</p>
+                      <p>Payment plan available: 222 AED × 2</p>
                     </div>
                   </div>
                   
                   {/* CTA inside the card at the bottom */}
                   <div className="pt-8 text-center">
                     <Link to="/phoenix-rising/checkout" className="inline-block w-full md:w-auto">
-                      <button className="bg-cream text-burgundy px-12 py-5 rounded-full text-[10px] tracking-[0.3em] uppercase font-bold hover:bg-sage hover:text-burgundy transition-all duration-700 w-full md:w-auto shadow-2xl">
+                      <button className="bg-cream text-burgundy px-12 py-5 rounded-full text-[10px] tracking-[0.3em] uppercase font-bold hover:bg-white hover:text-burgundy transition-all duration-700 w-full md:w-auto shadow-2xl">
                         Secure Your Spot Now
                       </button>
                     </Link>
@@ -817,7 +725,7 @@ export default function LandingPage() {
       {/* THE ORIGIN OF PHOENIX RISING */}
       <Section className="bg-ink text-cream py-48 relative overflow-hidden">
         <div className="absolute top-0 right-0 w-1/2 h-full opacity-5 pointer-events-none">
-          <div className="absolute top-1/2 right-0 -translate-y-1/2 text-[40vw] font-serif italic text-sage">Origin</div>
+          <div className="absolute top-1/2 right-0 -translate-y-1/2 text-[40vw] font-serif italic text-cream/10">Origin</div>
         </div>
         
         <div className="container-narrow relative z-10">
@@ -826,12 +734,12 @@ export default function LandingPage() {
                <div className="aspect-[4/5] md:aspect-square overflow-hidden rounded-sm relative z-10">
                  <img src="/_316.jpg" className="w-full h-full object-cover" alt="Origin of Phoenix Rising" loading="lazy" decoding="async" />
                </div>
-               <div className="absolute -bottom-8 -left-8 w-64 h-64 bg-sage/10 rounded-full blur-3xl"></div>
+               <div className="absolute -bottom-8 -left-8 w-64 h-64 bg-burgundy/10 rounded-full blur-3xl"></div>
             </div>
 
             <div className="pl-4 md:pl-12">
-              <p className="text-sage text-[10px] tracking-[0.5em] uppercase mb-8 font-bold">The Story</p>
-              <h2 className="text-5xl md:text-6xl font-medium text-cream leading-tight mb-16">THE ORIGIN <br /><span className="font-serif italic text-sage">of Phoenix</span></h2>
+              <p className="text-cream/80 text-[10px] tracking-[0.5em] uppercase mb-8 font-semibold">The Story</p>
+              <h2 className="text-5xl md:text-6xl font-semibold text-cream leading-tight mb-16">THE ORIGIN <br /><span className="font-serif italic text-cream">of Phoenix</span></h2>
               
               <div className="relative mb-12">
                 <span className="absolute -top-16 -left-8 text-[100px] font-serif text-cream/10 leading-none">“</span>
@@ -848,10 +756,10 @@ export default function LandingPage() {
               </div>
 
               <div className="pt-8 border-t border-cream/10 flex items-center gap-8">
-                <div className="w-12 h-12 rounded-full bg-sage/10 flex items-center justify-center shrink-0">
-                  <Sparkles className="w-5 h-5 text-sage" />
+                <div className="w-12 h-12 rounded-full bg-burgundy/20 flex items-center justify-center shrink-0">
+                  <Sparkles className="w-5 h-5 text-cream" />
                 </div>
-                <p className="text-sage text-sm font-medium italic">Bringing together 17 teachers, the fourth edition creates a space to connect and support one another on our paths of awakening.</p>
+                <p className="text-cream/90 text-sm font-normal italic">Bringing together 17 teachers, the fourth edition creates a space to connect and support one another on our paths of awakening.</p>
               </div>
             </div>
           </div>
@@ -868,18 +776,18 @@ export default function LandingPage() {
         <div className="container-narrow relative z-10 px-8">
           <div className="grid lg:grid-cols-12 gap-16 lg:gap-24 items-start mb-32">
             <div className="lg:col-span-8 border-l border-cream/10 pl-8 md:pl-16 relative">
-              <div className="absolute -left-1 top-0 w-2 h-2 rounded-full bg-sage"></div>
+              <div className="absolute -left-1 top-0 w-2 h-2 rounded-full bg-burgundy"></div>
               
               <img src="/logo-white.png" alt="Phoenix Rising Logo" className="w-24 md:w-32 object-contain opacity-80 mb-16" loading="lazy" decoding="async" />
               
               <div className="mb-16">
                 <h2 className="text-7xl md:text-8xl lg:text-[8rem] font-medium leading-[0.85] tracking-tight">
                   21 DAYS <br />
-                  <span className="font-serif italic text-sage block mt-4">of Embodied Living.</span>
+                  <span className="font-serif italic text-cream block mt-4">of Embodied Living.</span>
                 </h2>
                 <div className="flex items-center gap-6 mt-12">
-                  <div className="w-12 h-px bg-sage/40"></div>
-                  <p className="text-sage text-[11px] tracking-[0.5em] uppercase font-bold">April 11 – May 2nd</p>
+                  <div className="w-12 h-px bg-cream/40"></div>
+                  <p className="text-cream/90 text-[11px] tracking-[0.5em] uppercase font-semibold">April 11 – May 2nd</p>
                 </div>
               </div>
               
@@ -906,7 +814,7 @@ export default function LandingPage() {
             
             <div className="lg:col-span-4 lg:text-right flex flex-col justify-end lg:pt-32 h-full">
               <div className="py-16 px-8 md:py-24 md:px-12 border border-cream/10 bg-cream/[0.02] backdrop-blur-sm rounded-sm min-h-[320px] md:min-h-[420px]">
-                <p className="text-sage font-serif italic text-3xl mb-6">Come as you are. <br/>Stay with yourself.</p>
+                <p className="text-cream font-serif italic text-3xl mb-6">Come as you are. <br/>Stay with yourself.</p>
                 <p className="text-cream/60 text-[10px] tracking-[0.3em] uppercase font-bold mb-10">Walk this with us. We begin April 11.</p>
                 
                 <Link to="/phoenix-rising/checkout" className="contents">
@@ -922,7 +830,7 @@ export default function LandingPage() {
             <p>© 2026 PHOENIX RISING. ALL RIGHTS RESERVED.</p>
             <div className="flex items-center gap-6">
               <span>Dubai, UAE</span>
-              <span className="w-1 h-1 bg-sage/50 rounded-full"></span>
+              <span className="w-1 h-1 bg-cream/40 rounded-full"></span>
               <span>Global Journey</span>
             </div>
           </div>
