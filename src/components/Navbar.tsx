@@ -28,6 +28,9 @@ export const Navbar: React.FC = () => {
   // All pages start with a dark green hero, so always use light text when not scrolled
   const isDarkPage = true;
 
+  const logoSrc =
+    "https://assets.cdn.filesafe.space/qPFyxcfcKb9ufSnJGOBl/media/69ad8626d130b91b63ebaf45.png";
+
   return (
     <>
       <nav 
@@ -36,12 +39,16 @@ export const Navbar: React.FC = () => {
         }`}
       >
         <div className="container mx-auto flex justify-between items-center">
-          <Link to="/" className="relative z-50 flex items-center shrink-0">
+          <Link to="/" className="relative z-50 flex shrink-0 items-center">
             <img
-              src="https://assets.cdn.filesafe.space/qPFyxcfcKb9ufSnJGOBl/media/69ad8626d130b91b63ebaf45.png"
+              src={logoSrc}
               alt="Maria Amiouni"
-              className={`h-[50px] w-auto max-w-[min(100vw-10rem,240px)] object-contain object-left transition-all duration-700 ${
-                scrolled ? "" : isDarkPage ? "drop-shadow-[0_1px_8px_rgba(0,0,0,0.35)]" : ""
+              className={`h-[50px] w-auto max-w-[min(100vw-10rem,240px)] object-contain object-left transition-[filter] duration-700 ${
+                scrolled
+                  ? "drop-shadow-[0_0_1px_rgba(26,26,26,0.55)] drop-shadow-[0_0_12px_rgba(255,255,255,0.95)] drop-shadow-[0_2px_14px_rgba(2,69,59,0.2)]"
+                  : isDarkPage
+                    ? "drop-shadow-[0_1px_8px_rgba(0,0,0,0.35)]"
+                    : ""
               }`}
               width={240}
               height={50}

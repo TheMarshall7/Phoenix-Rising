@@ -1,8 +1,9 @@
-import { Fragment, useRef, useState } from "react";
+import { Fragment, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import { Check, ChevronDown, Sparkles, ChevronLeft, ChevronRight, X, ZoomIn } from "lucide-react";
+import { Check, ChevronDown, Sparkles, ChevronLeft, X } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Section, Button } from "../../components/Common";
+import { TestimonialsGallerySection } from "../../components/TestimonialsGallerySection";
 import { PHOENIX_PORTAL_SESSIONS } from "../../data/phoenixPortalSessions";
 
 type PractitionerEntry = {
@@ -67,43 +68,8 @@ export default function LandingPage() {
     { src: "/Testimonials/PR-3/10.png", alt: "Phoenix Rising testimonial" },
   ];
 
-  const testimonialRef = useRef<HTMLDivElement>(null);
-  const [activeIndex, setActiveIndex] = useState(0);
-  type Lightbox =
-    | { kind: "testimonial"; src: string }
-    | { kind: "practitioner"; src: string; name: string; title: string };
+  type Lightbox = { kind: "practitioner"; src: string; name: string; title: string };
   const [lightbox, setLightbox] = useState<Lightbox | null>(null);
-
-  const scrollToTestimonialIndex = (i: number) => {
-    const container = testimonialRef.current;
-    if (!container?.children[i]) return;
-    const card = container.children[i] as HTMLElement;
-    card.scrollIntoView({ behavior: "smooth", block: "nearest", inline: "center" });
-  };
-
-  const handleScroll = () => {
-    const container = testimonialRef.current;
-    if (!container) return;
-    const viewMid = container.scrollLeft + container.clientWidth / 2;
-    let best = 0;
-    let bestDist = Infinity;
-    for (let i = 0; i < container.children.length; i++) {
-      const card = container.children[i] as HTMLElement;
-      const cardMid = card.offsetLeft + card.offsetWidth / 2;
-      const d = Math.abs(cardMid - viewMid);
-      if (d < bestDist) {
-        bestDist = d;
-        best = i;
-      }
-    }
-    setActiveIndex(best);
-  };
-
-  const scrollCarousel = (direction: "left" | "right") => {
-    const next = activeIndex + (direction === "right" ? 1 : -1);
-    const clamped = Math.max(0, Math.min(testimonialImages.length - 1, next));
-    scrollToTestimonialIndex(clamped);
-  };
 
   return (
     <div className="min-h-screen selection:bg-burgundy/15 bg-cream">
@@ -117,7 +83,7 @@ export default function LandingPage() {
             onClick={() => setLightbox(null)}
             role="dialog"
             aria-modal="true"
-            aria-label={lightbox.kind === "practitioner" ? "Practitioner photo" : "Testimonial"}
+            aria-label="Practitioner photo"
           >
             <motion.button
               type="button"
@@ -141,15 +107,13 @@ export default function LandingPage() {
             >
               <img
                 src={lightbox.src}
-                alt={lightbox.kind === "practitioner" ? lightbox.name : "Phoenix Rising testimonial"}
+                alt={lightbox.name}
                 className="w-full h-auto max-h-[min(85vh,920px)] object-contain object-top rounded-md border border-cream/15 shadow-2xl bg-cream mx-auto"
               />
-              {lightbox.kind === "practitioner" && (
-                <div className="mt-8 text-center">
-                  <p className="text-cream text-lg md:text-xl font-medium tracking-wide">{lightbox.name}</p>
-                  <p className="text-cream/50 text-[10px] tracking-[0.35em] uppercase mt-2">{lightbox.title}</p>
-                </div>
-              )}
+              <div className="mt-8 text-center">
+                <p className="text-cream text-lg md:text-xl font-medium tracking-wide">{lightbox.name}</p>
+                <p className="text-cream/50 text-[10px] tracking-[0.35em] uppercase mt-2">{lightbox.title}</p>
+              </div>
             </motion.div>
           </motion.div>
         )}
@@ -946,120 +910,18 @@ export default function LandingPage() {
         </div>
       </Section>
 
-      {/* SECTION 5.5 - TESTIMONIALS (gallery-style carousel) */}
-      <Section className="bg-ink text-cream py-48 relative overflow-hidden">
-        <div className="pointer-events-none absolute inset-0 opacity-[0.07]">
-          <div className="absolute -right-8 top-1/4 text-[18vw] font-serif italic leading-none text-cream select-none md:text-[14vw]">
-            Voices
-          </div>
-        </div>
-        <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-cream/15 to-transparent" aria-hidden />
-        <div className="container-narrow relative z-10 max-w-6xl">
-          <div className="mb-16 text-center md:mb-20">
-            <p className="text-burgundy mb-6 text-[10px] font-semibold uppercase tracking-[0.45em]">From the community</p>
-            <h2 className="mb-6 text-5xl font-medium text-cream md:text-7xl lg:text-8xl">
-              Client <span className="font-serif italic text-cream">reflections</span>
-            </h2>
-            <p className="mx-auto max-w-lg text-sm font-light leading-relaxed text-cream/45 md:text-base">
-              Real words from people who have moved through the Phoenix Rising container — tap any card to view full size.
-            </p>
-          </div>
-
-          <div className="relative">
-            {/* Edge fades so the rail feels like a gallery */}
-            <div
-              className="pointer-events-none absolute inset-y-0 left-0 z-[1] w-10 bg-gradient-to-r from-ink to-transparent md:w-16"
-              aria-hidden
-            />
-            <div
-              className="pointer-events-none absolute inset-y-0 right-0 z-[1] w-10 bg-gradient-to-l from-ink to-transparent md:w-16"
-              aria-hidden
-            />
-
-            <div
-              ref={testimonialRef}
-              onScroll={handleScroll}
-              className="hide-scrollbar -mx-4 flex snap-x snap-mandatory gap-5 overflow-x-auto scroll-px-4 px-4 pb-6 pt-2 md:gap-8 md:scroll-px-6 md:px-6"
-            >
-              {testimonialImages.map((t, i) => (
-                <motion.div
-                  key={t.src}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: (i % 4) * 0.06 }}
-                  className="group/card w-[min(82vw,380px)] shrink-0 snap-center md:w-[min(42vw,420px)] lg:w-[400px]"
-                >
-                  <div className="rounded-2xl border border-cream/[0.09] bg-gradient-to-b from-cream/[0.06] via-cream/[0.02] to-transparent p-[2px] shadow-[0_28px_80px_-24px_rgba(0,0,0,0.65)] ring-1 ring-cream/[0.04] transition-all duration-500 group-hover/card:border-burgundy/25 group-hover/card:ring-burgundy/15 group-hover/card:shadow-[0_36px_90px_-20px_rgba(123,17,3,0.25)]">
-                    <div className="overflow-hidden rounded-[14px] bg-ink/80">
-                      <button
-                        type="button"
-                        onClick={() => setLightbox({ kind: "testimonial", src: t.src })}
-                        className="relative block w-full cursor-zoom-in text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-burgundy/50 focus-visible:ring-offset-2 focus-visible:ring-offset-ink"
-                        aria-label={`Open testimonial ${i + 1} of ${testimonialImages.length} in full screen`}
-                      >
-                        <div className="absolute inset-0 z-[1] bg-gradient-to-t from-ink/50 via-transparent to-ink/10 opacity-0 transition-opacity duration-500 group-hover/card:opacity-100" />
-                        <div className="absolute bottom-4 right-4 z-[2] flex h-10 w-10 items-center justify-center rounded-full border border-cream/20 bg-ink/70 text-cream opacity-0 shadow-lg backdrop-blur-sm transition-all duration-500 group-hover/card:opacity-100 group-hover/card:border-cream/35">
-                          <ZoomIn className="h-4 w-4" aria-hidden />
-                        </div>
-                        <img
-                          src={t.src}
-                          alt={t.alt}
-                          loading="lazy"
-                          decoding="async"
-                          className="aspect-[3/4] w-full object-cover object-top transition-[filter,transform] duration-700 group-hover/card:scale-[1.02] group-hover/card:brightness-[1.03] md:aspect-[4/5] md:max-h-[min(520px,70vh)]"
-                        />
-                      </button>
-                    </div>
-                  </div>
-                  <p className="mt-4 text-center text-[9px] font-medium uppercase tracking-[0.35em] text-cream/25">
-                    Reflection {String(i + 1).padStart(2, "0")} · Phoenix Rising
-                  </p>
-                </motion.div>
-              ))}
-            </div>
-
-            <div className="mt-10 flex flex-col items-center gap-8 sm:flex-row sm:justify-center sm:gap-12">
-              <div className="flex items-center gap-3">
-                <button
-                  type="button"
-                  onClick={() => scrollCarousel("left")}
-                  className="flex h-12 w-12 items-center justify-center rounded-full border border-cream/15 bg-cream/[0.03] text-cream transition-all duration-300 hover:border-cream/30 hover:bg-cream hover:text-burgundy"
-                  aria-label="Previous reflection"
-                >
-                  <ChevronLeft className="h-5 w-5" />
-                </button>
-                <span className="min-w-[5.5rem] text-center font-mono text-[11px] tabular-nums tracking-widest text-cream/50">
-                  {String(activeIndex + 1).padStart(2, "0")} / {String(testimonialImages.length).padStart(2, "0")}
-                </span>
-                <button
-                  type="button"
-                  onClick={() => scrollCarousel("right")}
-                  className="flex h-12 w-12 items-center justify-center rounded-full border border-cream/15 bg-cream/[0.03] text-cream transition-all duration-300 hover:border-cream/30 hover:bg-cream hover:text-burgundy"
-                  aria-label="Next reflection"
-                >
-                  <ChevronRight className="h-5 w-5" />
-                </button>
-              </div>
-
-              <div className="flex max-w-md flex-wrap justify-center gap-2">
-                {testimonialImages.map((_, i) => (
-                  <button
-                    key={i}
-                    type="button"
-                    aria-label={`Go to reflection ${i + 1}`}
-                    aria-current={activeIndex === i ? "true" : undefined}
-                    onClick={() => scrollToTestimonialIndex(i)}
-                    className={`h-1 rounded-full transition-all duration-500 ${
-                      activeIndex === i ? "w-10 bg-burgundy" : "w-1.5 bg-cream/15 hover:bg-cream/35"
-                    }`}
-                  />
-                ))}
-              </div>
-            </div>
-          </div>
-        </div>
-      </Section>
+      <TestimonialsGallerySection
+        images={testimonialImages}
+        eyebrow="From the community"
+        title={
+          <>
+            Client <span className="font-serif italic text-cream">reflections</span>
+          </>
+        }
+        subtitle="Real words from people who have moved through the Phoenix Rising container — tap any card to view full size."
+        reflectionSuffix="Phoenix Rising"
+        lightboxAlt="Phoenix Rising testimonial"
+      />
 
       {/* SECTION 6 - PRACTICAL DETAILS */}
       <Section className="bg-white text-ink py-48 relative overflow-hidden">
