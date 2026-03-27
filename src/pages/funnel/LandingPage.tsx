@@ -1,108 +1,142 @@
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { Check, ChevronDown, Sparkles, ChevronLeft, ChevronRight, X, ZoomIn } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Section, Button } from "../../components/Common";
 import { PHOENIX_PORTAL_SESSIONS } from "../../data/phoenixPortalSessions";
 
+type PractitionerEntry = {
+  name: string;
+  title: string;
+  photo?: string;
+  enlargedPhoto?: string;
+  photoObjectPosition?: string;
+};
+
+const PHOENIX_PRACTITIONERS: PractitionerEntry[] = [
+  { name: "Maria Amiouni", title: "Spiritual Mentor & Host", photo: "/_114.jpg" },
+  { name: "Alyah Al Jasser", title: "Cycle Awareness", photo: "/practitioners/alyah-al-jasser.jpg" },
+  { name: "Rawan Roshni", title: "Voice Liberation", photo: "/practitioners/rawan-roshni.jpg" },
+  { name: "HayaYasmeen", title: "Dharma Marga", photo: "/practitioners/haya-yasmeen.jpg" },
+  { name: "Hadar Cohen", title: "Embodied Wisdom", photo: "/practitioners/hadar-cohen.png" },
+  {
+    name: "Imad Naassi",
+    title: "Breathwork Facilitator",
+    photo: "/practitioners/imad-naassi-lightbox.jpg",
+    photoObjectPosition: "object-[50%_22%]",
+  },
+  { name: "Sara Abiqwa", title: "Higher Self Guide", photo: "/practitioners/sara-abiqwa.jpg" },
+  { name: "Soraya Aouad", title: "Sunchef", photo: "/practitioners/soraya-aouad.jpg" },
+  { name: "Amira ElBeialy", title: "Magnetize & Manifest", photo: "/practitioners/amira-elbeialy.jpg" },
+  { name: "Caline", title: "Heart-Centered Practice", photo: "/practitioners/caline-malek.png" },
+  { name: "Yāna Nancy Sebaali", title: "Cyclical Intelligence", photo: "/practitioners/yana-sebaali.jpg" },
+  { name: "Rasha AlShaar", title: "Movement Experience", photo: "/practitioners/rasha-alshaar.jpg" },
+  { name: "Mira Tabbara", title: "Business Mentor", photo: "/practitioners/mira-tabbara.jpg" },
+  { name: "Sarah Berjaoui", title: "Relationship Expert" },
+  { name: "Aude Barras", title: "Embodied Remembrance", photo: "/Aude%20Barras.jpg" },
+  { name: "Julia Stadler", title: "Psychotherapist", photo: "/practitioners/julia-stadler.jpg" },
+  { name: "Maya Abou Chedid", title: "Shamanic Practitioner", photo: "/practitioners/maya-abou-chedid.jpg" },
+  { name: "Mariam Alshatti", title: "Authentic Alignment", photo: "/practitioners/mariam-alshatti.jpg" },
+];
+
 export default function LandingPage() {
+  /** Curated testimonials only — full phone screenshots (chat/SMS) removed to protect privacy. */
   const testimonialImages: { src: string; alt: string }[] = [
     { src: "/Testimonials/PR-1/6.png", alt: "Phoenix Rising testimonial" },
     { src: "/Testimonials/PR-1/14.png", alt: "Phoenix Rising testimonial" },
     { src: "/Testimonials/PR-1/15.png", alt: "Phoenix Rising testimonial" },
     { src: "/Testimonials/PR-1/16.png", alt: "Phoenix Rising testimonial" },
     { src: "/Testimonials/PR-1/Testimonial.png", alt: "Phoenix Rising testimonial" },
-    { src: "/Testimonials/PR-1/IMG_9498.PNG", alt: "Phoenix Rising testimonial" },
-    { src: "/Testimonials/PR-1/IMG_9499.PNG", alt: "Phoenix Rising testimonial" },
-    { src: "/Testimonials/PR-1/IMG_9500.PNG", alt: "Phoenix Rising testimonial" },
-    { src: "/Testimonials/PR-1/IMG_9501.PNG", alt: "Phoenix Rising testimonial" },
-    { src: "/Testimonials/PR-1/IMG_9502.PNG", alt: "Phoenix Rising testimonial" },
-    { src: "/Testimonials/PR-1/IMG_9503.PNG", alt: "Phoenix Rising testimonial" },
-    { src: "/Testimonials/PR-1/IMG_9504.PNG", alt: "Phoenix Rising testimonial" },
-    { src: "/Testimonials/PR-1/IMG_9505.PNG", alt: "Phoenix Rising testimonial" },
-    { src: "/Testimonials/PR-1/IMG_9506.PNG", alt: "Phoenix Rising testimonial" },
-    { src: "/Testimonials/PR-1/IMG_9507.PNG", alt: "Phoenix Rising testimonial" },
-    { src: "/Testimonials/PR-1/IMG_9508.PNG", alt: "Phoenix Rising testimonial" },
-    { src: "/Testimonials/PR-1/IMG_9509.PNG", alt: "Phoenix Rising testimonial" },
-    { src: "/Testimonials/PR-1/IMG_9510.PNG", alt: "Phoenix Rising testimonial" },
-    { src: "/Testimonials/PR-1/IMG_9511.PNG", alt: "Phoenix Rising testimonial" },
     { src: "/Testimonials/PR-3/7.png", alt: "Phoenix Rising testimonial" },
     { src: "/Testimonials/PR-3/8.png", alt: "Phoenix Rising testimonial" },
     { src: "/Testimonials/PR-3/9.png", alt: "Phoenix Rising testimonial" },
     { src: "/Testimonials/PR-3/10.png", alt: "Phoenix Rising testimonial" },
-    { src: "/Testimonials/PR-3/79a2a830-4c88-442d-a61c-4082f9fcbeb0.JPG", alt: "Phoenix Rising testimonial" },
-    { src: "/Testimonials/PR-3/IMG_1482.jpg", alt: "Phoenix Rising testimonial" },
-    { src: "/Testimonials/PR-3/IMG_1483%202%281%29.jpg", alt: "Phoenix Rising testimonial" },
-    { src: "/Testimonials/PR-3/IMG_1483%202.jpg", alt: "Phoenix Rising testimonial" },
-    { src: "/Testimonials/PR-3/IMG_1484%203%281%29.jpg", alt: "Phoenix Rising testimonial" },
-    { src: "/Testimonials/PR-3/IMG_1484%203.jpg", alt: "Phoenix Rising testimonial" },
-    { src: "/Testimonials/PR-3/IMG_1486%202%281%29.jpg", alt: "Phoenix Rising testimonial" },
-    { src: "/Testimonials/PR-3/IMG_1486%202.jpg", alt: "Phoenix Rising testimonial" },
-    { src: "/Testimonials/PR-3/IMG_4408.jpg", alt: "Phoenix Rising testimonial" },
-    { src: "/Testimonials/PR-3/IMG_4471.jpg", alt: "Phoenix Rising testimonial" },
-    { src: "/Testimonials/PR-3/IMG_4477%20%281%29.jpg", alt: "Phoenix Rising testimonial" },
-    { src: "/Testimonials/PR-3/IMG_4478.jpg", alt: "Phoenix Rising testimonial" },
-    { src: "/Testimonials/PR-3/IMG_4479.jpg", alt: "Phoenix Rising testimonial" },
-    { src: "/Testimonials/PR-3/IMG_4489.jpg", alt: "Phoenix Rising testimonial" },
-    { src: "/Testimonials/PR-3/IMG_4505.jpg", alt: "Phoenix Rising testimonial" },
-    { src: "/Testimonials/PR-3/IMG_4516.jpg", alt: "Phoenix Rising testimonial" },
-    { src: "/Testimonials/PR-3/IMG_4535.jpg", alt: "Phoenix Rising testimonial" },
-    { src: "/Testimonials/PR-3/IMG_4542.jpg", alt: "Phoenix Rising testimonial" },
-    { src: "/Testimonials/PR-3/IMG_4567.jpg", alt: "Phoenix Rising testimonial" },
-    { src: "/Testimonials/PR-3/IMG_4568.jpg", alt: "Phoenix Rising testimonial" },
-    { src: "/Testimonials/PR-3/IMG_4569.jpg", alt: "Phoenix Rising testimonial" },
-    { src: "/Testimonials/PR-3/IMG_4570.jpg", alt: "Phoenix Rising testimonial" },
-    { src: "/Testimonials/PR-3/IMG_4571.jpg", alt: "Phoenix Rising testimonial" },
-    { src: "/Testimonials/PR-3/IMG_4572.jpg", alt: "Phoenix Rising testimonial" },
-    { src: "/Testimonials/PR-3/IMG_4573.jpg", alt: "Phoenix Rising testimonial" },
-    { src: "/Testimonials/PR-3/IMG_4860.HEIC", alt: "Phoenix Rising testimonial" },
-    { src: "/Testimonials/PR-3/IMG_4870.jpg", alt: "Phoenix Rising testimonial" },
-    { src: "/Testimonials/PR-3/IMG_4872.jpg", alt: "Phoenix Rising testimonial" },
-    { src: "/Testimonials/PR-3/IMG_5076.jpg", alt: "Phoenix Rising testimonial" },
-    { src: "/Testimonials/PR-3/IMG_5082.HEIC", alt: "Phoenix Rising testimonial" },
   ];
 
   const testimonialRef = useRef<HTMLDivElement>(null);
   const [activeIndex, setActiveIndex] = useState(0);
-  const [activeImageSrc, setActiveImageSrc] = useState<string | null>(null);
+  type Lightbox =
+    | { kind: "testimonial"; src: string }
+    | { kind: "practitioner"; src: string; name: string; title: string };
+  const [lightbox, setLightbox] = useState<Lightbox | null>(null);
 
-  const handleScroll = () => {
-    if (testimonialRef.current) {
-      const firstCard = testimonialRef.current.children[0] as HTMLElement | undefined;
-      if (!firstCard) return;
-      const styles = window.getComputedStyle(testimonialRef.current);
-      const gap = parseFloat(styles.columnGap || styles.gap || "0");
-      const step = firstCard.offsetWidth + gap;
-      const index = Math.round(testimonialRef.current.scrollLeft / step);
-      setActiveIndex(index);
-    }
+  const scrollToTestimonialIndex = (i: number) => {
+    const container = testimonialRef.current;
+    if (!container?.children[i]) return;
+    const card = container.children[i] as HTMLElement;
+    card.scrollIntoView({ behavior: "smooth", block: "nearest", inline: "center" });
   };
 
-  const scrollCarousel = (direction: 'left' | 'right') => {
-    if (testimonialRef.current) {
-      const { scrollLeft, offsetWidth } = testimonialRef.current;
-      const scrollTo = direction === 'left' ? scrollLeft - offsetWidth : scrollLeft + offsetWidth;
-      testimonialRef.current.scrollTo({ left: scrollTo, behavior: 'smooth' });
+  const handleScroll = () => {
+    const container = testimonialRef.current;
+    if (!container) return;
+    const viewMid = container.scrollLeft + container.clientWidth / 2;
+    let best = 0;
+    let bestDist = Infinity;
+    for (let i = 0; i < container.children.length; i++) {
+      const card = container.children[i] as HTMLElement;
+      const cardMid = card.offsetLeft + card.offsetWidth / 2;
+      const d = Math.abs(cardMid - viewMid);
+      if (d < bestDist) {
+        bestDist = d;
+        best = i;
+      }
     }
+    setActiveIndex(best);
+  };
+
+  const scrollCarousel = (direction: "left" | "right") => {
+    const next = activeIndex + (direction === "right" ? 1 : -1);
+    const clamped = Math.max(0, Math.min(testimonialImages.length - 1, next));
+    scrollToTestimonialIndex(clamped);
+  };
+
+  const [activePortalIdx, setActivePortalIdx] = useState(0);
+
+  useEffect(() => {
+    const nodes = document.querySelectorAll<HTMLElement>("[data-portal-detail]");
+    if (!nodes.length) return;
+    const obs = new IntersectionObserver(
+      (entries) => {
+        const visible = entries
+          .filter((e) => e.isIntersecting)
+          .sort((a, b) => b.intersectionRatio - a.intersectionRatio);
+        const top = visible[0];
+        if (top?.target instanceof HTMLElement) {
+          const idx = Number(top.target.dataset.portalIndex);
+          if (!Number.isNaN(idx)) setActivePortalIdx(idx);
+        }
+      },
+      { root: null, rootMargin: "-10% 0px -40% 0px", threshold: [0, 0.15, 0.35, 0.55, 1] }
+    );
+    nodes.forEach((n) => obs.observe(n));
+    return () => obs.disconnect();
+  }, []);
+
+  const scrollToPortal = (index: number) => {
+    document
+      .querySelector(`[data-portal-detail][data-portal-index="${index}"]`)
+      ?.scrollIntoView({ behavior: "smooth", block: "start" });
   };
 
   return (
     <div className="min-h-screen selection:bg-burgundy/15 bg-cream">
       <AnimatePresence>
-        {activeImageSrc && (
+        {lightbox && (
           <motion.div
             className="fixed inset-0 z-[100] bg-ink/80 backdrop-blur-sm flex items-center justify-center p-6"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            onClick={() => setActiveImageSrc(null)}
+            onClick={() => setLightbox(null)}
             role="dialog"
             aria-modal="true"
+            aria-label={lightbox.kind === "practitioner" ? "Practitioner photo" : "Testimonial"}
           >
             <motion.button
               type="button"
-              className="absolute top-6 right-6 w-12 h-12 rounded-full bg-cream/10 hover:bg-cream/20 text-cream flex items-center justify-center transition-colors"
-              onClick={() => setActiveImageSrc(null)}
+              className="absolute top-6 right-6 z-10 w-12 h-12 rounded-full bg-cream/10 hover:bg-cream/20 text-cream flex items-center justify-center transition-colors"
+              onClick={() => setLightbox(null)}
               aria-label="Close"
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
@@ -112,7 +146,7 @@ export default function LandingPage() {
             </motion.button>
 
             <motion.div
-              className="w-full max-w-4xl"
+              className="w-full max-w-2xl"
               initial={{ opacity: 0, scale: 0.98, y: 12 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.98, y: 12 }}
@@ -120,10 +154,16 @@ export default function LandingPage() {
               onClick={(e) => e.stopPropagation()}
             >
               <img
-                src={activeImageSrc}
-                alt="Phoenix Rising testimonial"
-                className="w-full h-auto rounded-md border border-cream/15 shadow-2xl bg-cream"
+                src={lightbox.src}
+                alt={lightbox.kind === "practitioner" ? lightbox.name : "Phoenix Rising testimonial"}
+                className="w-full h-auto max-h-[min(85vh,920px)] object-contain object-top rounded-md border border-cream/15 shadow-2xl bg-cream mx-auto"
               />
+              {lightbox.kind === "practitioner" && (
+                <div className="mt-8 text-center">
+                  <p className="text-cream text-lg md:text-xl font-medium tracking-wide">{lightbox.name}</p>
+                  <p className="text-cream/50 text-[10px] tracking-[0.35em] uppercase mt-2">{lightbox.title}</p>
+                </div>
+              )}
             </motion.div>
           </motion.div>
         )}
@@ -288,7 +328,7 @@ export default function LandingPage() {
                   <p className="text-[10px] tracking-[0.2em] uppercase font-bold text-ink/40">Days of Devotion</p>
                 </div>
                 <div className="p-10 bg-white border border-ink/5 group hover:border-burgundy/25 transition-colors duration-700">
-                  <p className="text-5xl font-serif italic text-burgundy mb-4 group-hover:text-burgundy/80 transition-colors">18</p>
+                  <p className="text-5xl font-serif italic text-burgundy mb-4 group-hover:text-burgundy/80 transition-colors">15</p>
                   <p className="text-[10px] tracking-[0.2em] uppercase font-bold text-ink/40">Practitioners</p>
                 </div>
               </div>
@@ -438,29 +478,107 @@ export default function LandingPage() {
             <p className="text-ink/40 max-w-2xl mx-auto font-light italic text-lg">Detailed explorations led by our expert practitioners.</p>
           </div>
           
-          <div className="space-y-12">
-            {PHOENIX_PORTAL_SESSIONS.map((session) => (
-              <motion.div
-                key={`${session.name}-${session.title}`}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                className="group border-b border-ink/10 pb-12 last:border-0"
-              >
-                <div className="flex flex-col md:flex-row md:items-start justify-between gap-6">
-                  <div className="max-w-2xl">
-                    <p className="text-burgundy text-[10px] tracking-[0.2em] uppercase font-semibold mb-4">{session.name}</p>
-                    <h3 className="text-2xl md:text-3xl font-serif italic text-burgundy mb-4">{session.title}</h3>
-                    <p className="text-ink/70 font-light leading-relaxed text-sm md:text-base">{session.desc}</p>
-                  </div>
-                  <div className="shrink-0">
-                    <span className="inline-block px-4 py-2 border border-ink/10 text-[10px] tracking-widest uppercase font-bold text-ink/40">
-                      {session.date}
+          <div className="max-w-6xl mx-auto flex flex-col gap-10 lg:grid lg:grid-cols-[minmax(0,300px)_1fr] lg:gap-14 lg:items-start">
+            <aside className="lg:sticky lg:top-28 lg:max-h-[calc(100vh-7rem)] lg:overflow-y-auto rounded-xl border border-ink/10 bg-cream/95 backdrop-blur-sm p-3 shadow-sm">
+              <p className="text-burgundy text-[9px] tracking-[0.35em] uppercase font-bold px-2 pt-1 pb-3 border-b border-ink/10 mb-2">
+                All portals
+              </p>
+              <nav className="flex flex-row gap-2 overflow-x-auto pb-1 lg:flex-col lg:gap-0 lg:overflow-visible lg:pb-0" aria-label="Portal sessions">
+                {PHOENIX_PORTAL_SESSIONS.map((session, i) => (
+                  <button
+                    key={session.portal}
+                    type="button"
+                    onClick={() => scrollToPortal(i)}
+                    className={`shrink-0 text-left rounded-lg px-3 py-3 transition-colors lg:w-full ${
+                      activePortalIdx === i
+                        ? "bg-burgundy/10 border border-burgundy/25 shadow-sm"
+                        : "border border-transparent hover:bg-ink/[0.04]"
+                    }`}
+                  >
+                    <span className="text-burgundy text-[9px] tracking-[0.25em] uppercase font-bold block mb-1">
+                      Portal {session.portal}
                     </span>
+                    <span className="text-ink font-serif italic text-sm leading-snug block mb-1 line-clamp-2">
+                      {session.title}
+                    </span>
+                    <span className="text-ink/55 text-[10px] leading-tight block mb-1">{session.name}</span>
+                    <span className="text-ink/35 text-[9px] tracking-wide">{session.date}</span>
+                  </button>
+                ))}
+              </nav>
+            </aside>
+
+            <div className="space-y-16 md:space-y-24 min-w-0">
+              {PHOENIX_PORTAL_SESSIONS.map((session, i) => (
+                <motion.div
+                  key={session.portal}
+                  data-portal-detail
+                  data-portal-index={i}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: "-40px" }}
+                  className="scroll-mt-28 rounded-2xl border border-ink/10 bg-cream/60 p-6 md:p-10 shadow-sm"
+                >
+                  <div className="flex flex-col gap-8 md:flex-row md:gap-10 md:items-start">
+                    <div className="flex shrink-0 justify-center md:justify-start">
+                      {session.photoSecondary ? (
+                        <div className="flex gap-3">
+                          <div className="relative h-32 w-32 overflow-hidden rounded-full border border-burgundy/35 bg-gradient-to-br from-burgundy to-[#4a0a02] shadow-[0_0_24px_rgba(123,17,3,0.12)] md:h-40 md:w-40">
+                            {session.photo ? (
+                              <img
+                                src={session.photo}
+                                alt="Julia Stadler"
+                                loading="lazy"
+                                decoding="async"
+                                className={`h-full w-full object-cover grayscale-[0.2] ${session.photoObjectPosition ?? ""}`}
+                              />
+                            ) : null}
+                          </div>
+                          <div className="relative h-32 w-32 overflow-hidden rounded-full border border-burgundy/35 bg-gradient-to-br from-burgundy to-[#4a0a02] shadow-[0_0_24px_rgba(123,17,3,0.12)] md:h-40 md:w-40">
+                            <img
+                              src={session.photoSecondary}
+                              alt="Maya Abou Chedid"
+                              loading="lazy"
+                              decoding="async"
+                              className={`h-full w-full object-cover grayscale-[0.2] ${session.photoSecondaryObjectPosition ?? ""}`}
+                            />
+                          </div>
+                        </div>
+                      ) : (
+                        <div className="relative h-36 w-36 overflow-hidden rounded-full border border-burgundy/35 bg-gradient-to-br from-burgundy to-[#4a0a02] shadow-[0_0_28px_rgba(123,17,3,0.15)] md:h-44 md:w-44">
+                          {session.photo ? (
+                            <img
+                              src={session.photo}
+                              alt={session.name}
+                              loading="lazy"
+                              decoding="async"
+                              className={`h-full w-full object-cover grayscale-[0.2] ${session.photoObjectPosition ?? ""}`}
+                            />
+                          ) : (
+                            <div className="flex h-full w-full items-center justify-center">
+                              <span className="font-serif text-4xl italic text-cream/90 md:text-5xl">
+                                {session.name.charAt(0)}
+                              </span>
+                            </div>
+                          )}
+                        </div>
+                      )}
+                    </div>
+                    <div className="min-w-0 flex-1">
+                      <p className="text-burgundy text-[10px] tracking-[0.35em] uppercase font-bold mb-2">
+                        Portal {session.portal}
+                      </p>
+                      <p className="text-ink/50 text-[10px] tracking-[0.2em] uppercase font-semibold mb-3">{session.name}</p>
+                      <h3 className="text-2xl md:text-3xl font-serif italic text-burgundy mb-4">{session.title}</h3>
+                      <p className="text-ink/70 font-light leading-relaxed text-sm md:text-base mb-6">{session.desc}</p>
+                      <span className="inline-block border border-ink/15 bg-ink/[0.03] px-4 py-2 text-[10px] font-bold uppercase tracking-widest text-ink/45">
+                        {session.date}
+                      </span>
+                    </div>
                   </div>
-                </div>
-              </motion.div>
-            ))}
+                </motion.div>
+              ))}
+            </div>
           </div>
         </div>
       </Section>
@@ -475,41 +593,62 @@ export default function LandingPage() {
           </div>
           
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-x-8 md:gap-x-12 gap-y-24 md:gap-y-32">
-            {[
-              { name: "Amira ElBeialy", title: "Magnetize & Manifest" },
-              { name: "Bahaa Abou Dargham", title: "Human Design Guide" },
-              { name: "Julia Stadler", title: "Psychotherapist" },
-              { name: "Maya Abou Chedid", title: "Shamanic Practitioner" },
-              { name: "Yāna Nancy Sebaali", title: "Cyclical Intelligence" },
-              { name: "Sara Abiqwa", title: "Higher Self Guide" },
-              { name: "Imad Naassi", title: "Breathwork Facilitator" },
-              { name: "Rasha AlShaar", title: "Movement Experience" },
-              { name: "Raghdan", title: "Energetic Clarity" },
-              { name: "Soraya Aouad", title: "Sunchef" },
-              { name: "Alyah Al Jasser", "title": "Cycle Awareness" },
-              { name: "HayaYasmeen", title: "Dharma Marga" },
-              { name: "Mira Tabbara", title: "Business Mentor" },
-              { name: "Attia", title: "Astrocartography" },
-              { name: "Sarah Berjaoui", title: "Relationship Expert" },
-              { name: "Rawan Roshni", title: "Voice Liberation" },
-              { name: "Mariam Alshatti", title: "Authentic Alignment" }
-            ].map((practitioner, i) => (
+            {PHOENIX_PRACTITIONERS.slice(0, 12).map((practitioner, i) => (
               <motion.div
-                key={i}
+                key={practitioner.name}
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: (i % 4) * 0.1 }}
-                className={`text-center group ${i % 2 !== 0 ? 'lg:translate-y-16' : ''} ${i === 16 ? 'col-span-2 lg:col-span-4 mt-8 lg:mt-0' : ''}`}
+                className={`text-center group ${i % 2 !== 0 ? "lg:translate-y-16" : ""} ${practitioner.photo ? "cursor-pointer" : ""}`}
+                role={practitioner.photo ? "button" : undefined}
+                tabIndex={practitioner.photo ? 0 : undefined}
+                aria-label={practitioner.photo ? `View larger photo of ${practitioner.name}` : undefined}
+                onClick={() => {
+                  if (practitioner.photo) {
+                    setLightbox({
+                      kind: "practitioner",
+                      src: practitioner.enlargedPhoto ?? practitioner.photo,
+                      name: practitioner.name,
+                      title: practitioner.title,
+                    });
+                  }
+                }}
+                onKeyDown={(e) => {
+                  if (!practitioner.photo) return;
+                  if (e.key === "Enter" || e.key === " ") {
+                    e.preventDefault();
+                    setLightbox({
+                      kind: "practitioner",
+                      src: practitioner.enlargedPhoto ?? practitioner.photo,
+                      name: practitioner.name,
+                      title: practitioner.title,
+                    });
+                  }
+                }}
               >
                 <div className="relative mb-10 w-fit mx-auto">
                   {/* Subtle outer animated rings */}
                   <div className="absolute -inset-4 border border-burgundy/30 rounded-full scale-90 opacity-0 group-hover:scale-100 group-hover:opacity-100 transition-all duration-1000"></div>
                   <div className="absolute -inset-2 border border-cream/10 rounded-full scale-100 group-hover:scale-95 transition-transform duration-1000 delay-100"></div>
                   
-                  {/* The red circle */}
-                  <div className="w-28 h-28 md:w-36 md:h-36 mx-auto rounded-full bg-gradient-to-br from-burgundy to-[#4a0a02] flex items-center justify-center border border-burgundy/40 shadow-[0_0_30px_rgba(123,17,3,0.15)] group-hover:shadow-[0_0_50px_rgba(123,17,3,0.3)] transition-all duration-700 relative z-10">
-                     <span className="text-cream font-serif italic text-4xl md:text-5xl opacity-90 group-hover:opacity-100 group-hover:scale-110 transition-all duration-700">{practitioner.name.charAt(0)}</span>
+                  {/* Headshot or initial */}
+                  <div className="w-28 h-28 md:w-36 md:h-36 mx-auto rounded-full overflow-hidden border border-burgundy/40 shadow-[0_0_30px_rgba(123,17,3,0.15)] group-hover:shadow-[0_0_50px_rgba(123,17,3,0.3)] transition-all duration-700 relative z-10 bg-gradient-to-br from-burgundy to-[#4a0a02]">
+                    {practitioner.photo ? (
+                      <img
+                        src={practitioner.photo}
+                        alt={practitioner.name}
+                        loading="lazy"
+                        decoding="async"
+                        className={`w-full h-full object-cover grayscale-[0.25] group-hover:grayscale-0 transition-all duration-700 ${practitioner.photoObjectPosition ?? ""}`}
+                      />
+                    ) : (
+                      <div className="w-full h-full flex items-center justify-center">
+                        <span className="text-cream font-serif italic text-4xl md:text-5xl opacity-90 group-hover:opacity-100 group-hover:scale-110 transition-all duration-700">
+                          {practitioner.name.charAt(0)}
+                        </span>
+                      </div>
+                    )}
                   </div>
                 </div>
                 
@@ -520,6 +659,75 @@ export default function LandingPage() {
                 </div>
               </motion.div>
             ))}
+            <div className="col-span-full flex w-full justify-center">
+              <div className="flex w-full max-w-4xl flex-wrap justify-center gap-x-8 md:gap-x-12 gap-y-24 md:gap-y-32">
+                {PHOENIX_PRACTITIONERS.slice(12).map((practitioner, j) => {
+                  const i = j + 12;
+                  return (
+                    <motion.div
+                      key={practitioner.name}
+                      initial={{ opacity: 0, y: 30 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ delay: (i % 4) * 0.1 }}
+                      className={`text-center group w-full max-w-[220px] shrink-0 sm:max-w-[240px] ${practitioner.photo ? "cursor-pointer" : ""}`}
+                      role={practitioner.photo ? "button" : undefined}
+                      tabIndex={practitioner.photo ? 0 : undefined}
+                      aria-label={practitioner.photo ? `View larger photo of ${practitioner.name}` : undefined}
+                      onClick={() => {
+                        if (practitioner.photo) {
+                          setLightbox({
+                            kind: "practitioner",
+                            src: practitioner.enlargedPhoto ?? practitioner.photo,
+                            name: practitioner.name,
+                            title: practitioner.title,
+                          });
+                        }
+                      }}
+                      onKeyDown={(e) => {
+                        if (!practitioner.photo) return;
+                        if (e.key === "Enter" || e.key === " ") {
+                          e.preventDefault();
+                          setLightbox({
+                            kind: "practitioner",
+                            src: practitioner.enlargedPhoto ?? practitioner.photo,
+                            name: practitioner.name,
+                            title: practitioner.title,
+                          });
+                        }
+                      }}
+                    >
+                      <div className="relative mb-10 w-fit mx-auto">
+                        <div className="absolute -inset-4 border border-burgundy/30 rounded-full scale-90 opacity-0 group-hover:scale-100 group-hover:opacity-100 transition-all duration-1000"></div>
+                        <div className="absolute -inset-2 border border-cream/10 rounded-full scale-100 group-hover:scale-95 transition-transform duration-1000 delay-100"></div>
+                        <div className="w-28 h-28 md:w-36 md:h-36 mx-auto rounded-full overflow-hidden border border-burgundy/40 shadow-[0_0_30px_rgba(123,17,3,0.15)] group-hover:shadow-[0_0_50px_rgba(123,17,3,0.3)] transition-all duration-700 relative z-10 bg-gradient-to-br from-burgundy to-[#4a0a02]">
+                          {practitioner.photo ? (
+                            <img
+                              src={practitioner.photo}
+                              alt={practitioner.name}
+                              loading="lazy"
+                              decoding="async"
+                              className={`w-full h-full object-cover grayscale-[0.25] group-hover:grayscale-0 transition-all duration-700 ${practitioner.photoObjectPosition ?? ""}`}
+                            />
+                          ) : (
+                            <div className="w-full h-full flex items-center justify-center">
+                              <span className="text-cream font-serif italic text-4xl md:text-5xl opacity-90 group-hover:opacity-100 group-hover:scale-110 transition-all duration-700">
+                                {practitioner.name.charAt(0)}
+                              </span>
+                            </div>
+                          )}
+                        </div>
+                      </div>
+                      <div className="relative flex flex-col items-center">
+                        <div className="w-px h-6 bg-cream/10 mb-6 group-hover:h-10 group-hover:bg-cream/40 transition-all duration-700"></div>
+                        <p className="text-[10px] md:text-[11px] tracking-[0.3em] uppercase font-bold text-cream mb-3">{practitioner.name}</p>
+                        <p className="text-[9px] tracking-[0.2em] uppercase text-cream/40 font-light">{practitioner.title}</p>
+                      </div>
+                    </motion.div>
+                  );
+                })}
+              </div>
+            </div>
           </div>
         </div>
       </Section>
@@ -652,7 +860,7 @@ export default function LandingPage() {
                 >
                   <button
                     type="button"
-                    onClick={() => setActiveImageSrc(t.src)}
+                    onClick={() => setLightbox({ kind: "testimonial", src: t.src })}
                     className="w-full h-full text-left cursor-zoom-in"
                     aria-label="Open testimonial image"
                   >
@@ -678,12 +886,14 @@ export default function LandingPage() {
             {/* Navigation Arrows */}
             <div className="flex justify-center gap-4 mt-8">
               <button 
+                type="button"
                 onClick={() => scrollCarousel('left')}
                 className="w-12 h-12 rounded-full border border-cream/10 flex items-center justify-center hover:bg-cream hover:text-burgundy transition-all duration-500 group/btn"
               >
                 <ChevronLeft className="w-5 h-5 opacity-50 group-hover/btn:opacity-100" />
               </button>
               <button 
+                type="button"
                 onClick={() => scrollCarousel('right')}
                 className="w-12 h-12 rounded-full border border-cream/10 flex items-center justify-center hover:bg-cream hover:text-burgundy transition-all duration-500 group/btn"
               >
@@ -692,22 +902,15 @@ export default function LandingPage() {
             </div>
 
             {/* Progress Dots */}
-            <div className="flex justify-center gap-3 mt-12">
+            <div className="flex justify-center gap-3 mt-12 flex-wrap max-w-full px-2">
               {testimonialImages.map((_, i) => (
                 <button
                   key={i}
-                  onClick={() => {
-                    const container = testimonialRef.current;
-                    if (container) {
-                      const firstCard = container.children[0] as HTMLElement | undefined;
-                      if (!firstCard) return;
-                      const styles = window.getComputedStyle(container);
-                      const gap = parseFloat(styles.columnGap || styles.gap || "0");
-                      const step = firstCard.offsetWidth + gap;
-                      container.scrollTo({ left: i * step, behavior: "smooth" });
-                    }
-                  }}
-                  className={`h-1 transition-all duration-500 rounded-full ${
+                  type="button"
+                  aria-label={`Go to testimonial ${i + 1}`}
+                  aria-current={activeIndex === i ? "true" : undefined}
+                  onClick={() => scrollToTestimonialIndex(i)}
+                  className={`h-1 transition-all duration-500 rounded-full shrink-0 ${
                     activeIndex === i ? 'w-8 bg-burgundy' : 'w-2 bg-cream/10 hover:bg-cream/30'
                   }`}
                 />
@@ -837,7 +1040,7 @@ export default function LandingPage() {
                 <div className="w-12 h-12 rounded-full bg-burgundy/20 flex items-center justify-center shrink-0">
                   <Sparkles className="w-5 h-5 text-cream" />
                 </div>
-                <p className="text-cream/90 text-sm font-normal italic">Bringing together 18 practitioners and 19 sessions, the fourth edition creates a space to connect and support one another on our paths of awakening.</p>
+                <p className="text-cream/90 text-sm font-normal italic">Bringing together 15 practitioners and 14 sessions, the fourth edition creates a space to connect and support one another on our paths of awakening.</p>
               </div>
             </div>
           </div>
