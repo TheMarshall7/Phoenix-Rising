@@ -1,13 +1,19 @@
 import React from "react";
 import { Sparkles } from "lucide-react";
 import { useGhlFormEmbed } from "../hooks/useGhlFormEmbed";
-import { GHL_SANCTUARY_LIST_FORM_URL } from "../constants/ghl";
+import {
+  GHL_MAILING_LIST_FORM_HEIGHT_PX,
+  GHL_MAILING_LIST_FORM_ID,
+  GHL_SANCTUARY_LIST_FORM_URL,
+} from "../constants/ghl";
 import { FadeIn } from "./Common";
 
 /**
- * Email capture via GHL embed (first name + email fields live inside the iframe).
- * Set GHL_SANCTUARY_LIST_FORM_URL in ../constants/ghl.ts to your real form URL.
+ * Email capture via GHL embed (fields live inside the iframe).
+ * Form id / height: ../constants/ghl.ts (`GHL_MAILING_LIST_FORM_ID`, `GHL_MAILING_LIST_FORM_HEIGHT_PX`).
  */
+const INLINE_IFRAME_ID = `inline-${GHL_MAILING_LIST_FORM_ID}`;
+
 export const MailingListSection: React.FC = () => {
   useGhlFormEmbed();
 
@@ -36,27 +42,38 @@ export const MailingListSection: React.FC = () => {
           </p>
 
           <div className="relative mx-auto max-w-xl">
-            <div className="absolute -inset-px rounded-[2px] bg-gradient-to-br from-sage/30 via-transparent to-forest/20 opacity-80" />
+            <div className="pointer-events-none absolute -inset-px rounded-[2px] bg-gradient-to-br from-sage/30 via-transparent to-forest/20 opacity-80" />
             <div className="relative rounded-[2px] bg-white/90 backdrop-blur-sm shadow-[0_32px_100px_-24px_rgba(2,69,59,0.18),0_0_0_1px_rgba(2,69,59,0.06)] p-3 md:p-5">
-              <div className="absolute inset-0 rounded-[2px] ring-1 ring-inset ring-white/60 pointer-events-none" />
-              <iframe
-                src={GHL_SANCTUARY_LIST_FORM_URL}
-                title="Mailing List"
-                id="inline-zESL3wsL8RFXi1Ilc6F6"
-                data-layout="{'id':'INLINE'}"
-                data-trigger-type="alwaysShow"
-                data-trigger-value=""
-                data-activation-type="alwaysActivated"
-                data-activation-value=""
-                data-deactivation-type="neverDeactivate"
-                data-deactivation-value=""
-                data-form-name="Mailing List"
-                data-height="425"
-                data-layout-iframe-id="inline-zESL3wsL8RFXi1Ilc6F6"
-                data-form-id="zESL3wsL8RFXi1Ilc6F6"
-                className="relative z-10 w-full min-h-[425px] border-0 rounded-[3px] bg-transparent"
-                loading="lazy"
-              />
+              <div className="pointer-events-none absolute inset-0 rounded-[2px] ring-1 ring-inset ring-white/60" />
+              {/* GHL embed.js reads data-height and may resize; start at published form height (276px). */}
+              <div
+                className="relative z-10 w-full overflow-hidden rounded-[3px]"
+                style={{ minHeight: GHL_MAILING_LIST_FORM_HEIGHT_PX }}
+              >
+                <iframe
+                  src={GHL_SANCTUARY_LIST_FORM_URL}
+                  title="Mailing List"
+                  id={INLINE_IFRAME_ID}
+                  data-layout="{'id':'INLINE'}"
+                  data-trigger-type="alwaysShow"
+                  data-trigger-value=""
+                  data-activation-type="alwaysActivated"
+                  data-activation-value=""
+                  data-deactivation-type="neverDeactivate"
+                  data-deactivation-value=""
+                  data-form-name="Mailing List"
+                  data-height={String(GHL_MAILING_LIST_FORM_HEIGHT_PX)}
+                  data-layout-iframe-id={INLINE_IFRAME_ID}
+                  data-form-id={GHL_MAILING_LIST_FORM_ID}
+                  style={{
+                    width: "100%",
+                    height: GHL_MAILING_LIST_FORM_HEIGHT_PX,
+                    minHeight: GHL_MAILING_LIST_FORM_HEIGHT_PX,
+                    border: "none",
+                    borderRadius: 3,
+                  }}
+                />
+              </div>
             </div>
           </div>
         </FadeIn>

@@ -1,9 +1,14 @@
 import { CheckCircle2, ChevronLeft } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useGhlFormEmbed } from "../../hooks/useGhlFormEmbed";
+import { useGhlThankYouRedirect } from "../../hooks/useGhlThankYouRedirect";
+
+const TEACHABLE_COURSE_URL =
+  "https://maria-amiouni-s-school.teachable.com/p/phoenix-rising-21-days-of-embodiedliving";
 
 export default function CheckoutPage() {
   useGhlFormEmbed();
+  useGhlThankYouRedirect();
 
   return (
     <div className="min-h-screen bg-cream text-ink selection:bg-burgundy/15 selection:text-ink font-sans flex flex-col">
@@ -47,6 +52,17 @@ export default function CheckoutPage() {
                 title="Phoenix Rising Enrollment"
               />
             </div>
+            <p className="text-[9px] text-ink/30 font-light tracking-[0.08em] text-center sm:text-left pt-2 max-w-md">
+              Weren’t redirected?{" "}
+              <a
+                href={TEACHABLE_COURSE_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-ink/42 hover:text-burgundy/75 border-b border-transparent hover:border-burgundy/35 pb-px transition-colors"
+              >
+                Open course portal
+              </a>
+            </p>
           </div>
 
           {/* RIGHT COLUMN: SUMMARY */}

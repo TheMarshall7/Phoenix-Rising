@@ -263,7 +263,10 @@ export default function LandingPage() {
       </section>
 
       {/* SECTION 1 - THE CORE SHIFT */}
-      <Section id="core-shift" className="bg-paper py-48 relative overflow-hidden">
+      <Section
+        id="core-shift"
+        className="bg-paper relative overflow-hidden !pt-16 !pb-32 px-8 md:!pt-20 md:!pb-40"
+      >
         <div className="absolute top-0 right-0 w-1/3 h-full bg-burgundy/5 -skew-x-12 translate-x-1/2"></div>
         <div className="container-narrow relative z-10">
           <div className="grid md:grid-cols-12 gap-16 items-start">
