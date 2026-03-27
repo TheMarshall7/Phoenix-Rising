@@ -19,7 +19,7 @@ const PHOENIX_PRACTITIONERS: PractitionerEntry[] = [
   { name: "Alyah Al Jasser", title: "Cycle Awareness", photo: "/practitioners/alyah-al-jasser.jpg" },
   { name: "Rawan Roshni", title: "Voice Liberation", photo: "/practitioners/rawan-roshni.jpg" },
   { name: "HayaYasmeen", title: "Dharma Marga", photo: "/practitioners/haya-yasmeen.jpg" },
-  { name: "Hadar Cohen", title: "Embodied Wisdom", photo: "/practitioners/hadar-cohen.png" },
+  { name: "Hadar Cohen", title: "Embodied Wisdom", photo: "/practitioners/hadar-cohen.jpg" },
   {
     name: "Imad Naassi",
     title: "Breathwork Facilitator",
@@ -29,11 +29,16 @@ const PHOENIX_PRACTITIONERS: PractitionerEntry[] = [
   { name: "Sara Abiqwa", title: "Higher Self Guide", photo: "/practitioners/sara-abiqwa.jpg" },
   { name: "Soraya Aouad", title: "Sunchef", photo: "/practitioners/soraya-aouad.jpg" },
   { name: "Amira ElBeialy", title: "Magnetize & Manifest", photo: "/practitioners/amira-elbeialy.jpg" },
-  { name: "Caline", title: "Heart-Centered Practice", photo: "/practitioners/caline-malek.png" },
+  { name: "Caline", title: "Heart-Centered Practice", photo: "/practitioners/caline-malek.jpg" },
   { name: "Yāna Nancy Sebaali", title: "Cyclical Intelligence", photo: "/practitioners/yana-sebaali.jpg" },
   { name: "Rasha AlShaar", title: "Movement Experience", photo: "/practitioners/rasha-alshaar.jpg" },
   { name: "Mira Tabbara", title: "Business Mentor", photo: "/practitioners/mira-tabbara.jpg" },
-  { name: "Sarah Berjaoui", title: "Relationship Expert" },
+  {
+    name: "Sarah Berjaoui",
+    title: "Relationship Expert",
+    photo: "/practitioners/sarah-berjaoui.png",
+    photoObjectPosition: "object-[85%_center]",
+  },
   { name: "Aude Barras", title: "Embodied Remembrance", photo: "/Aude%20Barras.jpg" },
   { name: "Julia Stadler", title: "Psychotherapist", photo: "/practitioners/julia-stadler.jpg" },
   { name: "Maya Abou Chedid", title: "Shamanic Practitioner", photo: "/practitioners/maya-abou-chedid.jpg" },
@@ -57,15 +62,15 @@ const ROADMAP_DOORWAYS = [
 export default function LandingPage() {
   /** Curated testimonials only — full phone screenshots (chat/SMS) removed to protect privacy. */
   const testimonialImages: { src: string; alt: string }[] = [
-    { src: "/Testimonials/PR-1/6.png", alt: "Phoenix Rising testimonial" },
-    { src: "/Testimonials/PR-1/14.png", alt: "Phoenix Rising testimonial" },
-    { src: "/Testimonials/PR-1/15.png", alt: "Phoenix Rising testimonial" },
-    { src: "/Testimonials/PR-1/16.png", alt: "Phoenix Rising testimonial" },
-    { src: "/Testimonials/PR-1/Testimonial.png", alt: "Phoenix Rising testimonial" },
-    { src: "/Testimonials/PR-3/7.png", alt: "Phoenix Rising testimonial" },
-    { src: "/Testimonials/PR-3/8.png", alt: "Phoenix Rising testimonial" },
-    { src: "/Testimonials/PR-3/9.png", alt: "Phoenix Rising testimonial" },
-    { src: "/Testimonials/PR-3/10.png", alt: "Phoenix Rising testimonial" },
+    { src: "/Testimonials/PR-1/6.jpg", alt: "Phoenix Rising testimonial" },
+    { src: "/Testimonials/PR-1/14.jpg", alt: "Phoenix Rising testimonial" },
+    { src: "/Testimonials/PR-1/15.jpg", alt: "Phoenix Rising testimonial" },
+    { src: "/Testimonials/PR-1/16.jpg", alt: "Phoenix Rising testimonial" },
+    { src: "/Testimonials/PR-1/Testimonial.jpg", alt: "Phoenix Rising testimonial" },
+    { src: "/Testimonials/PR-3/7.jpg", alt: "Phoenix Rising testimonial" },
+    { src: "/Testimonials/PR-3/8.jpg", alt: "Phoenix Rising testimonial" },
+    { src: "/Testimonials/PR-3/9.jpg", alt: "Phoenix Rising testimonial" },
+    { src: "/Testimonials/PR-3/10.jpg", alt: "Phoenix Rising testimonial" },
   ];
 
   type Lightbox = { kind: "practitioner"; src: string; name: string; title: string };

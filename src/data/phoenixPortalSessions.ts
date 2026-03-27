@@ -59,7 +59,7 @@ export const PHOENIX_PORTAL_SESSIONS: PortalSession[] = [
     title: "Embodied Wisdom & Presence",
     desc: "A guided exploration of presence and embodiment — meeting yourself with clarity as we move through the Phoenix arc.",
     date: "Wed Apr 15 · 9:00 PM Dubai",
-    photo: "/practitioners/hadar-cohen.png",
+    photo: "/practitioners/hadar-cohen.jpg",
   },
   {
     portal: 6,
@@ -109,7 +109,7 @@ export const PHOENIX_PORTAL_SESSIONS: PortalSession[] = [
     title: "Heart-Centered Practice",
     desc: "A session of depth, presence, and integration — meeting yourself with compassion and clarity in the Phoenix container.",
     date: "Thu Apr 23 · 9:00 PM Dubai",
-    photo: "/practitioners/caline-malek.png",
+    photo: "/practitioners/caline-malek.jpg",
   },
   {
     portal: 12,
@@ -141,6 +141,8 @@ export const PHOENIX_PORTAL_SESSIONS: PortalSession[] = [
     title: "Understanding Relationships & Polarity",
     desc: "Exploring emotional patterns, masculine presence, and feminine polarity through Human Design, attachment theory, and Family Constellations.",
     date: "Sun Apr 26 · 7:30 PM Dubai",
+    photo: "/practitioners/sarah-berjaoui.png",
+    photoObjectPosition: "object-[85%_center]",
   },
   {
     portal: 16,
