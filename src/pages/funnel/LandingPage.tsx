@@ -328,7 +328,13 @@ export default function LandingPage() {
       {/* SECTION 2 - THE CORE POSITIONING */}
       <Section className="relative bg-burgundy text-cream py-48 text-center overflow-hidden">
         <div className="absolute inset-0 z-0">
-          <img src="/_418.jpg" alt="Atmospheric Background" className="w-full h-full object-cover opacity-30 mix-blend-luminosity" loading="lazy" decoding="async" />
+          <img
+            src="/_280.jpg"
+            alt="Maria Amiouni"
+            className="h-full w-full object-cover object-center opacity-30 mix-blend-luminosity"
+            loading="lazy"
+            decoding="async"
+          />
           <div className="absolute inset-0 bg-gradient-to-b from-burgundy via-transparent to-burgundy"></div>
         </div>
         <div className="container-narrow relative z-10">
