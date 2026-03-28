@@ -2,6 +2,10 @@ import React, { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, ArrowUpRight } from "lucide-react";
+import {
+  MAIN_SITE_LOGO_GREEN,
+  MAIN_SITE_LOGO_WHITE,
+} from "../constants/branding";
 
 export const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -28,9 +32,6 @@ export const Navbar: React.FC = () => {
   // All pages start with a dark green hero, so always use light text when not scrolled
   const isDarkPage = true;
 
-  const logoSrc =
-    "https://assets.cdn.filesafe.space/qPFyxcfcKb9ufSnJGOBl/media/69ad8626d130b91b63ebaf45.png";
-
   return (
     <>
       <nav 
@@ -39,16 +40,27 @@ export const Navbar: React.FC = () => {
         }`}
       >
         <div className="container mx-auto flex justify-between items-center">
-          <Link to="/" className="relative z-50 flex shrink-0 items-center">
+          <Link
+            to="/"
+            aria-label="Maria Amiouni — Home"
+            className="relative z-50 flex h-[50px] w-[min(100vw-10rem,240px)] shrink-0 items-center"
+          >
             <img
-              src={logoSrc}
-              alt="Maria Amiouni"
-              className={`h-[50px] w-auto max-w-[min(100vw-10rem,240px)] object-contain object-left transition-[filter] duration-700 ${
-                scrolled
-                  ? "drop-shadow-[0_0_1px_rgba(26,26,26,0.55)] drop-shadow-[0_0_12px_rgba(255,255,255,0.95)] drop-shadow-[0_2px_14px_rgba(2,69,59,0.2)]"
-                  : isDarkPage
-                    ? "drop-shadow-[0_1px_8px_rgba(0,0,0,0.35)]"
-                    : ""
+              src={MAIN_SITE_LOGO_WHITE}
+              alt=""
+              aria-hidden
+              className={`absolute left-0 top-1/2 z-10 h-[50px] w-auto max-w-[min(100vw-10rem,240px)] -translate-y-1/2 object-contain object-left transition-opacity duration-700 ${
+                scrolled ? "pointer-events-none opacity-0" : "opacity-100"
+              } ${isDarkPage ? "drop-shadow-[0_1px_8px_rgba(0,0,0,0.35)]" : ""}`}
+              width={240}
+              height={50}
+            />
+            <img
+              src={MAIN_SITE_LOGO_GREEN}
+              alt=""
+              aria-hidden
+              className={`relative z-20 h-[50px] w-auto max-w-[min(100vw-10rem,240px)] object-contain object-left transition-opacity duration-700 ${
+                scrolled ? "opacity-100" : "pointer-events-none opacity-0"
               }`}
               width={240}
               height={50}

@@ -1,9 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { Instagram } from "lucide-react";
-
-const LOGO_URL =
-  "https://assets.cdn.filesafe.space/qPFyxcfcKb9ufSnJGOBl/media/69ad8626d130b91b63ebaf45.png";
+import { MAIN_SITE_LOGO_WHITE } from "../constants/branding";
 
 export const Footer: React.FC = () => {
   const linkClass =
@@ -15,7 +13,7 @@ export const Footer: React.FC = () => {
         <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-10 md:gap-12">
           <Link to="/" className="inline-block shrink-0">
             <img
-              src={LOGO_URL}
+              src={MAIN_SITE_LOGO_WHITE}
               alt="Maria Amiouni"
               className="h-10 md:h-11 w-auto max-w-[140px] object-contain opacity-90 hover:opacity-100 transition-opacity"
               width={140}
