@@ -280,14 +280,18 @@ export default function LandingPage() {
                 </div>
               </div>
 
-              <div className="grid grid-cols-2 gap-12">
+              <div className="grid grid-cols-1 gap-8 sm:grid-cols-3 sm:gap-6 md:gap-10">
                 <div className="p-10 bg-white border border-ink/5 group hover:border-burgundy/25 transition-colors duration-700">
                   <p className="text-5xl font-serif italic text-burgundy mb-4 group-hover:text-burgundy/80 transition-colors">21</p>
                   <p className="text-[10px] tracking-[0.2em] uppercase font-bold text-ink/40">Days of Devotion</p>
                 </div>
                 <div className="p-10 bg-white border border-ink/5 group hover:border-burgundy/25 transition-colors duration-700">
-                  <p className="text-5xl font-serif italic text-burgundy mb-4 group-hover:text-burgundy/80 transition-colors">15</p>
+                  <p className="text-5xl font-serif italic text-burgundy mb-4 group-hover:text-burgundy/80 transition-colors">18</p>
                   <p className="text-[10px] tracking-[0.2em] uppercase font-bold text-ink/40">Practitioners</p>
+                </div>
+                <div className="p-10 bg-white border border-ink/5 group hover:border-burgundy/25 transition-colors duration-700">
+                  <p className="text-5xl font-serif italic text-burgundy mb-4 group-hover:text-burgundy/80 transition-colors">19</p>
+                  <p className="text-[10px] tracking-[0.2em] uppercase font-bold text-ink/40">Portals</p>
                 </div>
               </div>
 
@@ -1048,7 +1052,7 @@ export default function LandingPage() {
                 <div className="w-12 h-12 rounded-full bg-burgundy/20 flex items-center justify-center shrink-0">
                   <Sparkles className="w-5 h-5 text-cream" />
                 </div>
-                <p className="text-cream/90 text-sm font-normal italic">Bringing together 15 practitioners and 14 sessions, the fourth edition creates a space to connect and support one another on our paths of awakening.</p>
+                <p className="text-cream/90 text-sm font-normal italic">Bringing together 18 practitioners across 19 portals, the fourth edition creates a space to connect and support one another on our paths of awakening.</p>
               </div>
             </div>
           </div>
