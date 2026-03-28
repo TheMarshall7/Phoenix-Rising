@@ -1,49 +1,11 @@
-import { Fragment, useState } from "react";
+import { Fragment, useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { Check, ChevronDown, Sparkles, ChevronLeft, X } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Section, Button } from "../../components/Common";
 import { TestimonialsGallerySection } from "../../components/TestimonialsGallerySection";
 import { PHOENIX_PORTAL_SESSIONS } from "../../data/phoenixPortalSessions";
-
-type PractitionerEntry = {
-  name: string;
-  title: string;
-  photo?: string;
-  enlargedPhoto?: string;
-  photoObjectPosition?: string;
-};
-
-const PHOENIX_PRACTITIONERS: PractitionerEntry[] = [
-  { name: "Maria Amiouni", title: "Spiritual Mentor & Host", photo: "/_114.jpg" },
-  { name: "Alyah Al Jasser", title: "Cycle Awareness", photo: "/practitioners/alyah-al-jasser.jpg" },
-  { name: "Rawan Roshni", title: "Voice Liberation", photo: "/practitioners/rawan-roshni.jpg" },
-  { name: "HayaYasmeen", title: "Dharma Marga", photo: "/practitioners/haya-yasmeen.jpg" },
-  { name: "Hadar Cohen", title: "Embodied Wisdom", photo: "/practitioners/hadar-cohen.jpg" },
-  {
-    name: "Imad Naassi",
-    title: "Breathwork Facilitator",
-    photo: "/practitioners/imad-naassi-lightbox.jpg",
-    photoObjectPosition: "object-[50%_22%]",
-  },
-  { name: "Sara Abiqwa", title: "Higher Self Guide", photo: "/practitioners/sara-abiqwa.jpg" },
-  { name: "Soraya Aouad", title: "Sunchef", photo: "/practitioners/soraya-aouad.jpg" },
-  { name: "Amira ElBeialy", title: "Magnetize & Manifest", photo: "/practitioners/amira-elbeialy.jpg" },
-  { name: "Caline", title: "Heart-Centered Practice", photo: "/practitioners/caline-malek.jpg" },
-  { name: "Yāna Nancy Sebaali", title: "Cyclical Intelligence", photo: "/practitioners/yana-sebaali.jpg" },
-  { name: "Rasha AlShaar", title: "Movement Experience", photo: "/practitioners/rasha-alshaar.jpg" },
-  { name: "Mira Tabbara", title: "Business Mentor", photo: "/practitioners/mira-tabbara.jpg" },
-  {
-    name: "Sarah Berjaoui",
-    title: "Relationship Expert",
-    photo: "/practitioners/sarah-berjaoui.png",
-    photoObjectPosition: "object-[85%_center]",
-  },
-  { name: "Aude Barras", title: "Embodied Remembrance", photo: "/Aude%20Barras.jpg" },
-  { name: "Julia Stadler", title: "Psychotherapist", photo: "/practitioners/julia-stadler.jpg" },
-  { name: "Maya Abou Chedid", title: "Shamanic Practitioner", photo: "/practitioners/maya-abou-chedid.jpg" },
-  { name: "Mariam Alshatti", title: "Authentic Alignment", photo: "/practitioners/mariam-alshatti.jpg" },
-];
+import { PHOENIX_PRACTITIONERS } from "../../data/phoenixPractitioners";
 
 const ROADMAP_DOORWAYS = [
   { title: "Nervous System Regulation", desc: "Building the physiological capacity to meet intensity with stability." },
@@ -73,51 +35,105 @@ export default function LandingPage() {
     { src: "/Testimonials/PR-3/10.jpg", alt: "Phoenix Rising testimonial" },
   ];
 
-  type Lightbox = { kind: "practitioner"; src: string; name: string; title: string };
-  const [lightbox, setLightbox] = useState<Lightbox | null>(null);
+  type PractitionerLightbox = {
+    src: string;
+    name: string;
+    title: string;
+    bio: string;
+    intention: string;
+  };
+  const [lightbox, setLightbox] = useState<PractitionerLightbox | null>(null);
+
+  useEffect(() => {
+    if (!lightbox) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setLightbox(null);
+    };
+    document.addEventListener("keydown", onKey);
+    const prev = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.removeEventListener("keydown", onKey);
+      document.body.style.overflow = prev;
+    };
+  }, [lightbox]);
+
+  function openPractitionerProfile(p: (typeof PHOENIX_PRACTITIONERS)[number]) {
+    if (!p.photo) return;
+    setLightbox({
+      src: p.enlargedPhoto ?? p.photo,
+      name: p.name,
+      title: p.title,
+      bio: p.bio,
+      intention: p.intention,
+    });
+  }
 
   return (
     <div className="min-h-screen selection:bg-burgundy/15 bg-cream">
       <AnimatePresence>
         {lightbox && (
           <motion.div
-            className="fixed inset-0 z-[100] bg-ink/80 backdrop-blur-sm flex items-center justify-center p-6"
+            className="fixed inset-0 z-[100] flex items-center justify-center bg-ink/85 p-4 backdrop-blur-md sm:p-6"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={() => setLightbox(null)}
             role="dialog"
             aria-modal="true"
-            aria-label="Practitioner photo"
+            aria-label={`Profile: ${lightbox.name}`}
           >
             <motion.button
               type="button"
-              className="absolute top-6 right-6 z-10 w-12 h-12 rounded-full bg-cream/10 hover:bg-cream/20 text-cream flex items-center justify-center transition-colors"
+              className="absolute right-4 top-4 z-[110] flex h-11 w-11 items-center justify-center rounded-full border border-cream/15 bg-ink/60 text-cream backdrop-blur-sm transition-colors hover:border-cream/30 hover:bg-cream/10 sm:right-6 sm:top-6"
               onClick={() => setLightbox(null)}
               aria-label="Close"
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 0.9 }}
             >
-              <X className="w-5 h-5" />
+              <X className="h-5 w-5" />
             </motion.button>
 
             <motion.div
-              className="w-full max-w-2xl"
-              initial={{ opacity: 0, scale: 0.98, y: 12 }}
+              className="relative mt-10 w-full max-w-4xl max-h-[min(90vh,880px)] overflow-y-auto rounded-sm border border-cream/12 bg-gradient-to-br from-[#141210] via-ink to-[#0d0c0b] shadow-[0_0_0_1px_rgba(255,250,240,0.06),0_25px_80px_-12px_rgba(0,0,0,0.75)] md:mt-0 md:max-h-[min(88vh,900px)] md:max-w-5xl"
+              initial={{ opacity: 0, scale: 0.98, y: 16 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
-              exit={{ opacity: 0, scale: 0.98, y: 12 }}
-              transition={{ duration: 0.25 }}
+              exit={{ opacity: 0, scale: 0.98, y: 16 }}
+              transition={{ duration: 0.28, ease: [0.22, 1, 0.36, 1] }}
               onClick={(e) => e.stopPropagation()}
             >
-              <img
-                src={lightbox.src}
-                alt={lightbox.name}
-                className="w-full h-auto max-h-[min(85vh,920px)] object-contain object-top rounded-md border border-cream/15 shadow-2xl bg-cream mx-auto"
-              />
-              <div className="mt-8 text-center">
-                <p className="text-cream text-lg md:text-xl font-medium tracking-wide">{lightbox.name}</p>
-                <p className="text-cream/50 text-[10px] tracking-[0.35em] uppercase mt-2">{lightbox.title}</p>
+              <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_80%_50%_at_0%_0%,rgba(123,17,3,0.12),transparent_55%)]" aria-hidden />
+              <div className="relative flex flex-col md:min-h-[360px] md:flex-row">
+                <div className="relative md:w-[38%] md:max-w-md md:shrink-0">
+                  <div className="aspect-[4/5] w-full overflow-hidden md:absolute md:inset-0 md:aspect-auto md:h-full">
+                    <img
+                      src={lightbox.src}
+                      alt={lightbox.name}
+                      className="h-full w-full object-cover object-top"
+                    />
+                  </div>
+                  <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#141210] via-transparent to-transparent md:bg-gradient-to-r md:from-transparent md:via-transparent md:to-[#141210]/90" aria-hidden />
+                </div>
+
+                <div className="relative flex flex-1 flex-col justify-center px-6 py-8 sm:px-8 sm:py-10 md:pl-10 md:pr-12 md:py-12 lg:pl-14 lg:pr-16">
+                  <p className="text-[10px] font-semibold uppercase tracking-[0.45em] text-burgundy/90">Practitioner</p>
+                  <h2 className="mt-3 font-serif text-3xl italic leading-tight text-cream sm:text-4xl">{lightbox.name}</h2>
+                  <p className="mt-2 text-[10px] font-medium uppercase tracking-[0.28em] text-cream/45">{lightbox.title}</p>
+
+                  <div className="mt-8 space-y-4 text-sm font-light leading-relaxed text-cream/78 md:text-[15px] md:leading-[1.65]">
+                    {lightbox.bio.split(/\n\n+/).map((block, i) => (
+                      <p key={i}>{block.trim()}</p>
+                    ))}
+                  </div>
+
+                  <div className="relative mt-10 border-t border-cream/10 pt-10">
+                    <p className="text-[10px] font-semibold uppercase tracking-[0.4em] text-burgundy/85">Intention</p>
+                    <p className="mt-4 font-serif text-lg italic leading-relaxed text-cream/92 md:text-xl md:leading-snug">
+                      {lightbox.intention}
+                    </p>
+                  </div>
+                </div>
               </div>
             </motion.div>
           </motion.div>
@@ -207,22 +223,20 @@ export default function LandingPage() {
               <p className="text-[10px] tracking-[0.2em] uppercase font-bold leading-relaxed text-cream/50">
                 A live journey into living what you already know.
               </p>
-              <p className="text-lg font-light leading-relaxed text-cream/80">
-                You don’t need more information. You don’t need another breakthrough. You don’t need to become someone new.
-              </p>
+              <div className="space-y-2">
+                <p className="text-lg font-light leading-relaxed text-cream/80">You don’t need more information.</p>
+                <p className="text-lg font-light leading-relaxed text-cream/80">You don’t need another breakthrough.</p>
+                <p className="text-lg font-light leading-relaxed text-cream/80">You don’t need to become someone new.</p>
+              </div>
               <p className="text-2xl font-serif italic text-cream pt-2">
                 You need the capacity to live what you already understand.
               </p>
             </div>
             
-            <div className="flex flex-col sm:flex-row gap-6 items-start sm:items-center mt-auto lg:mt-0">
+            <div className="mt-auto lg:mt-0">
               <Link to="/phoenix-rising/checkout" className="contents">
                 <Button variant="cream">Join the Journey</Button>
               </Link>
-              <div className="flex items-center gap-4 text-[9px] tracking-widest uppercase font-bold text-cream/40 px-4 sm:px-0">
-                <span className="w-8 h-px bg-cream/20 hidden sm:block"></span>
-                Limited Capacity
-              </div>
             </div>
           </motion.div>        </div>
 
@@ -231,80 +245,81 @@ export default function LandingPage() {
         </div>
       </section>
 
-      {/* SECTION 1 - THE CORE SHIFT */}
+      {/* SECTION 1 — Core shift (original copy only; split layout) */}
       <Section
         id="core-shift"
-        className="bg-paper relative overflow-hidden !pt-16 !pb-32 px-8 md:!pt-20 md:!pb-40"
+        className="relative overflow-hidden bg-paper px-8 !pt-20 !pb-28 md:!pt-28 md:!pb-36"
       >
-        <div className="absolute top-0 right-0 w-1/3 h-full bg-burgundy/5 -skew-x-12 translate-x-1/2"></div>
+        <div className="pointer-events-none absolute top-0 right-0 h-full w-1/3 -skew-x-12 translate-x-1/2 bg-burgundy/[0.06]" aria-hidden />
         <div className="container-narrow relative z-10">
-          <div className="grid md:grid-cols-12 gap-16 items-start">
-            <div className="md:col-span-12 lg:col-span-5 md:sticky md:top-32">
-              <h2 className="text-6xl md:text-8xl font-semibold leading-tight mb-12 text-burgundy">THE CORE <br /><span className="font-serif italic text-burgundy">shift</span></h2>
-              <div className="w-24 h-px bg-burgundy/20 mb-12"></div>
-              <div className="space-y-6 text-ink/60 font-normal leading-relaxed mb-6">
-                <p>
-                  Many of us are witnessing, experiencing and holding, grief, uncertainty, and intensity in ways we haven’t before. And yet, here we are.
-                </p>
-                <p>
-                  In the past, we gathered for two intense days. This time, we are stretching again into 21 days creating space not just for inspiration, but for integration. Not just for awakening, but for stability. Not just for expansion, but for capacity.
-                </p>
-                <p>
-                  If you’re new here, hi, welcome. Phoenix Rising began as a space to gather. To connect spiritual and wellness communities across the region. To create a space where wisdom is shared horizontally, not hierarchically.
-                </p>
-                <p className="text-ink/80 font-normal italic border-l-2 border-burgundy/35 pl-4">
-                  This edition carries an even deeper intention. To remain connected to what is sacred, even in dark times. This is not another healing container. It is a return to living what you already know, even when life feels uncertain.
-                </p>
-              </div>
+          <div className="mb-12 text-center md:mb-16">
+            <h2 className="mb-8 text-6xl font-semibold leading-tight text-burgundy md:mb-10 md:text-8xl">
+              THE CORE <br />
+              <span className="font-serif italic text-burgundy">shift</span>
+            </h2>
+            <div className="mx-auto h-px w-24 bg-burgundy/20" />
+          </div>
+
+          <div className="mx-auto mb-12 grid max-w-5xl gap-6 md:mb-16 md:grid-cols-2 md:gap-8">
+            <div className="rounded-sm border border-ink/8 bg-white/70 p-8 shadow-[0_1px_0_rgba(0,0,0,0.04)] backdrop-blur-sm md:p-10">
+              <p className="font-normal leading-relaxed text-ink/60">
+                Many of us are witnessing, experiencing and holding, grief, uncertainty, and intensity in ways we haven’t before. And yet, here we are.
+              </p>
             </div>
-            
-            <div className="md:col-span-12 lg:col-span-7 space-y-32">
-              <div className="relative">
-                <div className="absolute -left-8 top-0 w-px h-full bg-ink/5"></div>
-                <div className="pl-12">
-                  <h3 className="text-[10px] tracking-[0.4em] uppercase font-semibold text-burgundy mb-12">The Philosophy</h3>
-                  <div className="space-y-8">
-                    <p className="text-lg font-normal leading-relaxed text-ink/70">
-                      21 Days of Embodied Living is a daily live container devoted to integration. Over three weeks, we enter the practice of being with ourselves, fully. With our bodies. With our hearts. With what is actually alive and present.
-                    </p>
-                    <p className="text-3xl md:text-4xl font-medium leading-snug text-ink">
-                      We learn to stay with what feels overwhelming. <br />
-                      To listen to our intuition. <br />
-                      To move with life instead of against it.
-                    </p>
-                    <p className="text-2xl font-serif italic text-burgundy">
-                      To meet ourselves in truth, in expression, in relationship. And to live, not just know, what we are here for.
-                    </p>
-                    <p className="text-ink/40 font-light italic tracking-wide uppercase text-[11px]">Devoted to integration. Practice over consumption.</p>
-                  </div>
-                </div>
-              </div>
+            <div className="rounded-sm border border-ink/8 bg-white/70 p-8 shadow-[0_1px_0_rgba(0,0,0,0.04)] backdrop-blur-sm md:p-10">
+              <p className="font-normal leading-relaxed text-ink/60">
+                In the past, we gathered for two intense days. This time, we are stretching again into 21 days creating space not just for inspiration, but for integration. Not just for awakening, but for stability. Not just for expansion, but for capacity.
+              </p>
+            </div>
+          </div>
 
-              <div className="grid grid-cols-1 gap-8 sm:grid-cols-3 sm:gap-6 md:gap-10">
-                <div className="p-10 bg-white border border-ink/5 group hover:border-burgundy/25 transition-colors duration-700">
-                  <p className="text-5xl font-serif italic text-burgundy mb-4 group-hover:text-burgundy/80 transition-colors">21</p>
-                  <p className="text-[10px] tracking-[0.2em] uppercase font-bold text-ink/40">Days of Devotion</p>
-                </div>
-                <div className="p-10 bg-white border border-ink/5 group hover:border-burgundy/25 transition-colors duration-700">
-                  <p className="text-5xl font-serif italic text-burgundy mb-4 group-hover:text-burgundy/80 transition-colors">18</p>
-                  <p className="text-[10px] tracking-[0.2em] uppercase font-bold text-ink/40">Practitioners</p>
-                </div>
-                <div className="p-10 bg-white border border-ink/5 group hover:border-burgundy/25 transition-colors duration-700">
-                  <p className="text-5xl font-serif italic text-burgundy mb-4 group-hover:text-burgundy/80 transition-colors">19</p>
-                  <p className="text-[10px] tracking-[0.2em] uppercase font-bold text-ink/40">Portals</p>
-                </div>
-              </div>
+          <div className="mx-auto mb-12 max-w-3xl md:mb-16">
+            <p className="font-normal leading-relaxed text-ink/60">
+              If you’re new here, hi, welcome. Phoenix Rising began as a space to gather. To connect spiritual and wellness communities across the region. To create a space where wisdom is shared horizontally, not hierarchically.
+            </p>
+          </div>
 
-              <div className="relative overflow-hidden border border-ink/5 bg-white rounded-sm shadow-sm group hover:border-burgundy/25 transition-colors duration-700">
-                <div className="aspect-[4/3] md:aspect-[16/9] overflow-hidden">
-                  <img
-                    src="/_273.jpg"
-                    alt="Atmospheric landscape"
-                    className="w-full h-full object-cover object-top opacity-85 group-hover:opacity-95 group-hover:scale-105 transition-all duration-[3s]"
-                  />
-                </div>
-                <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-ink/10 via-transparent to-transparent opacity-80" />
-              </div>
+          <div className="mx-auto max-w-3xl">
+            <p className="border-l-2 border-burgundy/35 pl-4 font-normal italic leading-relaxed text-ink/80">
+              This edition carries an even deeper intention. To remain connected to what is sacred, even in dark times. This is not another healing container. It is a return to living what you already know, even when life feels uncertain.
+            </p>
+          </div>
+        </div>
+      </Section>
+
+      {/* SECTION 2 — Same copy as former right column; original wording only */}
+      <Section
+        id="embodied-living"
+        className="border-t border-ink/10 bg-cream px-8 !pt-24 !pb-28 text-ink md:!pt-32 md:!pb-36"
+      >
+        <div className="container-narrow relative z-10">
+          <div className="mx-auto max-w-3xl space-y-8 md:space-y-10">
+            <p className="text-lg font-normal leading-relaxed text-ink/70">
+              21 Days of Embodied Living is a daily live container devoted to integration. Over three weeks, we enter the practice of being with ourselves, fully. With our bodies. With our hearts. With what is actually alive and present.
+            </p>
+            <p className="text-3xl font-medium leading-snug text-ink md:text-4xl">
+              We learn to stay with what feels overwhelming. <br />
+              To listen to our intuition. <br />
+              To move with life instead of against it.
+            </p>
+            <p className="text-2xl font-serif italic text-burgundy">
+              To meet ourselves in truth, in expression, in relationship. And to live, not just know, what we are here for.
+            </p>
+            <p className="text-[11px] font-light uppercase italic tracking-wide text-ink/40">Devoted to integration. Practice over consumption.</p>
+          </div>
+
+          <div className="mx-auto mt-16 grid max-w-5xl grid-cols-1 gap-6 sm:grid-cols-3 sm:gap-6 md:mt-20 md:gap-8">
+            <div className="group border border-ink/8 bg-white p-10 transition-colors duration-700 hover:border-burgundy/25">
+              <p className="mb-4 font-serif text-5xl italic text-burgundy transition-colors group-hover:text-burgundy/80">21</p>
+              <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-ink/40">Days of Devotion</p>
+            </div>
+            <div className="group border border-ink/8 bg-white p-10 transition-colors duration-700 hover:border-burgundy/25">
+              <p className="mb-4 font-serif text-5xl italic text-burgundy transition-colors group-hover:text-burgundy/80">18</p>
+              <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-ink/40">Practitioners</p>
+            </div>
+            <div className="group border border-ink/8 bg-white p-10 transition-colors duration-700 hover:border-burgundy/25">
+              <p className="mb-4 font-serif text-5xl italic text-burgundy transition-colors group-hover:text-burgundy/80">19</p>
+              <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-ink/40">Portals</p>
             </div>
           </div>
         </div>
@@ -323,16 +338,38 @@ export default function LandingPage() {
             viewport={{ once: true }}
             className="max-w-3xl mx-auto"
           >
-            <p className="text-cream/80 text-[10px] tracking-[0.4em] uppercase mb-8 font-semibold">The Core Positioning</p>
             <h2 className="text-3xl md:text-5xl mb-12 font-semibold leading-tight text-cream">
               In a time of nervous system overload, of collapsing structures, of constant external noise… this space is about one thing:
             </h2>
             <p className="text-5xl md:text-7xl font-serif italic mb-12 text-cream">Embodiment.</p>
             <div className="space-y-8 text-lg md:text-xl font-light leading-relaxed text-cream/80">
               <p>Not learning more. Not fixing more. Not escaping what is here.</p>
-              <p className="text-cream font-medium">But strengthening your inner compass and building the capacity to stay with yourself in the midst of it all.</p>
-              <p>Over 21 days, through one live session a day, we practice. We slow down enough to integrate. We build capacity instead of chasing intensity. We create internal stability even when the external world is unstable. We bring structure to what has felt overwhelming. We give roots to what has only existed as vision.</p>
-              <p className="text-2xl font-serif italic text-cream pt-8">This is about living your work. Living your values. Living your knowing. Not when things are perfect. But now.</p>
+              <p className="text-cream font-medium">
+                But strengthening your inner compass and building the capacity to stay with yourself in the midst of it all.
+              </p>
+              <p>
+                Over <strong className="font-sans font-semibold text-cream">21 days</strong>, through one live session a day, we{" "}
+                <strong className="font-sans font-semibold text-cream">practice</strong>. We{" "}
+                <strong className="font-sans font-semibold text-cream">slow down</strong> enough to{" "}
+                <strong className="font-sans font-semibold text-cream">integrate</strong>. We build{" "}
+                <strong className="font-sans font-semibold text-cream">capacity</strong> instead of chasing{" "}
+                <strong className="font-sans font-semibold text-cream">intensity</strong>. We create{" "}
+                <strong className="font-sans font-semibold text-cream">internal stability</strong> even when the external world is{" "}
+                <strong className="font-sans font-semibold text-cream">unstable</strong>. We bring{" "}
+                <strong className="font-sans font-semibold text-cream">structure</strong> to what has felt{" "}
+                <strong className="font-sans font-semibold text-cream">overwhelming</strong>. We give{" "}
+                <strong className="font-sans font-semibold text-cream">roots</strong> to what has only existed as{" "}
+                <strong className="font-sans font-semibold text-cream">vision</strong>.
+              </p>
+              <div
+                className="pt-8 space-y-3 md:space-y-4 text-2xl font-serif italic font-normal leading-relaxed text-cream [&>p]:m-0"
+              >
+                <p>This is about living your work.</p>
+                <p>Living your values.</p>
+                <p>Living your knowing.</p>
+                <p>Not when things are perfect.</p>
+                <p>But now.</p>
+              </div>
             </div>
           </motion.div>
         </div>
@@ -341,18 +378,18 @@ export default function LandingPage() {
       {/* SECTION 3 - MIDDLE EASTERN GROUNDING */}
       <Section className="bg-cream text-ink border-b border-ink/10">
         <div className="container-narrow">
-          <div className="grid md:grid-cols-2 gap-16 items-center">
+          <div className="grid items-center gap-12 md:grid-cols-12 md:gap-16">
             <motion.div
               initial={{ opacity: 0, scale: 0.95 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
-              className="relative"
+              className="relative md:col-span-7"
             >
-              <div className="aspect-square rounded-full overflow-hidden relative z-10">
-                <img 
-                  src="/_280.jpg" 
-                  alt="Middle Eastern Grounding" 
-                  className="w-full h-full object-cover"
+              <div className="relative z-10">
+                <img
+                  src="/practitioners/Group%20Photo.png"
+                  alt="Phoenix Rising practitioners"
+                  className="h-auto w-full max-h-[min(900px,90vh)] object-contain md:max-h-[min(960px,92vh)]"
                 />
               </div>
             </motion.div>
@@ -361,6 +398,7 @@ export default function LandingPage() {
               initial={{ opacity: 0, x: 30 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
+              className="md:col-span-5"
             >
               <h2 className="text-4xl md:text-6xl mb-8 font-medium text-burgundy">
                 MIDDLE EASTERN <span className="font-serif italic text-burgundy">grounding</span>
@@ -404,12 +442,24 @@ export default function LandingPage() {
               21 DAYS <br />
               <span className="font-serif italic text-cream">of focus.</span>
             </h2>
-            <p className="mb-4 text-base font-light italic leading-relaxed text-cream/85 md:text-lg">
-              Each day features one live session. One focus. One embodied doorway.
-            </p>
-            <p className="text-base font-light leading-relaxed text-cream md:text-lg">
-              This is here to help you walk your talk, and embody that which you already know.
-            </p>
+            <div className="mx-auto max-w-2xl space-y-10 text-base font-light leading-relaxed text-cream md:text-lg">
+              <div className="space-y-1 md:space-y-1.5">
+                <p>Each day offers a doorway.</p>
+                <p>A practice.</p>
+                <p>A perspective.</p>
+                <p>A way to return to yourself.</p>
+              </div>
+              <div className="space-y-1 md:space-y-1.5">
+                <p>Some sessions will ground you.</p>
+                <p>Some will open you.</p>
+                <p>Some will challenge you.</p>
+                <p>Some will remind you.</p>
+              </div>
+              <div className="space-y-4 pt-1">
+                <p>But all of them are here to support you in one thing:</p>
+                <p>Living what you already know, in real life.</p>
+              </div>
+            </div>
           </div>
 
           {/* Mobile: vertical timeline — visible spine */}
@@ -592,7 +642,6 @@ export default function LandingPage() {
         </div>
         <div className="container-narrow">
           <div className="text-center mb-32">
-            <p className="text-burgundy text-[10px] tracking-[0.5em] uppercase mb-6 font-semibold">The Deep Dives</p>
             <h2 className="text-7xl md:text-9xl mb-10 font-semibold text-burgundy">THE <span className="font-serif italic text-burgundy">portals</span></h2>
             <p className="text-ink/40 max-w-2xl mx-auto font-light italic text-lg">Detailed explorations led by our expert practitioners.</p>
           </div>
@@ -675,7 +724,6 @@ export default function LandingPage() {
       <Section id="practitioners" className="bg-ink text-cream py-48">
         <div className="container-narrow">
           <div className="text-center mb-32">
-            <p className="text-burgundy text-[10px] tracking-[0.5em] uppercase mb-6 font-semibold">The Practitioners</p>
             <h2 className="text-7xl md:text-9xl mb-10 font-semibold">OUR <span className="font-serif italic text-cream">practitioners</span></h2>
             <p className="text-cream/40 max-w-2xl mx-auto font-light italic text-lg">A collective of teachers, mystics, healers, and visionaries rooted in shared wisdom.</p>
           </div>
@@ -691,27 +739,13 @@ export default function LandingPage() {
                 className={`text-center group ${i % 2 !== 0 ? "lg:translate-y-16" : ""} ${practitioner.photo ? "cursor-pointer" : ""}`}
                 role={practitioner.photo ? "button" : undefined}
                 tabIndex={practitioner.photo ? 0 : undefined}
-                aria-label={practitioner.photo ? `View larger photo of ${practitioner.name}` : undefined}
-                onClick={() => {
-                  if (practitioner.photo) {
-                    setLightbox({
-                      kind: "practitioner",
-                      src: practitioner.enlargedPhoto ?? practitioner.photo,
-                      name: practitioner.name,
-                      title: practitioner.title,
-                    });
-                  }
-                }}
+                aria-label={practitioner.photo ? `Open profile: ${practitioner.name}` : undefined}
+                onClick={() => openPractitionerProfile(practitioner)}
                 onKeyDown={(e) => {
                   if (!practitioner.photo) return;
                   if (e.key === "Enter" || e.key === " ") {
                     e.preventDefault();
-                    setLightbox({
-                      kind: "practitioner",
-                      src: practitioner.enlargedPhoto ?? practitioner.photo,
-                      name: practitioner.name,
-                      title: practitioner.title,
-                    });
+                    openPractitionerProfile(practitioner);
                   }
                 }}
               >
@@ -761,27 +795,13 @@ export default function LandingPage() {
                       className={`text-center group w-full max-w-[220px] shrink-0 sm:max-w-[240px] ${practitioner.photo ? "cursor-pointer" : ""}`}
                       role={practitioner.photo ? "button" : undefined}
                       tabIndex={practitioner.photo ? 0 : undefined}
-                      aria-label={practitioner.photo ? `View larger photo of ${practitioner.name}` : undefined}
-                      onClick={() => {
-                        if (practitioner.photo) {
-                          setLightbox({
-                            kind: "practitioner",
-                            src: practitioner.enlargedPhoto ?? practitioner.photo,
-                            name: practitioner.name,
-                            title: practitioner.title,
-                          });
-                        }
-                      }}
+                      aria-label={practitioner.photo ? `Open profile: ${practitioner.name}` : undefined}
+                      onClick={() => openPractitionerProfile(practitioner)}
                       onKeyDown={(e) => {
                         if (!practitioner.photo) return;
                         if (e.key === "Enter" || e.key === " ") {
                           e.preventDefault();
-                          setLightbox({
-                            kind: "practitioner",
-                            src: practitioner.enlargedPhoto ?? practitioner.photo,
-                            name: practitioner.name,
-                            title: practitioner.title,
-                          });
+                          openPractitionerProfile(practitioner);
                         }
                       }}
                     >
