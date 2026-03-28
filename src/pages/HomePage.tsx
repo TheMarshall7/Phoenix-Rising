@@ -46,7 +46,7 @@ export const HomePage: React.FC = () => {
             
             <div className="space-y-6 text-cream mb-16 max-w-lg">
               <p className="text-xl md:text-2xl font-serif italic text-cream leading-snug">
-                Empowering women with tools for spiritual growth, subconscious shifts, and somatic mastery.
+                Empowering people with tools for spiritual growth, subconscious shifts, and somatic mastery.
               </p>
               <p className="text-lg font-light leading-relaxed text-cream/70">
                 With a decade of expertise, I guide you to break cycles, master your energy, and heal deeply—helping you lead with clarity, confidence, and self-trust.
