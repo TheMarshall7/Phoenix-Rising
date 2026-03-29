@@ -96,13 +96,6 @@ export const PHOENIX_PRACTITIONERS: PhoenixPractitioner[] = [
     intention: "To shift healing from a project into a lived, cyclical practice rooted in love and inner authority.",
   },
   {
-    name: "Rasha AlShaar",
-    title: "Movement Experience",
-    photo: "/practitioners/rasha-alshaar.jpg",
-    bio: "A trauma-informed practitioner and Somatic Conscious Movement teacher, Rasha guides others back to wholeness through embodied expression, curiosity, and connection to life’s natural rhythms.",
-    intention: "To bring joy, play, and pleasure as essential parts of healing.",
-  },
-  {
     name: "Mira Tabbara",
     title: "Business Mentor",
     photo: "/practitioners/mira-tabbara.jpg",

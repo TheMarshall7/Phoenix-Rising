@@ -174,9 +174,9 @@ export default function LandingPage() {
               initial={{ scale: 1.1, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               transition={{ duration: 2, ease: "easeOut" }}
-              src="/_114.jpg" 
-              alt="Woman looking up" 
-              className="w-full h-full object-cover opacity-60"
+              src="/_273.jpg" 
+              alt="Maria Amiouni" 
+              className="w-full h-full object-cover object-[50%_center] opacity-60"
               fetchPriority="high"
               loading="eager"
               decoding="async"
@@ -314,13 +314,19 @@ export default function LandingPage() {
               <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-ink/40">Days of Devotion</p>
             </div>
             <div className="group border border-ink/8 bg-white p-10 transition-colors duration-700 hover:border-burgundy/25">
-              <p className="mb-4 font-serif text-5xl italic text-burgundy transition-colors group-hover:text-burgundy/80">18</p>
+              <p className="mb-4 font-serif text-5xl italic text-burgundy transition-colors group-hover:text-burgundy/80">17</p>
               <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-ink/40">Practitioners</p>
             </div>
             <div className="group border border-ink/8 bg-white p-10 transition-colors duration-700 hover:border-burgundy/25">
-              <p className="mb-4 font-serif text-5xl italic text-burgundy transition-colors group-hover:text-burgundy/80">19</p>
+              <p className="mb-4 font-serif text-5xl italic text-burgundy transition-colors group-hover:text-burgundy/80">18</p>
               <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-ink/40">Portals</p>
             </div>
+          </div>
+
+          <div className="mx-auto mt-12 flex max-w-5xl justify-center md:mt-16">
+            <Link to="/phoenix-rising/checkout" className="contents">
+              <Button variant="cream">Join the Journey</Button>
+            </Link>
           </div>
         </div>
       </Section>
@@ -424,6 +430,12 @@ export default function LandingPage() {
               </div>
             </motion.div>
           </div>
+
+          <div className="mt-16 flex justify-center md:mt-20">
+            <Link to="/phoenix-rising/checkout" className="contents">
+              <Button variant="cream">Join the Journey</Button>
+            </Link>
+          </div>
         </div>
       </Section>
 
@@ -466,6 +478,12 @@ export default function LandingPage() {
                 <p>Living what you already know, in real life.</p>
               </div>
             </div>
+          </div>
+
+          <div className="mb-16 flex justify-center md:mb-20">
+            <Link to="/phoenix-rising/checkout" className="contents">
+              <Button variant="cream">Join the Journey</Button>
+            </Link>
           </div>
 
           {/* Mobile: vertical timeline — visible spine */}
@@ -723,6 +741,12 @@ export default function LandingPage() {
               ))}
             </div>
           </div>
+
+          <div className="mt-20 flex justify-center">
+            <Link to="/phoenix-rising/checkout" className="contents">
+              <Button variant="cream">Join the Journey</Button>
+            </Link>
+          </div>
         </div>
       </Section>
 
@@ -942,6 +966,12 @@ export default function LandingPage() {
               ))}
             </div>
           </motion.div>
+
+          <div className="mt-16 flex justify-center">
+            <Link to="/phoenix-rising/checkout" className="contents">
+              <Button variant="cream">Join the Journey</Button>
+            </Link>
+          </div>
         </div>
       </Section>
 
@@ -1023,6 +1053,9 @@ export default function LandingPage() {
                     <div className="space-y-4 text-cream/90 font-light text-sm leading-relaxed">
                       <p className="text-5xl font-serif italic text-cream">444 AED</p>
                       <p>Payment plan available: 222 AED × 2</p>
+                      <p className="pt-2 text-[11px] text-cream/65 leading-relaxed border-t border-cream/10 mt-4">
+                        All sales are final. Purchases are non-refundable.
+                      </p>
                     </div>
                   </div>
                   
@@ -1051,7 +1084,7 @@ export default function LandingPage() {
           <div className="grid md:grid-cols-2 gap-16 items-center">
             <div className="relative">
                <div className="aspect-[4/5] md:aspect-square overflow-hidden rounded-sm relative z-10">
-                 <img src="/_316.jpg" className="w-full h-full object-cover" alt="Origin of Phoenix Rising" loading="lazy" decoding="async" />
+                 <img src="/_304.jpg" className="w-full h-full object-cover" alt="Origin of Phoenix Rising" loading="lazy" decoding="async" />
                </div>
                <div className="absolute -bottom-8 -left-8 w-64 h-64 bg-burgundy/10 rounded-full blur-3xl"></div>
             </div>
@@ -1078,7 +1111,7 @@ export default function LandingPage() {
                 <div className="w-12 h-12 rounded-full bg-burgundy/20 flex items-center justify-center shrink-0">
                   <Sparkles className="w-5 h-5 text-cream" />
                 </div>
-                <p className="text-cream/90 text-sm font-normal italic">Bringing together 18 practitioners across 19 portals, the fourth edition creates a space to connect and support one another on our paths of awakening.</p>
+                <p className="text-cream/90 text-sm font-normal italic">Bringing together 17 practitioners across 18 portals, the fourth edition creates a space to connect and support one another on our paths of awakening.</p>
               </div>
             </div>
           </div>

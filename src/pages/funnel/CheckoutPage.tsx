@@ -33,6 +33,10 @@ export default function CheckoutPage() {
               <p className="text-ink/80 font-normal text-lg">You are moments away from joining a 21-day container devoted to your integration and embodiment.</p>
             </header>
 
+            <p className="text-xs text-ink/80 font-medium leading-relaxed max-w-xl">
+              All sales are final. Purchases are non-refundable.
+            </p>
+
             <div className="w-full min-h-[1236px] rounded-[3px] overflow-hidden bg-white border border-ink/10 shadow-sm">
               <iframe
                 src="https://api.leadconnectorhq.com/widget/form/yo8WVUvk1Z8w66hXIdOS"
@@ -99,6 +103,10 @@ export default function CheckoutPage() {
                   <span className="text-[10px] tracking-[0.4em] uppercase font-bold text-cream/50">Total Due Today</span>
                   <span className="text-4xl font-medium text-cream">444 AED</span>
                 </div>
+
+                <p className="pt-2 text-[11px] text-cream/70 leading-relaxed border-t border-cream/10 mt-6">
+                  All sales are final. Purchases are non-refundable.
+                </p>
               </div>
             </div>
 

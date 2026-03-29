@@ -3,15 +3,7 @@ import { motion } from "framer-motion";
 import { ArrowRight, Star } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button, FadeIn } from "../components/Common";
-import { TestimonialsGallerySection } from "../components/TestimonialsGallerySection";
 import { INSTAGRAM_FEED_EMBED_URL } from "../constants/ghl";
-
-const MENTORSHIP_TESTIMONIAL_IMAGES = [
-  { src: "/Testimonials/Mentorship/IMG_4390.jpg", alt: "Mentorship testimonial" },
-  { src: "/Testimonials/Mentorship/IMG_4410.jpg", alt: "Mentorship testimonial" },
-  { src: "/Testimonials/Mentorship/IMG_4558.jpg", alt: "Mentorship testimonial" },
-  { src: "/Testimonials/Mentorship/IMG_4904.jpg", alt: "Mentorship testimonial" },
-] as const;
 
 type SanctuaryMedia =
   | { kind: "image"; src: string; alt: string }
@@ -563,18 +555,61 @@ export const MentorshipPage: React.FC = () => (
       </div>
     </section>
 
-    <TestimonialsGallerySection
-      images={[...MENTORSHIP_TESTIMONIAL_IMAGES]}
-      eyebrow="From the community"
-      title={
-        <>
-          Client <span className="font-serif italic text-cream">reflections</span>
-        </>
-      }
-      subtitle="Screenshots from the 1-on-1 Sanctuary — tap any card to view full size."
-      reflectionSuffix="Mentorship"
-      lightboxAlt="Mentorship testimonial"
-    />
+    <section className="bg-forest py-48 px-8 text-cream">
+      <div className="container mx-auto">
+        <div className="text-center mb-20 md:mb-28">
+          <p className="text-cream/70 tracking-[0.45em] uppercase font-semibold text-[10px] mb-8">Client reflections</p>
+          <h2 className="text-5xl md:text-7xl font-semibold text-cream uppercase mb-6">
+            Witnessed{" "}
+            <span className="font-serif italic text-cream lowercase font-light text-4xl md:text-5xl tracking-normal">
+              shifts.
+            </span>
+          </h2>
+          <p className="text-lg md:text-xl font-light text-cream/75 max-w-2xl mx-auto leading-relaxed">
+            Glimpses into the inner movement and profound breakthroughs experienced within the 1-on-1 Sanctuary.
+          </p>
+        </div>
+
+        <div className="grid md:grid-cols-2 gap-10 md:gap-12 max-w-5xl mx-auto">
+          {[
+            {
+              category: "Energy work",
+              quote:
+                "I feel like I didn't really know it but I always kind of had 1 foot in and foot out of spirituality and never really opened myself enough to let it in… I had such a different experience this time doing the reiki, I genuinely feel like I've expanded, my heart feels fuller and I believe in myself a whole lot more.",
+            },
+            {
+              category: "Human design",
+              quote:
+                "Thank you for all the human design reading and your classes. I love myself more everyday and I believe more everyday! You're wonderful and I'm blessed to know you and have the opportunity to say this all again to your divine being.",
+            },
+            {
+              category: "1-on-1 Sanctuary",
+              quote:
+                "Thanks for giving me the space to explore and to make realizations. Huge impact since our first session.",
+            },
+            {
+              category: "Somatic inquiry",
+              quote:
+                "It was a pleasure meeting with you and listening to you validated a lot of things that I thought were normal in me as a person. Connecting the dots helps me adjust even more and seeing things clearly now. The future is bright.",
+            },
+          ].map((t, i) => (
+            <FadeIn
+              key={i}
+              className="bg-paper/95 text-ink p-10 md:p-12 border border-cream/15 flex flex-col justify-between min-h-[280px] shadow-sm"
+            >
+              <div className="flex items-start justify-between gap-4 mb-8">
+                <span className="text-[10px] tracking-[0.35em] uppercase font-bold text-forest/80">{t.category}</span>
+                <Star className="w-6 h-6 shrink-0 text-forest/40 fill-transparent" strokeWidth={1.1} />
+              </div>
+              <p className="text-base md:text-lg font-light leading-relaxed text-ink/85 flex-1">{t.quote}</p>
+              <div className="pt-10 mt-auto border-t border-ink/10">
+                <p className="text-[10px] tracking-[0.35em] uppercase font-bold text-ink/45">Anonymous</p>
+              </div>
+            </FadeIn>
+          ))}
+        </div>
+      </div>
+    </section>
 
     {/* LET'S BE FRIENDS GALLERY */}
     <section className="bg-[#012e27] text-cream py-48 relative overflow-hidden">
