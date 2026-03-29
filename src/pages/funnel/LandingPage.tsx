@@ -3,7 +3,8 @@ import { AnimatePresence, motion } from "framer-motion";
 import { Check, ChevronDown, Sparkles, ChevronLeft, X } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Section, Button } from "../../components/Common";
-import { TestimonialsGallerySection } from "../../components/TestimonialsGallerySection";
+import { PhoenixTestimonialsSection } from "../../components/PhoenixTestimonialsSection";
+import { PHOENIX_RISING_TEXT_TESTIMONIALS } from "../../data/phoenixTestimonials";
 import { PHOENIX_PORTAL_SESSIONS } from "../../data/phoenixPortalSessions";
 import { PHOENIX_PRACTITIONERS } from "../../data/phoenixPractitioners";
 
@@ -22,19 +23,6 @@ const ROADMAP_DOORWAYS = [
 ] as const;
 
 export default function LandingPage() {
-  /** Curated testimonials only — full phone screenshots (chat/SMS) removed to protect privacy. */
-  const testimonialImages: { src: string; alt: string }[] = [
-    { src: "/Testimonials/PR-1/6.jpg", alt: "Phoenix Rising testimonial" },
-    { src: "/Testimonials/PR-1/14.jpg", alt: "Phoenix Rising testimonial" },
-    { src: "/Testimonials/PR-1/15.jpg", alt: "Phoenix Rising testimonial" },
-    { src: "/Testimonials/PR-1/16.jpg", alt: "Phoenix Rising testimonial" },
-    { src: "/Testimonials/PR-1/Testimonial.jpg", alt: "Phoenix Rising testimonial" },
-    { src: "/Testimonials/PR-3/7.jpg", alt: "Phoenix Rising testimonial" },
-    { src: "/Testimonials/PR-3/8.jpg", alt: "Phoenix Rising testimonial" },
-    { src: "/Testimonials/PR-3/9.jpg", alt: "Phoenix Rising testimonial" },
-    { src: "/Testimonials/PR-3/10.jpg", alt: "Phoenix Rising testimonial" },
-  ];
-
   type PractitionerLightbox = {
     src: string;
     name: string;
@@ -169,23 +157,23 @@ export default function LandingPage() {
       {/* HERO */}
       <section className="relative min-h-screen flex items-center bg-burgundy overflow-hidden">
         <div className="absolute inset-0 z-0 flex flex-col md:flex-row">
-          <div className="w-full md:w-1/2 relative h-full">
-            <motion.img 
+          <div className="relative h-full min-h-[45vh] w-full overflow-hidden bg-burgundy md:min-h-0 md:w-1/2">
+            <motion.img
               initial={{ scale: 1.1, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               transition={{ duration: 2, ease: "easeOut" }}
-              src="/_273.jpg" 
-              alt="Maria Amiouni" 
-              className="w-full h-full object-cover object-[50%_center] opacity-60"
+              src="/practitioners/Group%20Photo.png"
+              alt="Phoenix Rising practitioners"
+              className="absolute inset-0 h-full w-full object-cover object-[50%_center] opacity-60"
               fetchPriority="high"
               loading="eager"
               decoding="async"
             />
-            <div className="absolute inset-0 bg-burgundy/40"></div>
-            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-burgundy/20 to-burgundy hidden md:block"></div>
-            <div className="absolute inset-0 bg-gradient-to-t from-burgundy via-burgundy/40 to-transparent md:hidden"></div>
+            <div className="absolute inset-0 bg-burgundy/40" aria-hidden />
+            <div className="absolute inset-0 hidden bg-gradient-to-r from-transparent via-burgundy/25 to-burgundy md:block" aria-hidden />
+            <div className="absolute inset-0 bg-gradient-to-t from-burgundy via-burgundy/45 to-transparent md:hidden" aria-hidden />
           </div>
-          <div className="w-full md:w-1/2 bg-burgundy h-full hidden md:block relative z-0"></div>
+          <div className="relative z-0 hidden h-full w-full bg-burgundy md:block md:w-1/2"></div>
         </div>
         
         <div className="relative z-10 container mx-auto px-8 w-full grid md:grid-cols-2 items-center min-h-screen">
@@ -245,14 +233,14 @@ export default function LandingPage() {
         </div>
       </section>
 
-      {/* SECTION 1 — Core shift (original copy only; split layout) */}
+      {/* SECTION 1 — Core shift (copy aligned with 21 Days of Embodied Living) */}
       <Section
         id="core-shift"
         className="relative overflow-hidden bg-paper px-8 !pt-20 !pb-28 md:!pt-28 md:!pb-36"
       >
         <div className="pointer-events-none absolute top-0 right-0 h-full w-1/3 -skew-x-12 translate-x-1/2 bg-burgundy/[0.06]" aria-hidden />
         <div className="container-narrow relative z-10">
-          <div className="mb-12 text-center md:mb-16">
+          <div className="mb-14 text-center md:mb-20">
             <h2 className="mb-8 text-6xl font-semibold leading-tight text-burgundy md:mb-10 md:text-8xl">
               THE CORE <br />
               <span className="font-serif italic text-burgundy">shift</span>
@@ -260,29 +248,53 @@ export default function LandingPage() {
             <div className="mx-auto h-px w-24 bg-burgundy/20" />
           </div>
 
-          <div className="mx-auto mb-12 grid max-w-5xl gap-6 md:mb-16 md:grid-cols-2 md:gap-8">
-            <div className="rounded-sm border border-ink/8 bg-white/70 p-8 shadow-[0_1px_0_rgba(0,0,0,0.04)] backdrop-blur-sm md:p-10">
-              <p className="font-normal leading-relaxed text-ink/60">
-                Many of us are witnessing, experiencing and holding, grief, uncertainty, and intensity in ways we haven’t before. And yet, here we are.
+          <div className="mx-auto max-w-prose space-y-10 text-[17px] leading-[1.75] text-ink/85 md:text-lg md:leading-[1.8]">
+            <p className="text-xl font-light leading-snug text-ink md:text-2xl md:leading-snug">
+              We are back with a very special edition of Phoenix Rising IV.
+            </p>
+            <p>And this time… it meets us in a very different moment.</p>
+
+            <div className="space-y-3 border-l-2 border-burgundy/30 py-1 pl-6 md:pl-7">
+              <p className="text-ink/90">Many of us are witnessing, experiencing and holding,</p>
+              <p className="font-medium text-ink">
+                Grief, uncertainty, and intensity in ways we haven’t before.
               </p>
             </div>
-            <div className="rounded-sm border border-ink/8 bg-white/70 p-8 shadow-[0_1px_0_rgba(0,0,0,0.04)] backdrop-blur-sm md:p-10">
-              <p className="font-normal leading-relaxed text-ink/60">
-                In the past, we gathered for two intense days. This time, we are stretching again into 21 days creating space not just for inspiration, but for integration. Not just for awakening, but for stability. Not just for expansion, but for capacity.
-              </p>
+
+            <p className="font-serif text-lg italic text-burgundy md:text-xl">And yet, here we are.</p>
+
+            <div className="space-y-3.5">
+              <p>In the past, we gathered for two intense days.</p>
+              <p>This time, we are stretching again into 21 days</p>
+              <div className="space-y-2.5 border-l-2 border-burgundy/25 py-1 pl-5 md:pl-6">
+                <p>Creating space not just for inspiration, but for integration.</p>
+                <p>Not just for awakening, but for stability.</p>
+                <p>Not just for expansion, but for capacity.</p>
+              </div>
             </div>
-          </div>
 
-          <div className="mx-auto mb-12 max-w-3xl md:mb-16">
-            <p className="font-normal leading-relaxed text-ink/60">
-              If you’re new here, hi, welcome. Phoenix Rising began as a space to gather. To connect spiritual and wellness communities across the region. To create a space where wisdom is shared horizontally, not hierarchically.
-            </p>
-          </div>
+            <div className="space-y-4 pt-2">
+              <p>If you’re new here, hi, welcome.</p>
+              <p>Phoenix Rising began as a space to gather.</p>
+              <p>To connect spiritual and wellness communities across the region.</p>
+              <p>To create a space where wisdom is shared horizontally, not hierarchically.</p>
+              <p>To remember the intelligence of our lands, our lineages, our bodies.</p>
+            </div>
 
-          <div className="mx-auto max-w-3xl">
-            <p className="border-l-2 border-burgundy/35 pl-4 font-normal italic leading-relaxed text-ink/80">
-              This edition carries an even deeper intention. To remain connected to what is sacred, even in dark times. This is not another healing container. It is a return to living what you already know, even when life feels uncertain.
-            </p>
+            <div className="space-y-4 rounded-sm bg-white/80 px-6 py-8 shadow-[inset_0_0_0_1px_rgba(0,0,0,0.04)] md:px-8 md:py-10">
+              <p>And this edition carries an even deeper intention.</p>
+              <p>To remain connected to what is sacred, even in dark times.</p>
+            </div>
+
+            <div className="space-y-3 pt-2">
+              <p className="font-medium text-ink">This is not another healing container.</p>
+              <p>It is a return to living what you already know,</p>
+              <div className="space-y-2 border-l-2 border-burgundy/25 py-1 pl-5 text-ink/90 md:pl-6">
+                <p>even when life feels uncertain.</p>
+                <p>Even when the world around you feels unstable.</p>
+                <p>Even when it would be easier to disconnect.</p>
+              </div>
+            </div>
           </div>
         </div>
       </Section>
@@ -294,16 +306,24 @@ export default function LandingPage() {
       >
         <div className="container-narrow relative z-10">
           <div className="mx-auto max-w-3xl space-y-8 md:space-y-10">
-            <p className="text-lg font-normal leading-relaxed text-ink/70">
-              21 Days of Embodied Living is a daily live container devoted to integration. Over three weeks, we enter the practice of being with ourselves, fully. With our bodies. With our hearts. With what is actually alive and present.
-            </p>
-            <p className="text-3xl font-medium leading-snug text-ink md:text-4xl">
-              We learn to stay with what feels overwhelming. <br />
-              To listen to our intuition. <br />
-              To move with life instead of against it.
-            </p>
-            <p className="text-2xl font-serif italic text-burgundy">
-              To meet ourselves in truth, in expression, in relationship. And to live, not just know, what we are here for.
+            <div className="space-y-5 text-lg font-normal leading-relaxed text-ink/70">
+              <p>21 Days of Embodied Living is a daily live container devoted to integration.</p>
+              <p>Over three weeks, we enter the practice of being with ourselves, fully.</p>
+              <div className="space-y-1.5 text-ink/75">
+                <p>With our bodies.</p>
+                <p>With our hearts.</p>
+                <p>With what is actually alive and present.</p>
+              </div>
+            </div>
+            <div className="space-y-2.5 text-3xl font-medium leading-snug text-ink md:space-y-3 md:text-4xl">
+              <p>We learn to stay with what feels overwhelming.</p>
+              <p>To listen to our intuition.</p>
+              <p>To move with life instead of against it.</p>
+              <p>To understand the rhythms shaping our experience.</p>
+              <p>To meet ourselves in truth, in expression, in relationship.</p>
+            </div>
+            <p className="text-2xl font-serif italic text-burgundy md:text-[1.65rem]">
+              And to live, not just know, what we are here for.
             </p>
             <p className="text-[11px] font-light uppercase italic tracking-wide text-ink/40">Devoted to integration. Practice over consumption.</p>
           </div>
@@ -335,8 +355,8 @@ export default function LandingPage() {
       <Section className="relative bg-burgundy text-cream py-48 text-center overflow-hidden">
         <div className="absolute inset-0 z-0">
           <img
-            src="/_280.jpg"
-            alt="Maria Amiouni"
+            src="/practitioners/Group%20Photo.png"
+            alt="Phoenix Rising practitioners"
             className="h-full w-full object-cover object-center opacity-30 mix-blend-luminosity"
             loading="lazy"
             decoding="async"
@@ -975,17 +995,16 @@ export default function LandingPage() {
         </div>
       </Section>
 
-      <TestimonialsGallerySection
-        images={testimonialImages}
+      <PhoenixTestimonialsSection
+        testimonials={PHOENIX_RISING_TEXT_TESTIMONIALS}
         eyebrow="From the community"
         title={
           <>
             Client <span className="font-serif italic text-cream">reflections</span>
           </>
         }
-        subtitle="Real words from people who have moved through the Phoenix Rising container — tap any card to view full size."
+        subtitle="Real words from people who have moved through the Phoenix Rising container — text from the PR III community. Swipe to read more."
         reflectionSuffix="Phoenix Rising"
-        lightboxAlt="Phoenix Rising testimonial"
       />
 
       {/* SECTION 6 - PRACTICAL DETAILS */}
@@ -1084,7 +1103,13 @@ export default function LandingPage() {
           <div className="grid md:grid-cols-2 gap-16 items-center">
             <div className="relative">
                <div className="aspect-[4/5] md:aspect-square overflow-hidden rounded-sm relative z-10">
-                 <img src="/_304.jpg" className="w-full h-full object-cover" alt="Origin of Phoenix Rising" loading="lazy" decoding="async" />
+                 <img
+                   src="/_280.jpg"
+                   className="h-full w-full object-cover object-center"
+                   alt="Maria Amiouni"
+                   loading="lazy"
+                   decoding="async"
+                 />
                </div>
                <div className="absolute -bottom-8 -left-8 w-64 h-64 bg-burgundy/10 rounded-full blur-3xl"></div>
             </div>
