@@ -37,10 +37,10 @@ export default function CheckoutPage() {
               All sales are final. Purchases are non-refundable.
             </p>
 
-            <div className="w-full min-h-[1236px] rounded-[3px] overflow-hidden bg-white border border-ink/10 shadow-sm">
+            <div className="w-full rounded-[3px] overflow-hidden bg-white border border-ink/10 shadow-sm">
               <iframe
                 src="https://api.leadconnectorhq.com/widget/form/yo8WVUvk1Z8w66hXIdOS"
-                style={{ width: "100%", height: "100%", minHeight: 1236, border: "none", borderRadius: 3 }}
+                style={{ width: "100%", height: 540, border: "none", borderRadius: 3 }}
                 id="inline-yo8WVUvk1Z8w66hXIdOS"
                 data-layout="{'id':'INLINE'}"
                 data-trigger-type="alwaysShow"
@@ -50,7 +50,7 @@ export default function CheckoutPage() {
                 data-deactivation-type="neverDeactivate"
                 data-deactivation-value=""
                 data-form-name="Phoenix Rising Enrollment"
-                data-height="1236"
+                data-height="540"
                 data-layout-iframe-id="inline-yo8WVUvk1Z8w66hXIdOS"
                 data-form-id="yo8WVUvk1Z8w66hXIdOS"
                 title="Phoenix Rising Enrollment"
@@ -112,7 +112,9 @@ export default function CheckoutPage() {
 
             <div className="p-10 border border-ink/5 bg-paper text-center">
               <p className="text-[9px] tracking-[0.3em] uppercase font-bold text-burgundy mb-4 italic">Next Step</p>
-              <p className="text-sm text-ink/80 font-medium">Upon enrollment, you will receive an immediate confirmation email with your onboarding details.</p>
+              <p className="text-sm text-ink/80 font-medium leading-relaxed">
+                After you submit this form, you will be redirected to Teachable to complete payment and enroll in the course. You will also receive a confirmation email with your onboarding details.
+              </p>
             </div>
           </aside>
 
