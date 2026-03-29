@@ -555,17 +555,17 @@ export const MentorshipPage: React.FC = () => (
       </div>
     </section>
 
-    <section className="bg-forest py-48 px-8 text-cream">
+    <section className="bg-white py-48 px-8 text-ink">
       <div className="container mx-auto">
         <div className="text-center mb-20 md:mb-28">
-          <p className="text-cream/70 tracking-[0.45em] uppercase font-semibold text-[10px] mb-8">Client reflections</p>
-          <h2 className="text-5xl md:text-7xl font-semibold text-cream uppercase mb-6">
+          <p className="text-ink/50 tracking-[0.45em] uppercase font-semibold text-[10px] mb-8">Client reflections</p>
+          <h2 className="text-5xl md:text-7xl font-semibold text-ink uppercase mb-6">
             Witnessed{" "}
-            <span className="font-serif italic text-cream lowercase font-light text-4xl md:text-5xl tracking-normal">
+            <span className="font-serif italic text-forest lowercase font-light text-4xl md:text-5xl tracking-normal">
               shifts.
             </span>
           </h2>
-          <p className="text-lg md:text-xl font-light text-cream/75 max-w-2xl mx-auto leading-relaxed">
+          <p className="text-lg md:text-xl font-light text-ink/70 max-w-2xl mx-auto leading-relaxed">
             Glimpses into the inner movement and profound breakthroughs experienced within the 1-on-1 Sanctuary.
           </p>
         </div>
@@ -595,7 +595,7 @@ export const MentorshipPage: React.FC = () => (
           ].map((t, i) => (
             <FadeIn
               key={i}
-              className="bg-paper/95 text-ink p-10 md:p-12 border border-cream/15 flex flex-col justify-between min-h-[280px] shadow-sm"
+              className="bg-paper text-ink p-10 md:p-12 border border-ink/10 flex flex-col justify-between min-h-[280px] shadow-sm"
             >
               <div className="flex items-start justify-between gap-4 mb-8">
                 <span className="text-[10px] tracking-[0.35em] uppercase font-bold text-forest/80">{t.category}</span>
