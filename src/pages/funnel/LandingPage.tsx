@@ -248,28 +248,43 @@ export default function LandingPage() {
             <div className="mx-auto h-px w-24 bg-burgundy/20" />
           </div>
 
-          <div className="mx-auto max-w-prose space-y-10 text-[17px] leading-[1.75] text-ink/85 md:text-lg md:leading-[1.8]">
-            <p className="text-xl font-light leading-snug text-ink md:text-2xl md:leading-snug">
-              We are back with a very special edition of Phoenix Rising IV.
+          <div className="mx-auto max-w-prose space-y-10 text-base font-normal leading-relaxed text-ink/80 md:text-lg">
+            <p className="text-xl font-normal leading-snug text-ink md:text-2xl md:leading-snug">
+              We are back with a very special edition of{" "}
+              <strong className="font-semibold text-burgundy">Phoenix Rising IV</strong>.
             </p>
-            <p>And this time… it meets us in a very different moment.</p>
+            <p>
+              And this time… it meets us in a{" "}
+              <strong className="font-semibold text-burgundy">very different moment</strong>.
+            </p>
 
             <div className="space-y-3 border-l-2 border-burgundy/30 py-1 pl-6 md:pl-7">
-              <p className="text-ink/90">Many of us are witnessing, experiencing and holding,</p>
-              <p className="font-medium text-ink">
-                Grief, uncertainty, and intensity in ways we haven’t before.
+              <p>Many of us are witnessing, experiencing and holding,</p>
+              <p>
+                <strong className="font-semibold text-burgundy">Grief, uncertainty, and intensity</strong> in ways we
+                haven’t before.
               </p>
             </div>
 
-            <p className="font-serif text-lg italic text-burgundy md:text-xl">And yet, here we are.</p>
+            <p className="font-serif text-lg font-normal italic text-burgundy md:text-xl">And yet, here we are.</p>
 
             <div className="space-y-3.5">
               <p>In the past, we gathered for two intense days.</p>
-              <p>This time, we are stretching again into 21 days</p>
+              <p>
+                This time, we are stretching again into{" "}
+                <strong className="font-semibold text-burgundy">21 days</strong>
+              </p>
               <div className="space-y-2.5 border-l-2 border-burgundy/25 py-1 pl-5 md:pl-6">
-                <p>Creating space not just for inspiration, but for integration.</p>
-                <p>Not just for awakening, but for stability.</p>
-                <p>Not just for expansion, but for capacity.</p>
+                <p>
+                  Creating space not just for inspiration, but for{" "}
+                  <strong className="font-semibold text-burgundy">integration</strong>.
+                </p>
+                <p>
+                  Not just for awakening, but for <strong className="font-semibold text-burgundy">stability</strong>.
+                </p>
+                <p>
+                  Not just for expansion, but for <strong className="font-semibold text-burgundy">capacity</strong>.
+                </p>
               </div>
             </div>
 
@@ -277,22 +292,44 @@ export default function LandingPage() {
               <p>If you’re new here, hi, welcome.</p>
               <p>Phoenix Rising began as a space to gather.</p>
               <p>To connect spiritual and wellness communities across the region.</p>
-              <p>To create a space where wisdom is shared horizontally, not hierarchically.</p>
-              <p>To remember the intelligence of our lands, our lineages, our bodies.</p>
+              <p>
+                To create a space where wisdom is shared{" "}
+                <strong className="font-semibold text-burgundy">horizontally</strong>, not{" "}
+                <strong className="font-semibold text-burgundy">hierarchically</strong>.
+              </p>
+              <p>
+                To remember the intelligence of our <strong className="font-semibold text-burgundy">lands</strong>, our{" "}
+                <strong className="font-semibold text-burgundy">lineages</strong>, our{" "}
+                <strong className="font-semibold text-burgundy">bodies</strong>.
+              </p>
             </div>
 
             <div className="space-y-4 rounded-sm bg-white/80 px-6 py-8 shadow-[inset_0_0_0_1px_rgba(0,0,0,0.04)] md:px-8 md:py-10">
-              <p>And this edition carries an even deeper intention.</p>
-              <p>To remain connected to what is sacred, even in dark times.</p>
+              <p>
+                And this edition carries an even{" "}
+                <strong className="font-semibold text-burgundy">deeper intention</strong>.
+              </p>
+              <p>
+                To remain connected to what is <strong className="font-semibold text-burgundy">sacred</strong>, even in{" "}
+                <strong className="font-semibold text-burgundy">dark times</strong>.
+              </p>
             </div>
 
             <div className="space-y-3 pt-2">
-              <p className="font-medium text-ink">This is not another healing container.</p>
+              <p>
+                <strong className="font-semibold text-burgundy">This is not another healing container.</strong>
+              </p>
               <p>It is a return to living what you already know,</p>
-              <div className="space-y-2 border-l-2 border-burgundy/25 py-1 pl-5 text-ink/90 md:pl-6">
-                <p>even when life feels uncertain.</p>
-                <p>Even when the world around you feels unstable.</p>
-                <p>Even when it would be easier to disconnect.</p>
+              <div className="space-y-2 border-l-2 border-burgundy/25 py-1 pl-5 text-ink/80 md:pl-6">
+                <p>
+                  even when life feels <strong className="font-semibold text-burgundy">uncertain</strong>.
+                </p>
+                <p>
+                  Even when the world around you feels <strong className="font-semibold text-burgundy">unstable</strong>.
+                </p>
+                <p>
+                  Even when it would be easier to <strong className="font-semibold text-burgundy">disconnect</strong>.
+                </p>
               </div>
             </div>
           </div>
@@ -306,26 +343,54 @@ export default function LandingPage() {
       >
         <div className="container-narrow relative z-10">
           <div className="mx-auto max-w-3xl space-y-8 md:space-y-10">
-            <div className="space-y-5 text-lg font-normal leading-relaxed text-ink/70">
-              <p>21 Days of Embodied Living is a daily live container devoted to integration.</p>
-              <p>Over three weeks, we enter the practice of being with ourselves, fully.</p>
-              <div className="space-y-1.5 text-ink/75">
-                <p>With our bodies.</p>
-                <p>With our hearts.</p>
-                <p>With what is actually alive and present.</p>
+            <div className="space-y-5 text-base font-normal leading-relaxed text-ink/80 md:text-lg">
+              <p>
+                <strong className="font-semibold text-burgundy">21 Days of Embodied Living</strong> is a{" "}
+                <strong className="font-semibold text-burgundy">daily live container</strong> devoted to{" "}
+                <strong className="font-semibold text-burgundy">integration</strong>.
+              </p>
+              <p>
+                Over <strong className="font-semibold text-burgundy">three weeks</strong>, we enter the practice of being
+                with ourselves, <strong className="font-semibold text-burgundy">fully</strong>.
+              </p>
+              <div className="space-y-2 border-l-2 border-burgundy/25 py-1 pl-5 md:pl-6">
+                <p>
+                  With our <strong className="font-semibold text-burgundy">bodies</strong>.
+                </p>
+                <p>
+                  With our <strong className="font-semibold text-burgundy">hearts</strong>.
+                </p>
+                <p>
+                  With what is actually <strong className="font-semibold text-burgundy">alive and present</strong>.
+                </p>
               </div>
             </div>
-            <div className="space-y-2.5 text-3xl font-medium leading-snug text-ink md:space-y-3 md:text-4xl">
-              <p>We learn to stay with what feels overwhelming.</p>
-              <p>To listen to our intuition.</p>
-              <p>To move with life instead of against it.</p>
-              <p>To understand the rhythms shaping our experience.</p>
-              <p>To meet ourselves in truth, in expression, in relationship.</p>
+            <div className="space-y-4 text-base font-normal leading-relaxed text-ink/80 md:space-y-5 md:text-lg">
+              <p>
+                We learn to stay with what feels{" "}
+                <strong className="font-semibold text-burgundy">overwhelming</strong>.
+              </p>
+              <p>
+                To listen to our <strong className="font-semibold text-burgundy">intuition</strong>.
+              </p>
+              <p>
+                To move with life <strong className="font-semibold text-burgundy">instead of against it</strong>.
+              </p>
+              <p>
+                To understand the <strong className="font-semibold text-burgundy">rhythms</strong> shaping our experience.
+              </p>
+              <p>
+                To meet ourselves in <strong className="font-semibold text-burgundy">truth</strong>, in{" "}
+                <strong className="font-semibold text-burgundy">expression</strong>, in{" "}
+                <strong className="font-semibold text-burgundy">relationship</strong>.
+              </p>
             </div>
-            <p className="text-2xl font-serif italic text-burgundy md:text-[1.65rem]">
+            <p className="text-xl font-serif font-normal italic text-burgundy md:text-2xl">
               And to live, not just know, what we are here for.
             </p>
-            <p className="text-[11px] font-light uppercase italic tracking-wide text-ink/40">Devoted to integration. Practice over consumption.</p>
+            <p className="text-[11px] font-normal uppercase tracking-[0.2em] text-ink/50">
+              Devoted to integration. Practice over consumption.
+            </p>
           </div>
 
           <div className="mx-auto mt-16 grid max-w-5xl grid-cols-1 gap-6 sm:grid-cols-3 sm:gap-6 md:mt-20 md:gap-8">
@@ -1003,7 +1068,7 @@ export default function LandingPage() {
             Client <span className="font-serif italic text-cream">reflections</span>
           </>
         }
-        subtitle="Real words from people who have moved through the Phoenix Rising container — text from the PR III community. Swipe to read more."
+        subtitle="Real words from people who have moved through the Phoenix Rising container. Swipe to read more."
         reflectionSuffix="Phoenix Rising"
       />
 
