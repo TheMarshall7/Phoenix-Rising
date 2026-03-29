@@ -1,0 +1,52 @@
+# Deploy static build to Cloudflare Pages when main or production updates.
+#
+# Setup (one-time in GitHub repo → Settings → Secrets and variables → Actions):
+#   CLOUDFLARE_API_TOKEN   — Create in Cloudflare: My Profile → API Tokens → Edit Cloudflare Workers
+#                            (or "Custom" with Account → Cloudflare Pages → Edit)
+#   CLOUDFLARE_ACCOUNT_ID  — Cloudflare dashboard → any domain → right sidebar "Account ID"
+#
+# If this project name does not match your Pages project, change PROJECT_NAME below
+# or override with repository variable CLOUDFLARE_PAGES_PROJECT_NAME.
+#
+# If you already use Cloudflare’s “Connect to Git” for the same branch, either:
+#   • turn off automatic production builds for that branch in Pages settings, or
+#   • delete this workflow — to avoid duplicate deploys.
+
+name: Deploy Cloudflare Pages
+
+on:
+  push:
+    branches: [main, production]
+  workflow_dispatch:
+
+concurrency:
+  group: deploy-pages-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      deployments: write
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Use Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: "npm"
+
+      - name: Install and build
+        run: npm ci && npm run build
+
+      - name: Deploy to Cloudflare Pages
+        uses: cloudflare/pages-action@v1
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          projectName: mariaamiouni
+          directory: dist
+          gitHubToken: ${{ secrets.GITHUB_TOKEN }}
