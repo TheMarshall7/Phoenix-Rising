@@ -17,7 +17,7 @@ export type PhoenixPractitioner = {
 export const PHOENIX_PRACTITIONERS: PhoenixPractitioner[] = [
   {
     name: "Maria Amiouni",
-    title: "Spiritual Mentor & Host",
+    title: "Embodiment & Living Practice",
     photo: "/_114.jpg",
     bio: "Maria Amiouni is a spiritual mentor, writer, and teacher devoted to helping others remember their innate wisdom and return to the rhythm of the Earth and the soul. Through Human Design, Gene Keys, Astrology, and Rituals, she creates spaces for transformation, reflection, and renewal.\n\nAs the founder of The Phoenix Rising Summit and Sacred Spaces, she weaves ancient teachings with modern awareness to guide others through the cycles of life, death, and rebirth—rooted in devotion, beauty, and truth.",
     intention: "To hold a field where embodiment, integration, and remembrance become living practice.",

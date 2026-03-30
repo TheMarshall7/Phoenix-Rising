@@ -31,6 +31,20 @@ export default function CheckoutPage() {
               <p className="text-burgundy/80 text-[10px] tracking-[0.5em] uppercase mb-4 font-bold">Secure Your Spot</p>
               <h1 className="text-5xl md:text-7xl font-semibold mb-6 text-burgundy">THE <span className="font-serif italic text-burgundy">enrollment</span></h1>
               <p className="text-ink/80 font-normal text-lg">You are moments away from joining a 21-day container devoted to your integration and embodiment.</p>
+              <div className="mt-6 flex flex-col gap-4 sm:flex-row sm:items-stretch">
+                <div className="flex min-w-0 flex-1 flex-col gap-2 rounded-sm border border-burgundy/20 bg-burgundy/[0.06] px-5 py-4 text-left">
+                  <p className="text-[10px] font-bold uppercase tracking-[0.35em] text-burgundy">Early bird</p>
+                  <p className="text-3xl font-semibold tabular-nums text-burgundy md:text-4xl">333 AED</p>
+                  <p className="text-sm text-ink/60">
+                    Regular price <span className="line-through decoration-ink/30">444 AED</span>
+                  </p>
+                </div>
+                <div className="flex min-w-0 flex-1 flex-col gap-2 rounded-sm border border-burgundy/20 bg-burgundy/[0.06] px-5 py-4 text-left">
+                  <p className="text-[10px] font-bold uppercase tracking-[0.35em] text-burgundy">Payment plan</p>
+                  <p className="text-3xl font-semibold tabular-nums text-burgundy md:text-4xl">2 × 222 AED</p>
+                  <p className="text-sm text-ink/60">Two payments of 222 AED · 444 AED total</p>
+                </div>
+              </div>
             </header>
 
             <p className="text-xs text-ink/80 font-medium leading-relaxed max-w-xl">
@@ -77,12 +91,16 @@ export default function CheckoutPage() {
               <h2 className="text-[10px] tracking-[0.4em] uppercase font-bold text-cream/90 mb-12">Program Summary</h2>
               
               <div className="space-y-10 relative z-10">
-                <div className="flex justify-between items-start border-b border-cream/10 pb-8">
+                <div className="flex justify-between items-start gap-6 border-b border-cream/10 pb-8">
                   <div>
                     <h3 className="text-3xl font-serif italic text-cream mb-2">21 Days of <br/> Embodied Living</h3>
                     <p className="text-[10px] text-cream/50 uppercase tracking-[0.2em] font-bold mt-4">Phoenix Rising IV Edition</p>
                   </div>
-                  <span className="text-2xl font-semibold text-cream">444 AED</span>
+                  <div className="shrink-0 text-right">
+                    <p className="text-[9px] font-bold uppercase tracking-[0.25em] text-cream/70">Early bird</p>
+                    <p className="text-2xl font-semibold tabular-nums text-cream">333 AED</p>
+                    <p className="text-xs text-cream/45 line-through decoration-cream/35">444 AED</p>
+                  </div>
                 </div>
 
                 <ul className="space-y-6 pt-2">
@@ -99,9 +117,9 @@ export default function CheckoutPage() {
                   ))}
                 </ul>
 
-                <div className="pt-10 border-t border-cream/10 flex justify-between items-end">
-                  <span className="text-[10px] tracking-[0.4em] uppercase font-bold text-cream/50">Total Due Today</span>
-                  <span className="text-4xl font-medium text-cream">444 AED</span>
+                <div className="pt-10 border-t border-cream/10 flex justify-between items-end gap-4">
+                  <span className="text-[10px] tracking-[0.4em] uppercase font-bold text-cream/50">Program price</span>
+                  <span className="text-4xl font-medium tabular-nums text-cream">444 AED</span>
                 </div>
 
                 <p className="pt-2 text-[11px] text-cream/70 leading-relaxed border-t border-cream/10 mt-6">
