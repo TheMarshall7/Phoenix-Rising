@@ -816,7 +816,9 @@ export default function LandingPage() {
                       </p>
                       <p className="text-ink/50 text-[10px] tracking-[0.2em] uppercase font-semibold mb-3">{session.name}</p>
                       <h3 className="text-2xl md:text-3xl font-serif italic text-burgundy mb-4">{session.title}</h3>
-                      <p className="text-ink/70 font-light leading-relaxed text-sm md:text-base mb-6">{session.desc}</p>
+                      <p className="whitespace-pre-line text-ink/70 font-light leading-relaxed text-sm md:text-base mb-6">
+                        {session.desc}
+                      </p>
                       <span className="inline-block border border-ink/15 bg-ink/[0.03] px-4 py-2 text-[10px] font-bold uppercase tracking-widest text-ink/45">
                         {session.date}
                       </span>
