@@ -1138,9 +1138,12 @@ export default function LandingPage() {
                     <p className="text-cream/90 text-[9px] tracking-[0.4em] uppercase font-semibold mb-6">The Investment</p>
                     <div className="space-y-4 text-cream/90 font-light text-sm leading-relaxed">
                       <p className="text-5xl font-serif italic text-cream">444 AED</p>
-                      <p className="text-sm text-cream/70">
-                        Early bird: <span className="font-medium text-cream">333 AED</span>
-                      </p>
+                      <div className="pt-1">
+                        <p className="mb-1 text-[10px] font-semibold uppercase tracking-[0.35em] text-cream/75">Early bird</p>
+                        <p className="text-4xl font-serif italic leading-tight text-cream tabular-nums md:text-[2.35rem]">
+                          333 AED
+                        </p>
+                      </div>
                       <p>Payment plan available: 222 AED × 2</p>
                       <p className="pt-2 text-[11px] text-cream/65 leading-relaxed border-t border-cream/10 mt-4">
                         All sales are final. Purchases are non-refundable.
