@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { Button } from "../../components/Common";
 
 const TEACHABLE_COURSE_URL =
-  "https://maria-amiouni-s-school.teachable.com/p/phoenix-rising-21-days-of-embodiedliving";
+  "http://maria-amiouni-s-school.teachable.com/p/phoenix-rising-21-days-of-embodiedliving";
 
 export default function ThankYouPage() {
   return (
