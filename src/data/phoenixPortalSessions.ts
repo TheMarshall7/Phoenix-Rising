@@ -60,11 +60,14 @@ Through a guided questionnaire and a fearless embodiment exercise, you’ll be s
   },
   {
     portal: 5,
-    name: "Hadar Cohen",
-    title: "Listening Within: Learning to Trust Yourself with Hadar Cohen",
-    desc: `In this session, we explore what it truly means to trust yourself as a lived experience, not just an idea—uncovering the mental patterns that keep you stuck in overthinking, doubt, and second-guessing, and the emotional systems beneath them. Rather than choosing between mind or emotion, you’ll learn how to connect the two so you can hear your inner voice with more clarity, groundedness, and trust, creating space to slow down, tune in, and begin rebuilding your relationship with yourself from the inside out.`,
+    name: "Aude Barras",
+    title: "Embodied Remembrance — The Way of the Rose with Aude",
+    desc: `We are living in a time of great divide, where polarization asks us to choose sides, harden our opinions, and numb our bodies to survive. The Mystics and Ancient Traditions offer a different way: The Way of the Rose. In this session, we will explore what it means to inhabit the body and remember our innate human capacity for deep, sacred delight.
+
+Through a blend of talk, transmission, and somatic practice, we will practice Embodied Remembrance—recalling that we are not separate from the Beloved, or from each other. Together, we will dive into the mysticism of the Beloved and explore how truly feeling the pleasure of being alive can disrupt the trance of fear. The Rose is not merely a flower, but a map of the human heart, reminding us that true strength is found not in force, but in the courage to unfurl and soften into the essence of being.`,
     date: "Wed Apr 15 · 9:00 PM Dubai",
-    photo: "/practitioners/hadar-cohen.jpg",
+    photo: "/Aude%20Barras.jpg",
+    photoObjectPosition: "object-[50%_22%]",
   },
   {
     portal: 6,
@@ -154,14 +157,11 @@ Through a trauma-informed and somatic lens, we will move through the inner chamb
   },
   {
     portal: 15,
-    name: "Aude Barras",
-    title: "Embodied Remembrance — The Way of the Rose with Aude",
-    desc: `We are living in a time of great divide, where polarization asks us to choose sides, harden our opinions, and numb our bodies to survive. The Mystics and Ancient Traditions offer a different way: The Way of the Rose. In this session, we will explore what it means to inhabit the body and remember our innate human capacity for deep, sacred delight.
-
-Through a blend of talk, transmission, and somatic practice, we will practice Embodied Remembrance—recalling that we are not separate from the Beloved, or from each other. Together, we will dive into the mysticism of the Beloved and explore how truly feeling the pleasure of being alive can disrupt the trance of fear. The Rose is not merely a flower, but a map of the human heart, reminding us that true strength is found not in force, but in the courage to unfurl and soften into the essence of being.`,
+    name: "Hadar Cohen",
+    title: "Listening Within: Learning to Trust Yourself with Hadar Cohen",
+    desc: `In this session, we explore what it truly means to trust yourself as a lived experience, not just an idea—uncovering the mental patterns that keep you stuck in overthinking, doubt, and second-guessing, and the emotional systems beneath them. Rather than choosing between mind or emotion, you’ll learn how to connect the two so you can hear your inner voice with more clarity, groundedness, and trust, creating space to slow down, tune in, and begin rebuilding your relationship with yourself from the inside out.`,
     date: "Tue Apr 28 · 9:00 PM Dubai",
-    photo: "/Aude%20Barras.jpg",
-    photoObjectPosition: "object-[50%_22%]",
+    photo: "/practitioners/hadar-cohen.jpg",
   },
   {
     portal: 16,
