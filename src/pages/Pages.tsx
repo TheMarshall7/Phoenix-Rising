@@ -278,13 +278,10 @@ export const PilgrimagePage: React.FC = () => (
             />
           </div>
 
-          <div className="text-center space-y-8">
+          <div className="text-center">
             <p className="text-xl font-serif italic text-ink/60 leading-relaxed border-l-2 border-forest/30 pl-8 text-left max-w-2xl mx-auto">
               May this pilgrimage of the essence of Mary Magdalene invite you back into intimacy with your own devotional heart.
             </p>
-            <Link to="/booking" className="contents">
-              <Button variant="primary">Secure your Deposit</Button>
-            </Link>
           </div>
         </div>
       </div>
@@ -547,7 +544,7 @@ export const MentorshipPage: React.FC = () => (
             </div>
             <div className="pt-12">
               <Link to="/booking" className="contents">
-                <Button variant="sage" className="px-16">Apply for Mentorship</Button>
+                <Button variant="sage" className="px-16">Book a Meeting</Button>
               </Link>
             </div>
           </FadeIn>
@@ -710,23 +707,6 @@ export const SacredSpacesPage: React.FC = () => (
              ))}
           </div>
         </div>
-      </div>
-    </section>
-
-    {/* CALENDAR SECTION - WHITE */}
-    <section className="bg-cream py-48 px-8 text-ink">
-      <div className="container mx-auto text-center">
-         <FadeIn className="space-y-12">
-            <h2 className="text-5xl md:text-7xl font-serif italic text-ink uppercase">Join the <span className="text-forest">Circle.</span></h2>
-            <p className="text-lg font-light text-ink/60 max-w-2xl mx-auto italic leading-relaxed">
-               View our upcoming gatherings, retreats, and virtual sanctuary spaces.
-            </p>
-            <div className="pt-12">
-               <Link to="/booking" className="contents">
-                 <Button variant="primary">View Calendar of Spaces</Button>
-               </Link>
-            </div>
-         </FadeIn>
       </div>
     </section>
   </main>
