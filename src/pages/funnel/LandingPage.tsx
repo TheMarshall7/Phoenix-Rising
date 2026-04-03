@@ -7,6 +7,7 @@ import { PhoenixTestimonialsSection } from "../../components/PhoenixTestimonials
 import { PHOENIX_RISING_TEXT_TESTIMONIALS } from "../../data/phoenixTestimonials";
 import { PHOENIX_PORTAL_SESSIONS } from "../../data/phoenixPortalSessions";
 import { PHOENIX_PRACTITIONERS } from "../../data/phoenixPractitioners";
+import { TEACHABLE_PHOENIX_RISING_COURSE_URL } from "../../constants/teachableCourse";
 
 const ROADMAP_DOORWAYS = [
   { title: "Nervous System Regulation", desc: "Building the physiological capacity to meet intensity with stability." },
@@ -222,9 +223,14 @@ export default function LandingPage() {
             </div>
             
             <div className="mt-auto lg:mt-0">
-              <Link to="/phoenix-rising/checkout" className="contents">
+              <a
+                href={TEACHABLE_PHOENIX_RISING_COURSE_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="contents"
+              >
                 <Button variant="cream">Join the Journey</Button>
-              </Link>
+              </a>
             </div>
           </motion.div>        </div>
 
@@ -409,9 +415,14 @@ export default function LandingPage() {
           </div>
 
           <div className="mx-auto mt-12 flex max-w-5xl justify-center md:mt-16">
-            <Link to="/phoenix-rising/checkout" className="contents">
+            <a
+                href={TEACHABLE_PHOENIX_RISING_COURSE_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="contents"
+              >
               <Button variant="cream">Join the Journey</Button>
-            </Link>
+            </a>
           </div>
         </div>
       </Section>
@@ -517,9 +528,14 @@ export default function LandingPage() {
           </div>
 
           <div className="mt-16 flex justify-center md:mt-20">
-            <Link to="/phoenix-rising/checkout" className="contents">
+            <a
+                href={TEACHABLE_PHOENIX_RISING_COURSE_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="contents"
+              >
               <Button variant="cream">Join the Journey</Button>
-            </Link>
+            </a>
           </div>
         </div>
       </Section>
@@ -566,9 +582,14 @@ export default function LandingPage() {
           </div>
 
           <div className="mb-16 flex justify-center md:mb-20">
-            <Link to="/phoenix-rising/checkout" className="contents">
+            <a
+                href={TEACHABLE_PHOENIX_RISING_COURSE_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="contents"
+              >
               <Button variant="cream">Join the Journey</Button>
-            </Link>
+            </a>
           </div>
 
           {/* Mobile: vertical timeline — visible spine */}
@@ -830,9 +851,14 @@ export default function LandingPage() {
           </div>
 
           <div className="mt-20 flex justify-center">
-            <Link to="/phoenix-rising/checkout" className="contents">
+            <a
+                href={TEACHABLE_PHOENIX_RISING_COURSE_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="contents"
+              >
               <Button variant="cream">Join the Journey</Button>
-            </Link>
+            </a>
           </div>
         </div>
       </Section>
@@ -1055,9 +1081,14 @@ export default function LandingPage() {
           </motion.div>
 
           <div className="mt-16 flex justify-center">
-            <Link to="/phoenix-rising/checkout" className="contents">
+            <a
+                href={TEACHABLE_PHOENIX_RISING_COURSE_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="contents"
+              >
               <Button variant="cream">Join the Journey</Button>
-            </Link>
+            </a>
           </div>
         </div>
       </Section>
@@ -1153,11 +1184,16 @@ export default function LandingPage() {
                   
                   {/* CTA inside the card at the bottom */}
                   <div className="pt-8 text-center">
-                    <Link to="/phoenix-rising/checkout" className="inline-block w-full md:w-auto">
+                    <a
+                      href={TEACHABLE_PHOENIX_RISING_COURSE_URL}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-block w-full md:w-auto"
+                    >
                       <button className="bg-cream text-burgundy px-12 py-5 rounded-full text-[10px] tracking-[0.3em] uppercase font-bold hover:bg-white hover:text-burgundy transition-all duration-700 w-full md:w-auto shadow-2xl">
                         Secure Your Spot Now
                       </button>
-                    </Link>
+                    </a>
                   </div>
                 </div>
               </div>
@@ -1247,11 +1283,16 @@ export default function LandingPage() {
             </p>
 
             <div className="mt-14">
-              <Link to="/phoenix-rising/checkout" className="contents">
+              <a
+                href={TEACHABLE_PHOENIX_RISING_COURSE_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="contents"
+              >
                 <button className="px-12 py-5 rounded-full border border-cream/25 bg-cream/10 text-[10px] tracking-[0.35em] uppercase font-bold hover:bg-cream hover:text-burgundy transition-all duration-700 hover:shadow-[0_0_40px_rgba(245,242,237,0.22)]">
                   Secure Your Spot
                 </button>
-              </Link>
+              </a>
             </div>
 
             <div className="mt-14 flex flex-wrap justify-center gap-x-10 gap-y-5 text-[10px] tracking-[0.4em] uppercase font-bold text-cream/60">

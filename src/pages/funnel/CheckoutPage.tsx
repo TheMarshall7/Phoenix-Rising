@@ -2,9 +2,7 @@ import { CheckCircle2, ChevronLeft } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useGhlFormEmbed } from "../../hooks/useGhlFormEmbed";
 import { useGhlThankYouRedirect } from "../../hooks/useGhlThankYouRedirect";
-
-const TEACHABLE_COURSE_URL =
-  "http://maria-amiouni-s-school.teachable.com/p/phoenix-rising-21-days-of-embodiedliving";
+import { TEACHABLE_PHOENIX_RISING_COURSE_URL as TEACHABLE_COURSE_URL } from "../../constants/teachableCourse";
 
 export default function CheckoutPage() {
   useGhlFormEmbed();

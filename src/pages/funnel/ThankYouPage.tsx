@@ -3,8 +3,7 @@ import { Sparkles, Calendar, Mail, Globe, ChevronLeft, ExternalLink } from "luci
 import { Link } from "react-router-dom";
 import { Button } from "../../components/Common";
 
-const TEACHABLE_COURSE_URL =
-  "http://maria-amiouni-s-school.teachable.com/p/phoenix-rising-21-days-of-embodiedliving";
+import { TEACHABLE_PHOENIX_RISING_COURSE_URL as TEACHABLE_COURSE_URL } from "../../constants/teachableCourse";
 
 export default function ThankYouPage() {
   return (
