@@ -2,6 +2,7 @@ import React from "react";
 import { Compass, Eye, Sparkles } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "../components/Common";
+import { MailingListSection } from "../components/MailingListSection";
 
 export const EgyptPilgrimagePage: React.FC = () => {
   return (
@@ -45,9 +46,9 @@ export const EgyptPilgrimagePage: React.FC = () => {
             </div>
 
             <div className="flex flex-col sm:flex-row gap-6 justify-center md:justify-start pt-6">
-              <Link to="/booking" className="contents">
+              <a href="#waitlist" className="contents">
                 <Button variant="sage">Join the Waitlist</Button>
-              </Link>
+              </a>
               <Link to="/contact" className="contents">
                 <Button
                   variant="outline"
@@ -117,6 +118,8 @@ export const EgyptPilgrimagePage: React.FC = () => {
           </div>
         </div>
       </section>
+
+      <MailingListSection pilgrimageName="Egypt" />
     </main>
   );
 };

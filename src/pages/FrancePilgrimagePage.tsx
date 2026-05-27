@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { Star } from "lucide-react";
 import { Button, FadeIn } from "../components/Common";
+import { MailingListSection } from "../components/MailingListSection";
 
 type SanctuaryMedia =
   | { kind: "image"; src: string; alt: string }
@@ -122,9 +123,9 @@ export const FrancePilgrimagePage: React.FC = () => {
             </div>
 
             <div className="flex flex-col sm:flex-row gap-6 justify-center md:justify-start pt-6">
-              <Link to="/booking" className="contents">
+              <a href="#waitlist" className="contents">
                 <Button variant="sage">Join the Waitlist</Button>
-              </Link>
+              </a>
               <Link to="/contact" className="contents">
                 <Button
                   variant="outline"
@@ -452,6 +453,8 @@ export const FrancePilgrimagePage: React.FC = () => {
             </div>
          </div>
        </section>
+
+      <MailingListSection pilgrimageName="France" />
     </main>
   );
 };
