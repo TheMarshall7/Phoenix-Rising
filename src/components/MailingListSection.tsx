@@ -5,6 +5,7 @@ import {
   GHL_MAILING_LIST_FORM_HEIGHT_PX,
   GHL_MAILING_LIST_FORM_ID,
   GHL_SANCTUARY_LIST_FORM_URL,
+  getPilgrimageWaitlistForm,
 } from "../constants/ghl";
 import { FadeIn } from "./Common";
 
@@ -23,12 +24,20 @@ export const MailingListSection: React.FC<MailingListSectionProps> = ({ pilgrima
   useGhlFormEmbed();
 
   const isPilgrimage = Boolean(pilgrimageName);
-  const iframeId = isPilgrimage
-    ? `${defaultIframeId}-pilgrimage-${pilgrimageName!.toLowerCase().replace(/\s+/g, "-")}`
-    : defaultIframeId;
+  const pilgrimageForm = pilgrimageName ? getPilgrimageWaitlistForm(pilgrimageName) : null;
+
+  const formId = pilgrimageForm?.formId ?? GHL_MAILING_LIST_FORM_ID;
+  const formUrl = pilgrimageForm?.formUrl ?? GHL_SANCTUARY_LIST_FORM_URL;
+  const formHeightPx = pilgrimageForm?.heightPx ?? GHL_MAILING_LIST_FORM_HEIGHT_PX;
+  const iframeId =
+    pilgrimageForm?.iframeId ??
+    (isPilgrimage
+      ? `${defaultIframeId}-pilgrimage-${pilgrimageName!.toLowerCase().replace(/\s+/g, "-")}`
+      : defaultIframeId);
 
   const eyebrow = isPilgrimage ? "Pilgrimage waitlist" : "Letters from the threshold";
-  const formTitle = isPilgrimage ? "Join the waitlist" : "Mailing List";
+  const formTitle = pilgrimageForm?.title ?? (isPilgrimage ? "Join the waitlist" : "Mailing List");
+  const formName = pilgrimageForm?.formName ?? formTitle;
   const formLabel = isPilgrimage ? "Your email" : "Your details";
 
   return (
@@ -105,10 +114,10 @@ export const MailingListSection: React.FC<MailingListSectionProps> = ({ pilgrima
                       </p>
                       <div
                         className="relative z-10 w-full overflow-hidden rounded-[2px]"
-                        style={{ minHeight: GHL_MAILING_LIST_FORM_HEIGHT_PX }}
+                        style={{ minHeight: formHeightPx }}
                       >
                         <iframe
-                          src={GHL_SANCTUARY_LIST_FORM_URL}
+                          src={formUrl}
                           title={formTitle}
                           id={iframeId}
                           data-layout="{'id':'INLINE'}"
@@ -118,16 +127,16 @@ export const MailingListSection: React.FC<MailingListSectionProps> = ({ pilgrima
                           data-activation-value=""
                           data-deactivation-type="neverDeactivate"
                           data-deactivation-value=""
-                          data-form-name={formTitle}
-                          data-height={String(GHL_MAILING_LIST_FORM_HEIGHT_PX)}
+                          data-form-name={formName}
+                          data-height={String(formHeightPx)}
                           data-layout-iframe-id={iframeId}
-                          data-form-id={GHL_MAILING_LIST_FORM_ID}
+                          data-form-id={formId}
                           style={{
                             width: "100%",
-                            height: GHL_MAILING_LIST_FORM_HEIGHT_PX,
-                            minHeight: GHL_MAILING_LIST_FORM_HEIGHT_PX,
+                            height: formHeightPx,
+                            minHeight: formHeightPx,
                             border: "none",
-                            borderRadius: 2,
+                            borderRadius: 3,
                           }}
                         />
                       </div>

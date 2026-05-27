@@ -5,11 +5,11 @@ import { useGhlFormEmbed } from "../hooks/useGhlFormEmbed";
 import {
   GHL_CONTACT_FORM_HEIGHT_PX,
   GHL_CONTACT_FORM_ID,
+  GHL_CONTACT_FORM_IFRAME_ID,
   GHL_CONTACT_FORM_URL,
 } from "../constants/ghl";
 
 const CONTACT_EMAIL = "mariaamiouni@gmail.com";
-const CONTACT_IFRAME_ID = `inline-contact-${GHL_CONTACT_FORM_ID}`;
 
 export const ContactPage: React.FC = () => {
   useGhlFormEmbed();
@@ -29,7 +29,7 @@ export const ContactPage: React.FC = () => {
                 <p className="text-sage tracking-[0.4em] uppercase font-bold text-[10px]">Contact</p>
                 <h1 className="text-6xl sm:text-7xl md:text-[8rem] font-medium text-cream uppercase leading-[0.85]">
                   MESSAGE <br />
-                  <span className="font-serif italic text-sage lowercase font-light">us.</span>
+                  <span className="font-serif italic text-sage lowercase font-light">me.</span>
                 </h1>
                 <div className="w-24 h-px bg-sage/30 my-8 mx-auto lg:mx-0" />
               </div>
@@ -80,8 +80,8 @@ export const ContactPage: React.FC = () => {
                   >
                     <iframe
                       src={GHL_CONTACT_FORM_URL}
-                      title="Contact Maria Amiouni"
-                      id={CONTACT_IFRAME_ID}
+                      title="Contact Form"
+                      id={GHL_CONTACT_FORM_IFRAME_ID}
                       data-layout="{'id':'INLINE'}"
                       data-trigger-type="alwaysShow"
                       data-trigger-value=""
@@ -89,9 +89,9 @@ export const ContactPage: React.FC = () => {
                       data-activation-value=""
                       data-deactivation-type="neverDeactivate"
                       data-deactivation-value=""
-                      data-form-name="Contact"
+                      data-form-name="Contact Form"
                       data-height={String(GHL_CONTACT_FORM_HEIGHT_PX)}
-                      data-layout-iframe-id={CONTACT_IFRAME_ID}
+                      data-layout-iframe-id={GHL_CONTACT_FORM_IFRAME_ID}
                       data-form-id={GHL_CONTACT_FORM_ID}
                       className="block w-full bg-transparent"
                       style={{
@@ -99,7 +99,7 @@ export const ContactPage: React.FC = () => {
                         height: GHL_CONTACT_FORM_HEIGHT_PX,
                         minHeight: GHL_CONTACT_FORM_HEIGHT_PX,
                         border: "none",
-                        borderRadius: 2,
+                        borderRadius: 3,
                       }}
                     />
                   </div>
