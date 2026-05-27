@@ -1,9 +1,9 @@
 import { motion } from "framer-motion";
 import { Sparkles, Calendar, Mail, Globe, ChevronLeft, ExternalLink } from "lucide-react";
 import { Link } from "react-router-dom";
-import { Button } from "../../components/Common";
+import { Button } from "../../../components/Common";
 
-import { TEACHABLE_PHOENIX_RISING_COURSE_URL as TEACHABLE_COURSE_URL } from "../../constants/teachableCourse";
+import { TEACHABLE_PHOENIX_RISING_COURSE_URL as TEACHABLE_COURSE_URL } from "../../../constants/teachableCourse";
 
 export default function ThankYouPage() {
   return (

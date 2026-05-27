@@ -25,14 +25,17 @@ export const Footer: React.FC = () => {
             <Link to="/mentorship" className={linkClass}>
               Mentorship
             </Link>
-            <Link to="/pilgrimage" className={linkClass}>
-              Pilgrimage
+            <Link to="/pilgrimage/france" className={linkClass}>
+              France Pilgrimage
             </Link>
-            <Link to="/sacred-spaces" className={linkClass}>
-              Sacred Spaces
+            <Link to="/pilgrimage/egypt" className={linkClass}>
+              Egypt Pilgrimage
             </Link>
-            <Link to="/phoenix-rising" className={linkClass}>
-              Phoenix Rising
+            <Link to="/human-design" className={linkClass}>
+              Human Design
+            </Link>
+            <Link to="/ancestral-child" className={linkClass}>
+              The Ancestral Child
             </Link>
             <Link to="/contact" className={linkClass}>
               Contact

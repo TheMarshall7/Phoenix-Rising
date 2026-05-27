@@ -2,12 +2,12 @@ import { Fragment, useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { Check, ChevronDown, Sparkles, ChevronLeft, X } from "lucide-react";
 import { Link } from "react-router-dom";
-import { Section, Button } from "../../components/Common";
-import { PhoenixTestimonialsSection } from "../../components/PhoenixTestimonialsSection";
-import { PHOENIX_RISING_TEXT_TESTIMONIALS } from "../../data/phoenixTestimonials";
-import { PHOENIX_PORTAL_SESSIONS } from "../../data/phoenixPortalSessions";
-import { PHOENIX_PRACTITIONERS } from "../../data/phoenixPractitioners";
-import { TEACHABLE_PHOENIX_RISING_COURSE_URL } from "../../constants/teachableCourse";
+import { Section, Button } from "../../../components/Common";
+import { PhoenixTestimonialsSection } from "../../../components/PhoenixTestimonialsSection";
+import { PHOENIX_RISING_TEXT_TESTIMONIALS } from "../../../data/phoenixTestimonials";
+import { PHOENIX_PORTAL_SESSIONS } from "../../../data/phoenixPortalSessions";
+import { PHOENIX_PRACTITIONERS } from "../../../data/phoenixPractitioners";
+import { TEACHABLE_PHOENIX_RISING_COURSE_URL } from "../../../constants/teachableCourse";
 
 const ROADMAP_DOORWAYS = [
   { title: "Nervous System Regulation", desc: "Building the physiological capacity to meet intensity with stability." },
