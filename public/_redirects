@@ -1,0 +1,2 @@
+# SPA client routes — static files in /assets are served first when they exist.
+/*  /index.html  200

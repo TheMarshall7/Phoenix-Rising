@@ -16,7 +16,7 @@ name: Deploy Cloudflare Pages
 
 on:
   push:
-    branches: [main, production]
+    branches: [main, production, main-website]
   workflow_dispatch:
 
 concurrency:
@@ -41,6 +41,11 @@ jobs:
 
       - name: Install and build
         run: npm ci && npm run build
+
+      - name: Verify build assets
+        run: |
+          test -f dist/index.html
+          ls -la dist/assets/*.js dist/assets/*.css
 
       - name: Deploy to Cloudflare Pages
         uses: cloudflare/pages-action@v1
