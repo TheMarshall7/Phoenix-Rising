@@ -8,16 +8,16 @@ export const EgyptPilgrimagePage: React.FC = () => {
     <main className="bg-paper overflow-hidden">
       {/* HERO SECTION - Forest background, gold/sand tones */}
       <section className="relative min-h-[90vh] flex items-center bg-forest overflow-hidden pt-36 pb-20 px-8 text-cream">
-        <div className="absolute inset-0 z-0 flex flex-col md:flex-row">
+        <div className="absolute inset-0 z-0 flex flex-col md:flex-row-reverse">
           <div className="w-full md:w-1/2 relative h-full min-h-[40vh] md:min-h-0">
             <img
               src="/_31.jpg"
               alt="Ancient Egypt Temple"
-              className="w-full h-full object-cover grayscale-[25%] opacity-40 md:opacity-50"
+              className="w-full h-full object-cover grayscale-[12%] opacity-75 md:opacity-90"
             />
-            <div className="absolute inset-0 bg-forest/50"></div>
-            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-forest/60 to-forest hidden md:block"></div>
-            <div className="absolute inset-0 bg-gradient-to-t from-forest via-forest/60 to-transparent md:hidden"></div>
+            <div className="absolute inset-0 bg-forest/25"></div>
+            <div className="absolute inset-0 bg-gradient-to-r from-forest via-forest/35 to-transparent hidden md:block"></div>
+            <div className="absolute inset-0 bg-gradient-to-t from-forest via-forest/35 to-transparent md:hidden"></div>
           </div>
           <div className="w-full md:w-1/2 bg-forest h-full hidden md:block"></div>
         </div>
@@ -49,26 +49,13 @@ export const EgyptPilgrimagePage: React.FC = () => {
                 <Button variant="sage">Join the Waitlist</Button>
               </Link>
               <Link to="/contact" className="contents">
-                <Button variant="outline" className="border-cream/20 text-cream hover:bg-cream hover:text-forest">
+                <Button
+                  variant="outline"
+                  className="!border-2 !border-white !text-white bg-transparent hover:!bg-white hover:!text-forest hover:!border-white"
+                >
                   Enquire Directly
                 </Button>
               </Link>
-            </div>
-          </div>
-
-          {/* Right graphic showing details */}
-          <div className="md:col-span-5 hidden md:flex justify-center items-center relative">
-            <div className="w-full max-w-[340px] aspect-square rounded-full border border-cream/15 flex items-center justify-center relative p-8">
-              <div className="absolute inset-0 border border-cream/5 rounded-full scale-110 animate-pulse"></div>
-              <div className="absolute inset-0 border border-sage/10 rounded-full scale-125"></div>
-              
-              <div className="w-full h-full rounded-full overflow-hidden border border-cream/20 relative z-10 bg-forest flex items-center justify-center">
-                <div className="text-center space-y-4 p-8">
-                  <p className="text-[10px] tracking-[0.5em] uppercase font-bold text-sage">Coming Soon</p>
-                  <p className="text-5xl font-serif italic text-cream/90">Egypt</p>
-                  <p className="text-[9px] tracking-[0.3em] uppercase font-bold text-cream/40">Late 2027</p>
-                </div>
-              </div>
             </div>
           </div>
         </div>

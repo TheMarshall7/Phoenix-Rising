@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 import { Star } from "lucide-react";
-import { FadeIn } from "../components/Common";
+import { Button, FadeIn } from "../components/Common";
 
 type SanctuaryMedia =
   | { kind: "image"; src: string; alt: string }
@@ -83,55 +84,115 @@ const SanctuaryGallery: React.FC = () => {
 export const FrancePilgrimagePage: React.FC = () => {
   return (
     <main className="bg-paper overflow-hidden">
-      {/* HERO SECTION - DOMINANT GREEN */}
-      <section className="bg-forest pt-48 pb-32 px-8 text-cream">
-        <div className="container mx-auto">
-          <FadeIn className="text-center mb-32 space-y-8">
-            <p className="text-cream/70 tracking-[0.4em] uppercase font-semibold text-[10px]">Immersive Sacred Travel</p>
-            <h1 className="text-7xl md:text-[8rem] lg:text-[10rem] font-semibold text-cream leading-[0.8]">
-              THE <br /><span className="font-serif italic text-cream lowercase font-light">pilgrimages</span>
-            </h1>
-            <div className="w-24 h-px bg-cream/25 mx-auto my-12"></div>
-          </FadeIn>
+      {/* HERO — aligned with Egypt pilgrimage (split bg, image right, text left) */}
+      <section className="relative min-h-[90vh] flex items-center bg-forest overflow-hidden pt-36 pb-20 px-8 text-cream">
+        <div className="absolute inset-0 z-0 flex flex-col md:flex-row-reverse">
+          <div className="w-full md:w-1/2 relative h-full min-h-[40vh] md:min-h-0">
+            <img
+              src="/_310.jpg"
+              alt="France pilgrimage"
+              className="w-full h-full object-cover grayscale-[12%] opacity-75 md:opacity-90"
+            />
+            <div className="absolute inset-0 bg-forest/25"></div>
+            <div className="absolute inset-0 bg-gradient-to-r from-forest via-forest/35 to-transparent hidden md:block"></div>
+            <div className="absolute inset-0 bg-gradient-to-t from-forest via-forest/35 to-transparent md:hidden"></div>
+          </div>
+          <div className="w-full md:w-1/2 bg-forest h-full hidden md:block"></div>
+        </div>
 
-          <div className="grid lg:grid-cols-12 gap-24 items-start">
-            <div className="lg:col-span-5 sticky top-32">
-              <div className="relative group">
-                <img src="/_310.jpg" className="w-full aspect-[4/5] object-cover rounded-sm grayscale-[20%] mb-12 shadow-2xl transition-all duration-1000 group-hover:grayscale-0" alt="Pilgrimage" />
-                <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-cream/5 rounded-full blur-3xl group-hover:bg-cream/10 transition-colors"></div>
-              </div>
-              <p className="text-2xl font-serif italic text-cream/90 leading-relaxed">
+        <div className="relative z-10 container mx-auto max-w-6xl w-full grid md:grid-cols-12 gap-16 items-center">
+          <div className="md:col-span-7 space-y-10 text-center md:text-left">
+            <span className="text-sage tracking-[0.45em] uppercase font-semibold text-[10px] mb-4 block">
+              Sacred Travel · Immersive · May 2027 · Open
+            </span>
+            <h1 className="text-5xl sm:text-6xl lg:text-7xl xl:text-8xl leading-[0.9] text-cream font-semibold tracking-tight uppercase">
+              PILGRIMAGE <br />
+              <span className="font-serif italic text-sage lowercase font-light tracking-normal block mt-2">France</span>
+            </h1>
+
+            <div className="w-20 h-px bg-sage/30 my-8 mx-auto md:mx-0"></div>
+
+            <div className="space-y-6 max-w-xl mx-auto md:mx-0">
+              <p className="text-2xl md:text-3xl font-serif italic text-cream/95 leading-snug">
                 "Walking the rhythms of the earth, we uncover the ancient Mother Line that beats within our own hearts."
               </p>
+              <p className="text-base font-light text-cream/70 leading-relaxed font-sans">
+                A deep journey through the lands that hold the Divine Mother — ceremony, sisterhood, and direct experience where the path meets the body.
+              </p>
             </div>
-            
-            <div className="lg:col-span-7 space-y-24">
+
+            <div className="flex flex-col sm:flex-row gap-6 justify-center md:justify-start pt-6">
+              <Link to="/booking" className="contents">
+                <Button variant="sage">Join the Waitlist</Button>
+              </Link>
+              <Link to="/contact" className="contents">
+                <Button
+                  variant="outline"
+                  className="!border-2 !border-white !text-white bg-transparent hover:!bg-white hover:!text-forest hover:!border-white"
+                >
+                  Enquire Directly
+                </Button>
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Long-form intro (content from previous hero layout) */}
+      <section className="bg-paper py-24 md:py-32 px-8 text-ink border-b border-ink/5">
+        <div className="container mx-auto max-w-5xl">
+          <div className="grid lg:grid-cols-12 gap-16 items-start">
+            <div className="lg:col-span-5 space-y-8">
+              <div className="relative group max-w-md mx-auto lg:mx-0">
+                <img
+                  src="/_310.jpg"
+                  className="w-full aspect-[4/5] object-cover rounded-sm grayscale-[20%] shadow-2xl transition-all duration-1000 group-hover:grayscale-0"
+                  alt="Pilgrimage landscape"
+                />
+                <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-forest/5 rounded-full blur-3xl group-hover:bg-forest/10 transition-colors pointer-events-none" />
+              </div>
+            </div>
+
+            <div className="lg:col-span-7 space-y-12">
               <div className="space-y-8">
-                 <h2 className="text-5xl font-serif italic text-cream">The Longing for <br /><span className="text-cream/90 font-light">Direct Experience.</span></h2>
-                 <div className="space-y-6 text-xl font-light text-cream/70 leading-relaxed italic">
-                    <p>"Reading about Her in books was not enough. I longed to experience the lands She walked on, to feel Her presence, not just through the words of others, but through my own direct experience. Who was She? Why was I so drawn to Her?"</p>
-                    <p>My personal journey toward reconnecting with the Divine Mother began after I underwent surgery on my womb. It was then that I found myself asking new, unexpected questions: Who is the Divine Mother? What is making women in our society so ill? How can She rise again?</p>
-                 </div>
+                <h2 className="text-4xl md:text-5xl font-serif italic text-forest">
+                  The Longing for <br />
+                  <span className="text-ink/90 font-light">Direct Experience.</span>
+                </h2>
+                <div className="space-y-6 text-lg md:text-xl font-light text-ink/75 leading-relaxed italic">
+                  <p>
+                    "Reading about Her in books was not enough. I longed to experience the lands She walked on, to feel Her presence, not just through the words of others, but through my own direct experience. Who was She? Why was I so drawn to Her?"
+                  </p>
+                  <p className="not-italic text-ink/80">
+                    My personal journey toward reconnecting with the Divine Mother began after I underwent surgery on my womb. It was then that I found myself asking new, unexpected questions: Who is the Divine Mother? What is making women in our society so ill? How can She rise again?
+                  </p>
+                </div>
               </div>
 
-              <div className="pt-16">
-                <motion.div 
-                   initial={{ opacity: 0, x: 20 }}
-                   whileInView={{ opacity: 1, x: 0 }}
-                   viewport={{ once: true }}
-                   transition={{ duration: 1.2 }}
-                   className="group border-b border-cream/10 pb-20"
-                >
-                  <div className="flex justify-between items-start mb-12">
-                      <div className="flex gap-4">
-                        <span className="text-[9px] border border-cream/10 px-4 py-1.5 uppercase font-bold text-cream/40 tracking-widest">May 2027</span>
-                        <span className="text-[9px] border border-cream/10 px-4 py-1.5 uppercase font-bold text-cream/40 tracking-widest">Open</span>
-                      </div>
+              <motion.div
+                initial={{ opacity: 0, x: 20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 1.2 }}
+                className="group border-b border-forest/10 pb-12"
+              >
+                <div className="flex justify-between items-start mb-8">
+                  <div className="flex gap-4 flex-wrap justify-center lg:justify-start">
+                    <span className="text-[9px] border border-forest/15 px-4 py-1.5 uppercase font-bold text-forest/50 tracking-widest">
+                      May 2027
+                    </span>
+                    <span className="text-[9px] border border-forest/15 px-4 py-1.5 uppercase font-bold text-forest/50 tracking-widest">
+                      Open
+                    </span>
                   </div>
-                  <h3 className="text-4xl md:text-5xl font-serif italic text-cream mb-8 group-hover:translate-x-4 transition-transform duration-700 uppercase leading-[0.9]">Walking the Mother Line</h3>
-                  <p className="text-lg md:text-xl font-light text-cream/60 leading-relaxed max-w-2xl mb-12">A deep dive into the physiological and energetic foundations of the divine feminine. Join a circle of hearts traversing ancient lands to honor the goddess within and without.</p>
-                </motion.div>
-              </div>
+                </div>
+                <h3 className="text-3xl md:text-4xl font-serif italic text-forest mb-6 group-hover:translate-x-2 transition-transform duration-700 uppercase leading-[0.95]">
+                  Walking the Mother Line
+                </h3>
+                <p className="text-base md:text-lg font-light text-ink/70 leading-relaxed max-w-2xl">
+                  A deep dive into the physiological and energetic foundations of the divine feminine. Join a circle of hearts traversing ancient lands to honor the goddess within and without.
+                </p>
+              </motion.div>
             </div>
           </div>
         </div>

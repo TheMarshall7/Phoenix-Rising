@@ -49,25 +49,23 @@ const energyTypes = [
 export const HumanDesignPage: React.FC = () => {
   return (
     <main className="bg-paper overflow-hidden">
-      {/* HERO SECTION - SPLIT VIEW WITH FLOATING BLUEPRINT ACCENTS */}
+      {/* HERO — same split treatment as Egypt / France pilgrimages */}
       <section className="relative min-h-[90vh] flex items-center bg-forest overflow-hidden pt-36 pb-20 px-8 text-cream">
-        {/* Background Gradients & Ambient Glow */}
-        <div className="absolute inset-0 z-0 flex flex-col md:flex-row">
+        <div className="absolute inset-0 z-0 flex flex-col md:flex-row-reverse">
           <div className="w-full md:w-1/2 relative h-full min-h-[40vh] md:min-h-0">
             <img
               src="/_273.jpg"
-              alt="Human Design Mandalas"
-              className="w-full h-full object-cover grayscale-[35%] opacity-40 md:opacity-50"
+              alt="Human Design mandalas"
+              className="w-full h-full object-cover grayscale-[12%] opacity-75 md:opacity-90"
             />
-            <div className="absolute inset-0 bg-forest/50"></div>
-            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-forest/60 to-forest hidden md:block"></div>
-            <div className="absolute inset-0 bg-gradient-to-t from-forest via-forest/60 to-transparent md:hidden"></div>
+            <div className="absolute inset-0 bg-forest/25"></div>
+            <div className="absolute inset-0 bg-gradient-to-r from-forest via-forest/35 to-transparent hidden md:block"></div>
+            <div className="absolute inset-0 bg-gradient-to-t from-forest via-forest/35 to-transparent md:hidden"></div>
           </div>
           <div className="w-full md:w-1/2 bg-forest h-full hidden md:block"></div>
         </div>
 
         <div className="relative z-10 container mx-auto max-w-6xl w-full grid md:grid-cols-12 gap-16 items-center">
-          {/* Left Text content */}
           <div className="md:col-span-7 space-y-10 text-center md:text-left">
             <span className="text-sage tracking-[0.45em] uppercase font-semibold text-[10px] mb-4 block">
               The Energetic Architecture
@@ -76,7 +74,7 @@ export const HumanDesignPage: React.FC = () => {
               HUMAN <br />
               <span className="font-serif italic text-sage lowercase font-light tracking-normal block mt-2">design</span>
             </h1>
-            
+
             <div className="w-20 h-px bg-sage/30 my-8 mx-auto md:mx-0"></div>
 
             <div className="space-y-6 max-w-xl mx-auto md:mx-0">
@@ -93,34 +91,13 @@ export const HumanDesignPage: React.FC = () => {
                 <Button variant="sage">Explore Readings</Button>
               </a>
               <a href="#types" className="contents">
-                <Button variant="outline" className="border-cream/20 text-cream hover:bg-cream hover:text-forest">
+                <Button
+                  variant="outline"
+                  className="!border-2 !border-white !text-white bg-transparent hover:!bg-white hover:!text-forest hover:!border-white"
+                >
                   Understand the Types
                 </Button>
               </a>
-            </div>
-          </div>
-
-          {/* Right Graphical container */}
-          <div className="md:col-span-5 hidden md:flex justify-center items-center relative">
-            <div className="w-full max-w-[340px] aspect-square rounded-full border border-cream/15 flex items-center justify-center relative p-8">
-              <div className="absolute inset-0 border border-cream/5 rounded-full scale-110 animate-pulse"></div>
-              <div className="absolute inset-0 border border-sage/10 rounded-full scale-125"></div>
-              
-              <div className="w-full h-full rounded-full overflow-hidden border border-cream/20 relative z-10 bg-forest">
-                <img 
-                  src="/_273.jpg" 
-                  alt="Mandalas Detail" 
-                  className="w-full h-full object-cover grayscale-[20%] opacity-85 hover:grayscale-0 transition-all duration-1000" 
-                />
-              </div>
-
-              {/* Float indicators representing the blueprint */}
-              <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-forest/90 border border-sage/30 px-4 py-1.5 rounded-full shadow-2xl z-20">
-                <span className="text-[8px] tracking-widest text-sage uppercase font-bold">Energy Type</span>
-              </div>
-              <div className="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2 bg-forest/90 border border-sage/30 px-4 py-1.5 rounded-full shadow-2xl z-20">
-                <span className="text-[8px] tracking-widest text-sage uppercase font-bold">Strategy & Authority</span>
-              </div>
             </div>
           </div>
         </div>
@@ -177,44 +154,46 @@ export const HumanDesignPage: React.FC = () => {
             <div className="w-12 h-px bg-sage/20 mx-auto mt-6"></div>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {energyTypes.map((t) => {
+          <div className="grid md:grid-cols-2 lg:grid-cols-6 gap-8">
+            {energyTypes.map((t, i) => {
               const IconComponent = t.icon;
+              const lastRowCenter =
+                i === 3 ? "lg:col-start-2" : i === 4 ? "lg:col-start-4" : "";
               return (
                 <FadeIn 
                   key={t.type} 
-                  className="group relative p-12 bg-forest/40 border border-cream/10 rounded-sm hover:bg-forest hover:border-sage/30 transition-all duration-1000 flex flex-col justify-between min-h-[380px] overflow-hidden"
+                  className={`group relative p-12 bg-forest/40 border border-cream/10 rounded-sm hover:bg-white hover:border-forest/25 transition-all duration-1000 flex flex-col justify-between min-h-[380px] overflow-hidden lg:col-span-2 ${lastRowCenter}`}
                 >
                   {/* Decorative index indicator in bg */}
-                  <div className="absolute -top-10 -right-6 text-[10rem] font-serif italic text-cream/[0.02] group-hover:text-cream/[0.04] transition-all duration-1000 pointer-events-none select-none">
+                  <div className="absolute -top-10 -right-6 text-[10rem] font-serif italic text-cream/[0.02] group-hover:text-forest/[0.06] transition-all duration-1000 pointer-events-none select-none">
                     {t.num}
                   </div>
 
                   <div className="space-y-8 relative z-10">
                     <div className="flex justify-between items-start">
-                      <span className="text-[10px] tracking-widest text-sage group-hover:text-cream/80 transition-colors uppercase font-bold">{t.num}</span>
-                      <IconComponent className="w-5 h-5 text-sage/40 group-hover:text-sage transition-colors duration-500" />
+                      <span className="text-[10px] tracking-widest text-sage group-hover:text-forest transition-colors uppercase font-bold">{t.num}</span>
+                      <IconComponent className="w-5 h-5 text-sage/40 group-hover:text-forest transition-colors duration-500" />
                     </div>
                     
                     <div className="space-y-4">
-                      <h3 className="text-3xl font-serif italic text-sage group-hover:text-cream transition-colors duration-700 uppercase leading-none">
+                      <h3 className="text-3xl font-serif italic text-sage group-hover:text-forest transition-colors duration-700 uppercase leading-none">
                         {t.type}
                       </h3>
-                      <div className="w-8 h-px bg-sage/20 group-hover:bg-cream/40 transition-colors"></div>
+                      <div className="w-8 h-px bg-sage/20 group-hover:bg-forest/25 transition-colors"></div>
                     </div>
 
                     <div className="space-y-3">
-                      <p className="text-base font-semibold font-sans text-cream/95 leading-relaxed">
+                      <p className="text-base font-semibold font-sans text-cream/95 group-hover:text-forest leading-relaxed transition-colors duration-700">
                         {t.tagline}
                       </p>
-                      <p className="text-[13px] font-light text-cream/70 leading-relaxed font-sans group-hover:text-cream/85 transition-colors">
+                      <p className="text-[13px] font-light text-cream/70 leading-relaxed font-sans group-hover:text-forest/80 transition-colors duration-700">
                         {t.description}
                       </p>
                     </div>
                   </div>
 
-                  <div className="pt-8 border-t border-cream/5 group-hover:border-cream/10 mt-8 relative z-10 transition-colors">
-                    <span className="text-[9px] tracking-widest font-bold uppercase text-sage/40 group-hover:text-sage/60 transition-colors">
+                  <div className="pt-8 border-t border-cream/5 group-hover:border-forest/15 mt-8 relative z-10 transition-colors duration-700">
+                    <span className="text-[9px] tracking-widest font-bold uppercase text-sage/40 group-hover:text-forest/70 transition-colors duration-700">
                       {t.badge}
                     </span>
                   </div>

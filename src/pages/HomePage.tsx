@@ -25,7 +25,8 @@ export const HomePage: React.FC = () => {
             <div className="absolute inset-0 bg-gradient-to-r from-forest via-forest/40 to-transparent hidden md:block"></div>
             <div className="absolute inset-0 bg-gradient-to-t from-forest via-forest/40 to-transparent md:hidden"></div>
           </div>
-          <div className="w-full md:w-1/2 bg-forest h-full hidden md:block relative z-0"></div>
+          {/* Left half on desktop (solid forest where mandala was); hidden on small screens so photo stays full width */}
+          <div className="hidden md:block w-full md:w-1/2 bg-forest h-full" aria-hidden />
         </div>
         
         <div className="relative z-10 container mx-auto px-8 w-full h-full flex flex-col items-center md:items-start justify-center pt-4">

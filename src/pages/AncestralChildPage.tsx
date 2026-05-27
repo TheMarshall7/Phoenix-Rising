@@ -126,7 +126,7 @@ export const AncestralChildPage: React.FC = () => {
                 className="w-full h-full object-cover grayscale-[20%]"
               />
             </motion.div>
-            <div className="absolute inset-0 bg-[#2C1E1A]/40 backdrop-blur-[2px]"></div>
+            <div className="absolute inset-0 bg-[#2C1E1A]/40"></div>
             <div className="absolute inset-0 bg-gradient-to-r from-transparent via-[#2C1E1A]/40 to-[#2C1E1A] hidden md:block"></div>
             <div className="absolute inset-0 bg-gradient-to-t from-[#2C1E1A] via-[#2C1E1A]/40 to-transparent md:hidden"></div>
           </div>
@@ -143,7 +143,7 @@ export const AncestralChildPage: React.FC = () => {
             >
               June 14 — September 6th, 2026
             </motion.span>
-            
+
             <motion.h1
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
@@ -164,7 +164,7 @@ export const AncestralChildPage: React.FC = () => {
               Healing the child within and the lineage behind you
             </motion.p>
 
-            <div className="w-24 h-px bg-[#C5A880]/30 my-8 mx-auto md:mx-0"></div>
+            <div className="w-24 h-px bg-[#E8DDD4]/40 my-8 mx-auto md:mx-0"></div>
 
             <p className="text-xs tracking-[0.25em] uppercase font-bold text-cream/70 mb-12">
               A nine-portal journey with Maria Amiouni
@@ -172,9 +172,9 @@ export const AncestralChildPage: React.FC = () => {
 
             <div className="flex flex-col sm:flex-row gap-6 justify-center md:justify-start">
               <a href="#portals" className="contents">
-                <Button 
-                  variant="primary" 
-                  className="bg-[#C5A880] text-[#2C1E1A] hover:bg-[#B07A5F] hover:text-white shadow-2xl hover:scale-105 transition-all px-12"
+                <Button
+                  variant="primary"
+                  className="!bg-[#E8DDD4] !text-[#2C1E1A] hover:!bg-[#D9CDC2] hover:!text-[#2C1E1A] !shadow-lg hover:!shadow-xl hover:scale-[1.02] transition-all px-12 border border-[#2C1E1A]/10"
                 >
                   Explore the Portals
                 </Button>
@@ -204,7 +204,7 @@ export const AncestralChildPage: React.FC = () => {
         <div className="absolute top-10 left-10 text-[#2C1E1A]/5 font-serif text-[18vw] select-none pointer-events-none leading-none">
           Child
         </div>
-        
+
         <div className="container mx-auto px-8 max-w-4xl relative z-10">
           <FadeIn className="space-y-16">
             <div className="flex flex-col items-center">
@@ -217,7 +217,7 @@ export const AncestralChildPage: React.FC = () => {
             <h2 className="text-4xl md:text-6xl font-serif text-center text-ink leading-tight max-w-3xl mx-auto">
               A return to the <span className="font-serif italic text-[#B07A5F] font-light">foundations</span> of your temple.
             </h2>
-            
+
             <div className="space-y-10 text-lg md:text-xl font-normal leading-relaxed text-ink/90 max-w-2xl mx-auto font-sans">
               <p className="text-2xl md:text-3xl font-serif italic text-[#2C1E1A] leading-relaxed text-center font-normal px-4 my-8">
                 "Two years ago, I ran a course called the Divine Child. It was about remembering your wholeness. Your holiness."
@@ -301,7 +301,7 @@ export const AncestralChildPage: React.FC = () => {
                 <p>
                   I've had <strong className="font-semibold text-cream">dark nights of the soul</strong> finding my place in this world without clinging to my parents' idea of who I should be by now.
                 </p>
-                
+
                 {/* Camel-terracotta quote block */}
                 <blockquote className="font-serif italic text-[#C5A880] text-2xl leading-relaxed py-8 border-y border-[#B07A5F]/20 my-8 pl-6 relative">
                   <span className="absolute left-0 top-2 text-7xl text-[#C5A880]/15 font-serif leading-none select-none">“</span>
@@ -342,7 +342,7 @@ export const AncestralChildPage: React.FC = () => {
               <p className="font-serif text-[#2C1E1A] text-2xl text-center leading-relaxed font-normal italic my-6">
                 Here is what I know to be true:
               </p>
-              
+
               <div className="space-y-4 border-l-2 border-[#B07A5F] pl-8 italic text-ink/70 bg-[#FAF6F0]/60 py-4 pr-4 rounded-r-sm shadow-sm">
                 <p className="hover:text-[#B07A5F] transition-colors">Whether they were absent or overbearing.</p>
                 <p className="hover:text-[#9C8470] transition-colors">Whether they got it wrong, stayed silent, or never saw you clearly.</p>
@@ -387,28 +387,33 @@ export const AncestralChildPage: React.FC = () => {
       </Section>
 
       {/* THE PORTALS - Timeline with Layered Card Designs */}
-      <section id="portals" className="bg-paper py-48 px-8 border-t border-ink/5 relative overflow-hidden">
+      <section id="portals" className="py-48 px-8 border-t border-[#2C1E1A] relative overflow-hidden" style={{ background: 'linear-gradient(160deg, #3D2318 0%, #2C1E1A 60%, #1E1410 100%)' }}>
         {/* Subtle decorative circles */}
-        <div className="absolute top-1/3 left-0 w-80 h-80 bg-[#B07A5F]/3 rounded-full blur-[100px] pointer-events-none"></div>
-        <div className="absolute bottom-1/4 right-0 w-96 h-96 bg-[#C5A880]/5 rounded-full blur-[130px] pointer-events-none"></div>
+        <div className="absolute top-1/3 left-0 w-80 h-80 bg-[#B07A5F]/20 rounded-full blur-[100px] pointer-events-none z-0" aria-hidden />
+        <div className="absolute bottom-1/4 right-0 w-96 h-96 bg-[#C5A880]/10 rounded-full blur-[130px] pointer-events-none z-0" aria-hidden />
+        {/* Right-side glows near mid / lower portals (e.g. 6 & 9) */}
+        <div className="absolute top-[44%] -right-12 md:right-0 w-[340px] h-[340px] bg-[#FAF6F0]/14 rounded-full blur-[115px] pointer-events-none z-0" aria-hidden />
+        <div className="absolute top-[68%] -right-8 md:right-8 w-[380px] h-[380px] bg-[#C5A880]/12 rounded-full blur-[125px] pointer-events-none z-0" aria-hidden />
+        {/* Left-side glow near final portal (9) */}
+        <div className="absolute top-[70%] -left-10 md:left-4 w-[360px] h-[360px] bg-[#B07A5F]/16 rounded-full blur-[120px] pointer-events-none z-0" aria-hidden />
 
-        <div className="container mx-auto max-w-5xl">
+        <div className="container mx-auto max-w-5xl relative z-10">
           <div className="text-center mb-36">
-            <span className="text-[#B07A5F] tracking-[0.5em] uppercase font-semibold text-[10px] mb-6 block">
+            <span className="text-[#C5A880] tracking-[0.5em] uppercase font-semibold text-[10px] mb-6 block">
               What This Is
             </span>
-            <h2 className="text-5xl md:text-7xl font-serif leading-[0.9] text-ink uppercase">
-              THE NINE <span className="font-serif italic text-[#9C8470] font-light lowercase">portals.</span>
+            <h2 className="text-5xl md:text-7xl font-serif leading-[0.9] text-cream uppercase">
+              THE NINE <span className="font-serif italic text-[#C5A880] font-light lowercase">portals.</span>
             </h2>
-            <div className="w-16 h-px bg-[#B07A5F]/20 mx-auto mt-8 mb-6"></div>
-            <p className="text-ink/90 max-w-2xl mx-auto font-normal text-lg leading-relaxed">
-              The Ancestral Child is a <strong className="font-semibold text-ink">nine-session journey</strong> into healing the child within, the lineage behind you, and the future that begins with you. We will move through:
+            <div className="w-16 h-px bg-[#C5A880]/30 mx-auto mt-8 mb-6"></div>
+            <p className="text-cream/85 max-w-2xl mx-auto font-normal text-lg leading-relaxed">
+              The Ancestral Child is a <strong className="font-semibold text-cream">nine-session journey</strong> into healing the child within, the lineage behind you, and the future that begins with you. We will move through:
             </p>
           </div>
 
           {/* Timeline Spine */}
           <div className="relative">
-            <div className="absolute left-1/2 transform -translate-x-1/2 top-10 bottom-10 w-[2px] bg-[#9C8470]/10 hidden lg:block" />
+            <div className="absolute left-1/2 transform -translate-x-1/2 top-10 bottom-10 w-[2px] bg-[#C5A880]/20 hidden lg:block" />
 
             <div className="space-y-16 relative z-10">
               {portalSessions.map((portal, idx) => {
@@ -420,17 +425,15 @@ export const AncestralChildPage: React.FC = () => {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true, margin: "-100px" }}
                     transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
-                    className={`grid lg:grid-cols-12 gap-8 items-center ${
-                      isEven ? "lg:flex-row-reverse" : ""
-                    }`}
+                    className={`grid lg:grid-cols-12 gap-8 items-center ${isEven ? "lg:flex-row-reverse" : ""
+                      }`}
                   >
                     {/* Alternate background cards for variety of warm nudes */}
                     <div
-                      className={`lg:col-span-5 ${
-                        isEven ? "lg:order-7 lg:text-left" : "lg:text-right"
-                      }`}
+                      className={`lg:col-span-5 ${isEven ? "lg:order-7 lg:text-left" : "lg:text-right"
+                        }`}
                     >
-                      <div className={`p-8 md:p-10 bg-[#FAF6F0] border ${portal.accentColor} rounded-sm shadow-sm hover:shadow-xl transition-all duration-500 hover:-translate-y-1 backdrop-blur-sm group`}>
+                      <div className={`p-8 md:p-10 bg-[#FAF6F0] border ${portal.accentColor} rounded-sm shadow-sm hover:shadow-xl transition-all duration-500 hover:-translate-y-1 group`}>
                         <div className={`flex items-center gap-4 mb-6 ${isEven ? "justify-start" : "justify-start lg:justify-end"}`}>
                           <span className="text-[10px] tracking-widest font-bold uppercase text-ink/40">
                             {portal.num >= 7 || portal.num === 3 || portal.num === 6 || portal.num === 9 ? `Session 0${portal.num}` : `Portal 0${portal.num}`}
@@ -439,12 +442,12 @@ export const AncestralChildPage: React.FC = () => {
                             {portal.type}
                           </span>
                         </div>
-                        
+
                         <h3 className="text-2xl md:text-3xl font-serif italic text-[#2C1E1A] mb-4 transition-colors">
                           {portal.title}
                         </h3>
-                        
-                        <p className="text-base font-normal text-ink/90 leading-relaxed">
+
+                        <p className="text-base font-normal text-ink/85 leading-relaxed">
                           {portal.desc}
                         </p>
                       </div>
@@ -460,14 +463,13 @@ export const AncestralChildPage: React.FC = () => {
 
                     {/* Timing details */}
                     <div
-                      className={`lg:col-span-5 ${
-                        isEven ? "lg:order-1 lg:text-right" : "lg:text-left"
-                      } space-y-2 pt-2 lg:pt-0`}
+                      className={`lg:col-span-5 ${isEven ? "lg:order-1 lg:text-right" : "lg:text-left"
+                        } space-y-2 pt-2 lg:pt-0`}
                     >
-                      <p className="text-[10px] tracking-widest font-bold uppercase text-ink/65 flex items-center gap-2 justify-start lg:justify-start">
-                        <Calendar className="w-3.5 h-3.5 text-ink/40" /> {portal.date}
+                      <p className="text-[10px] tracking-widest font-bold uppercase text-cream/70 flex items-center gap-2 justify-start lg:justify-start">
+                        <Calendar className="w-3.5 h-3.5 text-[#C5A880]/60" /> {portal.date}
                       </p>
-                      <p className="text-base font-serif italic text-ink/60 font-medium">
+                      <p className="text-base font-serif italic text-[#C5A880]/80 font-medium">
                         {portal.moon}
                       </p>
                     </div>
@@ -479,47 +481,47 @@ export const AncestralChildPage: React.FC = () => {
         </div>
       </section>
 
-      {/* RHYTHM & STRUCTURE - Warm Truffle Brown with Camel & Clay Accents */}
-      <section className="bg-[#2C1E1A] py-40 px-8 text-cream relative overflow-hidden">
+      {/* RHYTHM & STRUCTURE - Light Alabaster */}
+      <section className="bg-[#FAF6F0] py-40 px-8 text-ink relative overflow-hidden">
         <div className="absolute inset-0 pointer-events-none">
-          <div className="absolute top-0 right-0 w-1/2 h-full bg-[#C5A880]/[0.02]"></div>
+          <div className="absolute top-0 right-0 w-1/2 h-full bg-[#C5A880]/[0.05]"></div>
           <div className="absolute bottom-0 left-0 w-96 h-96 bg-[#B07A5F]/5 rounded-full blur-[150px]"></div>
         </div>
 
         <div className="container mx-auto max-w-5xl relative z-10">
           <FadeIn className="text-center mb-24">
-            <span className="text-[#C5A880] tracking-[0.4em] uppercase font-semibold text-[10px] mb-8 block">
+            <span className="text-[#B07A5F] tracking-[0.4em] uppercase font-semibold text-[10px] mb-8 block">
               The Structure
             </span>
-            <h2 className="text-5xl md:text-7xl font-serif italic text-cream uppercase leading-[0.85]">
+            <h2 className="text-5xl md:text-7xl font-serif italic text-[#2C1E1A] uppercase leading-[0.85]">
               THE CONTAINER <span className="text-[#B07A5F] lowercase font-light">structure.</span>
             </h2>
-            <div className="w-24 h-px bg-cream/20 mx-auto mt-12 mb-8"></div>
-            <p className="text-lg font-normal text-cream/90 max-w-2xl mx-auto italic leading-relaxed">
-              <strong className="font-semibold text-cream">9 sessions</strong> across <strong className="font-semibold text-cream">11 weeks</strong>, held within the rhythm of the moon.
+            <div className="w-24 h-px bg-[#B07A5F]/20 mx-auto mt-12 mb-8"></div>
+            <p className="text-lg font-normal text-ink/85 max-w-2xl mx-auto italic leading-relaxed">
+              <strong className="font-semibold text-[#2C1E1A]">9 sessions</strong> across <strong className="font-semibold text-[#2C1E1A]">11 weeks</strong>, held within the rhythm of the moon.
             </p>
           </FadeIn>
 
           <div className="grid md:grid-cols-3 gap-8">
-            <div className="p-10 border border-cream/10 bg-white/[0.01] hover:bg-white/[0.04] transition-all duration-500 rounded-sm space-y-6 group">
-              <Moon className="w-8 h-8 text-[#C5A880] opacity-70 group-hover:scale-110 transition-transform" />
-              <h3 className="text-2xl font-serif italic text-cream">6 Live Calls</h3>
-              <p className="text-sm font-normal text-cream/85 leading-relaxed">
-                <strong className="font-semibold text-cream">6 live group calls</strong> on Zoom, held on new and full moons to activate teachings, open the throat, and explore lineage healings together in the live container.
+            <div className="p-10 border border-[#B07A5F]/15 bg-white hover:bg-white hover:border-[#B07A5F]/40 hover:shadow-md transition-all duration-500 rounded-sm space-y-6 group">
+              <Moon className="w-8 h-8 text-[#B07A5F] opacity-80 group-hover:scale-110 transition-transform" />
+              <h3 className="text-2xl font-serif italic text-[#2C1E1A]">6 Live Calls</h3>
+              <p className="text-sm font-normal text-ink/80 leading-relaxed">
+                <strong className="font-semibold text-[#2C1E1A]">6 live group calls</strong> on Zoom, held on new and full moons to activate teachings, open the throat, and explore lineage healings together in the live container.
               </p>
             </div>
-            <div className="p-10 border border-cream/10 bg-white/[0.01] hover:bg-white/[0.04] transition-all duration-500 rounded-sm space-y-6 group">
-              <Compass className="w-8 h-8 text-[#B07A5F] opacity-70 group-hover:scale-110 transition-transform" />
-              <h3 className="text-2xl font-serif italic text-cream">3 Recorded Integrations</h3>
-              <p className="text-sm font-normal text-cream/85 leading-relaxed">
-                <strong className="font-semibold text-cream">3 recorded integration sessions</strong> so you can go deeper and assimilate learnings somatically before the next live call.
+            <div className="p-10 border border-[#B07A5F]/15 bg-white hover:bg-white hover:border-[#B07A5F]/40 hover:shadow-md transition-all duration-500 rounded-sm space-y-6 group">
+              <Compass className="w-8 h-8 text-[#9C8470] opacity-80 group-hover:scale-110 transition-transform" />
+              <h3 className="text-2xl font-serif italic text-[#2C1E1A]">3 Recorded Integrations</h3>
+              <p className="text-sm font-normal text-ink/80 leading-relaxed">
+                <strong className="font-semibold text-[#2C1E1A]">3 recorded integration sessions</strong> so you can go deeper and assimilate learnings somatically before the next live call.
               </p>
             </div>
-            <div className="p-10 border border-cream/10 bg-white/[0.01] hover:bg-white/[0.04] transition-all duration-500 rounded-sm space-y-6 group">
-              <Heart className="w-8 h-8 text-[#9C8470] opacity-70 group-hover:scale-110 transition-transform" />
-              <h3 className="text-2xl font-serif italic text-cream">WhatsApp Container</h3>
-              <p className="text-sm font-normal text-cream/85 leading-relaxed">
-                A <strong className="font-semibold text-cream">private WhatsApp group</strong>, open to everyone in the container with Maria for ongoing support, accountability, and sharing experiences.
+            <div className="p-10 border border-[#B07A5F]/15 bg-white hover:bg-white hover:border-[#B07A5F]/40 hover:shadow-md transition-all duration-500 rounded-sm space-y-6 group">
+              <Heart className="w-8 h-8 text-[#C5A880] opacity-80 group-hover:scale-110 transition-transform" />
+              <h3 className="text-2xl font-serif italic text-[#2C1E1A]">WhatsApp Container</h3>
+              <p className="text-sm font-normal text-ink/80 leading-relaxed">
+                A <strong className="font-semibold text-[#2C1E1A]">private WhatsApp group</strong>, open to everyone in the container with Maria for ongoing support, accountability, and sharing experiences.
               </p>
             </div>
           </div>
@@ -527,17 +529,21 @@ export const AncestralChildPage: React.FC = () => {
       </section>
 
       {/* INVESTMENT & TIERS - Layered Nude Cards */}
-      <Section id="investment" className="bg-[#FAF6F0] py-40 text-ink border-b border-ink/5 relative">
-        <div className="container mx-auto max-w-6xl">
+      <section id="investment" className="bg-[#3D2318] py-40 text-cream border-b border-[#2C1E1A] relative">
+        <div className="absolute inset-0 pointer-events-none">
+          <div className="absolute top-0 right-0 w-1/2 h-full bg-[#C5A880]/[0.03]"></div>
+          <div className="absolute bottom-0 left-0 w-96 h-96 bg-[#B07A5F]/10 rounded-full blur-[150px]"></div>
+        </div>
+        <div className="container mx-auto max-w-6xl relative z-10">
           <FadeIn className="text-center mb-24">
-            <span className="text-[#B07A5F] tracking-[0.4em] uppercase font-bold text-[10px] mb-8 block">
+            <span className="text-[#C5A880] tracking-[0.4em] uppercase font-bold text-[10px] mb-8 block">
               The Tiers
             </span>
-            <h2 className="text-5xl md:text-7xl font-serif italic text-[#2C1E1A] uppercase leading-[0.85]">
-              Choose your <span className="text-[#9C8470] lowercase font-light">resonance.</span>
+            <h2 className="text-5xl md:text-7xl font-serif italic text-cream uppercase leading-[0.85]">
+              Choose your <span className="text-[#C5A880] lowercase font-light">resonance.</span>
             </h2>
-            <div className="w-24 h-px bg-[#B07A5F]/20 mx-auto mt-12"></div>
-            <p className="text-ink/65 font-light italic text-base mt-8">
+            <div className="w-24 h-px bg-[#C5A880]/30 mx-auto mt-12"></div>
+            <p className="text-cream/75 font-normal italic text-base mt-8">
               Early bird rates apply to the first 10 participants to join.
             </p>
           </FadeIn>
@@ -587,9 +593,12 @@ export const AncestralChildPage: React.FC = () => {
 
               <div className="pt-12">
                 <Link to="/booking" className="contents">
-                  <Button variant="outline" className="w-full group text-ink hover:text-white border-[#B07A5F]/20 hover:bg-[#B07A5F]">
+                  <Button
+                    variant="primary"
+                    className="w-full group !bg-[#E8DDD4] !text-[#2C1E1A] hover:!bg-[#D9CDC2] hover:!text-[#2C1E1A] !shadow-lg hover:!shadow-xl border !border-[#2C1E1A]/10 transition-all"
+                  >
                     Enquire to Join
-                    <ArrowRight className="w-3.5 h-3.5 ml-2 group-hover:translate-x-1 transition-transform" />
+                    <ArrowRight className="w-3.5 h-3.5 ml-2 text-[#2C1E1A] group-hover:translate-x-1 transition-transform" />
                   </Button>
                 </Link>
               </div>
@@ -643,12 +652,12 @@ export const AncestralChildPage: React.FC = () => {
 
               <div className="pt-12">
                 <Link to="/booking" className="contents">
-                  <Button 
-                    variant="primary" 
-                    className="w-full group bg-[#B07A5F] text-white hover:bg-[#2C1E1A] shadow-xl"
+                  <Button
+                    variant="primary"
+                    className="w-full group !bg-[#E8DDD4] !text-[#2C1E1A] hover:!bg-[#D9CDC2] hover:!text-[#2C1E1A] !shadow-lg hover:!shadow-xl border !border-[#2C1E1A]/10 transition-all"
                   >
                     Enquire to Join
-                    <ArrowRight className="w-3.5 h-3.5 ml-2 group-hover:translate-x-1 transition-transform" />
+                    <ArrowRight className="w-3.5 h-3.5 ml-2 text-[#2C1E1A] group-hover:translate-x-1 transition-transform" />
                   </Button>
                 </Link>
               </div>
@@ -698,16 +707,19 @@ export const AncestralChildPage: React.FC = () => {
 
               <div className="pt-12">
                 <Link to="/booking" className="contents">
-                  <Button variant="outline" className="w-full group text-ink hover:text-white border-[#C5A880]/40 hover:bg-[#C5A880]">
+                  <Button
+                    variant="primary"
+                    className="w-full group !bg-[#E8DDD4] !text-[#2C1E1A] hover:!bg-[#D9CDC2] hover:!text-[#2C1E1A] !shadow-lg hover:!shadow-xl border !border-[#2C1E1A]/10 transition-all"
+                  >
                     Enquire to Join
-                    <ArrowRight className="w-3.5 h-3.5 ml-2 group-hover:translate-x-1 transition-transform" />
+                    <ArrowRight className="w-3.5 h-3.5 ml-2 text-[#2C1E1A] group-hover:translate-x-1 transition-transform" />
                   </Button>
                 </Link>
               </div>
             </motion.div>
           </div>
         </div>
-      </Section>
+      </section>
 
       {/* THIS IS FOR YOU IF - Luxury Grid Deck with layered clay cards */}
       <section className="bg-ink py-40 px-8 text-cream relative">
@@ -752,48 +764,66 @@ export const AncestralChildPage: React.FC = () => {
         </div>
       </section>
 
-      {/* A NOTE FROM MARIA - Elegant Envelope with Terracotta & Wax Seal */}
-      <section className="bg-paper py-48 px-8 text-ink relative">
-        <div className="container mx-auto max-w-3xl">
-          <div className="bg-[#FAF6F0] border border-[#B07A5F]/20 p-10 md:p-20 rounded-sm shadow-xl relative overflow-hidden">
-            {/* Terracotta Wax seal decoration */}
-            <div className="absolute top-8 right-8 w-12 h-12 rounded-full bg-[#B07A5F]/5 flex items-center justify-center border border-[#B07A5F]/15 select-none">
-              <Heart className="w-5 h-5 text-[#B07A5F]" />
+      {/* A NOTE FROM MARIA — note left, larger photo right */}
+      <section className="bg-paper py-48 px-6 sm:px-8 text-ink relative">
+        <div className="container mx-auto max-w-7xl">
+          <div className="grid lg:grid-cols-12 gap-10 lg:gap-14 items-start lg:items-stretch">
+            <div className="bg-[#FAF6F0] border border-[#B07A5F]/20 p-10 md:p-16 rounded-sm shadow-xl relative overflow-hidden flex flex-col lg:col-span-5">
+              {/* Terracotta Wax seal decoration */}
+              <div className="absolute top-8 right-8 w-12 h-12 rounded-full bg-[#B07A5F]/5 flex items-center justify-center border border-[#B07A5F]/15 select-none">
+                <Heart className="w-5 h-5 text-[#B07A5F]" />
+              </div>
+
+              <div className="text-left mb-12">
+                <span className="text-[#B07A5F] tracking-[0.4em] uppercase font-bold text-[10px] mb-4 block">
+                  A Note From Maria
+                </span>
+                <div className="w-8 h-px bg-[#B07A5F]/20"></div>
+              </div>
+
+              <div className="space-y-8 text-lg font-normal leading-relaxed text-[#2C1E1A] font-sans text-left max-w-xl">
+                <p>
+                  I built this course because <strong className="font-semibold">I lived it.</strong> I've walked through each of these portals, and I waited for these to ripen within me before sharing it with you.
+                </p>
+                <p>
+                  I know what it is to <strong className="font-semibold">carry burdens that aren't yours.</strong>
+                </p>
+                <p>
+                  To work in silence.
+                </p>
+                <p>
+                  To search for your place in this world while still <strong className="font-semibold">unconsciously waiting for your parents' permission</strong> to take it.
+                </p>
+
+                <div className="text-xl md:text-2xl font-serif italic text-[#A96F53] leading-relaxed pt-6 pb-4 border-y border-[#B07A5F]/10 my-8 text-left font-normal">
+                  "The Divine Child was about remembering who you are. <br />
+                  The Ancestral Child is about understanding where you come from so you can finally, fully, arrive."
+                </div>
+
+                <p className="pt-4 font-serif text-[#B07A5F]">
+                  I'll see you at the new moon in Gemini.
+                </p>
+                <div className="pt-6 font-serif text-3xl text-[#9C8470] font-light tracking-wide">
+                  Maria
+                </div>
+              </div>
             </div>
 
-            <div className="text-center mb-16">
-              <span className="text-[#B07A5F] tracking-[0.4em] uppercase font-bold text-[10px] mb-4 block">
-                A Note From Maria
-              </span>
-              <div className="w-8 h-px bg-[#B07A5F]/20 mx-auto"></div>
-            </div>
-
-            <div className="space-y-8 text-lg font-normal leading-relaxed text-[#2C1E1A] font-sans max-w-xl mx-auto">
-              <p>
-                I built this course because <strong className="font-semibold">I lived it.</strong> I've walked through each of these portals, and I waited for these to ripen within me before sharing it with you.
-              </p>
-              <p>
-                I know what it is to <strong className="font-semibold">carry burdens that aren't yours.</strong>
-              </p>
-              <p>
-                To work in silence.
-              </p>
-              <p>
-                To search for your place in this world while still <strong className="font-semibold">unconsciously waiting for your parents' permission</strong> to take it.
-              </p>
-              
-              <div className="text-xl md:text-2xl font-serif italic text-[#A96F53] leading-relaxed pt-6 pb-4 border-y border-[#B07A5F]/10 my-8 text-center px-4 font-normal">
-                "The Divine Child was about remembering who you are. <br />
-                The Ancestral Child is about understanding where you come from so you can finally, fully, arrive."
+            <motion.div
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
+              className="relative flex items-center justify-center lg:min-h-full w-full py-8 lg:py-0 lg:col-span-7"
+            >
+              <div className="mx-auto w-full max-w-[26rem] sm:max-w-[30rem] aspect-square lg:mx-0 lg:max-w-none lg:w-full oval-mask overflow-hidden border border-[#B07A5F]/20 bg-[#FAF6F0] group shadow-[0_0_80px_rgba(176,122,95,0.12)] transition-all duration-1000">
+                <img
+                  src="/about_maria_new.jpg"
+                  alt="Maria Amiouni"
+                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-[3s] grayscale-[25%] hover:grayscale-0"
+                />
               </div>
-              
-              <p className="pt-4 font-serif text-[#B07A5F]">
-                I'll see you at the new moon in Gemini.
-              </p>
-              <div className="pt-6 font-serif text-3xl text-[#9C8470] font-light tracking-wide">
-                Maria
-              </div>
-            </div>
+            </motion.div>
           </div>
         </div>
       </section>
