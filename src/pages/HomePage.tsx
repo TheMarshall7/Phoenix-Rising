@@ -144,7 +144,7 @@ export const HomePage: React.FC = () => {
               </div>
 
               <div className="pt-12">
-                <Link to="/booking" className="contents">
+                <Link to="/human-design" className="contents">
                   <Button variant="outline" className="group">
                     Get your Chart Reading <ArrowRight className="w-4 h-4 ml-4 group-hover:translate-x-2 transition-transform" />
                   </Button>

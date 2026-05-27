@@ -29,10 +29,12 @@ export const BookingPage: React.FC = () => {
             {/* Left — Text */}
             <FadeIn className="space-y-12">
               <div className="space-y-6">
-                <p className="text-sage tracking-[0.4em] uppercase font-bold text-[10px]">1-on-1 Mentorship</p>
+                <p className="text-sage tracking-[0.35em] uppercase font-bold text-[10px] leading-relaxed max-w-md">
+                  15 minute free discovery call
+                </p>
                 <h1 className="text-7xl md:text-[8rem] font-medium text-cream uppercase leading-[0.85]">
                   BOOK A <br />
-                  <span className="font-serif italic text-sage lowercase font-light">session.</span>
+                  <span className="font-serif italic text-sage lowercase font-light">time with Maria.</span>
                 </h1>
                 <div className="w-24 h-px bg-sage/30 my-8"></div>
               </div>
@@ -42,15 +44,17 @@ export const BookingPage: React.FC = () => {
               </p>
 
               <div className="space-y-6 text-lg font-light text-cream/70 leading-relaxed">
-                <p>Choose a time that resonates. I look forward to meeting you in this sacred space.</p>
+                <p>
+                  Choose a time below for your complimentary 15-minute discovery call. I look forward to meeting you in this sacred space.
+                </p>
               </div>
 
               {/* Decorative dividers */}
               <div className="pt-8 space-y-6 border-t border-cream/10">
                 {[
-                  "Customized 3 & 6 month containers",
-                  "Bi-weekly 60-minute immersion sessions",
-                  "WhatsApp support for integration"
+                  "15 minutes · complimentary",
+                  "Clarify your path and next steps",
+                  "No obligation — just honest resonance"
                 ].map((item, i) => (
                   <div key={i} className="flex items-center gap-6 text-cream/60">
                     <div className="w-6 h-px bg-sage/40"></div>
@@ -76,7 +80,7 @@ export const BookingPage: React.FC = () => {
                 <iframe
                   src="https://api.leadconnectorhq.com/widget/booking/Vtc7MSs85zh2MjJsX2g3"
                   id="Vtc7MSs85zh2MjJsX2g3_1774315097817"
-                  title="Book a Session with Maria Amiouni"
+                  title="15 minute free discovery call — Book with Maria Amiouni"
                   className="block w-full bg-transparent"
                   style={{ border: "none", overflow: "hidden", minHeight: "680px" }}
                   scrolling="no"
