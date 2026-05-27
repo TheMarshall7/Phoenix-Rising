@@ -1,9 +1,9 @@
 # Deploy static build to Cloudflare Pages when main or production updates.
 #
-# Setup (one-time in GitHub repo → Settings → Secrets and variables → Actions):
-#   CLOUDFLARE_API_TOKEN   — Create in Cloudflare: My Profile → API Tokens → Edit Cloudflare Workers
-#                            (or "Custom" with Account → Cloudflare Pages → Edit)
-#   CLOUDFLARE_ACCOUNT_ID  — Cloudflare dashboard → any domain → right sidebar "Account ID"
+# REQUIRED secrets (repo → Settings → Secrets and variables → Actions):
+#   CLOUDFLARE_API_TOKEN   — Cloudflare → My Profile → API Tokens → Custom → Account → Pages → Edit
+#   CLOUDFLARE_ACCOUNT_ID  — Cloudflare dashboard → any domain → sidebar "Account ID"
+# Without these, this workflow fails and only "Connect to Git" deploys run (check branch/build settings).
 #
 # If this project name does not match your Pages project, change PROJECT_NAME below
 # or override with repository variable CLOUDFLARE_PAGES_PROJECT_NAME.

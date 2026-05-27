@@ -1,0 +1,7 @@
+# Cloudflare Pages (Git integration reads this for build output).
+# Dashboard build command must be: npm run build
+name = "mariaamiouni"
+pages_build_output_dir = "dist"
+
+[build]
+command = "npm run build"
