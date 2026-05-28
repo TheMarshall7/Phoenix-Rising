@@ -209,7 +209,7 @@ export const HomePage: React.FC = () => {
               { 
                 eyebrow: "1:1 · Application only",
                 name: "Mentorship", 
-                desc: "This is the deepest container I hold. We work together over time through your Human Design, Gene Keys, somatic practice and Energy Healingl to unravel the patterns that have kept you circling, and rebuild from the truth of who you actually are.", 
+                desc: "This is the deepest container I hold. We work together over time through your Human Design, Gene Keys, somatic practice and Energy Healing to unravel the patterns that have kept you circling, and rebuild from the truth of who you actually are.", 
                 details: "Personalised to your chart and energy type · Limited spaces",
                 cta: "Apply to work together",
                 path: "/booking" 
@@ -218,7 +218,7 @@ export const HomePage: React.FC = () => {
                 eyebrow: "Sacred travel · Immersive",
                 name: "Pilgrimage Egypt coming soon", 
                 desc: "We travel to the places where the Earth still remembers. Walking in the footsteps of Mary Magdalene in the South of France, walking the Mother Line, sitting with the land, letting the ancient sites do what no retreat room can. Pilgrimage is where the body finally gets to believe what the mind already knows.", 
-                details: "Immersive sacred travel · South of France · Egypt joining soon · Small group",
+                details: "Immersive sacred travel · South of France · Egypt coming soon",
                 cta: "Learn more",
                 path: "/pilgrimage" 
               },

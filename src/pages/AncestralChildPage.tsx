@@ -57,7 +57,7 @@ export const AncestralChildPage: React.FC = () => {
       type: "Live Activation",
       moon: "Full Moon in Aquarius",
       date: "July 29",
-      desc: "This is the one most courses skip. The parents' relationship not just who they were individually, but what happened between them. How is that dynamic alive in your relationships, your work, your self-worth? What did you decide love looks like?",
+      desc: "This is the one most courses skip. Beyond who our parents are as individuals, who are our parents together and how is their dynamic alive in your relationships, your work, your self-worth? What did you decide love looks\u00A0like?",
       icon: <Key className="w-5 h-5 text-[#B07A5F]" />,
       accentColor: "border-[#B07A5F]/20 hover:border-[#B07A5F]/50",
       nodeBg: "bg-[#B07A5F]/10 text-[#B07A5F]",
@@ -443,7 +443,7 @@ export const AncestralChildPage: React.FC = () => {
                           </span>
                         </div>
 
-                        <h3 className="text-2xl md:text-3xl font-serif italic text-[#2C1E1A] mb-4 transition-colors">
+                        <h3 className="text-2xl md:text-3xl font-serif italic text-[#2C1E1A] mb-4 leading-normal md:leading-relaxed transition-colors">
                           {portal.title}
                         </h3>
 
@@ -572,7 +572,10 @@ export const AncestralChildPage: React.FC = () => {
                 <div className="space-y-4 pt-6 border-t border-ink/5">
                   <p className="text-xs font-semibold text-[#B07A5F] uppercase tracking-widest">Investment</p>
                   <div>
-                    <p className="text-5xl font-serif italic text-[#2C1E1A]">550 AED<span className="text-sm font-sans font-light text-ink/50">/month</span></p>
+                    <p className="text-5xl font-serif italic text-[#2C1E1A] flex flex-wrap items-baseline gap-x-2">
+                      <span className="whitespace-nowrap">550 AED</span>
+                      <span className="text-sm font-sans font-light text-ink/50 whitespace-nowrap">/month</span>
+                    </p>
                     <p className="text-xs text-ink/40 font-medium mt-1">4 months · 2,200 AED total</p>
                   </div>
                   <div className="bg-[#B07A5F]/5 border border-[#B07A5F]/10 p-4 rounded-sm">
@@ -582,7 +585,7 @@ export const AncestralChildPage: React.FC = () => {
                 </div>
 
                 <ul className="space-y-4 pt-8 border-t border-ink/5">
-                  {["All 9 sessions", "6 the live calls", "3 recorded integrations", "WhatsApp group with Maria"].map((item) => (
+                  {["All 9 sessions", "6 the live calls", "3 recorded integrations", "WhatsApp group"].map((item) => (
                     <li key={item} className="flex items-start gap-3 text-sm text-ink/80">
                       <Check className="w-4 h-4 text-[#B07A5F] shrink-0 mt-0.5" />
                       <span>{item}</span>
@@ -631,7 +634,10 @@ export const AncestralChildPage: React.FC = () => {
                 <div className="space-y-4 pt-6 border-t border-ink/5">
                   <p className="text-xs font-semibold text-[#B07A5F] uppercase tracking-widest">Investment</p>
                   <div>
-                    <p className="text-5xl font-serif italic text-[#2C1E1A]">650 AED<span className="text-sm font-sans font-light text-ink/50">/month</span></p>
+                    <p className="text-5xl font-serif italic text-[#2C1E1A] flex flex-wrap items-baseline gap-x-2">
+                      <span className="whitespace-nowrap">650 AED</span>
+                      <span className="text-sm font-sans font-light text-ink/50 whitespace-nowrap">/month</span>
+                    </p>
                     <p className="text-xs text-ink/40 font-medium mt-1">4 months · 2,600 AED total</p>
                   </div>
                   <div className="bg-[#B07A5F]/5 border border-[#B07A5F]/10 p-4 rounded-sm">
@@ -679,14 +685,17 @@ export const AncestralChildPage: React.FC = () => {
                 <div>
                   <h3 className="text-4xl font-serif italic text-ink mb-4">The Tree</h3>
                   <p className="text-sm font-light text-ink/70 leading-relaxed">
-                    The complete journey with direct monthly 1:1 coaching sessions with Maria.
+                    The complete journey with three 1:1 coaching sessions with Maria—where we can explore Human Design for parents&apos;, children&apos;s, and family charts, if wanted or needed.
                   </p>
                 </div>
 
                 <div className="space-y-4 pt-6 border-t border-ink/5">
                   <p className="text-xs font-semibold text-[#C5A880] uppercase tracking-widest">Investment</p>
                   <div>
-                    <p className="text-5xl font-serif italic text-[#2C1E1A]">1,100 AED<span className="text-sm font-sans font-light text-ink/50">/month</span></p>
+                    <p className="text-5xl font-serif italic text-[#2C1E1A] flex flex-wrap items-baseline gap-x-2">
+                      <span className="whitespace-nowrap">1,100 AED</span>
+                      <span className="text-sm font-sans font-light text-ink/50 whitespace-nowrap">/month</span>
+                    </p>
                     <p className="text-xs text-ink/40 font-medium mt-1">4 months · 4,400 AED total</p>
                   </div>
                   <div className="bg-[#C5A880]/5 border border-[#C5A880]/10 p-4 rounded-sm">
@@ -696,7 +705,11 @@ export const AncestralChildPage: React.FC = () => {
                 </div>
 
                 <ul className="space-y-4 pt-8 border-t border-ink/5">
-                  {["Everything in The Root", "+ 1:1 coaching session each month across the summer."].map((item) => (
+                  {[
+                    "Everything in The Root",
+                    "Three 1:1 coaching sessions across the container",
+                    "Optional Human Design for parents', children's, and family charts",
+                  ].map((item) => (
                     <li key={item} className="flex items-start gap-3 text-sm text-ink/80">
                       <Check className="w-4 h-4 text-[#C5A880] shrink-0 mt-0.5" />
                       <span>{item}</span>

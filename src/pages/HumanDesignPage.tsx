@@ -288,7 +288,7 @@ export const HumanDesignPage: React.FC = () => {
                 </p>
                 
                 <div className="border-l-2 border-sage/40 pl-5 py-2 text-xs italic text-sage/90 font-light leading-relaxed">
-                  Includes personalized chart integrations, bi-weekly integration mappings, and ongoing decision support tailored exactly to your environment.
+                  Includes personalized chart integrations, bi-monthly integration mappings, and ongoing decision support tailored exactly to your environment.
                 </div>
               </div>
 

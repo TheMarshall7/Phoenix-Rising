@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { Star } from "lucide-react";
+import { Star, BookOpen } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button, FadeIn } from "../components/Common";
 import { INSTAGRAM_FEED_EMBED_URL } from "../constants/ghl";
@@ -25,12 +25,12 @@ export const MentorshipPage: React.FC = () => (
           
           <FadeIn className="space-y-12">
             <p className="text-3xl font-serif italic text-cream/95 leading-snug">
-              A bespoke journey into the heart of your sovereign truth, blending psychotherapy with spirit-led guidance.
+              Blending Human Design, Gene Keys, Astrology and sacred ritual, I create spaces where you return to the frequency that was always yours.
             </p>
             <div className="space-y-8 text-lg font-light text-cream/70 leading-relaxed">
               <p>This is the deepest container I hold. We work together over time through your Human Design, Gene Keys, somatic practice and Energy Healing to unravel the patterns that have kept you circling, and rebuild from the truth of who you actually are.</p>
               <ul className="space-y-6 pt-8">
-                {["Customized 3 and 6 month containers", "Bi-weekly 60-minute immersion sessions", "WhatsApp support for ongoing integration", "Bespoke somatic practices and ritual guides"].map((item, i) => (
+                {["Customized 3 and 6 month containers", "Bi-monthly 60-minute immersion sessions", "Access to Inner Library", "WhatsApp support for ongoing integration", "Bespoke somatic practices and ritual guides"].map((item, i) => (
                   <li key={i} className="flex items-center gap-6 text-cream/80 border-b border-cream/5 pb-6">
                     <Star className="w-4 h-4 text-cream/80" />
                     <span className="text-sm uppercase tracking-widest font-medium">{item}</span>
@@ -45,6 +45,53 @@ export const MentorshipPage: React.FC = () => (
             </div>
           </FadeIn>
         </div>
+      </div>
+    </section>
+
+    {/* INNER LIBRARY */}
+    <section className="bg-paper py-32 md:py-48 px-8 text-ink border-y border-ink/5">
+      <div className="container mx-auto max-w-4xl">
+        <FadeIn className="space-y-12 md:space-y-16">
+          <div className="text-center space-y-6">
+            <p className="text-ink/50 tracking-[0.45em] uppercase font-semibold text-[10px]">Included in 1:1</p>
+            <h2 className="text-4xl md:text-6xl font-semibold text-ink uppercase leading-tight">
+              Access to{" "}
+              <span className="font-serif italic text-forest lowercase font-light tracking-normal">Inner Library</span>
+            </h2>
+            <div className="w-24 h-px bg-ink/15 mx-auto" />
+          </div>
+
+          <div className="space-y-8 text-lg font-light text-ink/75 leading-relaxed">
+            <p>
+              This is a living, evolving library created exclusively for those in my 1:1 containers.
+            </p>
+            <p>
+              It is not a course to complete, nor a checklist to move through. Within this library, you&apos;ll find a growing collection of:
+            </p>
+          </div>
+
+          <ul className="space-y-0 border border-ink/10 bg-white/60">
+            {[
+              "Guided meditations",
+              "Reflection videos",
+              "Journaling prompts & inquiry questions",
+              "Short contemplations & discussions",
+              "Human Design Lectures & Gene Key Updates",
+            ].map((item, i) => (
+              <li
+                key={item}
+                className="flex items-start gap-5 px-8 py-6 md:py-7 border-b border-ink/10 last:border-b-0"
+              >
+                <BookOpen className="w-4 h-4 text-forest shrink-0 mt-1" strokeWidth={1.25} />
+                <span className="text-sm md:text-base uppercase tracking-widest font-medium text-ink/85">{item}</span>
+              </li>
+            ))}
+          </ul>
+
+          <p className="text-lg font-light text-ink/70 leading-relaxed text-center max-w-2xl mx-auto italic">
+            New offerings will be added regularly, reflecting the questions, thresholds, and initiations that naturally arise in the 1:1 work.
+          </p>
+        </FadeIn>
       </div>
     </section>
 
@@ -119,7 +166,7 @@ export const MentorshipPage: React.FC = () => (
             { 
               eyebrow: "1:1 · Application only",
               name: "Mentorship", 
-              desc: "This is the deepest container I hold. We work together over time through your Human Design, Gene Keys, somatic practice and Energy Healingl to unravel the patterns that have kept you circling, and rebuild from the truth of who you actually are.", 
+              desc: "This is the deepest container I hold. We work together over time through your Human Design, Gene Keys, somatic practice and Energy Healing to unravel the patterns that have kept you circling, and rebuild from the truth of who you actually are.", 
               details: "Personalised to your chart and energy type · Limited spaces",
               cta: "Apply to work together →",
               path: "/booking" 
@@ -128,7 +175,7 @@ export const MentorshipPage: React.FC = () => (
               eyebrow: "Sacred travel · Immersive",
               name: "Pilgrimage Egypt coming soon", 
               desc: "We travel to the places where the Earth still remembers. Walking in the footsteps of Mary Magdalene in the South of France, walking the Mother Line, sitting with the land, letting the ancient sites do what no retreat room can. Pilgrimage is where the body finally gets to believe what the mind already knows.", 
-              details: "Immersive sacred travel · South of France · Egypt joining soon · Small group",
+              details: "Immersive sacred travel · South of France · Egypt coming soon",
               cta: "Learn more →",
               path: "/pilgrimage/france" 
             },
