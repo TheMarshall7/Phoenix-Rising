@@ -77,7 +77,7 @@ export const MentorshipPage: React.FC = () => (
               "Journaling prompts & inquiry questions",
               "Short contemplations & discussions",
               "Human Design Lectures & Gene Key Updates",
-            ].map((item, i) => (
+            ].map((item) => (
               <li
                 key={item}
                 className="flex items-start gap-5 px-8 py-6 md:py-7 border-b border-ink/10 last:border-b-0"
