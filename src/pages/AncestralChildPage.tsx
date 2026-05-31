@@ -1,8 +1,8 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { Calendar, Moon, Check, Compass, Heart, Crown, Key, Eye, Sparkles, Sprout, ArrowRight } from "lucide-react";
-import { Link } from "react-router-dom";
 import { Section, Button, FadeIn } from "../components/Common";
+import { TEACHABLE_ANCESTRAL_CHILD_COURSE_URL } from "../constants/teachableCourse";
 
 export const AncestralChildPage: React.FC = () => {
   // Layered colors representing clay, camel, terracotta, and sand
@@ -544,7 +544,7 @@ export const AncestralChildPage: React.FC = () => {
             </h2>
             <div className="w-24 h-px bg-[#C5A880]/30 mx-auto mt-12"></div>
             <p className="text-cream/75 font-normal italic text-base mt-8">
-              Early bird rates apply to the first 10 participants to join.
+              Early bird rates apply to the first 10 participants to join. Regular rates apply from June 7th onwards.
             </p>
           </FadeIn>
 
@@ -572,15 +572,16 @@ export const AncestralChildPage: React.FC = () => {
                 <div className="space-y-4 pt-6 border-t border-ink/5">
                   <p className="text-xs font-semibold text-[#B07A5F] uppercase tracking-widest">Investment</p>
                   <div>
+                    <p className="text-[10px] font-bold uppercase tracking-widest text-[#B07A5F] mb-2">Early Bird — first 10 to join</p>
                     <p className="text-5xl font-serif italic text-[#2C1E1A] flex flex-wrap items-baseline gap-x-2">
-                      <span className="whitespace-nowrap">550 AED</span>
+                      <span className="whitespace-nowrap">450 AED</span>
                       <span className="text-sm font-sans font-light text-ink/50 whitespace-nowrap">/month</span>
                     </p>
-                    <p className="text-xs text-ink/40 font-medium mt-1">4 months · 2,200 AED total</p>
+                    <p className="text-xs text-ink/40 font-medium mt-1">1,800 AED total</p>
                   </div>
-                  <div className="bg-[#B07A5F]/5 border border-[#B07A5F]/10 p-4 rounded-sm">
-                    <p className="text-[10px] font-bold uppercase tracking-widest text-[#B07A5F]">Early Bird Rate</p>
-                    <p className="text-sm font-semibold text-[#B07A5F] mt-1">550 AED/month · 3 months · 1,650 AED — first 10 to join</p>
+                  <div className="bg-ink/5 border border-ink/10 p-4 rounded-sm">
+                    <p className="text-[10px] font-bold uppercase tracking-widest text-ink/50">Regular — from June 7th onwards</p>
+                    <p className="text-sm font-semibold text-ink/70 mt-1">550 AED/month · 2,200 AED total</p>
                   </div>
                 </div>
 
@@ -595,7 +596,12 @@ export const AncestralChildPage: React.FC = () => {
               </div>
 
               <div className="pt-12">
-                <Link to="/booking" className="contents">
+                <a
+                  href={TEACHABLE_ANCESTRAL_CHILD_COURSE_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="contents"
+                >
                   <Button
                     variant="primary"
                     className="w-full group !bg-[#E8DDD4] !text-[#2C1E1A] hover:!bg-[#D9CDC2] hover:!text-[#2C1E1A] !shadow-lg hover:!shadow-xl border !border-[#2C1E1A]/10 transition-all"
@@ -603,7 +609,7 @@ export const AncestralChildPage: React.FC = () => {
                     Enquire to Join
                     <ArrowRight className="w-3.5 h-3.5 ml-2 text-[#2C1E1A] group-hover:translate-x-1 transition-transform" />
                   </Button>
-                </Link>
+                </a>
               </div>
             </motion.div>
 
@@ -634,15 +640,16 @@ export const AncestralChildPage: React.FC = () => {
                 <div className="space-y-4 pt-6 border-t border-ink/5">
                   <p className="text-xs font-semibold text-[#B07A5F] uppercase tracking-widest">Investment</p>
                   <div>
+                    <p className="text-[10px] font-bold uppercase tracking-widest text-[#B07A5F] mb-2">Early Bird — first 10 to join</p>
                     <p className="text-5xl font-serif italic text-[#2C1E1A] flex flex-wrap items-baseline gap-x-2">
-                      <span className="whitespace-nowrap">650 AED</span>
+                      <span className="whitespace-nowrap">550 AED</span>
                       <span className="text-sm font-sans font-light text-ink/50 whitespace-nowrap">/month</span>
                     </p>
-                    <p className="text-xs text-ink/40 font-medium mt-1">4 months · 2,600 AED total</p>
+                    <p className="text-xs text-ink/40 font-medium mt-1">2,200 AED total</p>
                   </div>
-                  <div className="bg-[#B07A5F]/5 border border-[#B07A5F]/10 p-4 rounded-sm">
-                    <p className="text-[10px] font-bold uppercase tracking-widest text-[#B07A5F]">Early Bird Rate</p>
-                    <p className="text-sm font-semibold text-[#B07A5F] mt-1">650 AED/month · 3 months · 1,950 AED — first 10 to join</p>
+                  <div className="bg-ink/5 border border-ink/10 p-4 rounded-sm">
+                    <p className="text-[10px] font-bold uppercase tracking-widest text-ink/50">Regular — from June 7th onwards</p>
+                    <p className="text-sm font-semibold text-ink/70 mt-1">650 AED/month · 2,600 AED total</p>
                   </div>
                 </div>
 
@@ -657,7 +664,12 @@ export const AncestralChildPage: React.FC = () => {
               </div>
 
               <div className="pt-12">
-                <Link to="/booking" className="contents">
+                <a
+                  href={TEACHABLE_ANCESTRAL_CHILD_COURSE_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="contents"
+                >
                   <Button
                     variant="primary"
                     className="w-full group !bg-[#E8DDD4] !text-[#2C1E1A] hover:!bg-[#D9CDC2] hover:!text-[#2C1E1A] !shadow-lg hover:!shadow-xl border !border-[#2C1E1A]/10 transition-all"
@@ -665,7 +677,7 @@ export const AncestralChildPage: React.FC = () => {
                     Enquire to Join
                     <ArrowRight className="w-3.5 h-3.5 ml-2 text-[#2C1E1A] group-hover:translate-x-1 transition-transform" />
                   </Button>
-                </Link>
+                </a>
               </div>
             </motion.div>
 
@@ -692,15 +704,16 @@ export const AncestralChildPage: React.FC = () => {
                 <div className="space-y-4 pt-6 border-t border-ink/5">
                   <p className="text-xs font-semibold text-[#C5A880] uppercase tracking-widest">Investment</p>
                   <div>
+                    <p className="text-[10px] font-bold uppercase tracking-widest text-[#C5A880] mb-2">Early Bird — first 10 to join</p>
                     <p className="text-5xl font-serif italic text-[#2C1E1A] flex flex-wrap items-baseline gap-x-2">
-                      <span className="whitespace-nowrap">1,100 AED</span>
+                      <span className="whitespace-nowrap">950 AED</span>
                       <span className="text-sm font-sans font-light text-ink/50 whitespace-nowrap">/month</span>
                     </p>
-                    <p className="text-xs text-ink/40 font-medium mt-1">4 months · 4,400 AED total</p>
+                    <p className="text-xs text-ink/40 font-medium mt-1">3,800 AED total</p>
                   </div>
-                  <div className="bg-[#C5A880]/5 border border-[#C5A880]/10 p-4 rounded-sm">
-                    <p className="text-[10px] font-bold uppercase tracking-widest text-[#C5A880]">Early Bird Rate</p>
-                    <p className="text-sm font-semibold text-[#C5A880] mt-1">1,100 AED/month · 3 months · 3,300 AED — first 10 to join</p>
+                  <div className="bg-ink/5 border border-ink/10 p-4 rounded-sm">
+                    <p className="text-[10px] font-bold uppercase tracking-widest text-ink/50">Regular — from June 7th onwards</p>
+                    <p className="text-sm font-semibold text-ink/70 mt-1">1,100 AED/month · 4,400 AED total</p>
                   </div>
                 </div>
 
@@ -719,7 +732,12 @@ export const AncestralChildPage: React.FC = () => {
               </div>
 
               <div className="pt-12">
-                <Link to="/booking" className="contents">
+                <a
+                  href={TEACHABLE_ANCESTRAL_CHILD_COURSE_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="contents"
+                >
                   <Button
                     variant="primary"
                     className="w-full group !bg-[#E8DDD4] !text-[#2C1E1A] hover:!bg-[#D9CDC2] hover:!text-[#2C1E1A] !shadow-lg hover:!shadow-xl border !border-[#2C1E1A]/10 transition-all"
@@ -727,7 +745,7 @@ export const AncestralChildPage: React.FC = () => {
                     Enquire to Join
                     <ArrowRight className="w-3.5 h-3.5 ml-2 text-[#2C1E1A] group-hover:translate-x-1 transition-transform" />
                   </Button>
-                </Link>
+                </a>
               </div>
             </motion.div>
           </div>
