@@ -572,7 +572,7 @@ export const AncestralChildPage: React.FC = () => {
                 <div className="space-y-4 pt-6 border-t border-ink/5">
                   <p className="text-xs font-semibold text-[#B07A5F] uppercase tracking-widest">Investment</p>
                   <div>
-                    <p className="text-[10px] font-bold uppercase tracking-widest text-[#B07A5F] mb-2">Early Bird — first 10 to join</p>
+                    <p className="text-[10px] font-bold uppercase tracking-widest text-[#B07A5F] mb-2">Early Bird</p>
                     <p className="text-5xl font-serif italic text-[#2C1E1A] flex flex-wrap items-baseline gap-x-2">
                       <span className="whitespace-nowrap">450 AED</span>
                       <span className="text-sm font-sans font-light text-ink/50 whitespace-nowrap">/month</span>
@@ -640,7 +640,7 @@ export const AncestralChildPage: React.FC = () => {
                 <div className="space-y-4 pt-6 border-t border-ink/5">
                   <p className="text-xs font-semibold text-[#B07A5F] uppercase tracking-widest">Investment</p>
                   <div>
-                    <p className="text-[10px] font-bold uppercase tracking-widest text-[#B07A5F] mb-2">Early Bird — first 10 to join</p>
+                    <p className="text-[10px] font-bold uppercase tracking-widest text-[#B07A5F] mb-2">Early Bird</p>
                     <p className="text-5xl font-serif italic text-[#2C1E1A] flex flex-wrap items-baseline gap-x-2">
                       <span className="whitespace-nowrap">550 AED</span>
                       <span className="text-sm font-sans font-light text-ink/50 whitespace-nowrap">/month</span>
@@ -704,7 +704,7 @@ export const AncestralChildPage: React.FC = () => {
                 <div className="space-y-4 pt-6 border-t border-ink/5">
                   <p className="text-xs font-semibold text-[#C5A880] uppercase tracking-widest">Investment</p>
                   <div>
-                    <p className="text-[10px] font-bold uppercase tracking-widest text-[#C5A880] mb-2">Early Bird — first 10 to join</p>
+                    <p className="text-[10px] font-bold uppercase tracking-widest text-[#C5A880] mb-2">Early Bird</p>
                     <p className="text-5xl font-serif italic text-[#2C1E1A] flex flex-wrap items-baseline gap-x-2">
                       <span className="whitespace-nowrap">950 AED</span>
                       <span className="text-sm font-sans font-light text-ink/50 whitespace-nowrap">/month</span>
